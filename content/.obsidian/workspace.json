@@ -6,7 +6,7 @@
       {
         "id": "ed3dbe1ddc659c04",
         "type": "tabs",
-        "dimension": 62.965425531914896,
+        "dimension": 51.329787234042556,
         "children": [
           {
             "id": "494c8aced6781c3e",
@@ -27,7 +27,7 @@
       {
         "id": "23097f06d745a614",
         "type": "tabs",
-        "dimension": 37.034574468085104,
+        "dimension": 48.67021276595745,
         "children": [
           {
             "id": "294a562a62eeeb9e",
@@ -205,6 +205,13 @@
   },
   "active": "494c8aced6781c3e",
   "lastOpenFiles": [
+    "Loja.md",
+    "70-Projects, Tools & Integrations/Projects/BLB - Extracao Fiscal.md",
+    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.md",
+    "40-Open Tags/Critica de Venda.md",
+    "70-Projects, Tools & Integrations/Projects/import os.py",
+    "40-Open Tags/Critica.md",
+    "30-Squad/Cadastro.md",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Validade - Layout Etiqueta.md",
     "70-Projects, Tools & Integrations/Projects/Lote de Compra - Geração Automática.md",
@@ -218,8 +225,6 @@
     "70-Projects, Tools & Integrations/Projects/Ecommerce - Replicação de Ofertas PDV TOTVS.md",
     "Whatsapp Bot Form.md",
     "Whatsapp Bot.md",
-    "70-Projects, Tools & Integrations/Projects/BLB - Extracao Fiscal.md",
-    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.md",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.md",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",
     "Reforma Tributária.md",
@@ -229,18 +234,14 @@
     "70-Projects, Tools & Integrations/Integrations/Salesforce",
     "70-Projects, Tools & Integrations/Integrations/Instaleap",
     "40-Open Tags/Inconsistencia Recebimento NFe.md",
-    "40-Open Tags/Critica.md",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.md",
     "NAGT_PED_GERADO.png",
     "Centros de Distribuição.md",
     "90-Custom Override/On/Validações de Inconsistências - PDV TOTVs.md",
     "Lote de Compra - Geração Automática Form.md.tmp.28356.9a31eea0f47a",
     "Cadastro - Campanha de Selos PDV - Vinculação de Mix de Produtos em Campanhas.md",
-    "20-System/PLSQL-ERP-Consinco.md",
     "{E6B05D8C-9632-4764-8770-78AFDA79645D}.png",
     "Validações de Inconsistências - PDV TOTVs Form.md.tmp.8132.2b4fa5b28899",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
-    "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.md",
     "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
     "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
@@ -255,7 +256,6 @@
     "Sem título.canvas",
     "TAE - Aviso de Acordos Pendentes dentro do ERP.png",
     "70-Projects, Tools & Integrations/Projects",
-    "70-Projects, Tools & Integrations/Integrations",
     "{E063168C-B854-4D2B-AB61-942A9D634461}.png",
     "70-Projects & Integrations/Whatsapp Bot - Copia.canvas",
     "TAE - Email Compradores.png",

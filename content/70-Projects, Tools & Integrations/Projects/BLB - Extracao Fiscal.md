@@ -1,4 +1,4 @@
-﻿---
+---
 Language:
   - "[[SQL]]"
   - "[[Python]]"
@@ -38,9 +38,9 @@ Extração fiscal por empresa e período em arquivos CSV, cobrindo **[[NF-e]] de
 
 ---
 
-## Views — Fontes de Dados
+### Views — Fontes de Dados
 
-### NAGV_BLB_SAIDAS
+#### NAGV_BLB_SAIDAS
 UNION ALL de dois blocos:
 
 | Bloco | Tabela base | Filtros |
@@ -48,9 +48,9 @@ UNION ALL de dois blocos:
 | Cupons/CF | `MFL_DOCTOFISCAL` + `MFL_DFITEM` | `STATUSDF = 'V'` · `STATUSITEM = 'V'` · chave presente em `NAGT_XML_EXTRAIDO` (excl. Ent/Orc) |
 | [[NF-e]] | `MLF_NOTAFISCAL` + `MLF_NFITEM` | `STATUSNF = 'V'` · `STATUSNFE = '4'` · `TIPNOTAFISCAL = 'S'` · `MODELONF IN (55,65)` · exclui série CF e CGOs internos |
 
-### NAGV_BLB_ENTRADAS
-| Tabela base | Filtros |
-|-------------|---------|
+#### NAGV_BLB_ENTRADAS
+| Tabela base                     | Filtros                                                                    |
+| ------------------------------- | -------------------------------------------------------------------------- |
 | `MLF_NOTAFISCAL` + `MLF_NFITEM` | `STATUSNF = 'V'` · `TIPNOTAFISCAL = 'E'` · exclui série CF e CGOs internos |
 
 > Entradas tem 3 colunas extras ausentes em Saídas: `VLRICMSST`, `VLRICMSSTRETIDO`, `VLRICMSSUBS` ([[ICMS-ST]])
@@ -82,11 +82,11 @@ UNION ALL de dois blocos:
 
 ### Diretórios e nomes de arquivo
 
-| Procedure | Diretório Oracle | Nome do arquivo |
-|-----------|-----------------|-----------------|
-| `NAGP_BLB_EXT_SAIDAS` | `EXT_SAT_LOJA_{NNN}` | `Ext_BLB_SAIDAS_{NNN}_{MES_ANO}.csv` |
-| `NAGP_BLB_EXT_ENTRADAS` | `EXT_SAT_LOJA_{NNN}` | `Ext_BLB_ENTRADAS_{NNN}_{MES_ANO}.csv` |
-| `NAGP_BLB_EXT_CUPONS_SAT` | `BLB_SAT` | `Ext_BLB_Cupons_SAT_{MES_ANO}.csv` |
+| Procedure                 | Diretório Oracle     | Nome do arquivo                        |
+| ------------------------- | -------------------- | -------------------------------------- |
+| `NAGP_BLB_EXT_SAIDAS`     | `EXT_SAT_LOJA_{NNN}` | `Ext_BLB_SAIDAS_{NNN}_{MES_ANO}.csv`   |
+| `NAGP_BLB_EXT_ENTRADAS`   | `EXT_SAT_LOJA_{NNN}` | `Ext_BLB_ENTRADAS_{NNN}_{MES_ANO}.csv` |
+| `NAGP_BLB_EXT_CUPONS_SAT` | `BLB_SAT`            | `Ext_BLB_Cupons_SAT_{MES_ANO}.csv`     |
 
 > `{NNN}` = empresa com 3 dígitos, zero-padded (ex: empresa 1 → `001`). `{MES_ANO}` = `ANOMESDESCRICAO` com `/` substituído por `_` (ex: `MAR_2026`).
 
@@ -140,22 +140,28 @@ Todas as 3 extrações compartilham o mesmo layout base (47 colunas). Entradas t
 Executa saídas e entradas para todas as [[Loja|lojas]] ativas (`MAX_EMPRESA`, exceto 300 e 999):
 
 ```sql
+DECLARE 
+  psNroEmpresa NUMBER(3);
 BEGIN
   FOR t IN (SELECT NROEMPRESA EMP FROM MAX_EMPRESA X WHERE NROEMPRESA NOT IN (300,999))
   LOOP
-    NAGP_BLB_EXT_SAIDAS  (DATE '2026-03-01', DATE '2026-03-31', t.EMP);
-    NAGP_BLB_EXT_ENTRADAS(DATE '2026-03-01', DATE '2026-03-31', t.EMP);
+    NAGP_BLB_EXT_SAIDAS  (DATE '2026-05-01', DATE '2026-05-31', t.EMP);
+    NAGP_BLB_EXT_ENTRADAS(DATE '2026-05-01', DATE '2026-05-31', t.EMP);
+    
+  psNroEmpresa := t.Emp;
+  
   END LOOP;
   EXCEPTION
     WHEN OTHERS THEN
-      DBMS_OUTPUT.PUT_LINE(SQLERRM);
+      DBMS_OUTPUT.PUT_LINE(SQLERRM||' - '||psNroEmpresa);
 END;
 ```
+
+ps.: **Adicionado psNroEmpresa no Output para detalhes da empresa que gerou erro**
 
 > Cupons [[SAT]] são extraídos separadamente via `NAGP_BLB_EXT_CUPONS_SAT` (sem loop por empresa).
 
 ---
-
 ## Pós-Processamento — Organização por Pasta
 
 [Repositório: GMS-Corp/Python → Cria pasta e move arq.py](https://github.com/GMS-Corp/Python/blob/main/Cria%20pasta%20e%20move%20arq.py)
