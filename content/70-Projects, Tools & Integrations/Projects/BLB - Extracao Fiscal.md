@@ -164,9 +164,10 @@ ps.: **Adicionado psNroEmpresa no Output para detalhes da empresa que gerou erro
 ---
 ## Pós-Processamento — Organização por Pasta
 
+Script em [[Python]]
 [Repositório: GMS-Corp/Python → Cria pasta e move arq.py](https://github.com/GMS-Corp/Python/blob/main/Cria%20pasta%20e%20move%20arq.py)
 
-As procedures Oracle depositam saídas e entradas no **mesmo diretório** (`EXT_SAT_LOJA_{NNN}`). O consumidor dos arquivos requer que cada tipo esteja em pastas separadas. O script Python faz essa reorganização automaticamente:
+As procedures Oracle depositam saídas e entradas no **mesmo diretório** (`EXT_SAT_LOJA_{NNN}`). O consumidor dos arquivos requer que cada tipo esteja em pastas separadas. O script [[Python]] faz essa reorganização automaticamente:
 
 ### Lógica
 

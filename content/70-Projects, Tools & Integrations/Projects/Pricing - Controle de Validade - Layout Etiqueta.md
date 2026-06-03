@@ -16,12 +16,15 @@ Project: "[[Controle de Datas]]"
 tags:
   - Projects
 ---
-
 [[Etiqueta de Validade|Etiqueta]] dupla impressa no [[PDV]] para produtos em rebaixa de vencimento. Cada folha contém **dois lados idênticos** — o operador cola um no produto e mantém o outro para controle interno.
 
 ---
+#### Alteração no layout da etiqueta padrão (Acrescentado Icone para Identificação, abaixo de "OFERTA"):
 
-## Layout
+![[Pasted image 20260603074640.png|396]]
+
+Criada a [[Function]] [NAGF_GRUPOPROMOC](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGF_GRUPOPROMOC.fnc) que busca o seqgrupopromoc, quando for = **10**, retorna o código do item para formação do código [[ZPL]] para impressão.
+#### Layout Etiqueta Dupla
 
 ![[Pricing - Controle de Validade - Layout Etiqueta.png]]
 
