@@ -2,7 +2,7 @@
 Language:
   - "[[SQL]]"
 Repository:
-  - "[[Loops]]"
+  - "[[DDL-Objects-Oracle]]"
 Squads:
   - "[[TI]]"
   - "[[PDV]]"
@@ -10,18 +10,17 @@ System:
   - "[[PLSQL-Oracle]]"
   - "[[Monitor PDV]]"
 Open Tags:
-  - "[[NF-e]]"
   - "[[SAT]]"
   - "[[XML]]"
+  - "[[NFe]]"
 Date: 2026-06-03
 Type: "[[Job]]"
 tags:
   - Paliativos
 ---
-
 [Objeto no GitHub →](https://github.com/GiulianoGMS/Loops/blob/main/FL_IndPresPDV.sql)
 
-**Contexto:** Documentos emitidos no [[PDV]] ([[SAT]]/CF-e) com o campo `<indPres>` setado incorretamente como `4` (operação não presencial — internet) ao invés de `1` (operação presencial no estabelecimento). A SEFAZ rejeita com **código 217** e o documento fica sem protocolo de envio. **Problema em emissões em contingencia.**
+**Contexto:** Documentos emitidos no [[PDV]] ([[SAT]]/CF-e) com o campo `<indPres>` setado incorretamente como `4` (operação não presencial — internet) ao invés de `1` (operação presencial no estabelecimento). A SEFAZ rejeita com **código 217** e o documento fica sem protocolo de envio. **Problema nas emissões em contingencia.**
 
 ---
 

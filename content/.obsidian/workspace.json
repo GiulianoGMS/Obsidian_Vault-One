@@ -6,6 +6,7 @@
       {
         "id": "88ccd6ea98c3416e",
         "type": "tabs",
+        "dimension": 45.28936742934051,
         "children": [
           {
             "id": "0c252e2243688d6d",
@@ -13,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
+                "file": "70-Projects, Tools & Integrations/Integrations/Salesforce/Backlgrs - Salesforce.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PDV - indPres NF-e SAT"
+              "title": "Backlgrs - Salesforce"
             }
           }
         ]
@@ -26,6 +27,7 @@
       {
         "id": "08108bcc80aeca8c",
         "type": "tabs",
+        "dimension": 54.71063257065949,
         "children": [
           {
             "id": "0df3c3cfca66738b",
@@ -201,9 +203,10 @@
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "0df3c3cfca66738b",
+  "active": "0c252e2243688d6d",
   "lastOpenFiles": [
     "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
+    "Backlgrs.md",
     "80-Paliativos - Nao precisa Reaplicar/On/Correção CBS-IBS NFs de Devolução.md",
     "10-Repos/SQL.md",
     "10-Repos/DDL-Oracle.md",
@@ -233,7 +236,6 @@
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.md",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",
     "Reforma Tributária.md",
-    "Backlgrs CRM - Integração de Dados.md",
     "Layout - Etiqueta de Cesta Básica.png",
     "70-Projects, Tools & Integrations/Integrations/Salesforce",
     "70-Projects, Tools & Integrations/Integrations/Instaleap",

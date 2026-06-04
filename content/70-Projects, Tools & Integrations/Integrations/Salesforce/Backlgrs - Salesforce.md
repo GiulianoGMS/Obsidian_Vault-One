@@ -1,4 +1,4 @@
-﻿---
+---
 Language:
   - "[[SQL]]"
 Repository:
@@ -136,15 +136,29 @@ View: `NAGV_BKLGRS_FILIAL`
 
 ### Ofertas — Promoções Ativas
 
-View: `NAGV_BKLGRS_PROMOCOES_ATIVAS`
+#### `NAGV_BKLGRS_PROMOCOES_ATIVAS`
 
 Exporta [[Promoção|promoções]] vigentes de `MRL_PROMOCAO` + `MRL_PROMOCAOITEM` com:
 - `CENTRALLOJA = 'M'` (gerenciadas na central)
 - `QTDEMBALAGEM = 1`
 - Data atual dentro do período de vigência
-- Variantes: `_CRM` e `_ST` para cenários específicos
 
-A view `NAGV_BKLGRS_MENORPROMOCATIVA` (e V2) retorna o **menor preço [[Promoção|promocional]] ativo** por [[SKU]]/[[Loja]], usada na exportação de [[Oferta|ofertas]].
+#### `NAGV_BKLGRS_PROMOCOES_ATIVAS_CRM`
+
+[[Promoção|Promoções]] personalizadas do [[CRM]] — originadas de encartes com `DESCRICAO LIKE 'CRM PERSONALIZADA%'` ou `SEQGRUPOPROMOC = 11`, vigentes no dia. Retorna `'DescontoDePor Personalizada'` como descrição e datas no formato ISO (`YYYY-MM-DD"T"HH24:MI:SS"Z"`).
+
+#### `NAGV_BKLGRS_MENORPROMOCATIVA_V2`
+
+Retorna o **menor preço [[Promoção|promocional]] ativo** por [[SKU]]/[[Loja]], composto por dois blocos via `UNION ALL`:
+
+**Bloco 1 — Promoções regulares + ST:**
+- Usa `ROW_NUMBER() OVER (PARTITION BY SKU, STOREREFERENCE ORDER BY PRICE ASC)` para pegar o menor preço de `NAGV_BKLGRS_PROMOCOES_ATIVAS`
+- Se existe promoção ST ativa (`NAGV_BKLGRS_PROMOCOES_ATIVAS_ST`) e a regular está inativa, substitui pelo preço ST
+- Filtros: só lojas em `NAGV_EMP_ECOMMERCE`; preço diferente do normal; desconto ≤ 70% (exceto Hortifruti, que não tem limite)
+
+**Bloco 2 — Promoções CRM:**
+- `UNION ALL` com `NAGV_BKLGRS_PROMOCOES_ATIVAS_CRM` — adicionadas integralmente, sem filtro de desconto máximo
+- Campo `PERC` fixo em `0` (percentual não calculado para CRM personalizado)
 
 ---
 
@@ -152,18 +166,18 @@ A view `NAGV_BKLGRS_MENORPROMOCATIVA` (e V2) retorna o **menor preço [[Promoç�
 
 View: `NAGV_BKLGRS_VENDAS` + `NAGV_BKLGRS_VENDAS_AGRUP`
 
-| Campo | Descrição |
-|-------|-----------|
-| `IDPESSOA` | [[CPF]] do cliente |
-| `IDFILIAL` / `IDCUPOM` / `NROCUPOM` | [[Loja]] e cupom fiscal |
-| `IDPRODUTO` | [[SKU]] |
-| `DATA_COMPLETA` | Data + hora da operação |
-| `NUMQTDVENDIDA` | Quantidade vendida |
-| `VLRPRECOVENDAUNITARIO` | Preço de venda unitário |
-| `VLRDESCONTOUNITARIO` | Desconto unitário |
-| `VLRMARGEMPDV` | Margem calculada como % da operação |
-| `TXTCANALVENDAS` | Canal de venda ou `PEDIDOID` |
-| `TXTTIPOVENDA` / `TXTFORMAPAGTO` | Tipo de venda e forma de pagamento |
+| Campo                               | Descrição                           |
+| ----------------------------------- | ----------------------------------- |
+| `IDPESSOA`                          | [[CPF]] do cliente                  |
+| `IDFILIAL` / `IDCUPOM` / `NROCUPOM` | [[Loja]] e cupom fiscal             |
+| `IDPRODUTO`                         | [[SKU]]                             |
+| `DATA_COMPLETA`                     | Data + hora da operação             |
+| `NUMQTDVENDIDA`                     | Quantidade vendida                  |
+| `VLRPRECOVENDAUNITARIO`             | Preço de venda unitário             |
+| `VLRDESCONTOUNITARIO`               | Desconto unitário                   |
+| `VLRMARGEMPDV`                      | Margem calculada como % da operação |
+| `TXTCANALVENDAS`                    | Canal de venda ou `PEDIDOID`        |
+| `TXTTIPOVENDA` / `TXTFORMAPAGTO`    | Tipo de venda e forma de pagamento  |
 
 `NAGV_BKLGRS_VENDAS_AGRUP` agrupa as [[Vendas]] por cupom/produto para envio consolidado ao [[CRM]].
 
