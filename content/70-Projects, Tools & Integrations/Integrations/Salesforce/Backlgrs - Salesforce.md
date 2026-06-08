@@ -185,23 +185,23 @@ View: `NAGV_BKLGRS_VENDAS` + `NAGV_BKLGRS_VENDAS_AGRUP`
 
 ### Todos os Objetos
 
-| Objeto | Tipo | Descrição |
-|--------|------|-----------|
-| `NAGV_BKLGRS_CATALOGO` / `_FULL` | View | [[Catálogo]] por [[Loja]] ([[Estoque]], preço, status, perpetuo) |
-| `NAGV_BKLGRS_PRODUTO` / `V2` / `V3` | View | Cadastro master de produtos (evoluções) |
-| `NAGV_BKLGRS_PESSOA` | View | Clientes com [[CPF]], endereço, telefone e push token |
-| `NAGV_BKLGRS_FILIAL` | View | Dados cadastrais e métricas das [[Loja|lojas]] |
-| `NAGV_BKLGRS_VENDAS` | View | Histórico de [[Vendas]] por item/cupom |
-| `NAGV_BKLGRS_VENDAS_AGRUP` | View | [[Vendas]] agrupadas por cupom/produto |
-| `NAGV_BKLGRS_PROMOCOES_ATIVAS` / `_CRM` / `_ST` | View | [[Promoção|Promoções]] vigentes (variantes por contexto) |
-| `NAGV_BKLGRS_MENORPROMOCATIVA` / `V2` | View | Menor [[Promoção]] ativa por [[SKU]]/[[Loja]] |
-| `NAGF_BUSCAEAN_BKLGRS_V2` | Function | Busca [[EAN]] do produto para o [[CRM]] |
-| `NAGP_BKLGRS_EXT_CATALOGO` / `_FULL` | Procedure | Exporta [[Catálogo]] para CSV |
-| `NAGP_BKLGRS_EXT_PRODUTO` | Procedure | Exporta produtos para CSV |
-| `NAGP_BKLGRS_EXT_PESSOA` / `_v2` | Procedure | Exporta clientes para CSV |
-| `NAGP_BKLGRS_EXT_FILIAL` | Procedure | Exporta filiais para CSV |
-| `NAGP_BKLGRS_EXT_OFERTAS` | Procedure | Exporta [[Oferta|ofertas]] ativas para CSV |
-| `NAGP_BKLGRS_EXT_VENDAS` | Procedure | Exporta [[Vendas]] para CSV (múltiplos agrupamentos) |
+| Objeto                                          | Tipo      | Descrição                                                        |
+| ----------------------------------------------- | --------- | ---------------------------------------------------------------- |
+| `NAGV_BKLGRS_CATALOGO` / `_FULL`                | View      | [[Catálogo]] por [[Loja]] ([[Estoque]], preço, status, perpetuo) |
+| `NAGV_BKLGRS_PRODUTO` / `V2` / `V3`             | View      | Cadastro master de produtos (evoluções)                          |
+| `NAGV_BKLGRS_PESSOA`                            | View      | Clientes com [[CPF]], endereço, telefone e push token            |
+| `NAGV_BKLGRS_FILIAL`                            | View      | Dados cadastrais e métricas das [[Loja]]                         |
+| `NAGV_BKLGRS_VENDAS`                            | View      | Histórico de [[Vendas]] por item/cupom                           |
+| `NAGV_BKLGRS_VENDAS_AGRUP`                      | View      | [[Vendas]] agrupadas por cupom/produto                           |
+| `NAGV_BKLGRS_PROMOCOES_ATIVAS` / `_CRM` / `_ST` | View      | [[Promoção]] vigente (variantes por contexto)                    |
+| `NAGV_BKLGRS_MENORPROMOCATIVA` / `V2`           | View      | Menor [[Promoção]] ativa por [[SKU]]/[[Loja]]                    |
+| `NAGF_BUSCAEAN_BKLGRS_V2`                       | Function  | Busca [[EAN]] do produto para o [[CRM]]                          |
+| `NAGP_BKLGRS_EXT_CATALOGO` / `_FULL`            | Procedure | Exporta [[Catálogo]] para CSV                                    |
+| `NAGP_BKLGRS_EXT_PRODUTO`                       | Procedure | Exporta produtos para CSV                                        |
+| `NAGP_BKLGRS_EXT_PESSOA` / `_v2`                | Procedure | Exporta clientes para CSV                                        |
+| `NAGP_BKLGRS_EXT_FILIAL`                        | Procedure | Exporta filiais para CSV                                         |
+| `NAGP_BKLGRS_EXT_OFERTAS`                       | Procedure | Exporta [[Oferta]] ativas para CSV                               |
+| `NAGP_BKLGRS_EXT_VENDAS`                        | Procedure | Exporta [[Vendas]] para CSV (múltiplos agrupamentos)             |
 
 ---
 

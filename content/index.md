@@ -23,7 +23,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Pricing - Controle de Validade - Layout Etiqueta]] | Layout da etiqueta dupla de validade + view de emissão `MRLV_PROMOCAOESPECIAL` |
 
 > | [[Tae - Assinatura Eletrônica]] | Integração com TOTVS Assinatura Eletrônica |
-> | [[Custom Features - Trava Cadastro Família e Produto]] | Hooks de validação TOTVS para travar salvamento no cadastro de Família e Produto |
+> |[[Cust - Trava Cadastro Família e Produto]]] | Hooks de validação TOTVS para travar salvamento no cadastro de Família e Produto |
 
 > [!example]+ Integrações
 > Exportações e sincronizações com plataformas externas via CSV / UTL_FILE.

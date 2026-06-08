@@ -21,7 +21,7 @@ tags:
 ---
 **Contexto**: [[NFe]] [[Ecommerce]] (importadas pelo [[PDV]] ao [[PLSQL-ERP-Consinco]]) estavam sendo emitidas com alguns centavos no campo [[Outras Despesas Acessorias]] (**vOutros**). Ticket [[GLPI]] 658961.
 
-**Ajuste**: Como as notas não são rejeitadas e o time TOTVS ainda não identificou o motivo do acréscimo deste valor no campo VLRTOTDESPACESSORIA, resolvi tratar este valor na montagem do XML, que é realizada pelo ERP pela [[Procedure]] **SP_EXPNFE_2g**.
+**Ajuste**: Como as notas não são rejeitadas e o time [[TOTVS]] ainda não identificou o motivo do acréscimo deste valor no campo VLRTOTDESPACESSORIA, resolvi tratar este valor na montagem do XML, que é realizada pelo ERP pela [[Procedure]] **SP_EXPNFE_2g**.
 
 Foi criado a function [NAGF_SUBTRAI_DESP_CENT_ECOMM](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/a5974ba62b7d28e42ab8a1039cfa06c7e959e061/NAGF_SUBTRAI_DESP_CENT_ECOMM.fnc#L4) para tratar os critéros de ajustes e a mesma foi aplicada nas linhas dos totais de vOutros na [[NFe]].
 
