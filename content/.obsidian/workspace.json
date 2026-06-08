@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Cust - Trava Cadastro Família e Produto.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Cust - Trava Cadastro Família e Produto"
+              "title": "index"
             }
           }
         ],
@@ -202,8 +202,9 @@
   },
   "active": "a04cf1e6318c6d0a",
   "lastOpenFiles": [
-    "70-Projects, Tools & Integrations/Projects/Ecommerce - Replicação de Ofertas PDV TOTVS.md",
     "70-Projects, Tools & Integrations/Projects/Cust - Trava Cadastro Família e Produto.md",
+    "index.md.tmp.21972.a1ba330b1f4e",
+    "70-Projects, Tools & Integrations/Projects/Ecommerce - Replicação de Ofertas PDV TOTVS.md",
     "70-Projects, Tools & Integrations/Projects/Custom Features - Trava Cadastro Família e Produto.md.tmp.21972.75f18e3bc42a",
     "70-Projects, Tools & Integrations/Integrations/Salesforce/Backlgrs - Salesforce.md",
     "Nota.md",
@@ -232,7 +233,6 @@
     "Promoção.md",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.canvas",
     "Pricing - Controle de Validade - Layout Etiqueta.png",
-    "index.md",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",
     "Layout - Etiqueta de Cesta Básica.png",
     "70-Projects, Tools & Integrations/Integrations/Salesforce",
@@ -249,7 +249,6 @@
     "80-Paliativos - Nao precisa Reaplicar/On",
     "90-Custom Override/Off",
     "90-Custom Override/On/Sem título",
-    "90-Custom Override/On",
     "Calculo Desonerado PDV.png",
     "Cálculo Desonerado.png",
     "Sem título.canvas",
