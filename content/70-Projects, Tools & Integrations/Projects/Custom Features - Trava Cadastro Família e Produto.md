@@ -3,6 +3,7 @@ Language:
   - "[[SQL]]"
 Repository:
   - "[[Custom-Features]]"
+  - "[[DDL-Objects-Oracle]]"
 Squads:
   - "[[TI]]"
 System:
@@ -92,7 +93,7 @@ INSERT INTO GE_VALIDAINSUPDDELCUSTOM VALUES (
 Para criar uma nova restrição, editar o corpo da function correspondente e adicionar um bloco `IF` para o componente desejado:
 
 ```sql
--- Exemplo: bloquear alteração do NCM na família 50 (SEQFAMILIA = 50)
+-- Exemplo: bloquear alteração do NCM quando o valor for = 50
 if psComponente = 'dfnCodNBMSH' then
   if psValorComponente = '50' then   -- aqui o valor é sempre VARCHAR2
     return 'NCM desta família não pode ser alterado.';
@@ -114,7 +115,7 @@ Atualmente, a function `ESPF_VALIDAFAMILIA` bloqueia qualquer alteração quando
 ```sql
 if psComponente = 'dfnSeqFamilia' then
   if psValorComponente = 282 then
-    return 'Não é possível realizar alterações na família 123.';
+    return 'Não é possível realizar alterações na família 282.';
   end if;
   return null;
 end if;
@@ -137,3 +138,34 @@ end if;
 **Aba Geral:** SeqFamilia · Descrição (Completa, Reduzida, Genérica, Complemento) · Status (Cadastro, Compra, Venda) · SeqProduto · Prazo de Validade (Dia, Dia Saída, Mês, Nati Morto) · NroRegMinSaude · Tabela Nutricional · Balança (Preço Zero, Imp. Data Validade/Embalagem) · Especificação Detalhada · Nro Item Fixo NF · Temperatura · Alíq. Adjudicação · Produto Base / Secundário / Embalagem / Relacionado · Faixa de Tolerância · % Acréscimo (Custo, Preço) · Proporção Perda · Cálculos (Flex Positivo, Comissão Índice Mgm) · Cód. Produto Fiscal · Flags FISCI · Resolução 3166 · Proc. Fabricação · Composição por Lote · ANP/CODIF/GLP (campos combustível)
 
 > A lista completa de componentes está nas próprias functions — cada `IF` documenta o campo correspondente com comentário.
+
+---
+
+## Trigger — Trava de Tributação na Divisão de Família
+
+[Repositório: DDL-Objects-Oracle → NAGTRG_VALID_TRIB_FAMDIV.trg](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGTRG_VALID_TRIB_FAMDIV.trg)
+
+Trigger Oracle nativa (não usa o mecanismo [[TOTVS]]) que bloqueia a alteração do campo `NROTRIBUTACAO` em `MAP_FAMDIVISAO` quando a nova [[Tributação]] não estiver configurada nos [[CGO|CGOs]] obrigatórios.
+
+```
+BEFORE UPDATE OF NROTRIBUTACAO ON MAP_FAMDIVISAO
+```
+
+### Lógica
+
+Ao alterar a [[Tributação]] de uma divisão de [[Família]], a trigger verifica se a **nova tributação** (`NROTRIBUTACAO = :NEW`) possui mapeamento completo nos [[CGO|CGOs]] críticos em `MAP_TRIBUTACAOUF`:
+
+| CGO | UF | Condição verificada |
+|-----|----|---------------------|
+| 76  | SP | Intraestadual SP · regime normal · SITUACAONF ≠ '060' · **sem** vínculo em `MAX_CODGERALCFOP` |
+| 910 | RJ | Intraestadual RJ · regime normal · SITUACAONF ≠ '060' · **sem** vínculo em `MAX_CODGERALCFOP` |
+
+A condição `NOT EXISTS` detecta se a tributação tem regra de [[CFOP]] na UF mas **não tem** o CGO associado em `MAX_CODGERALCFOP`. Quando falta configuração, monta a mensagem com os CGOs pendentes e lança `RAISE_APPLICATION_ERROR(-20001, ...)`.
+
+Exemplo de erro exibido:
+```
+Não foi possível atualizar a tributação.
+Configure a nova tributação no(s) CGO(s): 76/910 e tente novamente.
+```
+
+> O `RPAD(CHR(10), 500, CHR(10))` no final da mensagem preenche a caixa de erro com quebras de linha, tornando o aviso mais visível na tela do [[ERP]].
