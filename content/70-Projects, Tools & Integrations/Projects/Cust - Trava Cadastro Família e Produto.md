@@ -45,11 +45,11 @@ GE_VALIDAINSUPDDELCUSTOM
 
 ## Objetos
 
-| Objeto | Tipo | Tela | Programa |
-|--------|------|------|----------|
-| `ESPF_VALIDAFAMILIA` | Function | Cadastro de Família | MAX0049 |
-| `ESPF_VALIDAPRODUTO` | Function | Cadastro de Produto | MAX0091 |
-| `GE_VALIDAINSUPDDELCUSTOM` | Tabela | — | Registro dos hooks por campo |
+| Objeto                     | Tipo     | Tela                | Programa                     |
+| -------------------------- | -------- | ------------------- | ---------------------------- |
+| `ESPF_VALIDAFAMILIA`       | Function | Cadastro de Família | MAX0049                      |
+| `ESPF_VALIDAPRODUTO`       | Function | Cadastro de Produto | MAX0091                      |
+| `GE_VALIDAINSUPDDELCUSTOM` | Tabela   | —                   | Registro dos hooks por campo |
 
 ---
 
