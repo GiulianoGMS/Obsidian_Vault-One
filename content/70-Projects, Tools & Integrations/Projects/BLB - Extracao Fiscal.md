@@ -27,14 +27,14 @@ Extração fiscal por empresa e período em arquivos CSV, cobrindo **[[NF-e]] de
 
 ## Objetos
 
-| Objeto | Tipo | Descrição |
-|--------|------|-----------|
-| `NAGV_BLB_SAIDAS` | VIEW | Consolidada de saídas: UNION de cupons fiscais (`MFL_DOCTOFISCAL`) e [[NF-e]] (`MLF_NOTAFISCAL`) |
-| `NAGV_BLB_ENTRADAS` | VIEW | Entradas [[NF-e]] (`MLF_NOTAFISCAL`, `TIPNOTAFISCAL = 'E'`); inclui colunas extras de [[ICMS-ST]] |
-| `NAGV_BLB_CUPONS_SAT` | VIEW | Apenas cupons [[SAT]]/CF (`MFL_DOCTOFISCAL`, `SERIEDF = 'CF'`) |
-| `NAGP_BLB_EXT_SAIDAS` | PROCEDURE | Exporta `NAGV_BLB_SAIDAS` para CSV por empresa e período |
-| `NAGP_BLB_EXT_ENTRADAS` | PROCEDURE | Exporta `NAGV_BLB_ENTRADAS` para CSV por empresa e período |
-| `NAGP_BLB_EXT_CUPONS_SAT` | PROCEDURE | Exporta `NAGV_BLB_CUPONS_SAT` para CSV (todas as empresas) |
+| Objeto                    | Tipo      | Descrição                                                                                         |
+| ------------------------- | --------- | ------------------------------------------------------------------------------------------------- |
+| `NAGV_BLB_SAIDAS`         | VIEW      | Consolidada de saídas: UNION de cupons fiscais (`MFL_DOCTOFISCAL`) e [[NF-e]] (`MLF_NOTAFISCAL`)  |
+| `NAGV_BLB_ENTRADAS`       | VIEW      | Entradas [[NF-e]] (`MLF_NOTAFISCAL`, `TIPNOTAFISCAL = 'E'`); inclui colunas extras de [[ICMS-ST]] |
+| `NAGV_BLB_CUPONS_SAT`     | VIEW      | Apenas cupons [[SAT]]/CF (`MFL_DOCTOFISCAL`, `SERIEDF = 'CF'`)                                    |
+| `NAGP_BLB_EXT_SAIDAS`     | PROCEDURE | Exporta `NAGV_BLB_SAIDAS` para CSV por empresa e período                                          |
+| `NAGP_BLB_EXT_ENTRADAS`   | PROCEDURE | Exporta `NAGV_BLB_ENTRADAS` para CSV por empresa e período                                        |
+| `NAGP_BLB_EXT_CUPONS_SAT` | PROCEDURE | Exporta `NAGV_BLB_CUPONS_SAT` para CSV (todas as empresas)                                        |
 
 ---
 
