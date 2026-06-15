@@ -6,7 +6,7 @@
       {
         "id": "08108bcc80aeca8c",
         "type": "tabs",
-        "dimension": 57.604306864064604,
+        "dimension": 46.76985195154778,
         "children": [
           {
             "id": "0df3c3cfca66738b",
@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
+                "file": "90-Custom Override/On/Arred. de Seleção Inversa no CD - FLV.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Régua de Cobrança - Implementação"
+              "title": "Arred. de Seleção Inversa no CD - FLV"
             }
           }
         ]
@@ -27,7 +27,7 @@
       {
         "id": "5bc6d449b5c0f8cb",
         "type": "tabs",
-        "dimension": 42.395693135935396,
+        "dimension": 53.23014804845222,
         "children": [
           {
             "id": "7fc8635584c450e8",
@@ -205,10 +205,26 @@
   },
   "active": "0df3c3cfca66738b",
   "lastOpenFiles": [
+    "90-Custom Override/On/Crítica de Importação Direta.md",
+    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
+    "90-Custom Override/On/NFSE - Email CCs e Assunto Padrão.md",
+    "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
+    "90-Custom Override/On/InfAdFisco - NFe.md",
+    "90-Custom Override/On/Arred. de Seleção Inversa no CD - FLV.md",
+    "90-Custom Override/On/Arred. de Valores no Receb. - 0,xx Centavos.md",
+    "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
+    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
+    "90-Custom Override/On/Data de Previsão de Entrega - dPrevEntrega NFE.md",
+    "90-Custom Override/On/Desonerado Ecommerce.md",
+    "90-Custom Override/On/Etiqueta - Controle de Datas - Grid.md",
+    "90-Custom Override/On/Etiqueta - Cust Nagumo - Grid.md",
+    "20-System/PLSQL-ERP-Consinco.md",
+    "90-Custom Override/On/Validações de Inconsistências - PDV TOTVs.md",
+    "90-Custom Override/On/vOutros Ecommerce (Frete rateado).md",
+    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
     "Pasted image 20260612160619.png",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Validade - Layout Etiqueta.md",
     "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Escopo.md",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
     "Pasted image 20260612155407.png",
     "{1BBD897B-24A6-4600-83D1-6B8C3E71C1FF}.png",
     "index.md.tmp.84.8503ef893acc",
@@ -217,42 +233,25 @@
     "Pasted image 20260611130439.png",
     "Pasted image 20260612151731.png",
     "40-Open Tags/Critica Lote de Compras.md",
-    "90-Custom Override/On/vOutros Ecommerce (Frete rateado).md",
     "{05103EBA-EB03-4F63-958D-ECA28C18F81B} 1.png",
     "{05103EBA-EB03-4F63-958D-ECA28C18F81B}.png",
     "Pasted image 20260611114654.png",
     "70-Projects, Tools & Integrations/Projects/BLB - Extracao Fiscal.md",
     "40-Open Tags/Inconsistencia Recebimento NFe.md",
     "40-Open Tags/Critica.md",
-    "90-Custom Override/On/Desonerado Ecommerce.md",
-    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
     "70-Projects, Tools & Integrations/Projects/Cust - Trava Cadastro Família e Produto.md",
     "70-Projects, Tools & Integrations/Integrations/Salesforce/Backlgrs - Salesforce.md",
     "index.md",
     "index.md.tmp.21972.a1ba330b1f4e",
-    "70-Projects, Tools & Integrations/Projects/Ecommerce - Replicação de Ofertas PDV TOTVS.md",
     "70-Projects, Tools & Integrations/Projects/Custom Features - Trava Cadastro Família e Produto.md.tmp.21972.75f18e3bc42a",
-    "Nota.md",
-    "10-Repos/DDL-Oracle.md",
-    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
-    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
-    "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
-    "Backlgrs.md",
-    "80-Paliativos - Nao precisa Reaplicar/On/Correção CBS-IBS NFs de Devolução.md",
-    "10-Repos/SQL.md",
-    "40-Open Tags/Critica de Venda.md",
-    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.md",
     "Pasted image 20260603074640.png",
-    "50-Meetings/Totvs Meeting 02.06.md",
     "70-Projects, Tools & Integrations/Projects/import os.py",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.canvas",
-    "Pricing - Controle de Validade - Layout Etiqueta.png",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",
     "70-Projects, Tools & Integrations/Integrations/Salesforce",
     "70-Projects, Tools & Integrations/Integrations/Instaleap",
     "Lote de Compra - Geração Automática Form.md.tmp.28356.9a31eea0f47a",
     "Validações de Inconsistências - PDV TOTVs Form.md.tmp.8132.2b4fa5b28899",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
     "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",

@@ -19,6 +19,7 @@ Project:
 tags:
   - custom_override
   - reapply
+Aplicado 26..017: true
 ---
 [[Critica]] [[DI]] caso existam despesas que nao geraram financeiro
 

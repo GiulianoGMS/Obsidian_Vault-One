@@ -21,6 +21,7 @@ tags:
   - custom_override
   - reapply
   - Projects
+Aplicado 26..017: true
 ---
 A view **MRLV_BASEETIQUETAPROD** traz os produtos ao grid da aplicação dentro do [[PLSQL-ERP-Consinco]] quando os preços normais ou de ofertas padrões são alterados no sistema.
 

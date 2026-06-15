@@ -19,11 +19,12 @@ Project:
 tags:
   - custom_override
   - reapply
+Aplicado 26..017: true
 ---
 **Contexto:** [[NFe]] com origem do [[PDV]] / [[Ecommerce]] não estava emitindo [[ICMS Desonerado]] pelo [[PLSQL-ERP-Consinco]]. Ticket [[GLPI]] 705255
 
 
-**Ajuste:** Na [[Trigger]] que é acionada ao inserir itens na mfl_dfitem (tbi_mfl_dfitem), foi acrescentado o seguinte IF nas **linhas 3618~3621** (Versão 25.07.22):
+**Ajuste:** Na [[Trigger]] que é acionada ao inserir itens na mfl_dfitem (tbi_mfl_dfitem), foi acrescentado o seguinte IF nas **linhas 3618~3621** (Versão 25.07.22) - **2723** (Versão 26.01.017)
 
 ```sql
       -- Giuliano

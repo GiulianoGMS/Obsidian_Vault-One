@@ -18,6 +18,7 @@ Project:
 tags:
   - custom_override
   - reapply
+Aplicado 26..017: true
 ---
 **Contexto**: [[NFe]] [[Ecommerce]] (importadas pelo [[PDV]] ao [[PLSQL-ERP-Consinco]]) estavam sendo emitidas com alguns centavos no campo [[Outras Despesas Acessorias]] (**vOutros**). Ticket [[GLPI]] 658961.
 

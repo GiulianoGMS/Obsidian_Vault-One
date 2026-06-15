@@ -18,6 +18,7 @@ Project:
 tags:
   - custom_override
   - reapply
+Aplicado 26..017: false
 ---
 O ERP é responsável por montar o documento/arquivo de **Notas Fiscais de Serviço (NFSe)** para envio à [[NDD]]. A emissão é realizada pelo data center do parceiro.
 

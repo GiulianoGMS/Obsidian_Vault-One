@@ -20,6 +20,7 @@ Project:
 tags:
   - custom_override
   - reapply
+Aplicado 26..017: true
 ---
 **Contexto**: Necessário emissão da tag dPrevEntrega no XML quando o modelo de frete não for 0,1,4,9
 

@@ -18,6 +18,7 @@ tags:
   - custom_override
   - reapply
   - Projects
+Aplicado 26..017: true
 ---
 A view **MRLV_PROMOCAOESPECIAL** traz os produtos ao grid da aplicação dentro do [[PLSQL-ERP-Consinco]]. 
 

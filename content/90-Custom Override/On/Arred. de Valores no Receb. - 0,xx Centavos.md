@@ -14,6 +14,7 @@ Project:
 tags:
   - custom_override
   - reapply
+Aplicado 26..017: true
 ---
 **Contexto**: No recebimento, surgiram divergências de centavos entre o valor TOTAL da nota vs o valor TOTAL DO ITEM ([[XML]]). No [[PLSQL-ERP-Consinco]], existem apenas grades de ajustes para IMPOSTOS, não para valores totais.
 

@@ -18,6 +18,7 @@ Project:
 tags:
   - custom_override
   - reapply
+Aplicado 26..017: true
 ---
 **Contexto**: Atualmente, o [[PLSQL-ERP-Consinco]] popula o campo sobre ICMS no lançamento de notas pelo [[Modulo]] [[Orçamento]] sem respeitar as configurações de despesas. O ICMS precisa ser lançado conforme a parametrização da despesa na empresa.
 

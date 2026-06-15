@@ -19,6 +19,7 @@ Project:
 tags:
   - custom_override
   - reapply
+Aplicado 26..017: true
 ---
 **Contexto**: A LC 224 trouxe a necessidade da emissão do campo infAdFisco (Informação Adicional Desitnada ao Fisco) nas notas fiscais que contenham itens da LC. + [[Reforma Tributária]]
 

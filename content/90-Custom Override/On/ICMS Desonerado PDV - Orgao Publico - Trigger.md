@@ -18,6 +18,7 @@ Type: "[[Procedure]]"
 Project:
 tags:
   - Paliativos
+Aplicado 26..017: true
 ---
 **Old**: [[Off ICMS Desonerado PDV - Orgao Publico - CST]]
 
@@ -28,7 +29,7 @@ Procedimento paliativo que corrige a operação de emissão de desonerado à [[O
 
 ![[Calculo Desonerado PDV.png]]
 
-Adicionado na [[Trigger]] tbi_mfl_dfitem - **Linha 3618**
+Adicionado na [[Trigger]] tbi_mfl_dfitem - **Linha 3618** - > **2723** (Versão 26.01.017)
 
 ```sql
 -- Orgao Publico - Recalc Desonerado Orig PDV e ajuste CST
