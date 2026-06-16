@@ -6,7 +6,7 @@
       {
         "id": "08108bcc80aeca8c",
         "type": "tabs",
-        "dimension": 46.76985195154778,
+        "dimension": 59.01749663526245,
         "children": [
           {
             "id": "0df3c3cfca66738b",
@@ -14,23 +14,23 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "90-Custom Override/On/Correção de Impostos no Recebimento.md",
+                "file": "60-Object Types/Loops/Recebimento NFe - Erro Invalid Number (CNPJ ALFANUMERICO).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Correção de Impostos no Recebimento"
+              "title": "Recebimento NFe - Erro Invalid Number (CNPJ ALFANUMERICO)"
             }
           }
         ]
       },
       {
-        "id": "5bc6d449b5c0f8cb",
+        "id": "71f10d97c2b91259",
         "type": "tabs",
-        "dimension": 53.23014804845222,
+        "dimension": 40.982503364737546,
         "children": [
           {
-            "id": "7fc8635584c450e8",
+            "id": "5b2a504c1025090a",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -205,9 +205,20 @@
   },
   "active": "0df3c3cfca66738b",
   "lastOpenFiles": [
+    "60-Object Types/Function.md",
+    "60-Object Types/Loops/Recebimento NFe - Erro Invalid Number (CNPJ ALFANUMERICO).md",
+    "Pasted image 20260616081214.png",
+    "40-Open Tags/Inconsistencia Recebimento NFe.md",
+    "40-Open Tags/Critica.md",
+    "60-Object Types/View.md",
+    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
+    "60-Object Types/Loops",
+    "{05103EBA-EB03-4F63-958D-ECA28C18F81B} 1.png",
+    "{05103EBA-EB03-4F63-958D-ECA28C18F81B}.png",
+    "{1BBD897B-24A6-4600-83D1-6B8C3E71C1FF}.png",
+    "{E6B05D8C-9632-4764-8770-78AFDA79645D}.png",
     "90-Custom Override/On/vOutros Ecommerce (Frete rateado).md",
     "90-Custom Override/On/Arred. de Seleção Inversa no CD - FLV.md",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
     "90-Custom Override/On/Crítica de Importação Direta.md",
     "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
     "90-Custom Override/On/NFSE - Email CCs e Assunto Padrão.md",
@@ -226,25 +237,16 @@
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Validade - Layout Etiqueta.md",
     "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Escopo.md",
     "Pasted image 20260612155407.png",
-    "{1BBD897B-24A6-4600-83D1-6B8C3E71C1FF}.png",
     "index.md.tmp.84.8503ef893acc",
     "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md.tmp.84.b5b408454ab2",
     "Pasted image 20260611113006.png",
     "Pasted image 20260611130439.png",
     "Pasted image 20260612151731.png",
     "40-Open Tags/Critica Lote de Compras.md",
-    "{05103EBA-EB03-4F63-958D-ECA28C18F81B} 1.png",
-    "{05103EBA-EB03-4F63-958D-ECA28C18F81B}.png",
-    "Pasted image 20260611114654.png",
     "70-Projects, Tools & Integrations/Projects/BLB - Extracao Fiscal.md",
-    "40-Open Tags/Inconsistencia Recebimento NFe.md",
-    "40-Open Tags/Critica.md",
     "70-Projects, Tools & Integrations/Projects/Cust - Trava Cadastro Família e Produto.md",
-    "70-Projects, Tools & Integrations/Integrations/Salesforce/Backlgrs - Salesforce.md",
-    "index.md",
     "index.md.tmp.21972.a1ba330b1f4e",
     "70-Projects, Tools & Integrations/Projects/Custom Features - Trava Cadastro Família e Produto.md.tmp.21972.75f18e3bc42a",
-    "Pasted image 20260603074640.png",
     "70-Projects, Tools & Integrations/Projects/import os.py",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.canvas",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",
@@ -256,7 +258,6 @@
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
-    "80-Paliativos - Nao precisa Reaplicar/On",
     "Sem título.canvas",
     "70-Projects & Integrations/Whatsapp Bot - Copia.canvas"
   ]

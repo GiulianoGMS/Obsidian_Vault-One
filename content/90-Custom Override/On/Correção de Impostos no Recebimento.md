@@ -10,7 +10,7 @@ Aplicado 26..017: true
 
 # Correção de Impostos no Recebimento
 
-[[Procedure]] com script para correção de impostos na entrada de recebimento. Inicialmente utilizado para corrigir impostos da Reforma Tributária. Posteriormente acrescido de outros paliativos descritos abaixo.
+[[Procedure]] com script para correção de impostos na entrada de recebimento. Inicialmente utilizado para corrigir impostos da [[Reforma Tributária]]. Posteriormente acrescido de outros paliativos descritos abaixo. [[XML]]
 
 ## Integração
 
@@ -38,7 +38,7 @@ Atualiza de acordo com o XML.
 
 > **Extra para Reforma Tributária:** Arredonda os valores se a divergência for centavos. Atualmente apenas entre -0,05 e +0,05 centavos.
 
-~~CGOs ant Config.: 59,243,143,55,130,121,1,2,652,52,101,18,65,939,128,203,74,51,127,900,128~~
+~~[[CGOs]] ant Config.: 59,243,143,55,130,121,1,2,652,52,101,18,65,939,128,203,74,51,127,900,128~~
 #### 3. Correção de IPI — Importação Direta
 
 Corrige IPI nas notas de importação (entrada nas lojas), pois está calculando IPI devido à empresa ser configurada como importadora.
