@@ -1,4 +1,4 @@
-﻿---
+---
 Language:
   - "[[SQL]]"
 Repository:
@@ -102,8 +102,23 @@ Vincula as [[Loja|lojas]] do segmento à [[Promoção]] gerada.
 
 ---
 
-### Objeto Relacionado
+### Objetos Relacionados
 
 - [[Ecommerce - Replicação de Ofertas PDV TOTVS]] — versão legado que esta procedure substitui
 - [Procedure — NAGP_MN_ENCARTE](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_MN_ENCARTE.prc)
 - [Procedure — NAGP_ATUALIZA_ENCARTE](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_ATUALIZA_ENCARTE.prc)
+
+### Teste:
+
+Encarte **42580**
+Promoc PDV **24383**
+
+### Pendências: 
+
+- [x] View por Produto
+
+![[Pasted image 20260617154105.png]]
+![[Pasted image 20260617154229.png]]
+
+- [ ] Criar encarte por periodo
+- [ ] View para antecipação da promoção
