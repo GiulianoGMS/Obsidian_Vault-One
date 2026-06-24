@@ -21,7 +21,8 @@ article li { line-height: 1.85; }
 body { padding-top: 0 !important; margin-top: 0 !important; }
 .page > .page-header { padding: 0.5rem 1rem !important; }
 .page { padding-top: 1.25rem !important; }
-.left.sidebar, #quartz-body > .left { padding-top: 0.75rem !important; margin-top: 0 !important; border-top: none !important; }
+.left.sidebar, #quartz-body > .left { padding-top: 0.75rem !important; margin-top: 0 !important; border-top: none !important; gap: 0.6rem !important; }
+h1.page-title { margin-top: 0 !important; margin-bottom: 0 !important; }
 .right.sidebar, #quartz-body > .right { padding-top: 0.75rem !important; margin-top: 0 !important; border-top: none !important; }
 .sidebar { border-top: none !important; }
 
@@ -33,7 +34,7 @@ body { padding-top: 0 !important; margin-top: 0 !important; }
 html { font-size: 15px; }
 
 /* home icon on vault one title */
-.page-title a::after { content: ""; display: inline-block; width: 0.85em; height: 0.85em; margin-left: 0.4rem; vertical-align: middle; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230fb6d6'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+.page-title a::after { content: ""; display: inline-block; width: 1.1em; height: 1.1em; margin-left: 0.4rem; vertical-align: -0.15em; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230fb6d6'%3E%3Cpath d='M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
 
 /* vault one subtitle */
 .page-title::after { content: "Obsidian notes"; display: block; font-size: 0.78rem; font-weight: 400; color: var(--darkgray); opacity: 0.85; margin-top: 0.15rem; }
@@ -62,6 +63,51 @@ pre.shiki { filter: brightness(1.5); }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #2a2840; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #3a3750; }
+
+/* hide the standalone Darkmode div — the toggle is now inline in the PageTitle */
+.darkmode { display: none !important; }
+
+/* page-title: flex row so the toggle labels sit next to the link */
+h1.page-title {
+  display: flex !important;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+/* subtitle "Obsidian notes" wraps to its own line */
+h1.page-title::after { flex-basis: 100% !important; }
+
+/* theme toggle buttons inside page-title — hidden by default */
+button.title-toggle {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 0 0 0.45rem !important;
+  cursor: pointer !important;
+  width: 20px !important;
+  height: 20px !important;
+  flex-shrink: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  vertical-align: middle !important;
+}
+button.title-toggle svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: var(--secondary) !important;
+  display: block !important;
+}
+
+/* dark mode → show sun (click returns to light) */
+[saved-theme="dark"] button.title-toggle-light { display: inline-flex !important; }
+[saved-theme="dark"] button.title-toggle-dark  { display: none !important; }
+
+/* light mode → show moon (click goes to dark) */
+[saved-theme="light"] button.title-toggle-light { display: none !important; }
+[saved-theme="light"] button.title-toggle-dark  { display: inline-flex !important; }
 
 /* explorer file items - dim by default, highlight on hover */
 .explorer li > a { color: #3a3750 !important; transition: color 0.15s !important; }

@@ -24,6 +24,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Tae - Assinatura Eletrônica]] | Integração com TOTVS Assinatura Eletrônica |
 > | [[Cust - Trava Cadastro Família e Produto]] | Hooks de validação TOTVS para travar salvamento no cadastro de Família e Produto |
 > | [[Régua de Cobrança - Implementação]] | Cobrança escalonada D0→D+15 com e-mail automático e bloqueio de lote de compras |
+> | [[Correção de Impostos no Recebimento]] | Paliativos CBS/IBS/IPI/ICMS Desonerado aplicados no recebimento de NF-e (Reforma Tributária) |
 
 > [!example]+ Integrações
 > Exportações e sincronizações com plataformas externas via CSV / UTL_FILE.
@@ -41,3 +42,4 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Gerador de Pedidos Ecommerce]] | Geração de pedidos para o e-commerce |
 > | [[Controle de Promoções - Inaugurações]] | Controle de promoções de inauguração |
 > | [[Validador de EAN13]] | Validação de códigos de barras EAN-13 |
+> | [[Inserção de Títulos ISSQN e SERVRC]] | Insere manualmente títulos ISSQN/SERVRC não gerados no recebimento de NF-e de serviço |

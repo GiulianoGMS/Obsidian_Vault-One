@@ -19,6 +19,7 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     (Component as any).GitHubLink(),
     Component.PageTitle(),
+    Component.Darkmode(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.DesktopOnly(Component.Explorer()),

@@ -1,5 +1,5 @@
 FROM node:22-alpine AS builder
-# cache-bust: 40
+# cache-bust: 43
 RUN apk add --no-cache git coreutils
 WORKDIR /app
 
@@ -26,6 +26,9 @@ RUN echo 'export { default as FolderColors } from "./FolderColors"' >> ./quartz/
 COPY Properties.tsx /tmp/Properties.tsx
 RUN cp /tmp/Properties.tsx ./quartz/components/Properties.tsx
 RUN echo 'export { default as Properties } from "./Properties"' >> ./quartz/components/index.ts
+
+COPY PageTitle.tsx /tmp/PageTitle.tsx
+RUN cp /tmp/PageTitle.tsx ./quartz/components/PageTitle.tsx
 
 RUN npx quartz build
 RUN ls -la public/ && test -f public/index.html

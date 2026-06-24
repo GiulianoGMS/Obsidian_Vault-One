@@ -122,3 +122,4 @@ Promoc PDV **24383**
 
 - [ ] Criar encarte por periodo
 - [ ] View para antecipação da promoção
+- [ ] View - Extração de Produtos por promoção - Ordenado por Categoria

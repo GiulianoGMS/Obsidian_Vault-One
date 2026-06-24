@@ -36,4 +36,6 @@ Ajustado na [[Procedure]] **SP_EXPNFE_2g** no inicio do campo **M014_DM_ST_TRIB_
               END  as M014_DM_ST_TRIB_IPI,
 ```
 
+[[Function]] utilizada na regra do CASE: [NAGF_BUSCA_CST_IPI_FAM](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGF_BUSCA_CST_IPI_FAM.fnc).
+
 Por ser um objeto oficial, precisa reaplicar após troca de [[versão]] do ERP
