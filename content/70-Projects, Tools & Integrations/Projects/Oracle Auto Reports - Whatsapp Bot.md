@@ -26,8 +26,8 @@ Sistema de **monitoramento automático do banco Oracle** com envio de alertas e 
 
 ```
 NAGP_ENVIO_WHATS  (JOB agendado)
-├── Grupo ALL     → 8 procedures de alerta
-├── Grupo PDV     → 3 procedures de carga PDV
+├── Grupo ALL     → 9 procedures de alerta
+├── Grupo PDV     → 3 procedures (erros DB + falhas carga + sessões longas MONITORPDV)
 ├── Grupo ESP/SD  → job failures direcionados
 ├── Grupo BI      → alertas de visões BI
 ├── Grupo GSD     → grupos WA (carga PDV, exportação, BI)
@@ -58,6 +58,8 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGP_WTS_V2_LOCKS`                   | Sessions bloqueadas por > 10 min (600 s)                                             | `GV$SESSION` — exibe bloqueada e bloqueadora com hint para `NAGP_KILL_SESSION`             |                                                                |
 | `NAGP_WTS_V2_TB_LOGDBERRO`            | Erros de banco registrados no [[Monitor PDV]]                                        | `MONITORPDV.TB_LOGDBERRO`                                                                  |                                                                |
 | `NAGP_WTS_V2_TB_LOGFALHACARGAMONITOR` | Falhas de carga do [[Monitor PDV]]                                                   | `MONITORPDV.TB_LOGFALHACARGAMONITOR`                                                       |                                                                |
+| `NAGP_WTS_V2_TB_ULTCARGAMONITOR`      | Atraso na última carga do [[Monitor PDV]] — alerta quando o intervalo excede o limite configurado | `MONITORPDV.TB_ULTCARGAMONITOR`                                                   |                                                                |
+| `NAGP_WTS_V2_LONGTIME_SESSION`        | Sessões Oracle ativas há ≥ 3 horas (exceto sqlplus) — dispara a cada ~20 min entre 04h–21h; `psUserPDV='All'` alerta todos, `'Monitorpdv'` filtra apenas esse usuário; inclui hint `NAGP_KILL_SESSION(SID, SERIAL#, INST_ID)` | `NAGV_DBMONITOR_WTS` |                |
 | `NAGP_WTS_V2_CONTROLECARGA_PDV`       | Falhas de carga [[PDV]] (status 3 e 4 em `TB_PRODPRECO`)                             | `MONITORPDV.TB_CONTROLECARGAPDV` — agrupa por [[Loja]] e checkout                          |                                                                |
 | `NAGP_WTS_V2_STATUS_EXP_INT_PDV`      | Exportação de documentos [[PDV]] atrasada > 5 min (horário 07–21h)                   | `NAGV_STATUS_EXP_INT_PDV_v2` + `CONSINCO.VENDAS_PDV` + `@BI` (valor de venda comparado)    |                                                                |
 | `NAGP_WTS_V2_ALERTAS_BI`              | Visão [[Qlik Sense]] desatualizada além do threshold configurado por visão na tabela | `NAGT_CONTROLE_ATUALIZACAO_BI` — threshold variável por `VISAO`                            |                                                                |
@@ -77,8 +79,8 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 
 | Tipo | Alertas recebidos |
 |------|-------------------|
-| `ALL` | Objetos inválidos · [[Job|jobs]] falhados · locks · erros DB · falhas de carga · última carga monitor · exportação [[PDV]] · bot down |
-| `PDV` | Erros DB · falhas de carga · última carga monitor (somente [[PDV]]) |
+| `ALL` | Objetos inválidos · [[Job|jobs]] falhados · locks · erros DB · falhas de carga · última carga monitor · exportação [[PDV]] · bot down · **sessões longas (todos usuários)** |
+| `PDV` | Erros DB · falhas de carga · **sessões longas (somente MONITORPDV)** |
 | `ESP` / `SD` | [[Job|Jobs]] falhados direcionados mapeados em `NAGT_WTS_SCHED_DIR_CONTROL` |
 | `BI` | Alertas de visões [[Qlik Sense]] desatualizadas |
 | `GSD` | Grupos [[WhatsApp]]: controle de carga [[PDV]] + exportação + alertas [[BI]] |
