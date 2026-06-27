@@ -44,6 +44,9 @@ NAGP_EMAIL_REGUA_COBRANCA.prc      ← Monta e envia o e-mail HTML com log
         └── fEmailFinFornec.fnc     ← Retorna e-mail do financeiro do fornecedor
 
 Crítica no lote de Compras.sql     ← Bloqueia lote de compra se houver parcela vencida
+        ↓ (se bloqueado)
+NAGP_LIBERA_LOTE_CRIT.prc         ← Libera a crítica manualmente via view Consinco
+        └── Comercial > Liberação de Críticas  (acesso: THAISE, RONIE)
 ```
 
 ---
@@ -203,6 +206,23 @@ Complemento: Rep.: [NOME] Acordo: [NRO] Parcela: [X] Valor.: [R$ X,XX]
 
 ---
 
+## Liberação de Lote Bloqueado
+
+Quando um lote é bloqueado pela crítica de acordo vencido, é possível liberá-lo manualmente através de uma view disponível no Consinco.
+
+**View no sistema:** `Comercial > Liberação de Críticas`
+
+**Usuários com permissão de acesso e liberação:**
+- `THAISE`
+- `RONIE`
+
+**Procedure chamada pela view:**
+[`NAGP_LIBERA_LOTE_CRIT`](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_LIBERA_LOTE_CRIT.prc) — libera a inconsistência no lote, permitindo que a crítica seja reprocessada e o lote volte ao fluxo normal sem mais constar como bloqueado.
+
+**Teste realizado com sucesso:** lote com inconsistência identificado → liberado pela view → crítica reprocessada → lote liberado e inconsistência removida.
+
+---
+
 ## Log de Envios
 
 Todos os envios são registrados em `NAGT_LOG_ENVIO_ACO_EMAIL`:
@@ -229,6 +249,7 @@ Todos os envios são registrados em `NAGT_LOG_ENVIO_ACO_EMAIL`:
 | `MAC_GERCOMPRAFORN` | Tabela | Fornecedores do lote de compra |
 | `esp_Mac_GerCompraCompl` | Tabela | Complemento do lote (e-mail do acordo) |
 | `MACV_CONSISTELOTECOMPRA` | View | Consistências do lote (bloqueio adicionado aqui) |
+| `NAGP_LIBERA_LOTE_CRIT` | Procedure | Libera crítica de lote bloqueado pela régua (via view Comercial > Liberação de Críticas) |
 | `NAGT_LOG_ENVIO_ACO_EMAIL` | Tabela | Log de e-mails enviados pela régua |
 | `CONSINCO.SP_ENVIA_EMAIL` | Procedure | Envio de e-mail via Consinco |
 
