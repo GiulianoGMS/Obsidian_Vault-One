@@ -60,7 +60,7 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGP_WTS_V2_TB_LOGFALHACARGAMONITOR` | Falhas de carga do [[Monitor PDV]]                                                   | `MONITORPDV.TB_LOGFALHACARGAMONITOR`                                                       |                                                                |
 | `NAGP_WTS_V2_TB_ULTCARGAMONITOR`      | Atraso na última carga do [[Monitor PDV]] — alerta quando o intervalo excede o limite configurado | `MONITORPDV.TB_ULTCARGAMONITOR`                                                   |                                                                |
 | `NAGP_WTS_V2_LONGTIME_SESSION`        | Sessões Oracle ativas há ≥ 3 horas (exceto sqlplus) — dispara a cada ~20 min entre 04h–21h; `psUserPDV='All'` alerta todos, `'Monitorpdv'` filtra apenas esse usuário; inclui hint `NAGP_KILL_SESSION(SID, SERIAL#, INST_ID)` | `NAGV_DBMONITOR_WTS` |                |
-| `NAGP_WTS_V2_CONTROLECARGA_PDV`       | Falhas de carga [[PDV]] (status 3 e 4 em `TB_PRODPRECO`)                             | `MONITORPDV.TB_CONTROLECARGAPDV` — agrupa por [[Loja]] e checkout                          |                                                                |
+| `NAGP_WTS_V2_CONTROLECARGA_PDV_CTD`   | Falhas de carga [[PDV]] (status 3 e 4) — versão com contador de persistência; dispara entre 08h–20h a cada 20 min (minutos 00, 20, 40); exibe indicador de nível por loja/tabela: ▱▱▱▱ (1×) → ▰▱▱▱ (2–3×) → ▰▰▱▱ (4–6×) → ▰▰▰▱ (7–10×) → ▰▰▰▰ (11+×); inclui tabelas `%CCT%` desde 2026-06-01 | `MONITORPDV.TB_CONTROLECARGAPDV` ← `NAGV_CONTROLECARGAPDV_CTD` (contagem do dia); insere em `NAGT_CONTROLECARGAPDV` |
 | `NAGP_WTS_V2_STATUS_EXP_INT_PDV`      | Exportação de documentos [[PDV]] atrasada > 5 min (horário 07–21h)                   | `NAGV_STATUS_EXP_INT_PDV_v2` + `CONSINCO.VENDAS_PDV` + `@BI` (valor de venda comparado)    |                                                                |
 | `NAGP_WTS_V2_ALERTAS_BI`              | Visão [[Qlik Sense]] desatualizada além do threshold configurado por visão na tabela | `NAGT_CONTROLE_ATUALIZACAO_BI` — threshold variável por `VISAO`                            |                                                                |
 | `NAGP_WTS_V2_ALERTAS_BOT_DOWN`        | Serviço de captura de dados interrompido (sem registro recente)                      | `NAGT_CONTROLE_ATUALIZACAO_BI` — DTAREGISTRO atrasado além de `MIN_TMP_REGISTRO` por visão |                                                                |
@@ -108,6 +108,8 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGT_ANSWERS_WTS_LOG` | Histórico de comandos executados remotamente |
 | `NAGT_WTS_SCHED_DIR_CONTROL` | Mapeamento JOB_NAME → TYPE para alertas direcionados (ESP/SD) |
 | `NAGT_CONTROLE_ATUALIZACAO_BI` | Configuração e controle por visão [[BI]] — ver detalhes abaixo |
+| `NAGT_CONTROLECARGAPDV` | Histórico intra-dia de falhas de carga PDV — alimentado por `NAGP_WTS_V2_CONTROLECARGA_PDV_CTD`; base para o contador de persistência |
+| `NAGV_CONTROLECARGAPDV_CTD` | View que agrega a contagem de ocorrências do dia por empresa e tabela (`QTD_DIA`); usada pelo indicador de nível ▱/▰ |
 
 ---
 
