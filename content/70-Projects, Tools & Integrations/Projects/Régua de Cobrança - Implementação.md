@@ -27,7 +27,7 @@ Project: "[[Régua de Cobrança - Escopo]]"
 
 ## Visão Geral
 
-Automação de cobrança escalonada para fornecedores com acordos comerciais em aberto. O sistema monitora diariamente as parcelas vencendo, envia e-mails progressivos nos marcos D0, D+5, D+10 e D+15, e bloqueia automaticamente novos lotes de compra quando há inadimplência.
+Automação de cobrança escalonada para fornecedores com [[acordos]] comerciais em aberto. O sistema monitora diariamente as parcelas vencendo, envia e-mails progressivos nos marcos D0, D+5, D+10 e D+15, e bloqueia automaticamente novos lotes de compra quando há inadimplência.
 
 ---
 
@@ -58,9 +58,9 @@ NAGP_LIBERA_LOTE_CRIT.prc         ← Libera a crítica manualmente via view Con
 Consolida todos os acordos com parcelas em aberto elegíveis à cobrança.
 
 **Fontes:**
-- `NAGV_TAE_ACORDOS_V4` — view master de acordos
-- `FI_TITULO` — títulos financeiros (parcelas)
-- `MAF_FORNECCONTATO` — contatos do fornecedor
+- `NAGV_TAE_ACORDOS_V4` — view master de [[acordos]]
+- `FI_TITULO` — [[títulos]] financeiros (parcelas)
+- `MAF_FORNECCONTATO` — contatos do [[fornecedor]]
 
 **Cálculo do Nível da Régua (`NIVEL_REGUA`):**
 
@@ -76,7 +76,7 @@ END NIVEL_REGUA
 
 ### `Loop de Chamada da Regua` — Orquestrador
 
-Executa diariamente. Percorre os representantes distintos com acordos no nível ativo e chama `NAGP_EMAIL_REGUA_COBRANCA` com as permissões de cópia adequadas para cada nível.
+Executa diariamente. Percorre os representantes distintos com [[acordos]] no nível ativo e chama `NAGP_EMAIL_REGUA_COBRANCA` com as permissões de cópia adequadas para cada nível.
 
 **Escalonamento de cópias por nível:**
 
@@ -91,7 +91,7 @@ Executa diariamente. Percorre os representantes distintos com acordos no nível 
 
 ### `NAGP_EMAIL_REGUA_COBRANCA` — Procedure Principal
 
-Monta e envia o e-mail HTML para um representante, agrupando todos os seus acordos em aberto em uma única mensagem.
+Monta e envia o [[e-mail ]][[HTML]] para um representante, agrupando todos os seus acordos em aberto em uma única mensagem.
 
 **Parâmetros:**
 ```sql
@@ -107,8 +107,8 @@ NAGP_EMAIL_REGUA_COBRANCA(
 ```
 
 **Fluxo interno:**
-1. Busca os dados da view base filtrando pelo e-mail do representante e nível
-2. Agrega acordos distintos e coleta: nome do comprador, representante, fornecedor, e-mails
+1. Busca os dados da view base filtrando pelo e-mail do [[representante]] e nível
+2. Agrega acordos distintos e coleta: nome do [[comprador]], [[representante]], [[fornecedor]], e-mails
 3. Monta lista de destinatários em cópia conforme parâmetros `'S'/'N'`
 4. Gera tabela HTML com todas as parcelas em aberto (acordo, parcela, vencimento, valor)
 5. Constrói e-mail HTML completo com cabeçalho, mensagem dinâmica e rodapé
@@ -208,7 +208,7 @@ Complemento: Rep.: [NOME] Acordo: [NRO] Parcela: [X] Valor.: [R$ X,XX]
 
 ## Liberação de Lote Bloqueado
 
-Quando um lote é bloqueado pela crítica de acordo vencido, é possível liberá-lo manualmente através de uma view disponível no Consinco.
+Quando um [[lote]] é bloqueado pela [[[crítica]] de acordo vencido, é possível liberá-lo manualmente através de uma view disponível na Consinco.
 
 **View no sistema:** `Comercial > Liberação de Críticas`
 
@@ -257,7 +257,7 @@ Todos os envios são registrados em `NAGT_LOG_ENVIO_ACO_EMAIL`:
 
 ## Pendências
 
-- [ ] Definir mensagem do D+15 com time Falconi
+- [x] Definir mensagem do D+15 com time Falconi
 - [x] Adicionar Diteroria nas notificações D+15
 - [ ] Remover restrição do lote de testes (`SEQGERCOMPRA = 444278`) após validação do bloqueio
 - [ ] Confirmar lista de fornecedores "Elegíveis a Cobrar" e data de corte para acordos legados
