@@ -169,6 +169,66 @@ O INNER JOIN com a tabela base elimina o processamento de todos os outros produt
 
 ---
 
+## Recálculo das Notas (Pós-Troca de Tributações)
+
+Após a execução da rotina padrão de troca de tributações do ERP (agendamento), é necessário **reimportar as notas** que possuem itens CAT 28 para que sejam recalculadas com a nova tributação.
+
+> [!warning] Devoluções não recalculam
+> O script exclui devoluções via `NOT EXISTS` em `MAX_CODGERALOPER.TIPDOCFISCAL = 'D'`.
+
+**Passo 1 — Excluir a importação das notas com itens CAT 28:**
+
+```sql
+BEGIN
+  -- Para cada nota importada com itens CAT 28 (exceto devoluções)
+  FOR seq IN (
+    SELECT DISTINCT X.SEQAUXNOTAFISCAL psSeqAuxNF,
+                    X.NFECHAVEACESSO   CHAVE_ACESSO
+      FROM MLF_AUXNOTAFISCAL X
+           INNER JOIN MLF_AUXNFITEM   XI ON XI.SEQAUXNOTAFISCAL = X.SEQAUXNOTAFISCAL
+           INNER JOIN NAGT_PRODST_JULHO B ON B.SEQPRODUTO = XI.SEQPRODUTO
+     WHERE NOT EXISTS (
+             SELECT 2 FROM MAX_CODGERALOPER O
+              WHERE O.CODGERALOPER = X.CODGERALOPER
+                AND O.TIPDOCFISCAL = 'D')  -- exclui devoluções
+  )
+  LOOP
+    DELETE FROM CONSINCO.MLF_AUXNFITEM              WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM CONSINCO.MLF_AUXNFVENCIMENTO        WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM CONSINCO.MLF_AUXNFVENCIMENTOCONSIST WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM CONSINCO.MLF_AUXNFINCONSISTENCIA    WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM CONSINCO.MLF_NFITEMLOTE             WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM CONSINCO.MLF_CONHECIMENTONOTAS      WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM CONSINCO.MLF_SERVICONOTAS           WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM CONSINCO.MLF_GNRE                   WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM CONSINCO.MLF_AUXNFVENCTITDIREITO    WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM CONSINCO.MLF_AUXNOTAFISCAL          WHERE SEQAUXNOTAFISCAL = seq.psSeqAuxNF;
+    DELETE FROM MRL_NFEIMPPROCESS I                  WHERE I.CHAVE_ACESSO  = seq.CHAVE_ACESSO;
+    COMMIT;
+  END LOOP;
+
+  -- Passo 2 — Reimportar via rotina padrão do ERP por empresa
+  FOR X IN (
+    SELECT A.NROEMPRESA
+      FROM DWNAGT_DADOSEMPRESA@BI A
+     WHERE A.TIPO IN ('LOJA','CD')
+       AND A.NROEMPRESA NOT IN (502,504,505)
+     ORDER BY 1
+  )
+  LOOP
+    CONSINCO.SP_GERARECEBTOXMLAUTO(X.NROEMPRESA);
+    COMMIT;
+  END LOOP;
+END;
+```
+
+**O que o script faz:**
+1. Identifica todas as `MLF_AUXNOTAFISCAL` que possuem itens presentes em `NAGT_PRODST_JULHO`, ignorando devoluções
+2. Remove completamente a importação dessas notas de todas as tabelas auxiliares + `MRL_NFEIMPPROCESS` (por chave de acesso)
+3. Executa `SP_GERARECEBTOXMLAUTO` empresa a empresa (lojas + CDs, excluindo 502, 504, 505) para reimportar com a tributação já atualizada
+
+---
+
 ## Objetos de Banco
 
 | Objeto | Tipo | Finalidade |
@@ -182,3 +242,7 @@ O INNER JOIN com a tabela base elimina o processamento de todos os outros produt
 | `mlfv_nfbasecomplst_nag` | View | View Nagumo com INNER JOIN na tabela base para corte por competência |
 | `MAP_TRIBUTACAOUF` | Tabela | Alíquotas ST por tributação, UF e regime — fonte das alíquotas antigas |
 | `FATO_ESTOQUE` | Tabela | Estoque histórico — consultado na `DTAESTOQUE` da competência |
+| `MLF_AUXNOTAFISCAL` | Tabela | NFs importadas aguardando recebimento — excluídas e reimportadas no recálculo |
+| `MRL_NFEIMPPROCESS` | Tabela | Controle de importação por chave de acesso — excluída para permitir reimportação |
+| `CONSINCO.SP_GERARECEBTOXMLAUTO` | Procedure | Rotina ERP de reimportação de XML por empresa |
+| `DWNAGT_DADOSEMPRESA@BI` | View (dblink) | Lista de empresas ativas (LOJA/CD) usada no loop de reimportação |
