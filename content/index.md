@@ -44,4 +44,4 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Validador de EAN13]] | Validação de códigos de barras EAN-13 |
 > | [[Inserção de Títulos ISSQN e SERVRC]] | Insere manualmente títulos ISSQN/SERVRC não gerados no recebimento de NF-e de serviço |
 > | [[Apuração CAT 28]] | Apuração periódica de exclusão de produtos do regime ST (CAT 28/SP) — geração de TXT por loja |
-> | [[Investigate SQL de Tela Web TOTVS]] | Como descobrir qual consulta SQL uma tela Web da TOTVS executa via DevTools + V$SQL |
+> | [[API - SQL de Tela Web TOTVS]] | Como descobrir qual consulta SQL uma tela Web da TOTVS executa via DevTools + V$SQL |
