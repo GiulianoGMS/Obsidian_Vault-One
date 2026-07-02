@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "70-Projects, Tools & Integrations/Tools/Validação de Cadastros Tributários - vMaster.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "Validação de Cadastros Tributários - vMaster"
             }
           }
         ]
@@ -205,6 +205,8 @@
   },
   "active": "3d562c34edf05fde",
   "lastOpenFiles": [
+    "index.md",
+    "70-Projects, Tools & Integrations/Tools/Validação de Cadastros Tributários - vMaster.md",
     "70-Projects, Tools & Integrations/Tools/API - SQL de Tela Web TOTVS.md",
     "70-Projects, Tools & Integrations/Tools/Apuração CAT 28.md",
     "CAT 28.md",
@@ -236,8 +238,6 @@
     "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md.tmp.22192.89a13de8cfdc",
     "90-Custom Override/On/fBuscaTipoFreteTransp — modFrete PDV.md",
     "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
-    "50-Meetings/TOTVS + Nagumo - Reforma Tributária - Verbas Comercias - (Sell-In e Sell-Out).md",
-    "50-Meetings/Projeto FLV Bandejas.md",
     "index.md.tmp.31136.9262a117b01c",
     "index.md.tmp.16020.172321a9e582",
     "70-Projects, Tools & Integrations/Projects/Correção de Impostos no Recebimento - Implementação.md.tmp.16020.6f07cc5a29d2",
