@@ -4,21 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "cc4a4a631f5a382a",
+        "id": "084914e6848167db",
         "type": "tabs",
+        "dimension": 47.76223776223777,
         "children": [
           {
-            "id": "81726a290cdf3a04",
+            "id": "3d562c34edf05fde",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "40-Open Tags/Inconsistencia Recebimento NFe.md",
+                "file": "70-Projects, Tools & Integrations/Tools/Investigate SQL de Tela Web TOTVS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Inconsistencia Recebimento NFe"
+              "title": "Investigate SQL de Tela Web TOTVS"
+            }
+          }
+        ]
+      },
+      {
+        "id": "8bf3e6d5980a1316",
+        "type": "tabs",
+        "dimension": 52.23776223776224,
+        "children": [
+          {
+            "id": "5a2f23e2021f81bb",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Visualização em gráfico"
             }
           }
         ]
@@ -185,41 +203,44 @@
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "81726a290cdf3a04",
+  "active": "3d562c34edf05fde",
   "lastOpenFiles": [
+    "70-Projects, Tools & Integrations/Tools/Apuração CAT 28.md",
+    "70-Projects, Tools & Integrations/Tools/Investigate SQL de Tela Web TOTVS.md",
+    "CAT 28.md",
+    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.md",
+    "40-Open Tags/Inconsistencia Recebimento NFe.md",
+    "40-Open Tags/Critica.md",
+    "90-Custom Override/On/Desonerado Ecommerce.md",
+    "70-Projects, Tools & Integrations/Integrations/BLB/BLB - Extracao Fiscal.md",
+    "70-Projects, Tools & Integrations/Tools/import os.py",
+    "70-Projects, Tools & Integrations/Integrations/BLB",
+    "Critica de NFs de Orçamento.md",
+    "60-Object Types/Loops/Recebimento NFe - Erro Invalid Number (CNPJ ALFANUMERICO).md",
+    "80-Paliativos - Nao precisa Reaplicar/On/Correção CBS-IBS NFs de Devolução.md",
+    "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
+    "70-Projects, Tools & Integrations/Tools/Apuração CAT 28.md.tmp.23712.5a92b2cbcba5",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
     "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
     "fornecedor.md",
     "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.md",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
-    "40-Open Tags/Inconsistencia Recebimento NFe.md",
     "40-Open Tags/Critica de Devolucao.md",
     "40-Open Tags/Critica Lote de Compras.md",
     "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md.tmp.18300.f409dda56ac3",
     "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
     "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
-    "40-Open Tags/Critica.md",
     "40-Open Tags/Critica de Venda.md",
-    "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
     "70-Projects, Tools & Integrations/Integrations/Salesforce/Backlgrs - Salesforce.md",
     "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md.tmp.22192.89a13de8cfdc",
     "90-Custom Override/On/fBuscaTipoFreteTransp — modFrete PDV.md",
     "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
     "50-Meetings/TOTVS + Nagumo - Reforma Tributária - Verbas Comercias - (Sell-In e Sell-Out).md",
     "50-Meetings/Projeto FLV Bandejas.md",
-    "70-Projects, Tools & Integrations/Tools/Inserção de Títulos ISSQN e SERVRC.md",
-    "index.md",
     "index.md.tmp.31136.9262a117b01c",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
-    "90-Custom Override/On/Arred. de Seleção Inversa no CD - FLV.md",
-    "90-Custom Override/On/vOutros Ecommerce (Frete rateado).md",
     "index.md.tmp.16020.172321a9e582",
     "70-Projects, Tools & Integrations/Projects/Correção de Impostos no Recebimento - Implementação.md.tmp.16020.6f07cc5a29d2",
-    "70-Projects, Tools & Integrations/Projects/Ecommerce - Replicação por Encarte (MN).md",
-    "90-Custom Override/On/CST IPI - NFe.md",
-    "versão.md",
     "Pasted image 20260617154229.png",
     "Pasted image 20260617154105.png",
     "Pasted image 20260616081214.png",
@@ -232,10 +253,7 @@
     "Pasted image 20260612160619.png",
     "Pasted image 20260612155407.png",
     "index.md.tmp.84.8503ef893acc",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md.tmp.84.b5b408454ab2",
     "Pasted image 20260611113006.png",
-    "index.md.tmp.21972.a1ba330b1f4e",
-    "70-Projects, Tools & Integrations/Projects/Custom Features - Trava Cadastro Família e Produto.md.tmp.21972.75f18e3bc42a",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.canvas",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",
     "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
