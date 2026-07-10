@@ -21,7 +21,10 @@ tags:
 
 > **Em fase de testes.** Este objeto é o sucessor da [[Ecommerce - Replicação de Ofertas PDV TOTVS|NAGP_REP_ECOMMERCE]]. A tabela legado `NAGT_REMARCAPROMOCOES` deixa de ser necessária — a origem passa a ser a view `NAGV_BASE_MN_ENCARTE`, construída sobre as tabelas nativas de [[Encarte]] do [[ERP]] (`MRL_ENCARTE` / `MRL_ENCARTEPRODUTOPRECO`).
 
-Replica as [[Oferta|ofertas]] de [[Encarte]] do **[[Meu Nagumo]]** para as tabelas de [[Promoção]] do [[PDV TOTVS]], gerando uma [[Promoção]] por segmento presente no [[Encarte]]. Suporta expansão automática de itens por **[[Família]]** e/ou **similaridade**.
+Replica as [[Oferta|ofertas]] de [[Encarte]] do **[[Meu Nagumo]]** para as tabelas de [[Promoção]] do [[PDV TOTVS]], gerando uma [[Promoção]] por **combinação de segmento + janela de vigência** presente no [[Encarte]]. Suporta expansão automática de itens por **[[Família]]** e/ou **similaridade**.
+
+> [!info] Janelas de oferta (`MRL_ENCARTEJANELA`)
+> Um mesmo [[Encarte]] pode ter **janelas** — subdivisões com vigência própria (`DTAVIGENCIAINI` / `DTAVIGENCIAFIM`) e nome independente. A view e a procedure respeitam essas datas: se um item possuir uma janela, suas datas e descrição substituem as da capa do encarte. O time **ainda não utiliza janelas** em produção, apenas datas, mas a estrutura já está preparada — quando forem usadas, cada janela gerará uma promoção separada no PDV (mais quebras).
 
 ---
 
@@ -49,13 +52,42 @@ Replica as [[Oferta|ofertas]] de [[Encarte]] do **[[Meu Nagumo]]** para as tabel
 
 ---
 
+### View `NAGV_BASE_MN_ENCARTE`
+
+A view é a fonte de todos os dados consumidos pela procedure. Principais pontos:
+
+**Join com janela (opcional):**
+```sql
+LEFT JOIN MRL_ENCARTEJANELA J
+  ON J.SEQENCARTE = X.SEQENCARTE
+ AND J.SEQJANELA  = P.SEQJANELA
+ AND J.NROPAGINA  = P.NROPAGINA
+```
+
+**Datas e descrição resolvidas por prioridade janela → capa:**
+```sql
+NVL(P.DTAVIGENCIAINI, X.DTAINICIO)  AS DTAINICIO   -- data início: janela > capa
+NVL(P.DTAVIGENCIAFIM, X.DTAFIM)     AS DTAFIM       -- data fim:   janela > capa
+NVL(J.NOMEJANELA,     X.DESCRICAO)  (em DESC_PROMOC) -- descrição:  janela > capa
+```
+
+Ou seja: se o item tiver uma janela vinculada (`P.SEQJANELA` preenchido), a vigência e a descrição da promoção gerada virão da janela; caso contrário, usam as datas e descrição da capa do encarte.
+
+**Formato de `DESC_PROMOC`:**
+```
+SEQENCARTE/SEGMENTO - DD a DD - NOMEJANELA (ou DESCRICAO da capa)
+ex: "42580/NAG SP - 01 a 15 - Oferta de Frios"
+```
+
+---
+
 ### Fluxo — Loop por Segmento
 
-Para cada `NROSEGMENTO` do [[Encarte]] (sem duplicidade em `MFL_PROMOCAOPDV`):
+Para cada combinação distinta de `(NROSEGMENTO, DTAINICIO, DTAFIM)` do [[Encarte]] (sem duplicidade em `MFL_PROMOCAOPDV`):
 
 **1. Loop Capa** → `MFL_PROMOCAOPDV`
 
-Cria um cabeçalho de [[Promoção]] por segmento, com `STATUS = 'A'` e descrição vinda de `DESC_PROMOC` da view.
+Cria um cabeçalho de [[Promoção]] por combinação `(segmento + DTAINICIO + DTAFIM)`, com `STATUS = 'A'` e descrição vinda de `DESC_PROMOC` da view. Se o mesmo segmento tiver produtos em janelas com datas diferentes, gerará **promoções separadas** (uma por janela).
 
 **2. Loop Item** → `MFL_PROMOCPDVITEM`
 
@@ -90,9 +122,11 @@ Vincula as [[Loja|lojas]] do segmento à [[Promoção]] gerada.
 
 | Tabela / View | Papel |
 |---------------|-------|
-| `NAGV_BASE_MN_ENCARTE` | Origem — view sobre `MRL_ENCARTE` / `MRL_ENCARTEPRODUTOPRECO` |
-| `MRL_ENCARTE` | [[Encarte]] nativo do [[ERP]] (substituiu `NAGT_REMARCAPROMOCOES`) |
-| `MFL_PROMOCAOPDV` | Destino — cabeçalho da [[Promoção]] por segmento |
+| `NAGV_BASE_MN_ENCARTE` | Origem — view sobre `MRL_ENCARTE` / `MRL_ENCARTEPRODUTOPRECO` + janelas |
+| `MRL_ENCARTE` | [[Encarte]] nativo do [[ERP]] — capa com `DTAINICIO`/`DTAFIM` e `DESCRICAO` padrão |
+| `MRL_ENCARTEPRODUTO` | Itens do encarte — contém `SEQJANELA`/`NROPAGINA`/`DTAVIGENCIAINI`/`DTAVIGENCIAFIM` |
+| `MRL_ENCARTEJANELA` | Janelas de oferta — vigência e nome específicos por janela dentro do encarte |
+| `MFL_PROMOCAOPDV` | Destino — cabeçalho da [[Promoção]] por `(segmento + DTAINICIO + DTAFIM)` |
 | `MFL_PROMOCPDVITEM` | Destino — itens da [[Promoção]] |
 | `MFL_PROMOCPDVDESCAPARTDE` | Destino — descontos e preços por [[Loja]] |
 | `MFL_PROMOCPDVEMP` | Destino — [[Loja|lojas]] vinculadas |

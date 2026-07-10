@@ -25,6 +25,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Cust - Trava Cadastro Família e Produto]] | Hooks de validação TOTVS para travar salvamento no cadastro de Família e Produto |
 > | [[Régua de Cobrança - Implementação]] | Cobrança escalonada D0→D+15 com e-mail automático e bloqueio de lote de compras |
 > | [[Correção de Impostos no Recebimento]] | Paliativos CBS/IBS/IPI/ICMS Desonerado aplicados no recebimento de NF-e (Reforma Tributária) |
+> | [[Alerta Status SEFAZ]] | Sincroniza status dos webservices SEFAZ (NFe/NFC-e) em tabela Oracle e dispara alerta no ERP |
 
 > [!example]+ Integrações
 > Exportações e sincronizações com plataformas externas via CSV / UTL_FILE.
