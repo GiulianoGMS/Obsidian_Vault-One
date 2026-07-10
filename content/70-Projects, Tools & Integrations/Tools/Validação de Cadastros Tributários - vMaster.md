@@ -252,7 +252,7 @@ Exceção: tributações `1` e `1187` não são verificadas.
 
 ### INC22 — Família/Trib sem cBenef parametrizado (Interestadual)
 
-**Aplica-se a:** tributações de saída interestadual (`SC`, UF cliente ≠ UF empresa, mas ambas SP ou RJ, regime 0) com CST ICMS de redução: `020`, `030`, `040`, `041` ou `051`.
+**Aplica-se a:** tributações de saída interestadual (`SC`, UF cliente ≠ UF empresa, mas ambas SP ou RJ, regime 0 e 8) com CST ICMS de redução: `020`, `030`, `040`, `041` ou `051`.
 
 **Regra:** idêntica ao INC20 — `cBenef` obrigatório (`INDCALCICMSDESONOUTROS`, `CODAJUSTEINFAD`, `MOTIVODESONERACAO`).
 

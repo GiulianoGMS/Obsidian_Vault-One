@@ -1,6 +1,15 @@
 ---
 title: TAE - Assinatura Eletrônica
-tags: [projeto, TAE, acordos, email]
+tags:
+  - projeto
+  - TAE
+  - acordos
+  - email
+Language:
+  - "[[SQL]]"
+System:
+  - "[[PLSQL-ERP-Consinco]]"
+  - "[[PLSQL-Oracle]]"
 ---
 
 # TAE - Assinatura Eletrônica

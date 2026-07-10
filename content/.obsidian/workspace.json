@@ -4,39 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "084914e6848167db",
+        "id": "b6100c921be89e03",
         "type": "tabs",
-        "dimension": 47.76223776223777,
-        "children": [
-          {
-            "id": "3d562c34edf05fde",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "70-Projects, Tools & Integrations/Tools/Validação de Cadastros Tributários - vMaster.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Validação de Cadastros Tributários - vMaster"
-            }
-          }
-        ]
-      },
-      {
-        "id": "8bf3e6d5980a1316",
-        "type": "tabs",
-        "dimension": 52.23776223776224,
         "children": [
           {
             "id": "5a2f23e2021f81bb",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Visualização em gráfico"
+              "type": "markdown",
+              "state": {
+                "file": "70-Projects, Tools & Integrations/Integrations/BLB/BLB - Extracao Fiscal.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "BLB - Extracao Fiscal"
             }
           }
         ]
@@ -71,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "nota",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -203,41 +185,41 @@
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "3d562c34edf05fde",
+  "active": "5a2f23e2021f81bb",
   "lastOpenFiles": [
-    "index.md",
     "70-Projects, Tools & Integrations/Tools/Validação de Cadastros Tributários - vMaster.md",
-    "70-Projects, Tools & Integrations/Tools/API - SQL de Tela Web TOTVS.md",
+    "70-Projects, Tools & Integrations/Projects/Ecommerce - Replicação por Encarte (MN).md",
+    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
+    "40-Open Tags/Inconsistencia Recebimento NFe.md",
+    "40-Open Tags/Critica de Devolucao.md",
+    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
     "70-Projects, Tools & Integrations/Tools/Apuração CAT 28.md",
+    "70-Projects, Tools & Integrations/Tools/API - SQL de Tela Web TOTVS.md",
+    "40-Open Tags/Critica de Venda.md",
+    "XML.md",
+    "index.md",
+    "40-Open Tags/Critica.md",
+    "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.md",
+    "70-Projects, Tools & Integrations/Integrations/BLB/BLB - Extracao Fiscal.md",
+    "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
+    "50-Meetings/TOTVS + Nagumo - Reforma Tributária - Verbas Comercias - (Sell-In e Sell-Out).md",
     "CAT 28.md",
     "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.md",
-    "40-Open Tags/Inconsistencia Recebimento NFe.md",
-    "40-Open Tags/Critica.md",
     "90-Custom Override/On/Desonerado Ecommerce.md",
-    "70-Projects, Tools & Integrations/Integrations/BLB/BLB - Extracao Fiscal.md",
     "70-Projects, Tools & Integrations/Tools/import os.py",
     "70-Projects, Tools & Integrations/Integrations/BLB",
     "Critica de NFs de Orçamento.md",
     "60-Object Types/Loops/Recebimento NFe - Erro Invalid Number (CNPJ ALFANUMERICO).md",
     "80-Paliativos - Nao precisa Reaplicar/On/Correção CBS-IBS NFs de Devolução.md",
-    "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
     "70-Projects, Tools & Integrations/Tools/Apuração CAT 28.md.tmp.23712.5a92b2cbcba5",
-    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
     "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
     "fornecedor.md",
     "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.md",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
-    "40-Open Tags/Critica de Devolucao.md",
-    "40-Open Tags/Critica Lote de Compras.md",
     "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md.tmp.18300.f409dda56ac3",
-    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
     "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
-    "40-Open Tags/Critica de Venda.md",
-    "70-Projects, Tools & Integrations/Integrations/Salesforce/Backlgrs - Salesforce.md",
     "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md.tmp.22192.89a13de8cfdc",
-    "90-Custom Override/On/fBuscaTipoFreteTransp — modFrete PDV.md",
-    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
     "index.md.tmp.31136.9262a117b01c",
     "index.md.tmp.16020.172321a9e582",
     "70-Projects, Tools & Integrations/Projects/Correção de Impostos no Recebimento - Implementação.md.tmp.16020.6f07cc5a29d2",
