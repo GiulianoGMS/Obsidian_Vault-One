@@ -36,7 +36,7 @@ Exclui famílias com `FINALIDADEFAMILIA = 'P'`.
 | `PLU` | `MAP_PRODUTO.SEQPRODUTO` |
 | `COD_FAMILIA` | `MAP_PRODUTO.SEQFAMILIA` |
 | `DESC_PRODUTO` | `MAP_PRODUTO.DESCCOMPLETA` |
-| `INCONSISTENCIAS` | Concatenação de INC1…INC22 separadas por ` \| ` |
+| `INCONSISTENCIAS` | Concatenação de INC1…INC23 separadas por ` \| ` |
 
 ---
 
@@ -260,12 +260,25 @@ Exceção: tributações `1` e `1187` não são verificadas.
 
 ---
 
+### INC23 — Alíquota IPI igual a zero com CST entrada/saída divergentes
+
+**Regra:** `MAP_FAMILIA.PERALIQUOTAIPI = 0` mas qualquer uma das condições abaixo for verdadeira:
+
+| Condição | Significado |
+|----------|-------------|
+| `SITUACAONFIPI IS NOT NULL` | CST IPI de **entrada** preenchido mesmo com alíquota zero |
+| `SITUACAONFIPISAI != 53` | CST IPI de **saída** diferente de 53 (não tributado) |
+
+Quando a alíquota é zero, o CST de saída deve ser `53` (saída não tributada) e o CST de entrada não deveria estar definido. Qualquer divergência indica incoerência entre a alíquota e os CSTs cadastrados.
+
+---
+
 ## Resumo por Categoria
 
 | Categoria | INC |
 |-----------|-----|
 | Cadastro básico da família (NCM, CST PIS/COFINS) | INC2 |
-| CST IPI de saída | INC4, INC7, INC8 |
+| CST IPI de saída / alíquota zero | INC4, INC7, INC8, INC23 |
 | Coerência tributação × origem (IMP/NAC) | INC5, INC6 |
 | Flags obrigatórios da família | INC9, INC16 |
 | Importados (EX) — PIS/COFINS, IPI e fornecedor | INC10, INC11, INC12, INC13 |
