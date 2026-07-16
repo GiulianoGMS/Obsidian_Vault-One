@@ -18,19 +18,16 @@ Date: 2026-06-12
 Type:
 Project: "[[Régua de Cobrança - Escopo]]"
 ---
-
 > [!info] Referência
 > Escopo original: [[Régua de Cobrança - Escopo]]  
 > Repositório: [GiulianoGMS/PJ-Regua-de-Cobranca](https://github.com/GiulianoGMS/PJ-Regua-de-Cobranca)
 
 ---
-
 ## Visão Geral
 
 Automação de cobrança escalonada para fornecedores com [[acordos]] comerciais em aberto. O sistema monitora diariamente as parcelas vencendo, envia e-mails progressivos nos marcos D0, D+5, D+10 e D+15, e bloqueia automaticamente novos lotes de compra quando há inadimplência.
 
 ---
-
 ## Arquitetura
 
 ```
@@ -50,7 +47,6 @@ NAGP_LIBERA_LOTE_CRIT.prc         ← Libera a crítica manualmente via view Con
 ```
 
 ---
-
 ## Componentes
 
 ### `NAGV_BASE_REGUA_COBRANCA` — View Base
@@ -73,7 +69,6 @@ CASE
 END NIVEL_REGUA
 ```
 ---
-
 ### `Loop de Chamada da Regua` — Orquestrador
 
 Executa diariamente. Percorre os representantes distintos com [[acordos]] no nível ativo e chama `NAGP_EMAIL_REGUA_COBRANCA` com as permissões de cópia adequadas para cada nível.
@@ -86,12 +81,41 @@ Executa diariamente. Percorre os representantes distintos com [[acordos]] no ní
 | 2     | D+5   | 10 dias        | ✓     | ✓            | ✓         | ✗         |
 | 3     | D+10  | 5 dias         | ✓     | ✓            | ✓         | ✗         |
 | 4     | D+15  | 0 dias         | ✓     | ✓            | ✓         | ✓         |
+# Loop no PLSQL
+
+[[Job]]: **NAGJ_REGUA_DE_COBRANCA**
+
+Comando:
+
+```sql
+BEGIN
+  FOR email IN (SELECT DISTINCT XX.EMAIL_REP EMAIL FROM NAGV_BASE_REGUA_COBRANCA XX WHERE NIVEL_REGUA IS NOT NULL) 
+  LOOP
+    -- Nivel 1
+    NAGP_EMAIL_REGUA_COBRANCA(psEmail => email.EMAIL, psEnviaTICopia => 'N',
+                              psEnviaCARCopia => 'N', psEnviaFinFornecCopia => 'N',
+                              psEnviaCompCopia => 'N', psEmailDir => 'N', psNivelRegua => 1);
+    -- Nivel 2
+    NAGP_EMAIL_REGUA_COBRANCA(psEmail => email.EMAIL, psEnviaTICopia => 'N',
+                              psEnviaCARCopia => 'S', psEnviaFinFornecCopia => 'N',
+                              psEnviaCompCopia => 'S', psEmailDir => 'N', psNivelRegua => 2);
+    -- Nivel 3
+    NAGP_EMAIL_REGUA_COBRANCA(psEmail => email.EMAIL, psEnviaTICopia => 'N',
+                              psEnviaCARCopia => 'S', psEnviaFinFornecCopia => 'N',
+                              psEnviaCompCopia => 'S', psEmailDir => 'N', psNivelRegua => 3);
+    -- Nivel 4
+    NAGP_EMAIL_REGUA_COBRANCA(psEmail => email.EMAIL, psEnviaTICopia => 'S',
+                              psEnviaCARCopia => 'S', psEnviaFinFornecCopia => 'N',
+                              psEnviaCompCopia => 'S', psEmailDir => 'S', psNivelRegua => 4);
+  END LOOP;
+END;
+```
 
 ---
 
 ### `NAGP_EMAIL_REGUA_COBRANCA` — Procedure Principal
 
-Monta e envia o [[e-mail ]][[HTML]] para um representante, agrupando todos os seus acordos em aberto em uma única mensagem.
+Monta e envia o [[e-mail ]][[HTML]] para um [[representante]], agrupando todos os seus acordos em aberto em uma única mensagem.
 
 **Parâmetros:**
 ```sql
