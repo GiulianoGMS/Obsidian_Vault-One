@@ -12,9 +12,8 @@ Open Tags:
 Date: 2026-07-18
 Type: Project
 ---
-
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Window functions (`AVG OVER`, `LAG`, `SUM OVER`) têm sintaxe idêntica ao Oracle — sem adaptações. `ADD_MONTHS(SYSDATE, -1)` equivale ao `DATE_SUB(NOW(), INTERVAL 1 MONTH)` do [[MySQL]]. Heatmaps combinam agrupamento por dia-da-semana ISO com hora do dia.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Window functions (`AVG OVER`, `LAG`, `SUM OVER`) têm sintaxe idêntica ao Oracle. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 
 Selects para **dashboards executivos**: top assuntos, Pareto 80/20, tendência com média móvel, crescimento mensal/anual, heatmaps e painel consolidado de KPIs.
 
@@ -26,11 +25,11 @@ Os títulos de chamados mais repetidos — revela assuntos padronizados ou probl
 
 ```sql
 SELECT
-    t."name"       AS assunto,
-    COUNT(t."id")  AS qtd_ocorrencias
+    hs_str(t."name") AS assunto,
+    COUNT(t."id")     AS qtd_ocorrencias
 FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
 WHERE t."is_deleted" = 0
-GROUP BY t."name"
+GROUP BY hs_str(t."name")
 ORDER BY qtd_ocorrencias DESC
 FETCH FIRST 20 ROWS ONLY;
 ```
@@ -49,12 +48,12 @@ SELECT
           / SUM(qtd_chamados) OVER (), 2) AS pct_acumulado
 FROM (
     SELECT
-        COALESCE(c."completename", 'Sem categoria') AS categoria,
-        COUNT(t."id")                                AS qtd_chamados
+        COALESCE(hs_str(c."completename"), 'Sem categoria') AS categoria,
+        COUNT(t."id")                                        AS qtd_chamados
     FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
     LEFT JOIN "glpi_itilcategories"@DBL_ORCL_TO_MYSQL c ON c."id" = t."itilcategories_id"
     WHERE t."is_deleted" = 0
-    GROUP BY COALESCE(c."completename", 'Sem categoria')
+    GROUP BY COALESCE(hs_str(c."completename"), 'Sem categoria')
 )
 ORDER BY qtd_chamados DESC;
 ```
@@ -86,7 +85,7 @@ ORDER BY mes;
 
 ## Crescimento Mensal (%)
 
-Compara cada mês com o anterior via `LAG()` — identifica meses de crescimento ou queda na demanda.
+Compara cada mês com o anterior via `LAG()`.
 
 ```sql
 SELECT
@@ -108,8 +107,6 @@ ORDER BY mes;
 
 ## Crescimento Anual (%)
 
-Comparativo ano a ano via `LAG()` — visão macro de evolução da demanda.
-
 ```sql
 SELECT
     ano,
@@ -130,7 +127,7 @@ ORDER BY ano;
 
 ## Heatmap Dia × Hora
 
-Volume de chamados cruzando dia da semana e hora de abertura — revela padrões de horário de pico por dia.
+Volume de chamados cruzando dia da semana e hora de abertura.
 
 ```sql
 SELECT
@@ -154,21 +151,19 @@ Intensidade de chamados por mês e categoria — identifica sazonalidade por tip
 
 ```sql
 SELECT
-    TO_CHAR(t."date", 'YYYY-MM')                AS mes,
-    COALESCE(c."completename", 'Sem categoria') AS categoria,
-    COUNT(t."id")                                AS qtd_chamados
+    TO_CHAR(t."date", 'YYYY-MM')                        AS mes,
+    COALESCE(hs_str(c."completename"), 'Sem categoria') AS categoria,
+    COUNT(t."id")                                        AS qtd_chamados
 FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
 LEFT JOIN "glpi_itilcategories"@DBL_ORCL_TO_MYSQL c ON c."id" = t."itilcategories_id"
 WHERE t."is_deleted" = 0
-GROUP BY TO_CHAR(t."date", 'YYYY-MM'), COALESCE(c."completename", 'Sem categoria')
+GROUP BY TO_CHAR(t."date", 'YYYY-MM'), COALESCE(hs_str(c."completename"), 'Sem categoria')
 ORDER BY mes, categoria;
 ```
 
 ---
 
 ## Dashboard Executivo (KPIs Consolidados)
-
-Painel único com os principais KPIs dos últimos 30 dias: total, [[Backlog]], fechados, [[MTTR]] médio, % [[SLA]] cumprido e satisfação média.
 
 ```sql
 SELECT

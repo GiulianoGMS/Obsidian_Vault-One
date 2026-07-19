@@ -67,3 +67,4 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Tempo e Custos]] | Horas registradas, faturáveis, paradas e custo por chamado |
 > | [[Análise Executiva]] | Top assuntos, Pareto, tendência com média móvel, crescimento e heatmaps |
 > | [[Rastreabilidade de Chamados]] | Histórico completo, alterações, soluções, followups, tarefas e vínculos |
+> | [[hs_str — Conversão UTF-16 via DBLink]] | Função Oracle que corrige truncamento VARCHAR causado por encoding UTF-16 LE do driver ODBC MySQL |

@@ -13,27 +13,26 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Solicitante: `tu."type" = 1` em `glpi_tickets_users`. Departamento via `u."groups_id"` em `glpi_users`. Empresa/unidade via `t."entities_id"` ligado a `glpi_entities`. Localização via `t."locations_id"` ligado a `glpi_locations`.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Solicitante: `tu."type" = 1` em `glpi_tickets_users`. Departamento via `u."groups_id"` em `glpi_users`. Empresa via `t."entities_id"` → `glpi_entities`. Localização via `u."locations_id"` → `glpi_locations`. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 
-Análise de **quem abre chamados**: top usuários, distribuição por departamento, empresa, localização e unidade organizacional.
+Análise de **quem abre chamados**: top solicitantes, departamento, empresa, localização e unidade.
 
 ---
 
-## Usuários que Mais Abrem Chamados
-
-Top 50 solicitantes por volume de chamados abertos. Base para identificar usuários com alta demanda de suporte.
+## Top 50 Solicitantes
 
 ```sql
 SELECT
-    u."id"                                AS solicitante_id,
-    u."firstname" || ' ' || u."realname"  AS solicitante_nome,
-    COUNT(DISTINCT t."id")                AS qtd_chamados_abertos
+    u."id"                                                        AS solicitante_id,
+    hs_str(u."firstname") || ' ' || hs_str(u."realname")          AS solicitante_nome,
+    COUNT(DISTINCT t."id")                                        AS qtd_chamados
 FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
-JOIN "glpi_tickets_users"@DBL_ORCL_TO_MYSQL tu ON tu."tickets_id" = t."id" AND tu."type" = 1
+JOIN "glpi_tickets_users"@DBL_ORCL_TO_MYSQL tu
+     ON tu."tickets_id" = t."id" AND tu."type" = 1  /* AJUSTE: ator solicitante */
 JOIN "glpi_users"@DBL_ORCL_TO_MYSQL u ON u."id" = tu."users_id"
 WHERE t."is_deleted" = 0
-GROUP BY u."id", u."firstname", u."realname"
-ORDER BY qtd_chamados_abertos DESC
+GROUP BY u."id", hs_str(u."firstname"), hs_str(u."realname")
+ORDER BY qtd_chamados DESC
 FETCH FIRST 50 ROWS ONLY;
 ```
 
@@ -41,35 +40,36 @@ FETCH FIRST 50 ROWS ONLY;
 
 ## Chamados por Departamento
 
-Agrupa chamados pelo grupo do usuário solicitante — visão por área da empresa. Exige que os usuários estejam vinculados a grupos no [[GLPI]].
+Agrupa pelo grupo principal do usuário (`u."groups_id"`) como proxy de departamento.
 
 ```sql
 SELECT
-    g."name"                AS departamento_grupo,
+    g."id"                  AS departamento_id,
+    hs_str(g."name")        AS departamento_nome,
     COUNT(DISTINCT t."id")  AS qtd_chamados
 FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
-JOIN "glpi_tickets_users"@DBL_ORCL_TO_MYSQL tu ON tu."tickets_id" = t."id" AND tu."type" = 1
+JOIN "glpi_tickets_users"@DBL_ORCL_TO_MYSQL tu
+     ON tu."tickets_id" = t."id" AND tu."type" = 1  /* AJUSTE: ator solicitante */
 JOIN "glpi_users"@DBL_ORCL_TO_MYSQL u ON u."id" = tu."users_id"
 LEFT JOIN "glpi_groups"@DBL_ORCL_TO_MYSQL g ON g."id" = u."groups_id"
 WHERE t."is_deleted" = 0
-GROUP BY g."id", g."name"
+GROUP BY g."id", hs_str(g."name")
 ORDER BY qtd_chamados DESC;
 ```
 
 ---
 
-## Chamados por Empresa
-
-Distribuição por entidade (`entities`) — útil em ambientes multi-empresa ou multi-filial no [[GLPI]].
+## Chamados por Empresa (Entidade)
 
 ```sql
 SELECT
-    e."completename" AS entidade_empresa,
-    COUNT(t."id")     AS qtd_chamados
+    e."id"                    AS empresa_id,
+    hs_str(e."completename")  AS empresa_nome,
+    COUNT(t."id")             AS qtd_chamados
 FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
 JOIN "glpi_entities"@DBL_ORCL_TO_MYSQL e ON e."id" = t."entities_id"
 WHERE t."is_deleted" = 0
-GROUP BY e."id", e."completename"
+GROUP BY e."id", hs_str(e."completename")
 ORDER BY qtd_chamados DESC;
 ```
 
@@ -77,16 +77,17 @@ ORDER BY qtd_chamados DESC;
 
 ## Chamados por Localização
 
-Distribuição por localização física cadastrada no chamado — identifica locais com maior demanda de TI (filiais, andares, setores).
-
 ```sql
 SELECT
-    COALESCE(l."completename", 'Sem localizacao') AS localizacao,
-    COUNT(t."id")                                  AS qtd_chamados
+    COALESCE(hs_str(l."completename"), 'Sem localizacao') AS localizacao,
+    COUNT(DISTINCT t."id")                                 AS qtd_chamados
 FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
-LEFT JOIN "glpi_locations"@DBL_ORCL_TO_MYSQL l ON l."id" = t."locations_id"
+JOIN "glpi_tickets_users"@DBL_ORCL_TO_MYSQL tu
+     ON tu."tickets_id" = t."id" AND tu."type" = 1  /* AJUSTE: ator solicitante */
+JOIN "glpi_users"@DBL_ORCL_TO_MYSQL u ON u."id" = tu."users_id"
+LEFT JOIN "glpi_locations"@DBL_ORCL_TO_MYSQL l ON l."id" = u."locations_id"
 WHERE t."is_deleted" = 0
-GROUP BY COALESCE(l."completename", 'Sem localizacao')
+GROUP BY COALESCE(hs_str(l."completename"), 'Sem localizacao')
 ORDER BY qtd_chamados DESC;
 ```
 
@@ -94,15 +95,17 @@ ORDER BY qtd_chamados DESC;
 
 ## Chamados por Unidade
 
-Similar ao select por empresa, mas exibe também `name` (nome curto) e `completename` (caminho hierárquico completo da entidade).
+Nome curto e caminho hierárquico completo da entidade.
 
 ```sql
 SELECT
-    e."id", e."name" AS unidade_nome, e."completename" AS caminho_completo,
-    COUNT(t."id")     AS qtd_chamados
+    e."id",
+    hs_str(e."name")           AS unidade_nome,
+    hs_str(e."completename")   AS caminho_completo,
+    COUNT(t."id")              AS qtd_chamados
 FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
 JOIN "glpi_entities"@DBL_ORCL_TO_MYSQL e ON e."id" = t."entities_id"
 WHERE t."is_deleted" = 0
-GROUP BY e."id", e."name", e."completename"
+GROUP BY e."id", hs_str(e."name"), hs_str(e."completename")
 ORDER BY qtd_chamados DESC;
 ```

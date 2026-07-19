@@ -14,9 +14,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Selects de detalhe por ticket — substituir `123` pelo ID real. `glpi_logs` é a tabela de auditoria central: registra todas as alterações de campos, status, grupo e técnico. `glpi_itilfollowups`, `glpi_tickettasks` e `glpi_itilsolutions` guardam o conteúdo das interações.
-
-Selects de **auditoria e rastreabilidade individual** de chamados: histórico completo, alterações por campo, soluções, followups, tarefas, custos, aprovações, [[SLA]] aplicado e vínculos com problemas/mudanças/projetos.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. `glpi_logs` é a tabela central de auditoria. Colunas `itemtype`, `itemtype_link`, `old_value`, `new_value` e `user_name` são VARCHAR — requerem [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] no SELECT **e no WHERE**. Selects de detalhe: trocar `123` pelo ID real do chamado.
 
 > [!tip] Como usar
 > Todos os selects abaixo são para análise de **um chamado específico**. Troque `items_id = 123` ou `tickets_id = 123` pelo ID do chamado desejado.
@@ -25,13 +23,17 @@ Selects de **auditoria e rastreabilidade individual** de chamados: histórico co
 
 ## Histórico Completo do Chamado
 
-Todas as alterações registradas em `glpi_logs` para um ticket — linha do tempo completa de quem alterou o quê e quando.
+Todas as alterações em `glpi_logs` para um ticket — linha do tempo de quem alterou o quê e quando.
 
 ```sql
 SELECT
-    l."date_mod", l."user_name", l."old_value", l."new_value", l."itemtype_link"
+    l."date_mod",
+    hs_str(l."user_name")       AS usuario,
+    hs_str(l."old_value")       AS valor_anterior,
+    hs_str(l."new_value")       AS valor_novo,
+    hs_str(l."itemtype_link")   AS tipo_campo
 FROM "glpi_logs"@DBL_ORCL_TO_MYSQL l
-WHERE l."itemtype" = 'Ticket'
+WHERE hs_str(l."itemtype") = 'Ticket'
   AND l."items_id" = 123
 ORDER BY l."date_mod";
 ```
@@ -40,12 +42,17 @@ ORDER BY l."date_mod";
 
 ## Alterações de Status
 
-Filtra o log somente para transições de status — traça o fluxo percorrido pelo chamado.
+Filtra o log somente para transições de status.
 
 ```sql
-SELECT l."date_mod", l."user_name", l."old_value" AS status_anterior, l."new_value" AS status_novo
+SELECT
+    l."date_mod",
+    hs_str(l."user_name")  AS usuario,
+    hs_str(l."old_value")  AS status_anterior,
+    hs_str(l."new_value")  AS status_novo
 FROM "glpi_logs"@DBL_ORCL_TO_MYSQL l
-WHERE l."itemtype" = 'Ticket' AND l."itemtype_link" = 'Ticket'
+WHERE hs_str(l."itemtype") = 'Ticket'
+  AND hs_str(l."itemtype_link") = 'Ticket'
   AND l."items_id" = 123
 ORDER BY l."date_mod";
 ```
@@ -54,14 +61,19 @@ ORDER BY l."date_mod";
 
 ## Alterações de Prioridade
 
-Filtra o log para mudanças de prioridade usando `REGEXP_LIKE` nos valores registrados.
+Filtra mudanças de prioridade usando `REGEXP_LIKE` nos valores registrados.
 
 ```sql
-SELECT l."date_mod", l."user_name", l."old_value", l."new_value"
+SELECT
+    l."date_mod",
+    hs_str(l."user_name")  AS usuario,
+    hs_str(l."old_value")  AS prioridade_anterior,
+    hs_str(l."new_value")  AS prioridade_nova
 FROM "glpi_logs"@DBL_ORCL_TO_MYSQL l
-WHERE l."itemtype" = 'Ticket' AND l."itemtype_link" = 'Ticket'
+WHERE hs_str(l."itemtype") = 'Ticket'
+  AND hs_str(l."itemtype_link") = 'Ticket'
   AND l."items_id" = 123
-  AND REGEXP_LIKE(l."old_value", '^(Muito Baixa|Baixa|Media|Alta|Muito Alta|Major)$')
+  AND REGEXP_LIKE(hs_str(l."old_value"), '^(Muito Baixa|Baixa|Media|Alta|Muito Alta|Major)$')
 ORDER BY l."date_mod";
 ```
 
@@ -69,12 +81,17 @@ ORDER BY l."date_mod";
 
 ## Alterações de Grupo (Reatribuição de Equipe)
 
-Mostra transferências de grupo responsável — rastreia por qual equipe o chamado passou.
+Mostra transferências de grupo responsável.
 
 ```sql
-SELECT l."date_mod", l."user_name", l."old_value" AS grupo_anterior, l."new_value" AS grupo_novo
+SELECT
+    l."date_mod",
+    hs_str(l."user_name")  AS usuario,
+    hs_str(l."old_value")  AS grupo_anterior,
+    hs_str(l."new_value")  AS grupo_novo
 FROM "glpi_logs"@DBL_ORCL_TO_MYSQL l
-WHERE l."itemtype" = 'Ticket' AND l."itemtype_link" = 'Group'
+WHERE hs_str(l."itemtype") = 'Ticket'
+  AND hs_str(l."itemtype_link") = 'Group'
   AND l."items_id" = 123
 ORDER BY l."date_mod";
 ```
@@ -83,12 +100,17 @@ ORDER BY l."date_mod";
 
 ## Alterações de Técnico
 
-Mostra trocas de técnico responsável — rastreia por quem o chamado foi atendido ao longo do tempo.
+Mostra trocas de técnico responsável.
 
 ```sql
-SELECT l."date_mod", l."user_name", l."old_value" AS tecnico_anterior, l."new_value" AS tecnico_novo
+SELECT
+    l."date_mod",
+    hs_str(l."user_name")  AS usuario,
+    hs_str(l."old_value")  AS tecnico_anterior,
+    hs_str(l."new_value")  AS tecnico_novo
 FROM "glpi_logs"@DBL_ORCL_TO_MYSQL l
-WHERE l."itemtype" = 'Ticket' AND l."itemtype_link" = 'User'
+WHERE hs_str(l."itemtype") = 'Ticket'
+  AND hs_str(l."itemtype_link") = 'User'
   AND l."items_id" = 123
 ORDER BY l."date_mod";
 ```
@@ -97,14 +119,18 @@ ORDER BY l."date_mod";
 
 ## Logs Recentes (Todos os Chamados)
 
-Visão consolidada de todas as alterações nos últimos 30 dias — útil para auditoria ampla ou detecção de anomalias.
+Todas as alterações nos últimos 30 dias — auditoria ampla ou detecção de anomalias.
 
 ```sql
 SELECT
-    l."items_id" AS ticket_id, l."date_mod", l."user_name",
-    l."itemtype_link", l."old_value", l."new_value"
+    l."items_id"                  AS ticket_id,
+    l."date_mod",
+    hs_str(l."user_name")         AS usuario,
+    hs_str(l."itemtype_link")     AS tipo_campo,
+    hs_str(l."old_value")         AS valor_anterior,
+    hs_str(l."new_value")         AS valor_novo
 FROM "glpi_logs"@DBL_ORCL_TO_MYSQL l
-WHERE l."itemtype" = 'Ticket'
+WHERE hs_str(l."itemtype") = 'Ticket'
   AND l."date_mod" >= TRUNC(SYSDATE) - 30
 ORDER BY l."date_mod" DESC;
 ```
@@ -113,18 +139,20 @@ ORDER BY l."date_mod" DESC;
 
 ## Soluções Aplicadas
 
-Conteúdo e metadados das soluções registradas — inclui tipo de solução, data de aprovação e autor.
+Conteúdo e metadados das soluções — tipo, data de aprovação e autor.
 
 ```sql
 SELECT
-    s."items_id" AS ticket_id, s."content" AS solucao,
-    st."name"    AS tipo_solucao,
-    s."date_creation", s."date_approval",
-    u."firstname" || ' ' || u."realname" AS autor_solucao
+    s."items_id"                                                        AS ticket_id,
+    hs_str(s."content")                                                 AS solucao,
+    hs_str(st."name")                                                   AS tipo_solucao,
+    s."date_creation",
+    s."date_approval",
+    hs_str(u."firstname") || ' ' || hs_str(u."realname")               AS autor_solucao
 FROM "glpi_itilsolutions"@DBL_ORCL_TO_MYSQL s
 LEFT JOIN "glpi_solutiontypes"@DBL_ORCL_TO_MYSQL st ON st."id" = s."solutiontypes_id"
 LEFT JOIN "glpi_users"@DBL_ORCL_TO_MYSQL u          ON u."id" = s."users_id"
-WHERE s."itemtype" = 'Ticket'
+WHERE hs_str(s."itemtype") = 'Ticket'
 ORDER BY s."date_creation" DESC;
 ```
 
@@ -132,17 +160,20 @@ ORDER BY s."date_creation" DESC;
 
 ## Followups (Acompanhamentos)
 
-Interações registradas nos followups — inclui canal de origem, se é privado e o autor.
+Interações nos followups — canal de origem, se é privado e autor.
 
 ```sql
 SELECT
-    f."items_id" AS ticket_id, f."date", f."content", f."is_private",
-    rt."name" AS canal_origem,
-    u."firstname" || ' ' || u."realname" AS autor
+    f."items_id"                                                        AS ticket_id,
+    f."date",
+    hs_str(f."content")                                                 AS conteudo,
+    f."is_private",
+    hs_str(rt."name")                                                   AS canal_origem,
+    hs_str(u."firstname") || ' ' || hs_str(u."realname")               AS autor
 FROM "glpi_itilfollowups"@DBL_ORCL_TO_MYSQL f
 LEFT JOIN "glpi_users"@DBL_ORCL_TO_MYSQL u         ON u."id" = f."users_id"
 LEFT JOIN "glpi_requesttypes"@DBL_ORCL_TO_MYSQL rt ON rt."id" = f."requesttypes_id"
-WHERE f."itemtype" = 'Ticket'
+WHERE hs_str(f."itemtype") = 'Ticket'
 ORDER BY f."date" DESC;
 ```
 
@@ -150,13 +181,15 @@ ORDER BY f."date" DESC;
 
 ## Tarefas
 
-Tarefas registradas no chamado com tempo de início/fim, duração e técnico responsável.
+Tarefas registradas com tempo de início/fim, duração e técnico responsável.
 
 ```sql
 SELECT
-    tt."tickets_id", tt."content", tt."begin", tt."end", tt."actiontime",
-    tc."name" AS categoria_tarefa,
-    u."firstname" || ' ' || u."realname" AS tecnico_responsavel
+    tt."tickets_id",
+    hs_str(tt."content")                                                AS descricao,
+    tt."begin", tt."end", tt."actiontime",
+    hs_str(tc."name")                                                   AS categoria_tarefa,
+    hs_str(u."firstname") || ' ' || hs_str(u."realname")               AS tecnico_responsavel
 FROM "glpi_tickettasks"@DBL_ORCL_TO_MYSQL tt
 LEFT JOIN "glpi_taskcategories"@DBL_ORCL_TO_MYSQL tc ON tc."id" = tt."taskcategories_id"
 LEFT JOIN "glpi_users"@DBL_ORCL_TO_MYSQL u            ON u."id" = tt."users_id_tech"
@@ -167,12 +200,14 @@ ORDER BY tt."date" DESC;
 
 ## Custos por Chamado
 
-Detalhamento de custos: mão de obra (`cost_time`), fixo (`cost_fixed`) e material (`cost_material`).
+Detalhamento de custos: mão de obra, fixo e material.
 
 ```sql
 SELECT
-    tc."tickets_id", tc."name", tc."cost_time", tc."cost_fixed", tc."cost_material",
-    (tc."cost_time" + tc."cost_fixed" + tc."cost_material") AS custo_total
+    tc."tickets_id",
+    hs_str(tc."name")                                                   AS descricao_custo,
+    tc."cost_time", tc."cost_fixed", tc."cost_material",
+    (tc."cost_time" + tc."cost_fixed" + tc."cost_material")             AS custo_total
 FROM "glpi_ticketcosts"@DBL_ORCL_TO_MYSQL tc
 ORDER BY custo_total DESC;
 ```
@@ -181,13 +216,13 @@ ORDER BY custo_total DESC;
 
 ## Aprovações
 
-Registro de validações/aprovações de chamado — quem solicitou, quem aprovou e quando.
+Registro de validações — quem solicitou, quem aprovou e quando.
 
 ```sql
 SELECT
     tv."tickets_id", tv."status", tv."submission_date", tv."validation_date",
-    sol."firstname" || ' ' || sol."realname" AS solicitado_por,
-    apr."firstname" || ' ' || apr."realname" AS aprovador
+    hs_str(sol."firstname") || ' ' || hs_str(sol."realname") AS solicitado_por,
+    hs_str(apr."firstname") || ' ' || hs_str(apr."realname") AS aprovador
 FROM "glpi_ticketvalidations"@DBL_ORCL_TO_MYSQL tv
 LEFT JOIN "glpi_users"@DBL_ORCL_TO_MYSQL sol ON sol."id" = tv."users_id"
 LEFT JOIN "glpi_users"@DBL_ORCL_TO_MYSQL apr ON apr."id" = tv."users_id_validate"
@@ -198,13 +233,13 @@ ORDER BY tv."submission_date" DESC;
 
 ## SLA Aplicado ao Chamado
 
-Mostra qual [[SLA]] de TTO (tempo até atendimento) e TTR (resolução) foi aplicado, e os prazos resultantes.
+Qual [[SLA]] de TTO e TTR foi aplicado e os prazos resultantes.
 
 ```sql
 SELECT
-    t."id" AS ticket_id,
-    sla_tto."name" AS sla_primeiro_atendimento,
-    sla_ttr."name" AS sla_resolucao,
+    t."id"                           AS ticket_id,
+    hs_str(sla_tto."name")           AS sla_primeiro_atendimento,
+    hs_str(sla_ttr."name")           AS sla_resolucao,
     t."time_to_own", t."time_to_resolve"
 FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
 LEFT JOIN "glpi_slas"@DBL_ORCL_TO_MYSQL sla_tto ON sla_tto."id" = t."slas_id_tto"
@@ -216,12 +251,14 @@ WHERE t."is_deleted" = 0;
 
 ## SLA Vencido (Em Aberto)
 
-Chamados em aberto com prazo de resolução expirado e quantidade de horas de atraso.
+Chamados em aberto com prazo de resolução expirado.
 
 ```sql
 SELECT
-    t."id", t."name", t."time_to_resolve",
-    ROUND((SYSDATE - t."time_to_resolve") * 24, 1) AS horas_vencidas
+    t."id",
+    hs_str(t."name")                                 AS nome_chamado,
+    t."time_to_resolve",
+    ROUND((SYSDATE - t."time_to_resolve") * 24, 1)   AS horas_vencidas
 FROM "glpi_tickets"@DBL_ORCL_TO_MYSQL t
 WHERE t."is_deleted" = 0
   AND t."status" IN (1, 2, 3, 4)
@@ -234,11 +271,13 @@ ORDER BY horas_vencidas DESC;
 
 ## Itens Relacionados (Ativos de TI)
 
-Ativos de TI vinculados ao chamado — equipamentos, softwares ou outros itens do inventário [[GLPI]].
+Ativos de TI vinculados ao chamado — equipamentos, softwares ou outros itens do inventário.
 
 ```sql
 SELECT
-    it."tickets_id", it."itemtype" AS tipo_ativo, it."items_id" AS ativo_id
+    it."tickets_id",
+    hs_str(it."itemtype") AS tipo_ativo,
+    it."items_id"          AS ativo_id
 FROM "glpi_items_tickets"@DBL_ORCL_TO_MYSQL it
 WHERE it."tickets_id" = 123;
 ```
@@ -247,14 +286,18 @@ WHERE it."tickets_id" = 123;
 
 ## Documentos Anexos
 
-Arquivos anexados ao chamado via `glpi_documents_items`.
+Arquivos anexados via `glpi_documents_items`.
 
 ```sql
 SELECT
-    doc."name", doc."filename", doc."filesize", doc."mime", di."date_creation"
+    hs_str(doc."name")      AS nome_documento,
+    hs_str(doc."filename")  AS arquivo,
+    doc."filesize",
+    hs_str(doc."mime")      AS tipo_mime,
+    di."date_creation"
 FROM "glpi_documents_items"@DBL_ORCL_TO_MYSQL di
 JOIN "glpi_documents"@DBL_ORCL_TO_MYSQL doc ON doc."id" = di."documents_id"
-WHERE di."itemtype" = 'Ticket'
+WHERE hs_str(di."itemtype") = 'Ticket'
   AND di."items_id" = 123;
 ```
 
@@ -262,14 +305,16 @@ WHERE di."itemtype" = 'Ticket'
 
 ## Base de Conhecimento Relacionada
 
-Artigos da base de conhecimento vinculados ao chamado — indica se há solução documentada disponível.
+Artigos da base de conhecimento vinculados ao chamado.
 
 ```sql
 SELECT
-    kb."id", kb."name", kb."is_faq"
+    kb."id",
+    hs_str(kb."name") AS artigo,
+    kb."is_faq"
 FROM "glpi_knowbaseitems_items"@DBL_ORCL_TO_MYSQL ki
 JOIN "glpi_knowbaseitems"@DBL_ORCL_TO_MYSQL kb ON kb."id" = ki."knowbaseitems_id"
-WHERE ki."itemtype" = 'Ticket'
+WHERE hs_str(ki."itemtype") = 'Ticket'
   AND ki."items_id" = 123;
 ```
 
@@ -277,25 +322,23 @@ WHERE ki."itemtype" = 'Ticket'
 
 ## Problemas, Mudanças e Projetos Relacionados
 
-Vínculos do chamado com problemas (`glpi_problems`), mudanças (`glpi_changes`) e projetos (`glpi_projects`).
-
 ```sql
 -- Problemas vinculados
-SELECT p."id", p."name", p."status", pt."link"
+SELECT p."id", hs_str(p."name") AS problema, p."status", pt."link"
 FROM "glpi_problems_tickets"@DBL_ORCL_TO_MYSQL pt
 JOIN "glpi_problems"@DBL_ORCL_TO_MYSQL p ON p."id" = pt."problems_id"
 WHERE pt."tickets_id" = 123;
 
 -- Mudanças vinculadas
-SELECT c."id", c."name", c."status", ct."link"
+SELECT c."id", hs_str(c."name") AS mudanca, c."status", ct."link"
 FROM "glpi_changes_tickets"@DBL_ORCL_TO_MYSQL ct
 JOIN "glpi_changes"@DBL_ORCL_TO_MYSQL c ON c."id" = ct."changes_id"
 WHERE ct."tickets_id" = 123;
 
 -- Projetos vinculados
-SELECT pr."id", pr."name", pr."percent_done"
+SELECT pr."id", hs_str(pr."name") AS projeto, pr."percent_done"
 FROM "glpi_items_projects"@DBL_ORCL_TO_MYSQL ip
 JOIN "glpi_projects"@DBL_ORCL_TO_MYSQL pr ON pr."id" = ip."projects_id"
-WHERE ip."itemtype" = 'Ticket'
+WHERE hs_str(ip."itemtype") = 'Ticket'
   AND ip."items_id" = 123;
 ```
