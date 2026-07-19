@@ -47,3 +47,23 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Apuração CAT 28]] | Apuração periódica de exclusão de produtos do regime ST (CAT 28/SP) — geração de TXT por loja |
 > | [[API - SQL de Tela Web TOTVS]] | Como descobrir qual consulta SQL uma tela Web da TOTVS executa via DevTools + V$SQL |
 > | [[Validação de Cadastros Tributários - vMaster]] | 22 validações de cadastro fiscal de produtos — NCM, CST, IPI, ST, cBenef, origem IMP/NAC |
+
+> [!note]+ GLPI — Dashboards via DBLink Oracle → MySQL
+> Selects Oracle SQL (via DBLink `@DBL_ORCL_TO_MYSQL`) para relatórios gerenciais do GLPI (helpdesk/chamados).
+>
+> | Finalidade | Descrição |
+> |------------|-----------|
+> | [[Volume e Tendências]] | Chamados abertos/fechados por mês, dia, semana, hora e dia da semana |
+> | [[Backlog]] | Backlog atual por equipe, técnico, categoria, prioridade, idade e SLA vencido |
+> | [[SLA]] | SLA cumprido × perdido, por equipe/prioridade/categoria, MTTA e MTTR global |
+> | [[Produtividade]] | Resolvidos, atribuídos, ranking, horas gastas e reaberturas por técnico |
+> | [[Categorias]] | Distribuição, subcategorias, evolução mensal, crescimento e Pareto |
+> | [[Solicitantes]] | Top usuários, por departamento, empresa, localização e unidade |
+> | [[Técnicos]] | Carga, pendentes, fechados, MTTA e MTTR por técnico |
+> | [[Status e Fluxo]] | Distribuição por status, tempo em cada status, fluxo de transições |
+> | [[Qualidade]] | Reaberturas, reincidentes, duplicados, top problemas e busca por palavras |
+> | [[Prioridades]] | Distribuição, críticos e urgentes em aberto, MTTR por prioridade |
+> | [[Grupos]] | Chamados, produtividade, SLA e backlog por grupo responsável |
+> | [[Tempo e Custos]] | Horas registradas, faturáveis, paradas e custo por chamado |
+> | [[Análise Executiva]] | Top assuntos, Pareto, tendência com média móvel, crescimento e heatmaps |
+> | [[Rastreabilidade de Chamados]] | Histórico completo, alterações, soluções, followups, tarefas e vínculos |
