@@ -31,7 +31,8 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 ├── Grupo ESP/SD  → job failures direcionados
 ├── Grupo BI      → alertas de visões BI
 ├── Grupo GSD     → grupos WA (carga PDV, exportação, BI)
-└── Grupo CFG     → alertas de serviço interrompido
+├── Grupo CFG     → alertas de serviço interrompido
+└── Grupo UNOUS   → erros da API Unous
 ```
 
 **API de envio:** [[TextMeBot]] (`http://api.textmebot.com/send.php`)
@@ -64,6 +65,7 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGP_WTS_V2_STATUS_EXP_INT_PDV`      | Exportação de documentos [[PDV]] atrasada > 5 min (horário 07–21h)                                                                                                                                                                                                                            | `NAGV_STATUS_EXP_INT_PDV_v2` + `CONSINCO.VENDAS_PDV` + `@BI` (valor de venda comparado)                             |                                                                |
 | `NAGP_WTS_V2_ALERTAS_BI`              | Visão [[Qlik Sense]] desatualizada além do threshold configurado por visão na tabela                                                                                                                                                                                                          | `NAGT_CONTROLE_ATUALIZACAO_BI` — threshold variável por `VISAO`                                                     |                                                                |
 | `NAGP_WTS_V2_ALERTAS_BOT_DOWN`        | Serviço de captura de dados interrompido (sem registro recente)                                                                                                                                                                                                                               | `NAGT_CONTROLE_ATUALIZACAO_BI` — DTAREGISTRO atrasado além de `MIN_TMP_REGISTRO` por visão                          |                                                                |
+| `NAGP_WTS_V2_LOG_API_UNOUS`           | Erros registrados na API Unous não processados — envia uma mensagem por registro com data/hora e texto do erro; sleep de 5 s entre envios                                                                                                                                                     | `NAGT_LOG_API_UNOUS` (`INDLOGPROCESSADO = 'N'`); marcação como processado (`'S'`) feita pelo orquestrador após o loop |                                                                |
 
 ### Bidirecional — Execução de Comandos via [[WhatsApp]]
 
@@ -84,7 +86,8 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `ESP` / `SD` | Job                                                                          | Jobs falhados direcionados mapeados em `NAGT_WTS_SCHED_DIR_CONTROL`                                                                             |
 | `BI`         | Alertas de visões [[Qlik Sense]] desatualizadas                              |                                                                                                                                                 |
 | `GSD`        | Grupos [[WhatsApp]]: controle de carga [[PDV]] + exportação + alertas [[BI]] |                                                                                                                                                 |
-| `CFG`        | Apenas alertas de serviço interrompido (bot down)                            |                                                                                                                                                 |
+| `CFG`        | Apenas alertas de serviço interrompido (bot down)                            |
+| `UNOUS`      | Erros da API Unous (`NAGP_WTS_V2_LOG_API_UNOUS`)                             |                                                                                                                                                 |
 
 > `PERM_CMD = 'S'` habilita execução de comandos remotos para o número cadastrado.
 
@@ -110,6 +113,7 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGT_CONTROLE_ATUALIZACAO_BI` | Configuração e controle por visão [[BI]] — ver detalhes abaixo |
 | `NAGT_CONTROLECARGAPDV` | Histórico intra-dia de falhas de carga PDV — alimentado por `NAGP_WTS_V2_CONTROLECARGA_PDV_CTD`; base para o contador de persistência |
 | `NAGV_CONTROLECARGAPDV_CTD` | View que agrega a contagem de ocorrências do dia por empresa e tabela (`QTD_DIA`); usada pelo indicador de nível ▱/▰ |
+| `NAGT_LOG_API_UNOUS` | Log de erros da API Unous: `DTALOG`, `ERRO`, `INDLOGPROCESSADO` (`'N'` = pendente, `'S'` = enviado) |
 
 ---
 
