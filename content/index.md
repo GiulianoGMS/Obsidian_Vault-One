@@ -26,6 +26,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Régua de Cobrança - Implementação]] | Cobrança escalonada D0→D+15 com e-mail automático e bloqueio de lote de compras |
 > | [[Correção de Impostos no Recebimento]] | Paliativos CBS/IBS/IPI/ICMS Desonerado aplicados no recebimento de NF-e (Reforma Tributária) |
 > | [[Alerta Status SEFAZ]] | Sincroniza status dos webservices SEFAZ (NFe/NFC-e) em tabela Oracle e dispara alerta no ERP |
+> | [[Etiqueta FLV - Informação Nutricional]] | View Oracle que gera ZPL de etiqueta nutricional FLV — pivot de nutrientes do ERP para impressora Zebra |
 
 > [!example]+ Integrações
 > Exportações e sincronizações com plataformas externas via CSV / UTL_FILE.
@@ -67,4 +68,4 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Tempo e Custos]] | Horas registradas, faturáveis, paradas e custo por chamado |
 > | [[Análise Executiva]] | Top assuntos, Pareto, tendência com média móvel, crescimento e heatmaps |
 > | [[Rastreabilidade de Chamados]] | Histórico completo, alterações, soluções, followups, tarefas e vínculos |
-> | [[hs_str — Conversão UTF-16 via DBLink]] | Função Oracle que corrige truncamento VARCHAR causado por encoding UTF-16 LE do driver ODBC MySQL |
+> | [[_hs_str — Conversão UTF-16 via DBLink]] | Função Oracle que corrige truncamento VARCHAR causado por encoding UTF-16 LE do driver ODBC MySQL |
