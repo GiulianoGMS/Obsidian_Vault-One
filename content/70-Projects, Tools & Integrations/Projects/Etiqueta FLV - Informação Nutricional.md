@@ -20,7 +20,7 @@ Type: Project
 ---
 
 > [!info] Contexto
-> Geração automática de etiqueta de **Informação Nutricional** para produtos da linha **FLV (FruLeVe)** diretamente pelo ERP Oracle. O ERP monta a string [[ZPL]] completa via view, que é enviada à impressora Zebra para impressão sob demanda. Os dados nutricionais são cadastrados no ERP por família de produto e consultados via pivot view.
+> Geração automática de etiqueta de **Informação Nutricional** para produtos **FLV (Bandejas)** diretamente pelo ERP Oracle. O ERP monta a string [[ZPL]] completa via view, que é enviada à impressora Zebra para impressão sob demanda. Os dados nutricionais são cadastrados no ERP por família de produto e consultados via pivot view.
 
 ---
 
@@ -159,20 +159,15 @@ Gera a string [[ZPL]] completa por produto. Cada linha do resultado é uma etiqu
 
 ---
 
-## Print da Etiqueta
+## Print da Etiqueta (Informacoes)
 
-> [!note] Adicionar print aqui
-> _Inserir screenshot ou foto da etiqueta impressa._
+> ![[{6F11ADC6-10D2-4AC5-9CC2-DB5D3E3F62D8}.png]]
 
 ---
 
 ## Pendências (TODOs)
 
-> [!warning] Itens pendentes no código
-
-| # | Campo | Situação | Nota no código |
-|---|-------|----------|---------------|
-| 1 | Origem (UF) | ⚠️ Hardcoded `PRODUTO DO BRASIL` | Puxar UF do CD na última nota de entrada do produto |
-| 2 | Medida caseira | ⚠️ Não implementado | Ex.: `"1/2 xícara de chá"` — falta de-para via `MEDCASEIRA / INTMEDCASEIRA / DECMEDCASEIRA` |
-| 3 | Peso da embalagem | ⚠️ Hardcoded `6 g` | Tornar dinâmico |
-| 4 | Casas decimais no pivot | ⚠️ Em análise | `REPLACE(',','.')` em `MAP_INFNUTRICTAB.DESCQTDPORCAO` — ajustar conforme definição de casas |
+- [ ] **Origem (UF)** — puxar UF do CD na última nota de entrada do produto (atualmente hardcoded `PRODUTO DO BRASIL`)
+- [ ] **Medida caseira** — exibir ex.: `"1/2 xícara de chá"` na linha da porção; falta de-para via `MEDCASEIRA / INTMEDCASEIRA / DECMEDCASEIRA`
+- [x] **Peso da embalagem** — tornar dinâmico (atualmente hardcoded `6 g`)
+- [ ] **Casas decimais no pivot** — ajustar `REPLACE(',','.')` em `MAP_INFNUTRICTAB.DESCQTDPORCAO` conforme definição de casas decimais
