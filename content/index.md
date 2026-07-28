@@ -11,7 +11,8 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 >
 > | Projeto | Descrição |
 > |---------|-----------|
-> | [[Oracle Auto Reports - Whatsapp Bot]] | Agente Oracle integrado ao WhatsApp 
+> | [[Oracle Auto Reports - Whatsapp Bot]] | Agente Oracle integrado ao WhatsApp
+> | [[KPIs - Alertas Carga PDV (CTD)]] | 10 KPIs de análise da tabela `NAGT_CONTROLECARGAPDV` — ranking de lojas, checkouts, tabelas, heatmap e evolução diária |
 > | [[BLB - Extracao Fiscal]] | Extração fiscal de NF-e saídas, entradas e cupons SAT para CSV |
 > | [[Lote de Compra - Geração Automática]] | Geração automática de lotes de compra com sugestão MIN/MAX |
 > | [[Validações de Inconsistências - PDV TOTVs]] | Validações de produtos, famílias e tributações — PKG_INCONSISTENCIAS |
