@@ -59,12 +59,12 @@ tags:
 
 > Campos CBS/IBS faltantes ou incorretos nos itens fazem o total da NF divergir do somatório.
 
-| Campo | Valor |
-|-------|-------|
-| Objeto (v2) | [NAGP_PALIATIVO_CBS_IBS_DEV_TOT_v2](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_PALIATIVO_CBS_IBS_DEV_TOT_v2.prc) |
-| Job | NAGJ_PALIAT_DEV_RED_CBSIBS |
-| Prazo | Ativo até **31/08/2026** |
-| Limite de tentativas | Máximo **4 por [[NFe]]** (controle via `NAGT_PALIAT_DEV`) |
+| Campo                | Valor                                                                                                                                  |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Objeto (v2)          | [NAGP_PALIATIVO_CBS_IBS_DEV_TOT_v2](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_PALIATIVO_CBS_IBS_DEV_TOT_v2.prc) |
+| Job                  | NAGJ_PALIAT_DEV_RED_CBSIBS                                                                                                             |
+| Prazo                | Ativo até **31/08/2026**                                                                                                               |
+| Limite de tentativas | Máximo **4 por [[NFe]]** (controle via `NAGT_PALIAT_DEV`)                                                                              |
 
 **NFs elegíveis (UNION de dois critérios):**
 
