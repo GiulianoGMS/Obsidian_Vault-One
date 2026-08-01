@@ -146,3 +146,59 @@ DTAREGISTRO atrasado além de MIN_TMP_REGISTRO minutos  → serviço não está 
 STATUS_ALERTA = 'A'
 ```
 > `MIN_TMP_REGISTRO` é lido diretamente da linha (`X.MIN_TMP_REGISTRO`), portanto cada visão do [[BI]] tem sua própria tolerância configurada.
+
+---
+
+## Como obter o Group ID do WhatsApp
+
+O `Group_Id` é necessário para cadastrar um grupo (como o GERP) na tabela `NAGT_API_CALL_NUMBERS`. A [[TextMeBot]] expõe um endpoint específico para recuperá-lo a partir do link de convite do grupo.
+
+> [!warning] Pré-requisito
+> O número cadastrado na [[TextMeBot]] precisa ser **membro do grupo** antes de executar a consulta.
+
+### Passo a Passo
+
+**1 — Obter o código do link de convite**
+
+Copiar o link de convite do grupo WhatsApp. O código é a parte final da URL:
+
+```
+https://chat.whatsapp.com/CODIGO_CONVITE
+                           ^^^^^^^^^^^^^^
+```
+
+---
+
+**2 — Consultar o endpoint `group_info`**
+
+Fazer uma requisição GET substituindo `CODIGO_CONVITE` e `SUA_API_KEY`:
+
+```
+http://api.textmebot.com/send.php?group_info=CODIGO_CONVITE&text=teste&apikey=SUA_API_KEY
+```
+
+---
+
+**3 — Localizar o Group ID na resposta**
+
+A resposta conterá uma linha no formato:
+
+```
+Group ID: 123456789012345678@g.us
+```
+
+O valor completo (incluindo `@g.us`) é o `Group_Id`.
+
+---
+
+**4 — Cadastrar na tabela**
+
+Inserir ou atualizar o registro em `NAGT_API_CALL_NUMBERS`:
+
+| Coluna | Valor |
+|--------|-------|
+| `GROUP_ID` | `123456789012345678@g.us` |
+| `TYPE` | `GERP` (ou o tipo correspondente) |
+| `NROTELEFONE` | pode ficar vazio para destinatários do tipo grupo |
+
+O parâmetro `psNroTelefone VARCHAR2` das procedures aceita tanto o `Group_Id` quanto um número individual — nenhuma alteração de assinatura é necessária.
