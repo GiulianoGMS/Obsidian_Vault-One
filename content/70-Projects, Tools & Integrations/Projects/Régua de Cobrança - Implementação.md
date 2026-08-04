@@ -60,14 +60,23 @@ Consolida todos os acordos com parcelas em aberto elegíveis à cobrança.
 
 **Cálculo do Nível da Régua (`NIVEL_REGUA`):**
 
+> [!warning] Lógica pós-vencimento
+> A régua foi invertida: os disparos ocorrem **após** o vencimento, não antes. Valores negativos = dias em atraso.
+
 ```sql
 CASE
-  WHEN F.DTAVENCIMENTO - TRUNC(SYSDATE) = 15 THEN 1   -- D0
-  WHEN F.DTAVENCIMENTO - TRUNC(SYSDATE) = 10 THEN 2   -- D+5
-  WHEN F.DTAVENCIMENTO - TRUNC(SYSDATE) = 5  THEN 3   -- D+10
-  WHEN F.DTAVENCIMENTO - TRUNC(SYSDATE) <= 0 THEN 4   -- D+15 (vencido)
+  WHEN F.DTAVENCIMENTO - TRUNC(SYSDATE) = -1  THEN 1   -- D+1  (1 dia após vencimento)
+  WHEN F.DTAVENCIMENTO - TRUNC(SYSDATE) = -6  THEN 2   -- D+6
+  WHEN F.DTAVENCIMENTO - TRUNC(SYSDATE) = -11 THEN 3   -- D+11
+  WHEN F.DTAVENCIMENTO - TRUNC(SYSDATE) <= -16 THEN 4  -- D+16 em diante
 END NIVEL_REGUA
 ```
+
+**Demais filtros da view:**
+- `DATA_EMISSAO >= DATE '2026-07-14'` — data fixa de corte (substituiu `SYSDATE - 30`)
+- `NIVEL_REGUA IS NOT NULL` — exclui registros fora dos marcos de disparo
+- `NOT EXISTS (NAGT_LOG_ENVIO_ACO_EMAIL WHERE DATA_ENVIO >= TRUNC(SYSDATE) AND TIPO = 'Regua')` — anti-duplicidade: exclui acordos já enviados no dia
+- `PARCELA` corrigido para `NROPARCELA||'/'||QTDPARCELA` (ordem parcela atual / total)
 ---
 ### `Loop de Chamada da Regua` — Orquestrador
 
@@ -75,12 +84,12 @@ Executa diariamente. Percorre os representantes distintos com [[acordos]] no ní
 
 **Escalonamento de cópias por nível:**
 
-| Nível | Marco | Dias restantes | C.A.R | Fin. Fornec. | Comprador | Diretoria |
-| ----- | ----- | -------------- | ----- | ------------ | --------- | --------- |
-| 1     | D0    | 15 dias        | ✗     | ✗            | ✗         | ✗         |
-| 2     | D+5   | 10 dias        | ✓     | ✓            | ✓         | ✗         |
-| 3     | D+10  | 5 dias         | ✓     | ✓            | ✓         | ✗         |
-| 4     | D+15  | 0 dias         | ✓     | ✓            | ✓         | ✓         |
+| Nível | Marco | Atraso       | C.A.R | Fin. Fornec. | Comprador | Diretoria |
+| ----- | ----- | ------------ | ----- | ------------ | --------- | --------- |
+| 1     | D+1   | 1 dia        | ✗     | ✗            | ✗         | ✗         |
+| 2     | D+6   | 6 dias       | ✓     | ✓            | ✓         | ✗         |
+| 3     | D+11  | 11 dias      | ✓     | ✓            | ✓         | ✗         |
+| 4     | D+16+ | 16+ dias     | ✓     | ✓            | ✓         | ✓         |
 # Loop no PLSQL
 
 [[Job]]: **NAGJ_REGUA_DE_COBRANCA**
@@ -131,13 +140,14 @@ NAGP_EMAIL_REGUA_COBRANCA(
 ```
 
 **Fluxo interno:**
-1. Busca os dados da view base filtrando pelo e-mail do [[representante]] e nível
-2. Agrega acordos distintos e coleta: nome do [[comprador]], [[representante]], [[fornecedor]], e-mails
-3. Monta lista de destinatários em cópia conforme parâmetros `'S'/'N'`
-4. Gera tabela HTML com todas as parcelas em aberto (acordo, parcela, vencimento, valor)
-5. Constrói e-mail HTML completo com cabeçalho, mensagem dinâmica e rodapé
-6. Envia via `CONSINCO.SP_ENVIA_EMAIL()`
-7. Registra log em `NAGT_LOG_ENVIO_ACO_EMAIL`
+1. Anti-duplicidade: verifica `NAGT_LOG_ENVIO_ACO_EMAIL` — se o acordo já foi enviado hoje (`DATA_ENVIO >= TRUNC(SYSDATE)` e `TIPO = 'Regua'`), ignora
+2. Busca os dados da view base filtrando pelo e-mail do [[representante]] e nível
+3. Agrega acordos distintos e coleta: nome do [[comprador]], [[representante]], [[fornecedor]], e-mails
+4. Monta lista de destinatários em cópia conforme parâmetros `'S'/'N'`
+5. Para cada parcela no loop: **insere log** em `NAGT_LOG_ENVIO_ACO_EMAIL` com `TIPO = 'Regua'` e `PARCELA` antes do envio
+6. Gera tabela HTML com todas as parcelas em aberto (acordo, parcela, vencimento, valor)
+7. Constrói e-mail HTML completo com cabeçalho, mensagem dinâmica e rodapé
+8. Envia via `CONSINCO.SP_ENVIA_EMAIL()` para **todos** os destinatários ativos (`psEmailComprador + psEmailFinFornec + psEmailCAR + psEmailTI + psEmailDiretoria + vsEmail`)
 
 **Assunto do e-mail:** `Nagumo - Acordos Comerciais - Pendências de Pagamentos`
 
@@ -147,12 +157,12 @@ NAGP_EMAIL_REGUA_COBRANCA(
 
 O corpo é gerado dinamicamente em HTML. A mensagem varia conforme o nível:
 
-| Nível    | Texto dinâmico (`[X] dias`)           |
-| -------- | ------------------------------------- |
-| 1 (D0)   | "…bloqueio do pedido em **15 dias**." |
-| 2 (D+5)  | "…bloqueio do pedido em **10 dias**." |
-| 3 (D+10) | "…bloqueio do pedido em **5 dias**."  |
-| 4 (D+15) | *(pendente definição)*                |
+| Nível     | Texto dinâmico                                                                                                           |
+| --------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 1 (D+1)   | "…parcelas vencidas… bloqueio do pedido em `DIAS_ATE_VENC` dias."                                                       |
+| 2 (D+6)   | "…parcelas vencidas… bloqueio do pedido em `DIAS_ATE_VENC` dias."                                                       |
+| 3 (D+11)  | "…parcelas vencidas… bloqueio do pedido em `DIAS_ATE_VENC` dias."                                                       |
+| 4 (D+16+) | "Informamos que o prazo para normalização dos pagamentos expirou. Conforme comunicado anteriormente, seus pedidos foram bloqueados até a regularização." |
 
 **Estrutura do e-mail:**
 
@@ -208,25 +218,44 @@ Para o email do fornecedor, é preciso que o mesmo existe no respectivo cadastro
 
 ## Crítica no Lote de Compras (Bloqueio)
 
-Adicionada à view `MACV_CONSISTELOTECOMPRA`. Bloqueia a geração do lote quando o fornecedor possui parcelas vencidas e não quitadas para o representante vinculado ao pedido.
+Adicionada à view `MACV_CONSISTELOTECOMPRA`. Bloqueia novos lotes quando o fornecedor possui parcelas de acordos com **todos os 4 níveis de e-mail já enviados** e a parcela ainda não quitada.
 
-**Condição de bloqueio:**
+**Condição de bloqueio (reformulada):**
+
+O bloqueio não usa mais `NAGV_BASE_REGUA_COBRANCA` — consulta `FI_TITULO` diretamente e verifica o log:
+
 ```sql
-R.DIAS_ATE_VENC < 0  -- Parcela já vencida (negativo = dias em atraso)
+-- bloqueia se: todos os 4 níveis já foram enviados E o lote não foi liberado manualmente
+EXISTS (
+    SELECT 1 FROM NAGT_LOG_ENVIO_ACO_EMAIL AC
+    WHERE AC.NRO_ACORDO = FI.NROTITULO
+      AND AC.PARCELA    = FI.NROPARCELA||'/'||FI.QTDPARCELA
+      AND AC.DATA_ENVIO >= DATE '2026-08-01'
+      AND AC.TIPO       = 'Regua'
+    HAVING COUNT(1) = 4   -- todos os 4 níveis enviados
+)
+AND NOT EXISTS (
+    SELECT 1 FROM NAGT_LOTE_LIBERADO_CRIT L
+    WHERE L.SEQGERCOMPRA = X.SEQGERCOMPRA
+)
 ```
+
+**Demais filtros do lote:**
+- `SITUACAOLOTE NOT IN ('F','C')` — ignora lotes finalizados ou cancelados
+- `DTAHORINCLUSAO >= SYSDATE - 30` — lotes dos últimos 30 dias
 
 **Mensagem exibida no sistema:**
 ```
 Consistência 110:
 "Existem Pagamentos/Parcelas de Acordos Vencidas e não Quitadas para o Representante!"
-Complemento: Rep.: [NOME] Acordo: [NRO] Parcela: [X] Valor.: [R$ X,XX]
+Complemento: Rep.: [NOME] Acordo: [NRO] Parcela: [X/TOTAL] Valor.: [X]
 ```
 
 > [!note] Print
 > ![[Pasted image 20260612155407.png]]
 
-> [!warning] Restrição de testes
-> Durante a validação, o bloqueio está restrito ao lote de compra `SEQGERCOMPRA = 444278`. Após aprovação, remover o filtro para aplicar a todos os lotes.
+> [!success] Restrição de teste removida
+> O filtro `SEQGERCOMPRA = 444278` foi removido — crítica ativa para **todos os lotes** em produção.
 
 ---
 
@@ -255,10 +284,14 @@ Todos os envios são registrados em `NAGT_LOG_ENVIO_ACO_EMAIL`:
 |--------|----------|
 | `NRO_ACORDO` | Número do acordo |
 | `COD_COMPRADOR` | Código do comprador |
-| `EMAILS_ENVIADOS` | Todos os destinatários concatenados |
-| `QTD_ACORDOS` | Quantidade de acordos no e-mail |
-| `HTML_ENVIADO` | Corpo completo do e-mail |
-| `DT_ENVIO` | Timestamp do envio |
+| `EMAIL_DESTINO` | Todos os destinatários concatenados |
+| `QTDE_ACORDOS` | Quantidade de acordos no e-mail |
+| `HTML_EMAIL` | Corpo completo do e-mail |
+| `DATA_ENVIO` | Timestamp do envio |
+| `TIPO` | Sempre `'Regua'` — usado como filtro na crítica e na anti-duplicidade |
+| `PARCELA` | `NROPARCELA/QTDPARCELA` — chave para verificar os 4 níveis na crítica |
+
+> O log é inserido **por parcela dentro do loop**, antes do envio — permite rastrear exatamente quais parcelas receberam cada nível de notificação.
 
 ---
 
@@ -274,16 +307,17 @@ Todos os envios são registrados em `NAGT_LOG_ENVIO_ACO_EMAIL`:
 | `esp_Mac_GerCompraCompl` | Tabela | Complemento do lote (e-mail do acordo) |
 | `MACV_CONSISTELOTECOMPRA` | View | Consistências do lote (bloqueio adicionado aqui) |
 | `NAGP_LIBERA_LOTE_CRIT` | Procedure | Libera crítica de lote bloqueado pela régua (via view Comercial > Liberação de Críticas) |
-| `NAGT_LOG_ENVIO_ACO_EMAIL` | Tabela | Log de e-mails enviados pela régua |
+| `NAGT_LOG_ENVIO_ACO_EMAIL` | Tabela | Log de e-mails enviados pela régua (por parcela; campos `TIPO` e `PARCELA` usados na crítica) |
+| `NAGT_LOTE_LIBERADO_CRIT` | Tabela | Controle de lotes liberados manualmente — exclui da crítica de bloqueio |
 | `CONSINCO.SP_ENVIA_EMAIL` | Procedure | Envio de e-mail via Consinco |
 
 ---
 
 ## Pendências
 
-- [x] Definir mensagem do D+15 com time Falconi
-- [x] Adicionar Diteroria nas notificações D+15
-- [ ] Remover restrição do lote de testes (`SEQGERCOMPRA = 444278`) após validação do bloqueio
+- [x] Definir mensagem do D+16 com time [[Falconi]]
+- [x] Adicionar Diretoria nas notificações D+16
+- [x] Remover restrição do lote de testes (`SEQGERCOMPRA = 444278`) — crítica em produção
 - [ ] Confirmar lista de fornecedores "Elegíveis a Cobrar" e data de corte para acordos legados
 
 ---
@@ -293,5 +327,5 @@ Todos os envios são registrados em `NAGT_LOG_ENVIO_ACO_EMAIL`:
 > [!tip] Elegíveis x Novos acordos
 > A view base usa `DATA_EMISSAO >= SYSDATE - 30` como janela. Para os **Elegíveis a Cobrar** (fornecedores da lista), a data de referência no e-mail é a data do acordo em aberto mais antigo. Para **Novos acordos**, a data é a data de implementação da régua.
 
-> [!warning] D+15 pendente
-> O texto do e-mail no nível 4 ainda contém o placeholder `"...Pendente Falconi definir mensagem no D+15..."`. Não liberar este nível em produção antes da definição.
+> [!tip] Elegíveis x Novos acordos (data de corte)
+> `DATA_EMISSAO >= DATE '2026-07-14'` é a data fixa de entrada em produção. Acordos anteriores a essa data não entram na régua.
