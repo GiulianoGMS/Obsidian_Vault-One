@@ -26,11 +26,11 @@ Sistema de **monitoramento automático do banco Oracle** com envio de alertas e 
 
 ```
 NAGP_ENVIO_WHATS  (JOB agendado)
-├── Grupo GERP    → 9 procedures de alerta (via Group_Id — envia ao grupo WA)
+├── Grupo GERP    → 10 procedures de alerta (via Group_Id — envia ao grupo WA)
 ├── Grupo PDV     → 3 procedures (erros DB + falhas carga + sessões longas MONITORPDV)
 ├── Grupo ESP/SD  → job failures direcionados
 ├── Grupo BI      → alertas de visões BI
-├── Grupo GSD     → grupos WA (carga PDV, exportação, BI)
+├── Grupo GSD     → grupos WA (carga PDV, exportação, BI, SEFAZ)
 ├── Grupo CFG     → alertas de serviço interrompido
 └── Grupo UNOUS   → erros da API Unous
 ```
@@ -66,6 +66,7 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGP_WTS_V2_STATUS_EXP_INT_PDV`      | Exportação de documentos [[PDV]] atrasada > 5 min (horário 07–21h)                                                                                                                                                                                                                            | `NAGV_STATUS_EXP_INT_PDV_v2` + `CONSINCO.VENDAS_PDV` + `@BI` (valor de venda comparado)                               |                                                                |
 | `NAGP_WTS_V2_ALERTAS_BI`              | Visão [[Qlik Sense]] desatualizada além do threshold configurado por visão na tabela                                                                                                                                                                                                          | `NAGT_CONTROLE_ATUALIZACAO_BI` — threshold variável por `VISAO`                                                       |                                                                |
 | `NAGP_WTS_V2_ALERTAS_BOT_DOWN`        | Serviço de captura de dados interrompido (sem registro recente)                                                                                                                                                                                                                               | `NAGT_CONTROLE_ATUALIZACAO_BI` — DTAREGISTRO atrasado além de `MIN_TMP_REGISTRO` por visão                            |                                                                |
+| `NAGP_WTS_V2_ALERTAS_SEFAZ`           | Webservice SEFAZ com tempo de resposta > 3 s **ou** fora do ar (`SVC = 'Sim'`) nos últimos 25 min — dispara entre 07h–20h nos minutos 00/02; envia pa GERP e GSD                                                                                                                              | `ERP_INTEGRATION.NAGT_NFE_STATUS_UFS` — verifica `TEMPO_RESPOSTA > 3` e `SVC = 'Sim'` na janela de 25 min             |                                                                |
 | `NAGP_WTS_V2_LOG_API_UNOUS`           | Erros registrados na API [[Unous]] não processados — envia uma mensagem por registro com data/hora e texto do erro; sleep de 5 s entre envios                                                                                                                                                 | `NAGT_LOG_API_UNOUS` (`INDLOGPROCESSADO = 'N'`); marcação como processado (`'S'`) feita pelo orquestrador após o loop |                                                                |
 
 ### Bidirecional — Execução de Comandos via [[WhatsApp]]
@@ -82,11 +83,11 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 
 | Tipo         | Alertas recebidos                                                            |                                                                                                                                                 |
 | ------------ | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GERP`       | **Grupo WA** (via `Group_Id`) — objetos inválidos · jobs falhados · locks · erros DB · falhas de carga · última carga monitor · exportação [[PDV]] · bot down · **sessões longas (todos usuários)** | retornos de comandos remotos também enviados ao grupo |
+| `GERP`       | **Grupo WA** (via `Group_Id`) — objetos inválidos · jobs falhados · locks · erros DB · falhas de carga · última carga monitor · exportação [[PDV]] · bot down · **sessões longas (todos usuários)** · **alertas SEFAZ** | retornos de comandos remotos também enviados ao grupo |
 | `PDV`        | Erros DB · falhas de carga · **sessões longas (somente MONITORPDV)**         |                                                                                                                                                 |
 | `ESP` / `SD` | Job                                                                          | Jobs falhados direcionados mapeados em `NAGT_WTS_SCHED_DIR_CONTROL`                                                                             |
 | `BI`         | Alertas de visões [[Qlik Sense]] desatualizadas                              |                                                                                                                                                 |
-| `GSD`        | Grupos [[WhatsApp]]: controle de carga [[PDV]] + exportação + alertas [[BI]] |                                                                                                                                                 |
+| `GSD`        | Grupos [[WhatsApp]]: controle de carga [[PDV]] + exportação + alertas [[BI]] + **alertas SEFAZ** |                                                                                                                                                 |
 | `CFG`        | Apenas alertas de serviço interrompido (bot down)                            |
 | `UNOUS`      | Erros da API Unous (`NAGP_WTS_V2_LOG_API_UNOUS`)                             |                                                                                                                                                 |
 
@@ -115,6 +116,7 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGT_CONTROLECARGAPDV` | Histórico intra-dia de falhas de carga PDV — alimentado por `NAGP_WTS_V2_CONTROLECARGA_PDV_CTD`; base para o contador de persistência |
 | `NAGV_CONTROLECARGAPDV_CTD` | View que agrega a contagem de ocorrências do dia por empresa e tabela (`QTD_DIA`); usada pelo indicador de nível ▱/▰ |
 | `NAGT_LOG_API_UNOUS` | Log de erros da API Unous: `DTALOG`, `ERRO`, `INDLOGPROCESSADO` (`'N'` = pendente, `'S'` = enviado) |
+| `ERP_INTEGRATION.NAGT_NFE_STATUS_UFS` | Status dos webservices SEFAZ (NF-e / NFC-e) por UF — colunas `TEMPO_RESPOSTA` (segundos) e `SVC` (`'Sim'` = fora do ar); alimentado pelo job `NAGJ_NFE_STATUS_UFS` via `[[Alerta Status SEFAZ]]` |
 
 ---
 
@@ -149,7 +151,7 @@ STATUS_ALERTA = 'A'
 
 ---
 
-## Como obter o Group ID do WhatsApp
+## Como obter o [[Group ID]] do [[WhatsApp]]
 
 O `Group_Id` é necessário para cadastrar um grupo (como o GERP) na tabela `NAGT_API_CALL_NUMBERS`. A [[TextMeBot]] expõe um endpoint específico para recuperá-lo a partir do link de convite do grupo.
 
