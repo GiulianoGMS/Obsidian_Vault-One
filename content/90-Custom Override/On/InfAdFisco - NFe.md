@@ -43,3 +43,29 @@ Lista de Tributacoes que emitem obs na tag InfoAdFisco (Operacao esta sujeita ao
 Lista de COGs de exclusao da regra da tag InfoAdFisco (Operacao esta sujeita ao disposto na Lei Complementar n 224 de 2025)
 - **OBS_INFOADFISCO_DATA**
 Data limite para emissao da tag InfoAdFisco LC 2242025
+
+---
+
+## Manutenção Automática de `PERDESPESADIVISAO` — `NAGP_ALTFAM_PISCOFINS`
+
+**Objeto:** [NAGP_ALTFAM_PISCOFINS](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/81942634270ba8001ab6108cb47025dfb8acbf7f/NAGP_ALTFAM_PISCOFINS.prc#L16)
+**Job:** `CONSINCO.NAGJ_ALTFAM_PISCOFINS` — diário às **02h00**
+**Referência TDN:** [pageId=1051259022](https://tdn.totvs.com/pages/releaseview.action?pageId=1051259022)
+
+### Objetivo
+
+Mantém o campo `MAP_FAMDIVISAO.PERDESPESADIVISAO` sincronizado com as famílias sujeitas à LC 224/2025. Famílias cujo `NROTRIBUTACAO` está na lista do PD `OBS_INFOADFISCO_TRIB` recebem a alíquota configurada; as demais têm o campo zerado.
+
+### Parâmetros
+
+| Parâmetro | Tipo | Default | Descrição |
+|-----------|------|---------|-----------|
+| `psAliquota` | `NUMBER` | — | Alíquota PIS/COFINS a aplicar em `PERDESPESADIVISAO` |
+| `psAjuste` | `VARCHAR2` | `'A'` | `'A'` = aplica (soma); qualquer outro valor = estorna (subtrai) |
+
+### Fluxo
+
+1. Lê o PD `OBS_INFOADFISCO_TRIB` via `SP_BUSCAPARAMDINAMICO` para obter a lista CSV de tributações elegíveis
+2. **Loop "Insere"** — atualiza `PERDESPESADIVISAO` nas famílias cujo `NROTRIBUTACAO` está na lista e o valor atual difere de `psAliquota`; o sinal depende de `psAjuste`
+3. **Loop "Exclui"** — zera `PERDESPESADIVISAO` nas famílias cujo `NROTRIBUTACAO` **não** está na lista mas têm valor > 0 (somente quando `psAjuste = 'A'`)
+4. COMMIT a cada 100 registros + ao final de cada iteração
