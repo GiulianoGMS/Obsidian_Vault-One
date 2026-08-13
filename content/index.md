@@ -52,6 +52,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[API - SQL de Tela Web TOTVS]] | Como descobrir qual consulta SQL uma tela Web da TOTVS executa via DevTools + V$SQL |
 > | [[Fiscal - NFS-e Aguardando Retorno]] | Procedimento para desbloquear NFS-e presa em "Aguardando Retorno" via reenvio duplo |
 > | [[Validação de Cadastros Tributários - vMaster]] | 22 validações de cadastro fiscal de produtos — NCM, CST, IPI, ST, cBenef, origem IMP/NAC |
+> | [[Auditoria de Alterações - MRL_EMPSOFTPDV]] | Trigger de log `BEFORE UPDATE` que rastreia alterações na configuração de software PDV por empresa |
 
 > [!note]+ GLPI — Dashboards via DBLink Oracle → MySQL
 > Selects Oracle SQL (via DBLink `@DBL_ORCL_TO_MYSQL`) para relatórios gerenciais do GLPI (helpdesk/chamados).
