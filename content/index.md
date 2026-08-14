@@ -53,6 +53,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Fiscal - NFS-e Aguardando Retorno]] | Procedimento para desbloquear NFS-e presa em "Aguardando Retorno" via reenvio duplo |
 > | [[Validação de Cadastros Tributários - vMaster]] | 22 validações de cadastro fiscal de produtos — NCM, CST, IPI, ST, cBenef, origem IMP/NAC |
 > | [[Auditoria de Alterações - MRL_EMPSOFTPDV]] | Trigger de log `BEFORE UPDATE` que rastreia alterações na configuração de software PDV por empresa |
+> | [[Comercial - Fórmula de Cálculo de Margem]] | Três formas de cálculo de margem do ERP: Tabela de Custo, Simulação e Consulta Produto |
 
 > [!note]+ GLPI — Dashboards via DBLink Oracle → MySQL
 > Selects Oracle SQL (via DBLink `@DBL_ORCL_TO_MYSQL`) para relatórios gerenciais do GLPI (helpdesk/chamados).
