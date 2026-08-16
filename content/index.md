@@ -26,6 +26,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Tae - Assinatura Eletrônica]] | Integração com TOTVS Assinatura Eletrônica |
 > | [[Cust - Trava Cadastro Família e Produto]] | Hooks de validação TOTVS para travar salvamento no cadastro de Família e Produto |
 > | [[Régua de Cobrança - Implementação]] | Cobrança escalonada D0→D+15 com e-mail automático e bloqueio de lote de compras |
+> | [[Régua de Cobrança - Notificação Genérica]] | Variante da régua sem detalhes de acordo no e-mail — solicitação da diretoria |
 > | [[Correção de Impostos no Recebimento]] | Paliativos CBS/IBS/IPI/ICMS Desonerado aplicados no recebimento de NF-e (Reforma Tributária) |
 > | [[Alerta Status SEFAZ]] | Sincroniza status dos webservices SEFAZ (NFe/NFC-e) em tabela Oracle e dispara alerta no ERP |
 > | [[Alerta NFe NFCe - E-mail]] | E-mail automático ao time Fiscal com rejeições e pendências de NF-e/NFC-e dos últimos 3 dias |
