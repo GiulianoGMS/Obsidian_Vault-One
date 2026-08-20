@@ -21,6 +21,16 @@
       "id": "RJ0WsWFBa2DiHc9Hpl4zJ",
       "name": "Orange",
       "value": "#f8e791"
+    },
+    {
+      "id": "qYIlIU5_Xiev5YqJuFq2z",
+      "name": "White",
+      "value": "#ffffff"
+    },
+    {
+      "id": "aYtyp5g_CIDz-81auqZM9",
+      "name": "Light blue",
+      "value": "#31ceed"
     }
   ],
   "fileColors": [
@@ -42,6 +52,22 @@
     },
     {
       "path": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Escopo.md",
+      "color": "qYIlIU5_Xiev5YqJuFq2z"
+    },
+    {
+      "path": "71-GLPI",
+      "color": "aYtyp5g_CIDz-81auqZM9"
+    },
+    {
+      "path": "11-Source Material",
+      "color": "qYIlIU5_Xiev5YqJuFq2z"
+    },
+    {
+      "path": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
+      "color": "qYIlIU5_Xiev5YqJuFq2z"
+    },
+    {
+      "path": "51-Pendencias/Pendencias.md",
       "color": "AHD_V0xFDHjtJIcDNNhXF"
     }
   ]

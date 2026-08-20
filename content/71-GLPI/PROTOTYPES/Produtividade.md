@@ -14,7 +14,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Técnico atribuído: `tu."type" = 2`. `actiontime` em segundos — dividir por 3600 para horas. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Técnico atribuído: `tu."type" = 2`. `actiontime` em segundos — dividir por 3600 para horas. Colunas VARCHAR usam [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 
 Métricas de **produtividade individual** dos técnicos.
 

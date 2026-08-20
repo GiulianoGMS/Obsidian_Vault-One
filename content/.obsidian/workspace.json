@@ -4,37 +4,54 @@
     "type": "split",
     "children": [
       {
-        "id": "11adc26a9a9fd303",
+        "id": "80d9140fd22d8d61",
         "type": "tabs",
-        "dimension": 45.66433566433567,
+        "dimension": 54.54545454545454,
         "children": [
           {
-            "id": "c4f9b85806afd476",
+            "id": "ce5a193713573dc6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
+                "file": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Escopo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Régua de Cobrança - Implementação"
+              "title": "Régua de Cobrança - Escopo"
+            }
+          },
+          {
+            "id": "244d4cb07360ff8e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Gerador de Pedidos Ecommerce"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
-        "id": "dcb8994954b3c838",
+        "id": "e972e1e6917638da",
         "type": "tabs",
-        "dimension": 54.33566433566433,
+        "dimension": 45.45454545454545,
         "children": [
           {
-            "id": "5acb56cf852c072d",
+            "id": "3cd3e05a753e3bfc",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "graph",
               "state": {},
+              "pinned": true,
               "icon": "lucide-git-fork",
               "title": "Visualização em gráfico"
             }
@@ -59,7 +76,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Explorador de arquivos"
@@ -203,61 +222,61 @@
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "5acb56cf852c072d",
+  "active": "244d4cb07360ff8e",
   "lastOpenFiles": [
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
-    "70-Projects, Tools & Integrations/Tools/Validação de Cadastros Tributários - vMaster.md",
-    "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.md",
-    "90-Custom Override/On/Etiqueta - Cust Nagumo - Grid.md",
-    "70-Projects, Tools & Integrations/Projects/Cust - Trava Cadastro Família e Produto.md",
+    "51-Pendencias/Pendencias.md",
+    "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
+    "90-Custom Override/On/InfAdFisco - NFe.md",
+    "Gerenciador de Compras.md",
     "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
+    "70-Projects, Tools & Integrations/Projects/Sugestão Consolidada com Arredondamento — Lote de Compras.md",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compra - Geração Automática.md",
+    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
+    "40-Open Tags/Acordos.md",
+    "40-Open Tags/Inconsistencia Recebimento NFe.md",
+    "index.md.tmp.3384.a4d6bcbe41c5",
+    "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",
+    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Escopo.md",
+    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
+    "40-Open Tags/Critica Lote de Compras.md",
+    "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
+    "70-Projects, Tools & Integrations/Tools/Comercial - Fórmula de Cálculo de Margem.md",
+    "index.md.tmp.3384.ba5b0cad15c7",
+    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
+    "11-Source Material/~$CalcMargem.xlsx",
+    "11-Source Material/Comercial - Formula-Calculo de Margens.md",
+    "30-Squad/Comercial.md",
+    "11-Source Material/CalcMargem.xlsx",
+    "50-Meetings/Snowflake 140826.md",
+    "Comercial - Zera Desconto Negativo (Transf).md",
+    "50-Meetings/Projeto FLV Bandejas.md",
+    "50-Meetings/Snowflake 140826/Sem título.md",
+    "50-Meetings/Snowflake 140826",
+    "40-Open Tags/Calculo de Margem.md",
+    "70-Projects, Tools & Integrations/Projects/Impressão de Crachás - Eventiza.md",
+    "70-Projects, Tools & Integrations/Tools/Auditoria de Alterações - MRL_EMPSOFTPDV.md",
+    "40-Open Tags/Critica de Venda.md",
+    "70-Projects, Tools & Integrations/Tools/Auditoria de Alterações - MRL_EMPSOFTPDV.md.tmp.20288.a82c49a591f0",
+    "51-Pendencias",
+    "50-Meetings/51",
+    "index.md.tmp.20288.12ef64fd1f8d",
+    "30-Squad/Analistas/Fabiano/Reclamações",
+    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
+    "Pasted image 20260612151731.png",
+    "Pasted image 20260611130439.png",
+    "Pasted image 20260611114654.png",
+    "Pasted image 20260611113006.png",
+    "Pasted image 20260603074640.png",
+    "{6F11ADC6-10D2-4AC5-9CC2-DB5D3E3F62D8}.png",
+    "Pasted image 20260718213111.png",
+    "{05103EBA-EB03-4F63-958D-ECA28C18F81B}.png",
     "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
     "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
-    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.md",
-    "70-Projects, Tools & Integrations/Tools/Inserção de Títulos ISSQN e SERVRC.md",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Escopo.md",
-    "40-Open Tags/Critica.md",
-    "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md",
-    "index.md",
     "Pasted image 20260710170838.png",
-    "Pasted image 20260710164047.png",
-    "70-Projects, Tools & Integrations/Tools/API - SQL de Tela Web TOTVS.md",
-    "70-Projects, Tools & Integrations/Projects/Ecommerce - Replicação por Encarte (MN).md",
-    "70-Projects, Tools & Integrations/Integrations/BLB/BLB - Extracao Fiscal.md",
-    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
-    "40-Open Tags/Inconsistencia Recebimento NFe.md",
-    "40-Open Tags/Critica de Devolucao.md",
-    "70-Projects, Tools & Integrations/Tools/Apuração CAT 28.md",
-    "40-Open Tags/Critica de Venda.md",
-    "XML.md",
-    "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
-    "50-Meetings/TOTVS + Nagumo - Reforma Tributária - Verbas Comercias - (Sell-In e Sell-Out).md",
-    "CAT 28.md",
-    "90-Custom Override/On/Desonerado Ecommerce.md",
-    "70-Projects, Tools & Integrations/Tools/import os.py",
-    "70-Projects, Tools & Integrations/Integrations/BLB",
-    "Critica de NFs de Orçamento.md",
-    "70-Projects, Tools & Integrations/Tools/Apuração CAT 28.md.tmp.23712.5a92b2cbcba5",
-    "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md.tmp.18300.f409dda56ac3",
-    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md.tmp.22192.89a13de8cfdc",
-    "index.md.tmp.31136.9262a117b01c",
-    "index.md.tmp.16020.172321a9e582",
-    "70-Projects, Tools & Integrations/Projects/Correção de Impostos no Recebimento - Implementação.md.tmp.16020.6f07cc5a29d2",
-    "Pasted image 20260617154229.png",
-    "Pasted image 20260617154105.png",
-    "Pasted image 20260616081214.png",
-    "60-Object Types/Loops",
-    "{05103EBA-EB03-4F63-958D-ECA28C18F81B} 1.png",
-    "{05103EBA-EB03-4F63-958D-ECA28C18F81B}.png",
-    "{1BBD897B-24A6-4600-83D1-6B8C3E71C1FF}.png",
-    "{E6B05D8C-9632-4764-8770-78AFDA79645D}.png",
     "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
-    "Pasted image 20260612160619.png",
-    "index.md.tmp.84.8503ef893acc",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.canvas",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",
-    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "Sem título.canvas",
     "70-Projects & Integrations/Whatsapp Bot - Copia.canvas"
   ]

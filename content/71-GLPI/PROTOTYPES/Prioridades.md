@@ -14,7 +14,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Prioridades: `1=Muito Baixa`, `2=Baixa`, `3=Média`, `4=Alta`, `5=Muito Alta`, `6=Major`. Urgência (`urgency`) e impacto (`impact`) seguem a mesma escala. Coluna `t."name"` usa [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Prioridades: `1=Muito Baixa`, `2=Baixa`, `3=Média`, `4=Alta`, `5=Muito Alta`, `6=Major`. Urgência (`urgency`) e impacto (`impact`) seguem a mesma escala. Coluna `t."name"` usa [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 
 Análise da **distribuição e comportamento por prioridade**: volume, críticos/urgentes em aberto e [[MTTR]] por nível.
 

@@ -14,7 +14,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Tempo de tarefas (`actiontime`) em segundos — ÷3600 para horas. Custos em `glpi_ticketcosts`. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Tempo de tarefas (`actiontime`) em segundos — ÷3600 para horas. Custos em `glpi_ticketcosts`. Colunas VARCHAR usam [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 
 Análise de **tempo registrado e custos**: horas totais, por chamado, faturáveis, paradas e aguardando usuário.
 

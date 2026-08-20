@@ -15,7 +15,7 @@ Open Tags:
 Date: 2026-06-30
 Type: Ferramenta
 ---
-
+w
 > [!info] Referência
 > View: [NAGV_APURACAO_CAT28_V3.sql](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGV_APURACAO_CAT28_V3.sql)  
 > Procedure: [NAGP_EXT_CAT28.prc](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_EXT_CAT28.prc)
@@ -160,9 +160,9 @@ SELECT A.IDSESSION, A.INST_ID, A.SEQNFDEVFORNEC, A.SEQPRODUTO,
 
 Para que o ERP processe apenas os produtos em apuração (sem varrer todos os itens ST):
 
-| Objeto | Ação |
-|--------|------|
-| `mrlv_nfapuraimposto` | View padrão do ERP — alterar para usar a view Nagumo |
+| Objeto                   | Ação                                                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------------------------------- |
+| `mrlv_nfapuraimposto`    | View padrão do ERP — alterar para usar a view Nagumo                                                    |
 | `mlfv_nfbasecomplst_nag` | View Nagumo — adicionar `INNER JOIN NAGT_PRODST_JULHO` para corte direto nos produtos desta competência |
 
 O INNER JOIN com a tabela base elimina o processamento de todos os outros produtos ST, reduzindo tempo e escopo da apuração.

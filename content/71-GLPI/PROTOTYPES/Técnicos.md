@@ -13,9 +13,8 @@ Open Tags:
 Date: 2026-07-18
 Type: Project
 ---
-
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Técnico atribuído: `tu."type" = 2`. Status fechado: `6`. Pendente: `4`. Subtração de datas retorna dias — ×1440 para minutos, ×24 para horas. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Técnico atribuído: `tu."type" = 2`. Status fechado: `6`. Pendente: `4`. Subtração de datas retorna dias — ×1440 para minutos, ×24 para horas. Colunas VARCHAR usam [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 >
 > **Ator técnico:** `tu."type" = 2` (confirme com `SELECT DISTINCT "type" FROM "glpi_tickets_users"@DBL_ORCL_TO_MYSQL`).
 

@@ -15,7 +15,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Grupo responsável: `gt."type" = 2`. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Grupo responsável: `gt."type" = 2`. Colunas VARCHAR usam [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 >
 > **Ator grupo:** `gt."type" = 2` (confirme com `SELECT DISTINCT "type" FROM "glpi_groups_tickets"@DBL_ORCL_TO_MYSQL`).
 
@@ -100,3 +100,33 @@ WHERE t."is_deleted" = 0
 GROUP BY g."id", hs_str(g."name")
 ORDER BY backlog_qtd DESC;
 ```
+
+---
+
+## Crescimento Percentual por Grupo (mês a mês)
+
+```sql
+SELECT
+    grupo,
+    mes,
+    qtd_chamados,
+    LAG(qtd_chamados) OVER (PARTITION BY grupo ORDER BY mes)                            AS qtd_mes_anterior,
+    ROUND(100 * (qtd_chamados - LAG(qtd_chamados) OVER (PARTITION BY grupo ORDER BY mes))
+          / NULLIF(LAG(qtd_chamados) OVER (PARTITION BY grupo ORDER BY mes), 0), 1)    AS crescimento_pct
+FROM (
+    SELECT
+        hs_str(g."name")             AS grupo,
+        TO_CHAR(t."date", 'YYYY-MM') AS mes,
+        COUNT(t."id")                AS qtd_chamados
+    FROM       "glpi_tickets"@DBL_ORCL_TO_MYSQL       t
+    JOIN       "glpi_groups_tickets"@DBL_ORCL_TO_MYSQL gt ON gt."tickets_id" = t."id"
+                                                          AND gt."type"       = 2
+    JOIN       "glpi_groups"@DBL_ORCL_TO_MYSQL         g  ON g."id"          = gt."groups_id"
+    WHERE t."is_deleted" = 0
+      AND g."name" NOT LIKE '%¿¿¿%'
+    GROUP BY hs_str(g."name"), TO_CHAR(t."date", 'YYYY-MM')
+)
+ORDER BY grupo, mes DESC;
+```
+
+> Para grupo **requerente** (quem abriu), troque `gt."type" = 2` por `gt."type" = 1`.

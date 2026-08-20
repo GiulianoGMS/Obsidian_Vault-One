@@ -48,7 +48,7 @@ O app lê `.xlsx` (formato da exportação Eventiza) com código **100% nativo**
 - XMLs internos (`sheet1.xml`, `sharedStrings.xml`) parseados com `DOMParser` nativo
 
 ### Mapeamento de colunas configurável
-A planilha [[Eventiza]] tem armadilhas: dois IDs (`Id. do pedido` × `Id. do ingresso`), dois e-mails e cabeçalhos com caracteres especiais. O app auto-detecta colunas por heurística mas expõe seletores para correção manual — sem hardcode de nomes que podem mudar entre exportações.
+A planilha [[Eventiza]] tem armadilhas: dois IDs (`Id. do pedido` × `Id. do ingresso`), dois [[e-mails]] e cabeçalhos com caracteres especiais. O app auto-detecta colunas por heurística mas expõe seletores para correção manual — sem hardcode de nomes que podem mudar entre exportações.
 
 ### `copy /b` em vez de `fs.copyFile`
 `fs.copyFile` do Node (que usa `CopyFileW` do Windows) falha com `ENOENT` em caminhos de impressora compartilhada (`\\IP\nome`), mesmo o `copy /b` manual funcionando. Hipótese: `cmd.exe` tem tratamento legado para "impressoras como arquivo" que a API Win32 pura não replica. Solução: `child_process.execFile('cmd.exe', ['/d', '/c', 'copy', '/b', origem, destino])`. Caracteres perigosos (`&`, `|`, `<`, `>`, `^`, `%`) são validados antes de montar o comando.

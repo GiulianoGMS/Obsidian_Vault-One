@@ -14,7 +14,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Status abertos: `1=Novo`, `2=Em atendimento (atribuído)`, `3=Em atendimento (planejado)`, `4=Pendente`. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE do driver ODBC.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Status abertos: `1=Novo`, `2=Em atendimento (atribuído)`, `3=Em atendimento (planejado)`, `4=Pendente`. Colunas VARCHAR usam [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE do driver ODBC.
 >
 > **Ator grupo:** `gt."type" = 2` (confirme com `SELECT DISTINCT "type" FROM "glpi_groups_tickets"@DBL_ORCL_TO_MYSQL`).
 

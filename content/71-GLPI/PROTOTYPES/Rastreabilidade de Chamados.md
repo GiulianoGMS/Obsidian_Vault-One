@@ -14,7 +14,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. `glpi_logs` é a tabela central de auditoria. Colunas `itemtype`, `itemtype_link`, `old_value`, `new_value` e `user_name` são VARCHAR — requerem [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] no SELECT **e no WHERE**. Selects de detalhe: trocar `123` pelo ID real do chamado.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. `glpi_logs` é a tabela central de auditoria. Colunas `itemtype`, `itemtype_link`, `old_value`, `new_value` e `user_name` são VARCHAR — requerem [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] no SELECT **e no WHERE**. Selects de detalhe: trocar `123` pelo ID real do chamado.
 
 > [!tip] Como usar
 > Todos os selects abaixo são para análise de **um chamado específico**. Troque `items_id = 123` ou `tickets_id = 123` pelo ID do chamado desejado.

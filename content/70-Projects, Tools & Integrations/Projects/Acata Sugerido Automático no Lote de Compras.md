@@ -15,7 +15,6 @@ Open Tags:
 Date: 2026-06-23
 Type:
 ---
-
 > [!info] Referência
 > Repositório: [GiulianoGMS/DDL-Objects-Oracle — NAGTRG_BI_MAC_GERCOMPRAITEM.sql](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGTRG_BI_MAC_GERCOMPRAITEM.sql)
 

@@ -21,8 +21,8 @@
   "context": {
     "customInstructEnabled": true,
     "includeClipboard": true,
-    "customInstruct": "{{tg_selection}}\n\nSempre explique em português e resumidamente o contexto. Defina novas tags no meio do [[texto]] desta forma nas palavras [[relevantes]] para marcação e vinculos no Obsidian. ",
-    "contextTemplate": "Title: {{title}}\n\t\nStarred Blocks: {{starredBlocks}}\n\t  \n{{tg_selection}}\n\nResponda sempre em português do Brasil."
+    "customInstruct": "Você é um assistente técnico do vault Obsidian.\nTítulo da nota: {{title}}\nSeleção: {{tg_selection}}\n\nCom base no título, escreva em português do Brasil uma explicação breve (2-3 frases) sobre o conceito.\nInsira [[wikilinks]] do Obsidian naturalmente no texto para referenciar termos relacionados — [[ ]]. Utilize paragrafos para criar uma bela nota, não muito longa.\n",
+    "contextTemplate": "Title: {{title}}\n\t\nStarred Blocks: {{starredBlocks}}\n\t  \n{{tg_selection}}\n\nResponda sempre em português do Brasil. Utilize o TItle como base e explique brevemente entre [[tags]] do obsidian."
   },
   "requestTimeout": 300000,
   "options": {

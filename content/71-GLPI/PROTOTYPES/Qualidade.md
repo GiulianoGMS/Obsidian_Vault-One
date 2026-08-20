@@ -14,7 +14,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Reaberturas via `glpi_logs` — colunas `itemtype`, `old_value` e `new_value` são VARCHAR e requerem [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] no WHERE. Duplicatas via `glpi_tickets_tickets`. Problemas recorrentes via `glpi_problems_tickets`.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Reaberturas via `glpi_logs` — colunas `itemtype`, `old_value` e `new_value` são VARCHAR e requerem [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] no WHERE. Duplicatas via `glpi_tickets_tickets`. Problemas recorrentes via `glpi_problems_tickets`.
 >
 > **Limitação:** `FULLTEXT MATCH...AGAINST` do [[MySQL]] não atravessa o [[DBLink]] — busca usa `REGEXP_LIKE` como aproximação.
 

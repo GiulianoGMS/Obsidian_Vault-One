@@ -13,7 +13,7 @@ Date: 2026-07-18
 Type: Project
 ---
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Window functions (`AVG OVER`, `LAG`, `SUM OVER`) têm sintaxe idêntica ao Oracle. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Window functions (`AVG OVER`, `LAG`, `SUM OVER`) têm sintaxe idêntica ao Oracle. Colunas VARCHAR usam [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 
 Selects para **dashboards executivos**: top assuntos, Pareto 80/20, tendência com média móvel, crescimento mensal/anual, heatmaps e painel consolidado de KPIs.
 

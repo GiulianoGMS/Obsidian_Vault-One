@@ -17,15 +17,15 @@ Type:
 ---
 
 > [!info] Contexto
-> Evolução do [[Acata Sugerido Automático no Lote de Compras]]. Enquanto o v1 copia `QTDSUGERIDAFORNEC` diretamente para cada loja, este projeto trata especificamente o **CD de consolidação** (`TIPOLOTE = 'C'`): soma a sugestão de todas as lojas e aplica arredondamento logístico (palete/lastro) antes de gravar `QTDPEDIDA`.
+> Evolução do [[Acata Sugerido Automático no Lote de Compras]]. Enquanto o v1 copia `QTDSUGERIDAFORNEC` diretamente para cada loja, este projeto trata especificamente o **CD de consolidação**: soma a sugestão de todas as lojas e aplica arredondamento logístico (palete/lastro) antes de gravar `QTDPEDIDA`.
 
 ---
 
 ## Visão Geral
 
-[[Trigger]] `COMPOUND TRIGGER FOR INSERT ON MAC_GERCOMPRAITEM` que, ao inserir itens de um lote consolidado, calcula automaticamente a `QTDPEDIDA` do CD como a **soma das sugestões das lojas** e opcionalmente arredonda para o múltiplo logístico mais próximo (lastro ou palete).
+[[Trigger]] `COMPOUND TRIGGER FOR INSERT ON MAC_GERCOMPRAITEM` que, ao inserir itens de um lote consolidado, calcula automaticamente a `QTDPEDIDA` do [[CD]] como a **soma das sugestões das lojas** e opcionalmente arredonda para o múltiplo logístico mais próximo (lastro ou palete).
 
-**Problema resolvido:** No lote consolidado, o CD precisa pedir a soma do que as lojas vão receber — mas no momento do `INSERT` linha a linha a tabela ainda está em mutação, impedindo consultas à própria `MAC_GERCOMPRAITEM`. A `COMPOUND TRIGGER` resolve isso: guarda os itens em memória no `AFTER EACH ROW` e faz o cálculo/update somente no `AFTER STATEMENT`.
+**Problema resolvido:** No lote consolidado, o [[CD]] precisa pedir a soma do que as lojas vão receber — mas no momento do `INSERT` linha a linha a tabela ainda está em mutação, impedindo consultas à própria `MAC_GERCOMPRAITEM`. A `COMPOUND TRIGGER` resolve isso: guarda os itens em memória no `AFTER EACH ROW` e faz o cálculo/update somente no `AFTER STATEMENT`.
 
 ---
 
@@ -47,19 +47,19 @@ Type:
 
 Estendida em relação ao v1 com os campos de consolidação e arredondamento:
 
-| Campo | Uso |
-|---|---|
-| `SEQCOMPRADOR` | Comprador do lote consolidado |
-| `SEQFORNECEDOR` | Fornecedor específico; `NULL` = qualquer fornecedor |
-| `CD_AGRUP` | Empresa/CD de consolidação que receberá o tratamento |
-| `IND_ARRED` | `'S'` = habilita arredondamento logístico |
-| `PERC_ARRED` | Percentual mínimo para arredondar; `NULL` = usa `PERCVARIACAOSUG` do produto |
+| Campo           | Uso                                                                          |
+| --------------- | ---------------------------------------------------------------------------- |
+| `SEQCOMPRADOR`  | Comprador do lote consolidado                                                |
+| `SEQFORNECEDOR` | [[Fornecedor]] específico; `NULL` = qualquer fornecedor                      |
+| `CD_AGRUP`      | Empresa/CD de consolidação que receberá o tratamento                         |
+| `IND_ARRED`     | `'S'` = habilita arredondamento logístico                                    |
+| `PERC_ARRED`    | Percentual mínimo para arredondar; `NULL` = usa `PERCVARIACAOSUG` do produto |
 
 ---
 
 ## Lógica da Trigger
 
-### Estrutura COMPOUND TRIGGER
+### Estrutura [[COMPOUND]] [[TRIGGER]]
 
 ```
 AFTER EACH ROW  → identifica se o item pertence ao CD_AGRUP e guarda em memória
@@ -97,7 +97,7 @@ INSERT em MAC_GERCOMPRAITEM
 
 ## Regra de Arredondamento
 
-O arredondamento só ocorre quando `IND_ARRED = 'S'` e existe percentual configurado. Nunca **reduz** a quantidade.
+O [[arredondamento]] só ocorre quando `IND_ARRED = 'S'` e existe percentual configurado. Nunca **reduz** a quantidade.
 
 ```
 QTY_PALETE = PALETELASTRO × PALETEALTURA

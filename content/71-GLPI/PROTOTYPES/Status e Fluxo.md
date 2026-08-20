@@ -14,7 +14,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Histórico de mudanças em `glpi_logs`. Colunas `itemtype`, `itemtype_link`, `old_value` e `new_value` são VARCHAR — requerem [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] tanto no SELECT quanto no WHERE. Status: `1=Novo`, `2=Em atendimento (atribuído)`, `3=Planejado`, `4=Pendente`, `5=Resolvido`, `6=Fechado`.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Histórico de mudanças em `glpi_logs`. Colunas `itemtype`, `itemtype_link`, `old_value` e `new_value` são VARCHAR — requerem [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] tanto no SELECT quanto no WHERE. Status: `1=Novo`, `2=Em atendimento (atribuído)`, `3=Planejado`, `4=Pendente`, `5=Resolvido`, `6=Fechado`.
 
 Análise do **ciclo de vida de status** dos chamados: distribuição atual, tempo em cada status, fluxo de transições e quantidade de mudanças.
 

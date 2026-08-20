@@ -13,7 +13,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Solicitante: `tu."type" = 1` em `glpi_tickets_users`. Departamento via `u."groups_id"` em `glpi_users`. Empresa via `t."entities_id"` → `glpi_entities`. Localização via `u."locations_id"` → `glpi_locations`. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Solicitante: `tu."type" = 1` em `glpi_tickets_users`. Departamento via `u."groups_id"` em `glpi_users`. Empresa via `t."entities_id"` → `glpi_entities`. Localização via `u."locations_id"` → `glpi_locations`. Colunas VARCHAR usam [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 
 Análise de **quem abre chamados**: top solicitantes, departamento, empresa, localização e unidade.
 

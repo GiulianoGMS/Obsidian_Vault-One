@@ -13,7 +13,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Categorias em `glpi_itilcategories` com hierarquia via `itilcategories_id` (pai) e `level`. `completename` contém o caminho completo (`Pai > Filho`). Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Categorias em `glpi_itilcategories` com hierarquia via `itilcategories_id` (pai) e `level`. `completename` contém o caminho completo (`Pai > Filho`). Colunas VARCHAR usam [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 
 Análise de **categorias de chamados**: distribuição, hierarquia pai/filho, evolução mensal, crescimento e análise de Pareto.
 

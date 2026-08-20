@@ -15,7 +15,7 @@ Type: Project
 ---
 
 > [!info] Arquitetura de Acesso
-> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Chamados fechados: `status = 6`. Campo `close_delay_stat`: positivo = [[SLA]] perdido, zero ou negativo = cumprido. Colunas VARCHAR usam [[hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
+> Consultas **[[Oracle SQL]]** via DBLink `@DBL_ORCL_TO_MYSQL`. Chamados fechados: `status = 6`. Campo `close_delay_stat`: positivo = [[SLA]] perdido, zero ou negativo = cumprido. Colunas VARCHAR usam [[_hs_str — Conversão UTF-16 via DBLink|hs_str()]] para corrigir encoding UTF-16 LE.
 
 Métricas de **[[SLA]]** — cumprimento, perda por equipe/prioridade/categoria, [[MTTA]] e [[MTTR]].
 

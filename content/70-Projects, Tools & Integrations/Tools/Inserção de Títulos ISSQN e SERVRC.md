@@ -49,21 +49,25 @@ A procedure copia a estrutura de um título-base já existente, substituindo ape
 | `vlrISS`         | `NUMBER` | Valor do título ISSQN (`VLRORIGINAL`)                                                |
 | `vEmissao`       | `DATE`   | Data de emissão dos novos títulos                                                    |
 | `vVencimento`    | `DATE`   | Data de vencimento dos novos títulos                                                 |
-
++ Adicionado vSeqPessoa e vSessoaISSQN para insercao
 ---
 
 ## Exemplo de Uso
 
 ```sql
 BEGIN
-  NAGP_INSERETITISS(nroTituloBase => 45,
-                    nroEmpresaBase => 26,
-                    nroTituloServ => 10194,
-                    vlrSERV       => 10,
-                    nroTituloIss  => 47,
-                    vlrISS        => 0.50,
-                    vEmissao      => DATE '2026-05-19',
-                    vVencimento   => TRUNC(SYSDATE));
+  NAGP_INSERETITISS(nroTituloBase   => 52,
+                    nroEmpresaBase  => 26,
+                    nroTituloServ   => 10199,
+                    vlrSERV         => 10,
+                    nroTituloIss    => 51,
+                    vlrISS          => 0.50,
+                    vEmissao        => TRUNC(SYSDATE) + 7,
+                    vVencimento     => TRUNC(SYSDATE),
+                    vSeqPessoa      => 942508,
+                    vSeqPessoaIssQN => 1455);
+                    
+                    END;
 ```
 
 Após executar, rodar obrigatoriamente:
