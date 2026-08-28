@@ -25,21 +25,21 @@ Type:
 
 [[Trigger]] `COMPOUND TRIGGER FOR INSERT ON MAC_GERCOMPRAITEM` que, ao inserir itens de um lote consolidado, calcula automaticamente a `QTDPEDIDA` do [[CD]] como a **soma das sugestões das lojas** e opcionalmente arredonda para o múltiplo logístico mais próximo (lastro ou palete).
 
-**Problema resolvido:** No lote consolidado, o [[CD]] precisa pedir a soma do que as lojas vão receber — mas no momento do `INSERT` linha a linha a tabela ainda está em mutação, impedindo consultas à própria `MAC_GERCOMPRAITEM`. A `COMPOUND TRIGGER` resolve isso: guarda os itens em memória no `AFTER EACH ROW` e faz o cálculo/update somente no `AFTER STATEMENT`.
+**Problema resolvido:** No lote consolidado, o [[CD]] precisa pedir a soma do que as lojas vão receber — mas n o momento do `INSERT` linha a linha a tabela ainda está em mutação, impedindo consultas à própria `MAC_GERCOMPRAITEM`. A `COMPOUND TRIGGER` resolve isso: guarda os itens em memória no `AFTER EACH ROW` e faz o cálculo/update somente no `AFTER STATEMENT`.
 
 ---
 
 ## Objetos de Banco
 
-| Objeto | Tipo | Finalidade |
-|--------|------|-----------|
-| `MAC_GERCOMPRAITEM` | Tabela | Itens do lote — alvo da trigger |
-| `MAC_GERCOMPRAFORN` | Tabela | Fornecedor do lote (`SEQFORNECEDOR`) |
-| `MAC_GERCOMPRA` | Tabela | Cabeçalho do lote — identifica `SEQCOMPRADOR` e `TIPOLOTE = 'C'` |
-| `NAGT_COMP_FORN_SUGESTAUTO` | Tabela | Parametrização — comprador, fornecedor, CD e regras de arredondamento |
-| `MRL_PRODEMPRESAWM` | Tabela | Parâmetros logísticos do produto: `PALETELASTRO`, `PALETEALTURA` |
-| `MRL_PRODUTOEMPRESA` | Tabela | Fallback do percentual de arredondamento: `PERCVARIACAOSUG` |
-| `NAGTRG_BI_MAC_GERCOMPRAITEM` | Trigger | Compound Trigger que implementa o processo |
+| Objeto                        | Tipo    | Finalidade                                                            |
+| ----------------------------- | ------- | --------------------------------------------------------------------- |
+| `MAC_GERCOMPRAITEM`           | Tabela  | Itens do lote — alvo da trigger                                       |
+| `MAC_GERCOMPRAFORN`           | Tabela  | Fornecedor do lote (`SEQFORNECEDOR`)                                  |
+| `MAC_GERCOMPRA`               | Tabela  | Cabeçalho do lote — identifica `SEQCOMPRADOR` e `TIPOLOTE = 'C'`      |
+| `NAGT_COMP_FORN_SUGESTAUTO`   | Tabela  | Parametrização — comprador, fornecedor, CD e regras de arredondamento |
+| `MRL_PRODEMPRESAWM`           | Tabela  | Parâmetros logísticos do produto: `PALETELASTRO`, `PALETEALTURA`      |
+| `MRL_PRODUTOEMPRESA`          | Tabela  | Fallback do percentual de arredondamento: `PERCVARIACAOSUG`           |
+| `NAGTRG_BI_MAC_GERCOMPRAITEM` | Trigger | Compound Trigger que implementa o processo                            |
 
 ---
 

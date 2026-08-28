@@ -6,7 +6,7 @@
       {
         "id": "80d9140fd22d8d61",
         "type": "tabs",
-        "dimension": 54.54545454545454,
+        "dimension": 53.7303664921466,
         "children": [
           {
             "id": "ce5a193713573dc6",
@@ -28,12 +28,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
+                "file": "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Gerador de Pedidos Ecommerce"
+              "title": "Lote de Compras — Acata Sugerido e Consolidação"
             }
           }
         ],
@@ -42,7 +42,7 @@
       {
         "id": "e972e1e6917638da",
         "type": "tabs",
-        "dimension": 45.45454545454545,
+        "dimension": 46.2696335078534,
         "children": [
           {
             "id": "3cd3e05a753e3bfc",
@@ -115,7 +115,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 446.5
+    "width": 348.5
   },
   "right": {
     "id": "9cd1098ad5e76388",
@@ -222,45 +222,45 @@
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
     }
   },
-  "active": "244d4cb07360ff8e",
+  "active": "3cd3e05a753e3bfc",
   "lastOpenFiles": [
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.e543817bb08c",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.d78d6d0adb3b",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.8695b561edc3",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.b1fa4d4f1245",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.2bad78cc22c5",
+    "index.md.tmp.3036.cf0f444de264",
+    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
+    "70-Projects, Tools & Integrations/Projects/Sugestão Consolidada com Arredondamento — Lote de Compras.md",
+    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
+    "40-Open Tags/Critica Lote de Compras.md",
+    "40-Open Tags/Critica de Venda.md",
+    "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
+    "40-Open Tags/Inconsistencia Recebimento NFe.md",
+    "50-Meetings/Loja 62 Etiquetas Digitais SEAL 280826.md",
+    "50-Meetings/Projeto FLV Bandejas.md",
     "51-Pendencias/Pendencias.md",
+    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
+    "50-Meetings/Skyone 210826.md",
+    "50-Meetings/Snowflake 140826.md",
+    "50-Meetings/TOTVS - NF3e Notes.md",
+    "50-Meetings/TOTVS + Nagumo - Reforma Tributária - Verbas Comercias - (Sell-In e Sell-Out).md",
+    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
+    "71-GLPI/Prototypes/_hs_str — Conversão UTF-16 via DBLink.md",
+    "70-Projects, Tools & Integrations/Tools/Apuração CAT 28.md",
+    "Pedido Cotação.md",
+    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
     "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
     "90-Custom Override/On/InfAdFisco - NFe.md",
     "Gerenciador de Compras.md",
-    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
-    "70-Projects, Tools & Integrations/Projects/Sugestão Consolidada com Arredondamento — Lote de Compras.md",
     "70-Projects, Tools & Integrations/Projects/Lote de Compra - Geração Automática.md",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
-    "40-Open Tags/Acordos.md",
-    "40-Open Tags/Inconsistencia Recebimento NFe.md",
     "index.md.tmp.3384.a4d6bcbe41c5",
     "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Escopo.md",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
-    "40-Open Tags/Critica Lote de Compras.md",
-    "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
-    "70-Projects, Tools & Integrations/Tools/Comercial - Fórmula de Cálculo de Margem.md",
     "index.md.tmp.3384.ba5b0cad15c7",
-    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
     "11-Source Material/~$CalcMargem.xlsx",
-    "11-Source Material/Comercial - Formula-Calculo de Margens.md",
-    "30-Squad/Comercial.md",
     "11-Source Material/CalcMargem.xlsx",
-    "50-Meetings/Snowflake 140826.md",
-    "Comercial - Zera Desconto Negativo (Transf).md",
-    "50-Meetings/Projeto FLV Bandejas.md",
-    "50-Meetings/Snowflake 140826/Sem título.md",
     "50-Meetings/Snowflake 140826",
-    "40-Open Tags/Calculo de Margem.md",
-    "70-Projects, Tools & Integrations/Projects/Impressão de Crachás - Eventiza.md",
-    "70-Projects, Tools & Integrations/Tools/Auditoria de Alterações - MRL_EMPSOFTPDV.md",
-    "40-Open Tags/Critica de Venda.md",
-    "70-Projects, Tools & Integrations/Tools/Auditoria de Alterações - MRL_EMPSOFTPDV.md.tmp.20288.a82c49a591f0",
-    "51-Pendencias",
-    "50-Meetings/51",
-    "index.md.tmp.20288.12ef64fd1f8d",
-    "30-Squad/Analistas/Fabiano/Reclamações",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "Pasted image 20260612151731.png",
     "Pasted image 20260611130439.png",
