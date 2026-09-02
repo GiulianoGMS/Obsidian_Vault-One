@@ -1,0 +1,23 @@
+{
+  "id": "conv-1788134957092-q2ltuz02c",
+  "providerId": "claude",
+  "title": "MD Custom Override - Correção PKG_FIDDA",
+  "titleGenerationStatus": "success",
+  "createdAt": 1788134957102,
+  "lastActivityAt": 1788136233736,
+  "sessionId": "9b0dc917-78a6-48ca-b4ad-27ba41d6b5ad",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "9b0dc917-78a6-48ca-b4ad-27ba41d6b5ad"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 4139,
+    "cacheReadInputTokens": 40718,
+    "contextWindow": 1000000,
+    "contextTokens": 44859,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

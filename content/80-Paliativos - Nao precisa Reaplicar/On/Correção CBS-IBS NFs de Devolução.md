@@ -29,11 +29,11 @@ tags:
 
 > Sistema não aplica a redução de alíquota nos itens de devolução quando esta existe.
 
-| Campo | Valor |
-|-------|-------|
-| Objeto | [NAGP_PALIATIVO_CBS_IBS_DEV_RED](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_PALIATIVO_CBS_IBS_DEV_RED.prc) |
-| Job | NAGJ_PALIAT_DEV_RED_CBSIBS |
-| Depende do PD | DEV_CGO_CORRIGE_IBSCBS |
+| Campo         | Valor                                                                                                                            |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Objeto        | [NAGP_PALIATIVO_CBS_IBS_DEV_RED](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_PALIATIVO_CBS_IBS_DEV_RED.prc) |
+| Job           | NAGJ_PALIAT_DEV_RED_CBSIBS                                                                                                       |
+| Depende do PD | DEV_CGO_CORRIGE_IBSCBS                                                                                                           |
 
 **Função:** Recalcula `VLRIMPOSTOCBS` e `VLRIMPOSTOIBSUF` considerando a alíquota de redução do item.
 

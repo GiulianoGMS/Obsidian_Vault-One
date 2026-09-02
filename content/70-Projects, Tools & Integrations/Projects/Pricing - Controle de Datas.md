@@ -76,7 +76,7 @@ SATELITSKY (legado)                         App Gestão de Lojas (DW)
 | Todos (exceto Frios e Laticínios) | `MRL_PROMOCESPECIALHIST` | Suporta etiqueta rosa com acesso especial (EAN) |
 | Frios e Laticínios | `MRL_PROMOCAO` + `MRL_PROMOCAOITEM` | Não pode colar etiqueta rosa — gera [[Promoção]] normal no ERP |
 
-### 2. Cálculo do Preço Promocional (Frios e Laticínios)
+#### 2. Cálculo do Preço Promocional (Frios e Laticínios)
 
 O preço da [[Promoção]] para Frios e Laticínios é calculado mantendo no mínimo **10% de margem** sobre o custo líquido da empresa:
 
@@ -94,7 +94,7 @@ Preço Promocional =
 - Arredondamento: trunca na primeira casa decimal e soma 0.08 → resultado termina em x.x8  
 - Se o preço calculado **superar o preço vigente**, o item é inserido com `STATUS = 'I'` (Inativo) para revisão manual
 
-### 3. Cálculo do Preço (App — demais categorias)
+#### 3. Cálculo do Preço (App — demais categorias)
 
 Via `NAGV_BASE_MRL_PROMOCESPECIAL_APP`:
 
@@ -105,7 +105,7 @@ Preço Rebaixa = ROUND(TRUNC(PreçoNormal - (% Desconto da Categoria × PreçoNo
 - Percentual de desconto configurado por categoria em `NAGV_DESCCATEG_DATA_APP`  
 - Resultado termina em x.x9 (ex.: R$ 4,99)
 
-### 4. Promoção para Frios e Laticínios — Avulsa vs Agrupada
+#### 4. Promoção para Frios e Laticínios — Avulsa vs Agrupada
 
 Ambas as procedures geram [[Promoção]] normal no ERP para categorias que não aceitam etiqueta rosa.
 
@@ -118,7 +118,7 @@ Ambas as procedures geram [[Promoção]] normal no ERP para categorias que não 
 - Itens não são inseridos se já existe promoção do grupo 10 para o mesmo produto × loja × data fim  
 - Após inserção: registra em `NAGT_CONTROLE_VALIDADE_INS@CONSINCODW` para controle de auditoria
 
-### 5. Filtros e Segurança
+#### 5. Filtros e Segurança
 
 - SATELITSKY: ignora itens com `FL_RECUSADO = 1`, `PRECO_REBAIXA = 0` ou `JUSTIFICATIVA` preenchida  
 - App: verifica estoque mínimo (`ESTQLOJA >= QTDE_REBAIXA`) antes de criar [[Promoção]]  
@@ -127,7 +127,7 @@ Ambas as procedures geram [[Promoção]] normal no ERP para categorias que não 
 
 ---
 
-## Etiqueta de Validade
+#### Etiqueta de Validade
 
 A [[Etiqueta de Validade|etiqueta]] gerada é **dupla** — duas cópias lado a lado na mesma folha. Cada face exibe descrição, preço de rebaixa, EAN especial (gerado por `NAG_GERA_EAN13_AUTO`), PLU, data de impressão e data de validade.
 
@@ -137,7 +137,7 @@ A emissão é controlada pela view `MRLV_PROMOCAOESPECIAL`, que divide a quantid
 
 ---
 
-## Relatórios e Consultas
+#### Relatórios e Consultas
 
 | Arquivo                          | Finalidade                                                                                                       |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -147,7 +147,7 @@ A emissão é controlada pela view `MRLV_PROMOCAOESPECIAL`, que divide a quantid
 
 ---
 
-## Tabelas Principais
+#### Tabelas Principais
 
 | Tabela | Banco | Uso |
 |--------|-------|-----|
@@ -159,3 +159,90 @@ A emissão é controlada pela view `MRLV_PROMOCAOESPECIAL`, que divide a quantid
 | `MRL_PROMOCESPECIALHIST` | ERP | Destino promoções especiais — etiqueta rosa com [[EAN]] de acesso especial |
 | `MRL_PROMOCAO` / `MRL_PROMOCAOITEM` | ERP | Destino promoções normais — Frios e Laticínios |
 | `NAGV_DESCCATEG_DATA_APP` | ERP | Configuração de percentual de desconto por [[Família]] / categoria |
+
+---
+
+#### Pendências — Novas Melhorias (Controle de Datas)
+
+> [!todo] Backlog aberto em 2026-09-01
+> Melhorias solicitadas para o [[Controle de Datas]]. Itens **1** e **2** dependem de cotação da **TOTVS Consinco** (customização de sistema); os demais são ajustes de regra/tela/rotina.
+
+**Progresso**
+
+- [ ] **1.** Busca por período respeitando data de vencimento — *(cotação TOTVS Consinco)*
+- [ ] **2.** Exibir Usuário de Inclusão (Loja) e Usuário de Liberação (Price) — *(cotação TOTVS Consinco)*
+- [x] **3.** Ocultar seções não rebaixadas em "Pendentes de Aprovação"
+- [ ] **4.** Incluir lojas ausentes na Promoção Especial por Códigos Específicos (Empresa)
+- [ ] **5.** Relatório semanal automático de produtos baixados (e-mail)
+- [ ] **6.** Destaque visual para "Nova Rebaixa" (relançamento do mesmo item)
+- [ ] **7.** Liberação automática de ofertas por estoque/prazo
+
+---
+
+##### 1. Busca por período respeitando data de vencimento — *(cotação TOTVS Consinco)*
+
+Solicitar à **TOTVS Consinco** a cotação para customização da funcionalidade de **busca por período**. A busca deve respeitar a **data inicial / final de vencimento** e retornar **apenas os produtos dentro do período informado**.
+
+- **Exemplo:** ao informar data fim `30/07`, não devem aparecer produtos com vencimento posterior a essa data.
+- **Status:** aguardando cotação TOTVS.
+
+##### 2. Exibir Usuário de Inclusão e Usuário de Liberação — *(cotação TOTVS Consinco)*
+
+Solicitar à **TOTVS Consinco** a cotação para customização exibindo:
+
+- **Usuário Inclusão (Loja)** — quem cadastrou a rebaixa.
+- **Usuário Liberou (Price)** — quem liberou a oferta.
+- **Status:** aguardando cotação TOTVS.
+
+##### 3. Ocultar seções não rebaixadas em "Pendentes de Aprovação"
+
+Na tela **"Pendentes de Aprovação"**, **não** devem ser exibidos os itens das seções abaixo, pois não são rebaixados no Controle de Datas:
+
+- Açougue
+- Rotisseria
+- Padaria
+- Peixaria
+- Frios
+
+##### 4. Incluir lojas ausentes na Promoção Especial por Códigos Específicos (Empresa)
+
+Na **Promoção Especial por Códigos Específicos — Empresa**, ao buscar por loja, as seguintes lojas **não estão sendo exibidas** e devem ser incluídas:
+
+`06`, `07`, `08`, `09`, `58`, `59`, `60`, `61`, `62`
+
+##### 5. Relatório semanal automático de produtos baixados (e-mail)
+
+Implementar o **envio automático** de um **relatório semanal**, por e-mail, contendo a relação dos **produtos baixados**.
+
+- **Destinatários:** compradores.
+- **Frequência:** uma vez por semana, de forma automática.
+
+##### 6. Destaque visual para "Nova Rebaixa" (relançamento do mesmo item)
+
+Quando a loja **relançar o mesmo item** no Controle de Datas, aplicar um **destaque visual** para as solicitações de **Nova Rebaixa** — cor diferenciada ou símbolo (ex.: asterisco `*`) — para facilitar identificação e priorização na tela.
+
+- **Critério de identificação:** mesma **Descrição** **e** mesmo **Vencimento** de produto já rebaixado.
+
+##### 7. Liberação automática de ofertas por estoque/prazo
+
+Configurar o Controle de Datas para **liberar automaticamente** as ofertas quando:
+
+- Estoque do produto **≤ 50 unidades**, **e**
+- No **máximo 30 dias** antes do vencimento.
+
+**Exceções (liberação permanece manual):** os produtos/categorias abaixo seguem o processo atual (liberação manual):
+
+| Produto / Fórmula | Categoria |
+| ----------------------------- | ---------------------------------- |
+| Sustagen | Básicos e Matinais → N2.Commodities |
+| Arroz | Básicos e Matinais → N2.Matinais |
+| Feijão | Commodities → N2.Commodities |
+| Leite em Pó | Commodities → N2.Commodities |
+| Leite Longa Vida (Geral) | Básicos e Matinais → N2.Commodities |
+| Azeite | Básicos e Matinais → N2.Commodities |
+| Óleo | Básicos e Matinais → N2.Commodities |
+| Leite Condensado (Geral) | Commodities → N2.Commodities |
+| Creme de Leite | Básicos e Matinais → N2.Confeitaria |
+| Café em Pó (Geral) | Básicos e Matinais → N2.Confeitaria |
+| — | Básicos e Matinais → N2.Commodities |
+

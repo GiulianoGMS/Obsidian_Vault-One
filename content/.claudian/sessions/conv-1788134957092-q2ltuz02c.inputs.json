@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788134957092-q2ltuz02c",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788134957189-c77kpif",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788134957085-k4f783u",
+      "timestamp": 1788134957085,
+      "rawDisplayText": "Crie um novo MD em Custom Override - ON, sobre o GLPI https://glpi.nagumo.com.br/front/ticket.form.php?id=735391\n\nSiga os padrões dos demais MDs!\n\nProblema: Sistema permite vincular um arquivo/boleto DDA em titulos ja autorizados para pagamentos\n\nSolucao: Alterado na PKG_FIDDA\n\nInserido:\n\n  -- Giuliano 30/08/26\n    -- Critica tit ja autorizado\n    IF NAGP_STATUS_TIT_FIN(pnSeqTitulo) = 1 THEN\n      \n       INSERT INTO FIX_BUSCADDA\n          (TIPO,\n           SEQTITULO,\n           NROPROCESSO,\n           CODBARRAS,\n           TIPOINCONSISTENCIA,\n           INCONSISTENCIA,\n           VALOR)\n        VALUES\n          ('I',\n           pnSeqTitulo,\n           pnNroProcesso,\n           vsCodBarras,\n           'D',\n           'Este título encontra-se autorizado para pagamento',\n           vnVlrCodBarras);\n     END IF;\n\nNa SP_CONSISTETITULO.\n\nFunction: https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGF_STATUS_TIT_FIN.fnc\n\nexplique detalhadamente.",
+      "canonicalText": "Crie um novo MD em Custom Override - ON, sobre o GLPI https://glpi.nagumo.com.br/front/ticket.form.php?id=735391\n\nSiga os padrões dos demais MDs!\n\nProblema: Sistema permite vincular um arquivo/boleto DDA em titulos ja autorizados para pagamentos\n\nSolucao: Alterado na PKG_FIDDA\n\nInserido:\n\n  -- Giuliano 30/08/26\n    -- Critica tit ja autorizado\n    IF NAGP_STATUS_TIT_FIN(pnSeqTitulo) = 1 THEN\n      \n       INSERT INTO FIX_BUSCADDA\n          (TIPO,\n           SEQTITULO,\n           NROPROCESSO,\n           CODBARRAS,\n           TIPOINCONSISTENCIA,\n           INCONSISTENCIA,\n           VALOR)\n        VALUES\n          ('I',\n           pnSeqTitulo,\n           pnNroProcesso,\n           vsCodBarras,\n           'D',\n           'Este título encontra-se autorizado para pagamento',\n           vnVlrCodBarras);\n     END IF;\n\nNa SP_CONSISTETITULO.\n\nFunction: https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGF_STATUS_TIT_FIN.fnc\n\nexplique detalhadamente.",
+      "images": [],
+      "contentDigest": "6179cc6af7b86b062c13767987c1db3d23d803d19eead8b8fbd66e46a048ffd0",
+      "providerUserMessageId": "6b3a1f00-3d4d-4ea1-bba6-0738e53a555d",
+      "providerAssistantMessageId": "138e7f27-97cf-4102-bf88-114bcc498139"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788136224495-5m63wo2",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1788136224483-04h03ja",
+      "timestamp": 1788136224483,
+      "rawDisplayText": "é NAGF mesmo, estava errado",
+      "canonicalText": "é NAGF mesmo, estava errado",
+      "images": [],
+      "contentDigest": "7a4a42cd13224f9a64cd335c3a45f0c28c00e26e4534b569b187190f2fc7cd99",
+      "providerUserMessageId": "365dc27f-4caf-4647-8eb7-9110a080a874",
+      "providerAssistantMessageId": "2a9e7562-b20f-4489-beb0-ba34be4a5e2c"
+    }
+  ]
+}

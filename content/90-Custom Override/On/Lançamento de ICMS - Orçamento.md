@@ -11,7 +11,7 @@ System:
 Open Tags:
   - "[[NFe de Despesa]]"
   - "[[Orçamento]]"
-  - "[[Financeiro]]"
+  - "[[30-Squad/Financeiro]]"
 Date:
 Type:
 Project:

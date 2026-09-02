@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788265211098-xfc9wjek2",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788265211174-lrqo0vc",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788265211092-od46ex6",
+      "timestamp": 1788265211092,
+      "rawDisplayText": "Documente estas pendencias solicitadas sobre este projeto:\n\nNovas Melhorias – Controle de Datas.\n\n 1° Solicitar à TOTVS Consinco a cotação para customização do sistema, visando melhorias na funcionalidade de busca por período. A busca deve respeitar a data Inicial / final de vencimento e retornar apenas os produtos dentro do período informado. Exemplo: Se colocar data fim 30/07 não deve aparecer produtos após esse vencimento.\n\n\n\n \n\n2° Solicitar à TOTVS Consinco a cotação para customização do sistema, Usuário Inclusão (Loja) e Usuário Liberou (Price).\n\n\n\n \n\n3° Na tela de “Pendentes de Aprovação”, não devem ser exibidos os itens das seções Açougue, Rotisseria, Padaria, Peixaria e Frios, pois esses não são rebaixados no Controle de Datas.\n\n\n4° Na Promoção Especial por Códigos Específicos Empresa, as lojas 06, 07, 08, 09, 58, 59, 60, 61 e 62 não estão sendo exibidas deve incluir, quando buscamos por loja.\n\n\n5° Implementar o envio automático de um relatório semanal, por e-mail, contendo a relação dos produtos baixados. O relatório deverá ser enviado aos compradores uma vez por semana, de forma automática.\n\n\n6° Quando a loja relançar o mesmo item no controle de datas. Implementar um destaque visual para as solicitações de Nova Rebaixa, utilizando uma cor diferenciada ou um símbolo (como um asterisco \"*\"), para facilitar sua identificação e priorização na tela.  Se baseando na Descrição e Mesmo Vencimento do produto já rebaixado.\n\n   \n\n7° Configurar o sistema de controle de datas para liberar automaticamente as ofertas quando o estoque do produto Igual ou Inferior a 50 unidades, máximo 30 dias antes do vencimento.\n\nExceções: a regra de liberação automática não deve ser aplicada às seguintes categorias abaixo, para esses produtos/categorias, a liberação das ofertas deverá seguir o processo atualmente definido, (Manualmente).\n\n\n\nProduto\n\nCategoria\n\nFórmula\n\nBásicos e Matinais → N2.Commodities\n\nSustagen\n\nBásicos e Matinais → N2.Matinais\n\nArroz\n\nCommodities → N2.Commodities\n\nFeijão\n\nCommodities → N2.Commodities\n\nLeite em Pó\n\nBásicos e Matinais → N2.Commodities\n\nLeite Longa Vida (Geral)\n\nBásicos e Matinais → N2.Commodities\n\nAzeite\n\nBásicos e Matinais → N2.Commodities\n\nÓleo\n\nCommodities → N2.Commodities\n\nLeite Condensado (Geral)\n\nBásicos e Matinais → N2.Confeitaria\n\nCreme de Leite\n\nBásicos e Matinais → N2.Confeitaria\n\nCafé em Pó (Geral)\n\nBásicos e Matinais → N2.Commodities",
+      "canonicalText": "Documente estas pendencias solicitadas sobre este projeto:\n\nNovas Melhorias – Controle de Datas.\n\n 1° Solicitar à TOTVS Consinco a cotação para customização do sistema, visando melhorias na funcionalidade de busca por período. A busca deve respeitar a data Inicial / final de vencimento e retornar apenas os produtos dentro do período informado. Exemplo: Se colocar data fim 30/07 não deve aparecer produtos após esse vencimento.\n\n\n\n \n\n2° Solicitar à TOTVS Consinco a cotação para customização do sistema, Usuário Inclusão (Loja) e Usuário Liberou (Price).\n\n\n\n \n\n3° Na tela de “Pendentes de Aprovação”, não devem ser exibidos os itens das seções Açougue, Rotisseria, Padaria, Peixaria e Frios, pois esses não são rebaixados no Controle de Datas.\n\n\n4° Na Promoção Especial por Códigos Específicos Empresa, as lojas 06, 07, 08, 09, 58, 59, 60, 61 e 62 não estão sendo exibidas deve incluir, quando buscamos por loja.\n\n\n5° Implementar o envio automático de um relatório semanal, por e-mail, contendo a relação dos produtos baixados. O relatório deverá ser enviado aos compradores uma vez por semana, de forma automática.\n\n\n6° Quando a loja relançar o mesmo item no controle de datas. Implementar um destaque visual para as solicitações de Nova Rebaixa, utilizando uma cor diferenciada ou um símbolo (como um asterisco \"*\"), para facilitar sua identificação e priorização na tela.  Se baseando na Descrição e Mesmo Vencimento do produto já rebaixado.\n\n   \n\n7° Configurar o sistema de controle de datas para liberar automaticamente as ofertas quando o estoque do produto Igual ou Inferior a 50 unidades, máximo 30 dias antes do vencimento.\n\nExceções: a regra de liberação automática não deve ser aplicada às seguintes categorias abaixo, para esses produtos/categorias, a liberação das ofertas deverá seguir o processo atualmente definido, (Manualmente).\n\n\n\nProduto\n\nCategoria\n\nFórmula\n\nBásicos e Matinais → N2.Commodities\n\nSustagen\n\nBásicos e Matinais → N2.Matinais\n\nArroz\n\nCommodities → N2.Commodities\n\nFeijão\n\nCommodities → N2.Commodities\n\nLeite em Pó\n\nBásicos e Matinais → N2.Commodities\n\nLeite Longa Vida (Geral)\n\nBásicos e Matinais → N2.Commodities\n\nAzeite\n\nBásicos e Matinais → N2.Commodities\n\nÓleo\n\nCommodities → N2.Commodities\n\nLeite Condensado (Geral)\n\nBásicos e Matinais → N2.Confeitaria\n\nCreme de Leite\n\nBásicos e Matinais → N2.Confeitaria\n\nCafé em Pó (Geral)\n\nBásicos e Matinais → N2.Commodities",
+      "context": {
+        "linkedContent": {
+          "path": "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "aedac57e1dd0005b0dffad2037970a5d97b3aed3383f379c522c6dd71bebbf50",
+      "providerUserMessageId": "62d30635-1095-425d-9225-fef29f2b0eab",
+      "providerAssistantMessageId": "338b84cb-9df5-49a6-9134-d93872f84d98"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788265320252-cq3nd7a",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1788265320238-6lf48n4",
+      "timestamp": 1788265320238,
+      "rawDisplayText": "pode colocar a lista como checks? para que eu marque algum lugar assim que for concluido",
+      "canonicalText": "pode colocar a lista como checks? para que eu marque algum lugar assim que for concluido",
+      "images": [],
+      "contentDigest": "8212e70eeb200ddd8ff53d582d8583fd5fc83d976c883a68d01160cf65394c52",
+      "providerUserMessageId": "57d728ef-3f7c-487a-a4fb-8f9fdaf27d0f",
+      "providerAssistantMessageId": "aaa431ae-6876-405a-bd53-7371ec4ded4f"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788129668748-17cyfyhs0",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788129668923-ngpn639",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788129668744-bem8xid",
+      "timestamp": 1788129668744,
+      "rawDisplayText": "O que ta pendente?",
+      "canonicalText": "O que ta pendente?",
+      "context": {
+        "linkedContent": {
+          "path": "51-Pendencias/Pendencias.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "9178ee7b6a95949d41e95241dcd753ef67a9ce707d94bc368d4e672550d7350f",
+      "providerUserMessageId": "783eaf07-0c65-4bbf-a9ed-56807aeee293",
+      "providerAssistantMessageId": "192e103d-1ff5-4695-aefe-4aeff14a865a"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788129804418-8vdb24a",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1788129804410-4zluxuu",
+      "timestamp": 1788129804410,
+      "rawDisplayText": "Organize melhor, porem crie um outro MD, pois quero manter o backup",
+      "canonicalText": "Organize melhor, porem crie um outro MD, pois quero manter o backup",
+      "images": [],
+      "contentDigest": "54e81225fb02355d3a5e6a698bbbf0fd2d4704b02c4ee2d5ff41bd4c73dc3c34",
+      "providerUserMessageId": "749c70f9-1346-4607-b8a2-55b172e9ffe4",
+      "providerAssistantMessageId": "630a1566-fa9a-4daf-ab8a-51c2fb768e7b"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788129992570-odwaq9t",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1788129992554-wpi5khr",
+      "timestamp": 1788129992554,
+      "rawDisplayText": "[!info] ficou info.. tem como colocar um icone?",
+      "canonicalText": "[!info] ficou info.. tem como colocar um icone?",
+      "context": {
+        "editorSelection": {
+          "notePath": "51-Pendencias/Pendencias.md",
+          "mode": "selection",
+          "selectedText": "[!info] ",
+          "lineCount": 1,
+          "startLine": 10
+        }
+      },
+      "images": [],
+      "contentDigest": "c89d2aecfa4c7380fda03ec7c3b5f71a87cf8f4f9450601cc087c9d2e4e832bc",
+      "providerUserMessageId": "9d34fea1-df11-4f7b-9ace-94e52b4dedac",
+      "providerAssistantMessageId": "f9a78a1f-42a0-4545-ad39-773452241c98"
+    }
+  ]
+}

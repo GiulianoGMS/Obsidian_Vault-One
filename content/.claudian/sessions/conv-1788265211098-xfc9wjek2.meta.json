@@ -1,0 +1,24 @@
+{
+  "id": "conv-1788265211098-xfc9wjek2",
+  "providerId": "claude",
+  "title": "Solicitar cotação - melhorias controle de datas",
+  "titleGenerationStatus": "success",
+  "createdAt": 1788265211105,
+  "lastActivityAt": 1788265337103,
+  "sessionId": "4202f0d8-0f85-4cbb-8b13-a4c690ffd588",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "4202f0d8-0f85-4cbb-8b13-a4c690ffd588"
+  },
+  "linkedContentPath": "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 1093,
+    "cacheReadInputTokens": 31279,
+    "contextWindow": 1000000,
+    "contextTokens": 32374,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

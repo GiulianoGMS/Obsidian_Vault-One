@@ -4,7 +4,7 @@ Language:
 Repository:
   - "[[DDL-Oracle]]"
 Squads:
-  - "[[Financeiro]]"
+  - "[[30-Squad/Financeiro]]"
 System:
   - "[[PLSQL-Oracle]]"
 Open Tags:
@@ -39,4 +39,4 @@ Este script atua como uma rotina de [[ajuste de dados]], normalmente aplicada em
 - Recalcular ou corrigir valores de [[Funrural]]
 - Atualizar registros inconsistentes em [[tabelas financeiras]]
 - Garantir que os valores estejam alinhados com a [[regra fiscal]]
-- Evitar divergências entre [[contábil]] e [[financeiro]]
+- Evitar divergências entre [[contábil]] e [[30-Squad/Financeiro]]

@@ -5,13 +5,13 @@ Repository:
   - "[[DDL-Objects-Oracle]]"
 Squads:
   - "[[TI]]"
-  - "[[Financeiro]]"
+  - "[[30-Squad/Financeiro]]"
   - "[[Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
 Open Tags:
   - "[[ISSQN]]"
-  - "[[Financeiro]]"
+  - "[[30-Squad/Financeiro]]"
   - "[[Títulos]]"
 Date: 2026-06-18
 Type: Ferramenta
@@ -33,7 +33,7 @@ A procedure copia a estrutura de um título-base já existente, substituindo ape
 ## Quando usar
 
 - O ERP processou a [[NFe]] mas **não gerou** os [[títulos]] de [[espécie]] `ISSQN` e/ou `SERVRC`
-- O [[financeiro]] precisa que esses títulos existam em `MRL_TITULOFIN` para integração e baixa
+- O [[30-Squad/Financeiro]] precisa que esses títulos existam em `MRL_TITULOFIN` para integração e baixa
 
 ---
 

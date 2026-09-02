@@ -1,0 +1,24 @@
+{
+  "id": "conv-1788129668748-17cyfyhs0",
+  "providerId": "claude",
+  "title": "Verificar tarefas pendentes",
+  "titleGenerationStatus": "success",
+  "createdAt": 1788129668754,
+  "lastActivityAt": 1788130038864,
+  "sessionId": "dcaff953-ea70-4a3c-bbd8-da64c2d01eed",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "dcaff953-ea70-4a3c-bbd8-da64c2d01eed"
+  },
+  "linkedContentPath": "51-Pendencias/Pendencias.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 131,
+    "cacheCreationInputTokens": 1331,
+    "cacheReadInputTokens": 27631,
+    "contextWindow": 1000000,
+    "contextTokens": 29093,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

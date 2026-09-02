@@ -6,7 +6,7 @@
       {
         "id": "80d9140fd22d8d61",
         "type": "tabs",
-        "dimension": 53.7303664921466,
+        "dimension": 53.468586387434556,
         "children": [
           {
             "id": "ce5a193713573dc6",
@@ -28,35 +28,90 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
+                "file": "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lote de Compras — Acata Sugerido e Consolidação"
+              "title": "Alerta NFe NFCe - E-mail"
             }
           }
         ],
         "currentTab": 1
       },
       {
-        "id": "e972e1e6917638da",
-        "type": "tabs",
-        "dimension": 46.2696335078534,
+        "id": "b45645a4f5a4280e",
+        "type": "split",
+        "dimension": 46.531413612565444,
         "children": [
           {
-            "id": "3cd3e05a753e3bfc",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "graph",
-              "state": {},
-              "pinned": true,
-              "icon": "lucide-git-fork",
-              "title": "Visualização em gráfico"
-            }
+            "id": "e972e1e6917638da",
+            "type": "tabs",
+            "dimension": 60.56201550387597,
+            "children": [
+              {
+                "id": "3cd3e05a753e3bfc",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "graph",
+                  "state": {},
+                  "pinned": true,
+                  "icon": "lucide-git-fork",
+                  "title": "Visualização em gráfico"
+                }
+              }
+            ]
+          },
+          {
+            "id": "600c2e3a7811002e",
+            "type": "tabs",
+            "dimension": 39.43798449612403,
+            "children": [
+              {
+                "id": "568ee1180b2ae5e0",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "claudian-view",
+                  "state": {
+                    "tabWorkspace": {
+                      "version": 1,
+                      "openTabs": [
+                        {
+                          "tabId": "tab-1787950885640-30rcken",
+                          "conversationId": "conv-1787950925160-4c4xxkz4j"
+                        },
+                        {
+                          "tabId": "tab-1787951503085-loz8g6v",
+                          "conversationId": "conv-1788129668748-17cyfyhs0"
+                        },
+                        {
+                          "tabId": "tab-1788134746630-9g2ksfb",
+                          "conversationId": "conv-1788134957092-q2ltuz02c"
+                        },
+                        {
+                          "tabId": "tab-1788265189207-fxkbffj",
+                          "conversationId": "conv-1788265211098-xfc9wjek2"
+                        },
+                        {
+                          "tabId": "tab-1788316999893-c8al6um",
+                          "conversationId": null,
+                          "draftModel": "opus"
+                        }
+                      ],
+                      "activeTabId": "tab-1788316999893-c8al6um"
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              }
+            ]
           }
-        ]
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -191,6 +246,7 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -200,11 +256,11 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 200,
     "collapsed": true
   },
   "left-ribbon": {
@@ -219,48 +275,53 @@
       "publish:Publicar mudanças": false,
       "webpage-html-export:Export as HTML": false,
       "obsidian-textgenerator-plugin:Generate Text!": false,
-      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false
+      "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
+      "realclaudian:Open Claudian": false
     }
   },
-  "active": "3cd3e05a753e3bfc",
+  "active": "568ee1180b2ae5e0",
   "lastOpenFiles": [
+    "30-Squad/Analistas/Wesley.md",
+    "00-Home/01-Templates/_ Basic Template.md",
+    "30-Squad/Analistas/Fabiano/Reclamações/11-08.md",
+    "90-Custom Override/On/Desonerado Ecommerce.md",
+    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
+    "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md",
+    "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
+    "90-Custom Override/On/Arred. de Seleção Inversa no CD - FLV.md",
+    "90-Custom Override/On/Arred. de Valores no Receb. - 0,xx Centavos.md",
+    "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
+    "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md",
+    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
+    "90-Custom Override/On/CST IPI - NFe.md",
+    "80-Paliativos - Nao precisa Reaplicar/On/Correção CBS-IBS NFs de Devolução.md",
+    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
+    "carga.md",
+    "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
+    "50-Meetings/Loja 62 Etiquetas Digitais SEAL.md",
+    "40-Open Tags/Critica Lote de Compras.md",
+    "40-Open Tags/Inconsistencia Recebimento NFe.md",
+    "50-Meetings/Financeiro.md",
+    "40-Open Tags/Critica de Venda.md",
+    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
+    "70-Projects, Tools & Integrations/Projects/Sugestão Consolidada com Arredondamento — Lote de Compras.md",
+    "51-Pendencias/Pendencias.md",
+    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.26812.0887ff5b9c02",
+    "90-Custom Override/On/Fin - Inconsistencia Prog Pagto.md",
+    "Pasted image 20260831121016.png",
+    "Pasted image 20260831103251.png",
+    "50-Meetings/Sem título",
+    "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md.tmp.18704.20d32728e80d",
+    "60-Object Types/Function.md",
+    "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md.tmp.18704.105286c91c0e",
+    "51-Pendencias/Pendencias.md.tmp.13168.ecfc66e386d4",
+    "51-Pendencias/Pendencias - Organizado.md.tmp.13168.1683d2010e1c",
     "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.e543817bb08c",
     "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.d78d6d0adb3b",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
     "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.8695b561edc3",
     "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.b1fa4d4f1245",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.2bad78cc22c5",
-    "index.md.tmp.3036.cf0f444de264",
-    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
-    "70-Projects, Tools & Integrations/Projects/Sugestão Consolidada com Arredondamento — Lote de Compras.md",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
-    "40-Open Tags/Critica Lote de Compras.md",
-    "40-Open Tags/Critica de Venda.md",
-    "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
-    "40-Open Tags/Inconsistencia Recebimento NFe.md",
-    "50-Meetings/Loja 62 Etiquetas Digitais SEAL 280826.md",
-    "50-Meetings/Projeto FLV Bandejas.md",
-    "51-Pendencias/Pendencias.md",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Implementação.md",
-    "50-Meetings/Skyone 210826.md",
-    "50-Meetings/Snowflake 140826.md",
-    "50-Meetings/TOTVS - NF3e Notes.md",
-    "50-Meetings/TOTVS + Nagumo - Reforma Tributária - Verbas Comercias - (Sell-In e Sell-Out).md",
-    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
-    "71-GLPI/Prototypes/_hs_str — Conversão UTF-16 via DBLink.md",
-    "70-Projects, Tools & Integrations/Tools/Apuração CAT 28.md",
-    "Pedido Cotação.md",
-    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.md",
-    "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
-    "90-Custom Override/On/InfAdFisco - NFe.md",
-    "Gerenciador de Compras.md",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compra - Geração Automática.md",
-    "index.md.tmp.3384.a4d6bcbe41c5",
     "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",
-    "index.md.tmp.3384.ba5b0cad15c7",
-    "11-Source Material/~$CalcMargem.xlsx",
-    "11-Source Material/CalcMargem.xlsx",
-    "50-Meetings/Snowflake 140826",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "Pasted image 20260612151731.png",
     "Pasted image 20260611130439.png",
@@ -269,12 +330,8 @@
     "Pasted image 20260603074640.png",
     "{6F11ADC6-10D2-4AC5-9CC2-DB5D3E3F62D8}.png",
     "Pasted image 20260718213111.png",
-    "{05103EBA-EB03-4F63-958D-ECA28C18F81B}.png",
     "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
-    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
-    "Pasted image 20260710170838.png",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.canvas",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",
     "Sem título.canvas",

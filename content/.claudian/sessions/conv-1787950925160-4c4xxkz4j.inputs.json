@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1787950925160-4c4xxkz4j",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1787951386153-1npqypw",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1787951384771-tq3c79y",
+      "timestamp": 1787951384771,
+      "rawDisplayText": "Explique este projeto",
+      "canonicalText": "Explique este projeto",
+      "context": {
+        "linkedContent": {
+          "path": "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "d5434fcf958d778d770d8123829de36b2cd881d67447c0727a2e9702655aef42",
+      "providerUserMessageId": "f0726f62-d25f-4904-8592-88eaa7fa99d9",
+      "providerAssistantMessageId": "d424d0e2-3df7-4ce6-a710-0cb5611e0b9f"
+    }
+  ]
+}
