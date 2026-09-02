@@ -194,15 +194,23 @@ Solicitar à **TOTVS Consinco** a cotação para customização exibindo:
 - **Usuário Liberou (Price)** — quem liberou a oferta.
 - **Status:** aguardando cotação TOTVS.
 
-##### 3. Ocultar seções não rebaixadas em "Pendentes de Aprovação"
+##### 3. Ocultar seções não rebaixadas em "Pendentes de Aprovação" — ✅ Aplicado
 
-Na tela **"Pendentes de Aprovação"**, **não** devem ser exibidos os itens das seções abaixo, pois não são rebaixados no Controle de Datas:
+Na tela **"Pendentes de Aprovação"**, **não** devem ser exibidos os itens das seções abaixo, pois não são rebaixados no Controle de Datas.
 
-- Açougue
-- Rotisseria
+**Ajuste aplicado na view `NAGV_BASE_MRL_PROMOCESPECIAL_APP`** — filtro por `CATEGORIAN1` (tabela `NAGV_DESCCATEG_DATA_APP`, alias `C`):
+
+```sql
+C.CATEGORIAN1 NOT IN ('FRIOS E LATICINIOS', 'AÇOUGUE', 'ACOUGUE', 'PADARIA', 'ROTISSERIE', 'PEIXARIA')
+```
+
+Categorias filtradas (não retornadas pela view):
+
+- Frios e Laticínios
+- Açougue *(grafias `AÇOUGUE` e `ACOUGUE`)*
 - Padaria
+- Rotisserie
 - Peixaria
-- Frios
 
 ##### 4. Incluir lojas ausentes na Promoção Especial por Códigos Específicos (Empresa)
 

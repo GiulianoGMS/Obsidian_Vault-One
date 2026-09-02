@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788318438670-wqvm2cvj3",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788318438840-6dblwy4",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788318438665-dp12qe4",
+      "timestamp": 1788318438665,
+      "rawDisplayText": "atualize o MD com os ajustes aplicados em https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGV_BASE_MRL_PROMOCESPECIAL_APP.sql (categorias filtradas no ponto pendente 3)",
+      "canonicalText": "atualize o MD com os ajustes aplicados em https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGV_BASE_MRL_PROMOCESPECIAL_APP.sql (categorias filtradas no ponto pendente 3)",
+      "context": {
+        "linkedContent": {
+          "path": "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "e3b666e0215d1c855760d8d640577a9f38beada4f62295129392c70166477471",
+      "providerUserMessageId": "5ffd2183-fe53-43b3-896a-8a96e39957ea",
+      "providerAssistantMessageId": "70aad09e-db1d-42b4-8050-6c8d49b222fa"
+    }
+  ]
+}

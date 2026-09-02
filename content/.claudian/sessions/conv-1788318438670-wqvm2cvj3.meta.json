@@ -1,0 +1,24 @@
+{
+  "id": "conv-1788318438670-wqvm2cvj3",
+  "providerId": "claude",
+  "title": "Atualizar MD com categorias filtradas",
+  "titleGenerationStatus": "success",
+  "createdAt": 1788318438685,
+  "lastActivityAt": 1788318481604,
+  "sessionId": "10de54a2-7262-47e9-9040-79f20cb25d26",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "10de54a2-7262-47e9-9040-79f20cb25d26"
+  },
+  "linkedContentPath": "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 6682,
+    "cacheReadInputTokens": 24982,
+    "contextWindow": 1000000,
+    "contextTokens": 31666,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}
