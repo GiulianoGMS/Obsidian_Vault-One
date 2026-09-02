@@ -1,0 +1,23 @@
+{
+  "id": "conv-1788317120718-j79iyik4m",
+  "providerId": "claude",
+  "title": "Acompanhamento de pendências",
+  "titleGenerationStatus": "success",
+  "createdAt": 1788317120735,
+  "lastActivityAt": 1788317195725,
+  "sessionId": "04aa5fae-9c5d-4756-8cec-4c7e18cbc521",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "04aa5fae-9c5d-4756-8cec-4c7e18cbc521"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 906,
+    "cacheReadInputTokens": 25004,
+    "contextWindow": 1000000,
+    "contextTokens": 25912,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

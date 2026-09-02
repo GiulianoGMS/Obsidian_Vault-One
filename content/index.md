@@ -13,8 +13,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > |---------|-----------|
 > | [[Oracle Auto Reports - Whatsapp Bot]] | Agente Oracle integrado ao WhatsApp
 > | [[KPIs - Alertas Carga PDV (CTD)]] | 10 KPIs de análise da tabela `NAGT_CONTROLECARGAPDV` — ranking de lojas, checkouts, tabelas, heatmap e evolução diária |
-> | [[BLB - Extracao Fiscal]] | Extração fiscal de NF-e saídas, entradas e cupons SAT para CSV |
-> | [[Lote de Compra - Geração Automática]] | Geração automática de lotes de compra com sugestão MIN/MAX |
+> > | [[Lote de Compra - Geração Automática]] | Geração automática de lotes de compra com sugestão MIN/MAX |
 > | [[Lote de Compras — Acata Sugerido e Consolidação]] | Trigger BEFORE INSERT (acata sugerido automático) + COMPOUND TRIGGER (consolidação + arredondamento logístico) — coordenados por `NAGT_COMP_FORN_SUGESTAUTO` |
 > | [[Validações de Inconsistências - PDV TOTVs]] | Validações de produtos, famílias e tributações — PKG_INCONSISTENCIAS |
 > | [[Ecommerce - Replicação de Ofertas PDV TOTVS]] | Replica ofertas do Meu Nagumo para o PDV TOTVS via remarca |
@@ -32,6 +31,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Alerta NFe NFCe - E-mail]] | E-mail automático ao time Fiscal com rejeições e pendências de NF-e/NFC-e dos últimos 3 dias |
 > | [[Etiqueta FLV - Informação Nutricional]] | View Oracle que gera ZPL de etiqueta nutricional FLV — pivot de nutrientes do ERP para impressora Zebra |
 > | [[Impressão de Crachás - Eventiza]] | App web local (HTML + Node.js, zero deps) que importa XLSX da Eventiza e imprime crachás ZPL na Zebra via check-in |
+> | [[Falconi]] | — |
 
 > [!example]+ Integrações
 > Exportações e sincronizações com plataformas externas via CSV / UTL_FILE.
@@ -40,6 +40,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > |------------|-----------|-----------------|
 > | [[Instaleap]] | Instaleap / Meu Nagumo | Catálogo (estoque, preço, status) · Produto (cadastro, EAN, foto, nutrição) · Promoções |
 > | [[Backlgrs - Salesforce]] | Backlgrs CRM | Catálogo · Produto · Clientes (CPF, push token) · Filiais · Vendas · Ofertas |
+> | [[BLB - Extracao Fiscal]] | BLB | NF-e saídas, entradas e cupons SAT — exportação para CSV |
 
 > [!tip]+ Ferramentas
 > Utilitários e ferramentas de apoio operacional.

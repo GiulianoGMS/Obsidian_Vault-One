@@ -9,6 +9,8 @@
 > [!info] 40% — definido por Thaise em 12/08 (Wts Raquel Price).
 - [ ] **Crítica de Açougue** no referenciamento de NFs vs Pedidos — criticar vínculo se não for o pedido mais antigo disponível.
 - [ ] **Cálculo de Margem** — ([[Comercial - Fórmula de Cálculo de Margem]]).
+- [ ] **Gerar arquivos BLB** — ([[BLB - Extracao Fiscal]]).
+- [ ] **Gerar arquivos de estoque/venda do mês anterior** para a **Falconi**.
 #### 👥 Ações de terceiros / Chamados
 
 - [ ] **Isabela** — abrir chamado para criação de pedido de venda para retirada de produtos para a loja nova 62.
