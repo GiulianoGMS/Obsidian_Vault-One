@@ -69,6 +69,200 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGP_WTS_V2_ALERTAS_SEFAZ`           | Webservice SEFAZ com tempo de resposta > 3 s **ou** fora do ar (`SVC = 'Sim'`) nos últimos 25 min — dispara entre 07h–20h nos minutos 00/02; envia pa GERP e GSD                                                                                                                              | `ERP_INTEGRATION.NAGT_NFE_STATUS_UFS` — verifica `TEMPO_RESPOSTA > 3` e `SVC = 'Sim'` na janela de 25 min             |                                                                |
 | `NAGP_WTS_V2_LOG_API_UNOUS`           | Erros registrados na API [[Unous]] não processados — envia uma mensagem por registro com data/hora e texto do erro; sleep de 5 s entre envios                                                                                                                                                 | `NAGT_LOG_API_UNOUS` (`INDLOGPROCESSADO = 'N'`); marcação como processado (`'S'`) feita pelo orquestrador após o loop |                                                                |
 
+### Exemplos de Mensagem por Alerta
+
+> Textos reais montados por cada procedure (decodificados do formato URL-encoded enviado à [[TextMeBot]]). Os `*asteriscos*` são a marcação de **negrito** do [[WhatsApp]].
+
+**`NAGP_WTS_V2_INVALIDOBJECTS`**
+```
+🚨 *Report: Existem objetos invalidos no banco:*
+
+*Data Base:* NAGUMO PROD
+*Owner:* CONSINCO
+*Object Name:* NAGP_EXEMPLO
+*Object Type:* PROCEDURE
+*Created:* 01/09/2025 10:22:15
+*Last DDL Time:* 02/09/2026 08:00:00
+*Status:* INVALID
+
+*Para recompilar objs:* 
+NAGP_RECOMPILA_OBJ()
+```
+
+**`NAGP_WTS_V2_JOB_RUNFAILURES`**
+```
+🚨 *Report: Houve falha de execucao na(s) rotina(s) abaixo:*
+
+*Log_Date:* 02-SEP-2026
+*Job_Name:* NAGJ_CARGA_EXEMPLO
+*Error:* ORAx12801 error signaled in parallel query server ...
+*Instance_ID:* 1
+```
+
+**`NAGP_WTS_V2_JOB_RUNFAILURES_ESP`** *(direcionado — inclui Data Base)*
+```
+🚨 *Report: Houve falha de execucao na(s) rotina(s) abaixo:*
+
+*Data Base:* CONSINCO
+*Log_Date:* 02-SEP-2026
+*Job_Name:* NAGJ_CARGA_EXEMPLO
+*Error:* ORAx12801 error signaled in parallel query server ...
+*Instance_ID:* 1
+```
+
+**`NAGP_WTS_V2_LOCKS`**
+```
+🚨 *Report: Sessão bloqueada detectada:*
+
+*Sessão bloqueadora:* 1234 (User: CONSINCO)
+*Serial:* 5678 - Instance ID: 1
+*Status:* INACTIVE
+*OSUser:* oracle
+*Máquina:* SRV-DB01
+*Programa:* sqlplus.exe
+*Logon:* 02/09/2026 08:15:00
+
+*Sessão bloqueada:* 4321 (User: MONITORPDV)
+*Serial:* 8765
+*Status:* ACTIVE
+*OSUser:* monitorpdv
+*Máquina:* SRV-APP02
+*Programa:* JDBC Thin Client
+*Duração:* 12 min
+*Evento de espera:* enq: TX - row lock contention
+*Evento bloqueador:* SQL*Net message from client
+
+*Para encerrar sessao:*
+NAGP_KILL_SESSION(1234, 5678, 1)
+```
+
+**`NAGP_WTS_V2_TB_LOGDBERRO`**
+```
+🚨 *Report: Existem Erros na Carga Monitor:*
+
+*Data Evento:* 02/09/2026
+*Username:* MONITORPDV
+*NlsLang:* BRAZILIAN PORTUGUESE
+*IpcClient:* 10.0.0.15
+*OsUser:* monitorpdv
+*Terminal:* PDV-05
+*Modulo:* CargaMonitor
+*Identifier:* 12345
+*MsgErro:* ORAx00001 unique constraint violated
+*Action:* INSERT
+*Erro em:* TB_LOGDBERRO
+```
+
+**`NAGP_WTS_V2_TB_LOGFALHACARGAMONITOR`**
+```
+🚨 *Report: Existem Erros na Carga Monitor:*
+
+*SeqLog:* 987
+*Tabela:* TB_PRODPRECO
+*Data:* 02/09/2026
+*TipoCarga:* P
+*Mensagem:* Falha ao carregar pacote de precos
+*Replicacao:* S
+*Erro em:* TB_LOGFALHACARGAMONITOR
+```
+
+**`NAGP_WTS_V2_LONGTIME_SESSION`**
+```
+⏱️ *Sessão ativa há mais de 3 horas*
+
+*Ambiente:* PROD
+*Usuário:* MONITORPDV
+*Sessão:* 4321
+*Serial:* 8765
+*Instância:* 1
+*Status:* ACTIVE
+*Duração:* 3:45:12
+*Logon:* 02/09/2026 05:00:00
+*SO:* monitorpdv
+*Terminal:* SRV-APP02
+*Programa:* JDBC Thin Client
+*PID:* 20458
+*Action:* CargaMonitor
+
+*Para encerrar a sessão:*
+NAGP_KILL_SESSION(4321, 8765, 1)
+```
+> Campos *Client Identifier*, *Client Info*, *Action* e *Job* só aparecem quando preenchidos.
+
+**`NAGP_WTS_V2_CONTROLECARGA_PDV_CTD`**
+```
+🚨 *Report: Falhas Registradas No Controle De Carga Do PDV:*
+
+*Tabela:* TB_PRODPRECO
+*Status:* 3 - Falha no envio do pacote
+  
+ ▰▰▱▱ *Loja:* 05 *| Checkouts:* 1, 2, 3.
+ ▱▱▱▱ *Loja:* 07 *| Checkouts:* 2.
+
+*Tabela:* TB_FAMILIA
+*Status:* 4 - Falha ao tentar carregar o pacote
+  
+ ▰▰▰▰ *Loja:* 05 *| Checkouts:* 1.
+```
+> O indicador de nível reflete a persistência do dia (`QTD_DIA`): ▱▱▱▱ (1×) → ▰▱▱▱ (2–3×) → ▰▰▱▱ (4–6×) → ▰▰▰▱ (7–10×) → ▰▰▰▰ (11+×).
+
+**`NAGP_WTS_V2_STATUS_EXP_INT_PDV`**
+```
+🚨 *Report: Ultima Exportacao de Documentos ha mais de 8 minutos.*
+
+*Ultima Exportacao:* 02/09/2026 08:52:00
+*Qtd Pendente Exportacao:* 15
+*Qtd Pendente Importacao:* 0
+*Sessoes:* 3
+*Qtd Docto Integrado:* 1240
+*Ultima Carga de Preco:* 02/09/2026 06:30:00
+
+💰 *Valor Venda Atual PDV:* 125.430,90
+📊 *Valor Venda Atual BI:* 125.430,90
+```
+
+**`NAGP_WTS_V2_ALERTAS_BI`**
+```
+🚨 *Report: Qlik Sense Alert* 📊
+
+*Visao:* Vendas
+*Ultima Atualizacao:* 02/09/2026 08:15:00
+*Atraso:* 35 min
+```
+
+**`NAGP_WTS_V2_ALERTAS_BOT_DOWN`**
+```
+⛔ *Report: Servico Interrompido (Captura de dados)*
+
+*Visao:* Estoque
+*Ultimo Registro:* 02/09/2026 07:30:00
+*Atraso:* 45 min
+```
+
+**`NAGP_WTS_V2_ALERTAS_SEFAZ`**
+```
+🧾 *NFE/NFCE - Alerta SEFAZ Intermitente!*
+
+*UFs:* RJ, SP
+*Tipos:* NFCE/NFE
+
+🔸 Notas Fiscais (NFE) devem apresentar lentidão nas emissões!
+🔸 Notas Fiscais (NFCE) devem apresentar lentidão nas emissões!
+```
+
+**`NAGP_WTS_V2_LOG_API_UNOUS`** *(uma mensagem por registro; sleep de 5 s)*
+```
+🌐 *Erro detectado na API Unous*
+
+*Data:* 02/09/2026 08:00:00
+*Erro:* Timeout ao consumir endpoint /v1/produtos
+```
+
+> [!note] `NAGP_WTS_V2_TB_ULTCARGAMONITOR`
+> Pendente anotar
+
+---
+
 ### Bidirecional — Execução de Comandos via [[WhatsApp]]
 
 | Procedure | Função |

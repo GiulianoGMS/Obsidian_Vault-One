@@ -1,0 +1,24 @@
+{
+  "id": "conv-1788319072180-w3jo5at6j",
+  "providerId": "claude",
+  "title": "Extrair exemplos de alertas do MD",
+  "titleGenerationStatus": "success",
+  "createdAt": 1788319072196,
+  "lastActivityAt": 1788319213600,
+  "sessionId": "d8b1a91e-b254-4675-9889-1aa2fdd43623",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "d8b1a91e-b254-4675-9889-1aa2fdd43623"
+  },
+  "linkedContentPath": "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 5825,
+    "cacheReadInputTokens": 53601,
+    "contextWindow": 1000000,
+    "contextTokens": 59428,
+    "percentage": 6,
+    "contextWindowIsAuthoritative": true
+  }
+}

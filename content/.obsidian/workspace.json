@@ -28,12 +28,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
+                "file": "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pricing - Controle de Datas"
+              "title": "Oracle Auto Reports - Whatsapp Bot"
             }
           }
         ],
@@ -101,9 +101,13 @@
                         {
                           "tabId": "tab-1788318406800-k8j0wa1",
                           "conversationId": "conv-1788318438670-wqvm2cvj3"
+                        },
+                        {
+                          "tabId": "tab-1788319033997-90eqhx4",
+                          "conversationId": "conv-1788319072180-w3jo5at6j"
                         }
                       ],
-                      "activeTabId": "tab-1788318406800-k8j0wa1"
+                      "activeTabId": "tab-1788319033997-90eqhx4"
                     }
                   },
                   "pinned": true,
@@ -249,7 +253,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
+                "file": "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -284,6 +288,8 @@
   },
   "active": "568ee1180b2ae5e0",
   "lastOpenFiles": [
+    "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md.tmp.10868.7aeb90f5ff63",
+    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.5236.2eb8924a7f9f",
     "index.md",
     "70-Projects, Tools & Integrations/Integrations/Instaleap/Instaleap.md",
@@ -311,7 +317,6 @@
     "40-Open Tags/Inconsistencia Recebimento NFe.md",
     "50-Meetings/Financeiro.md",
     "40-Open Tags/Critica de Venda.md",
-    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
     "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.26812.0887ff5b9c02",
     "Pasted image 20260831121016.png",
@@ -323,7 +328,6 @@
     "51-Pendencias/Pendencias - Organizado.md.tmp.13168.1683d2010e1c",
     "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.e543817bb08c",
     "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.d78d6d0adb3b",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.8695b561edc3",
     "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "Pasted image 20260612151731.png",

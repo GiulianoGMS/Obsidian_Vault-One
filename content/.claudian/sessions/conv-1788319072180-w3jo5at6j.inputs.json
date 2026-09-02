@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788319072180-w3jo5at6j",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788319072948-d8jungo",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788319072176-be1dcib",
+      "timestamp": 1788319072176,
+      "rawDisplayText": "Neste MD existe a proc de cada alerta que monta cada mensagem, consegue consultar cada uma e incluir o respectivo exemplo do texto presente nelas?",
+      "canonicalText": "Neste MD existe a proc de cada alerta que monta cada mensagem, consegue consultar cada uma e incluir o respectivo exemplo do texto presente nelas?",
+      "context": {
+        "linkedContent": {
+          "path": "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "1e76c2a276d021f578329c39192ddae0b8f766d5e21b8add5130f9f952004503",
+      "providerUserMessageId": "bced39da-b637-4167-ba0c-88d810870bb1",
+      "providerAssistantMessageId": "ec8cb740-cb7d-44d4-b8fa-7367ab067df6"
+    }
+  ]
+}
