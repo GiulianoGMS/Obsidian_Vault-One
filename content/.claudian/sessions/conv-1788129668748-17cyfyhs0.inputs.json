@@ -57,6 +57,48 @@
       "contentDigest": "c89d2aecfa4c7380fda03ec7c3b5f71a87cf8f4f9450601cc087c9d2e4e832bc",
       "providerUserMessageId": "9d34fea1-df11-4f7b-9ace-94e52b4dedac",
       "providerAssistantMessageId": "f9a78a1f-42a0-4545-ad39-773452241c98"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788360934413-amib1ax",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1788360933741-xj66ff7",
+      "timestamp": 1788360933741,
+      "rawDisplayText": "anota no md uma nova pendencia: Ativar segmento Ecommece na loja 10 + equiparar preços do segmento hoje a noite",
+      "canonicalText": "anota no md uma nova pendencia: Ativar segmento Ecommece na loja 10 + equiparar preços do segmento hoje a noite",
+      "images": [],
+      "contentDigest": "6918424d28989f748aa7d503a4f2a894e15ddc97bcafced343ff6cff9cf9efab",
+      "providerUserMessageId": "fac5f16f-54cf-4fa3-9802-7b6beaaaecfa",
+      "providerAssistantMessageId": "8642b272-b826-46dc-aa69-af52a4a1d11f"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788360956949-tssqhfo",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1788360956933-jfjkiij",
+      "timestamp": 1788360956933,
+      "rawDisplayText": "só nota mesmo",
+      "canonicalText": "só nota mesmo",
+      "images": [],
+      "contentDigest": "6fecc56af66f17104aa9f4624fb7931c0e9c2d391db5029a4278cb07d5a1b775",
+      "providerUserMessageId": "de049b24-824b-4df5-ae1f-69fd794753b2",
+      "providerAssistantMessageId": "54fc46e7-6d66-4c1a-901f-18f581c3dfdc"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788383529572-tpu3irk",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1788383529564-0gq0if4",
+      "timestamp": 1788383529564,
+      "rawDisplayText": "anota uma nva pendencia\n\nData de validade cd  -Confirmar data no endereço amarrado a carga",
+      "canonicalText": "anota uma nva pendencia\n\nData de validade cd  -Confirmar data no endereço amarrado a carga",
+      "images": [],
+      "contentDigest": "db214eb9299e64dfd8cf081d3ef76e68a3003519f9ef8b1bbf57049b7c9fe9f0",
+      "providerUserMessageId": "da39cd84-bf36-4baf-ab21-15d7509d8690",
+      "providerAssistantMessageId": "80e3fef5-cad7-4a9c-b92e-73563df95296"
     }
   ]
 }

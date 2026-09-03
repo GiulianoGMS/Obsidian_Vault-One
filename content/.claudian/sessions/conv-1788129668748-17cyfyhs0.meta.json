@@ -4,7 +4,7 @@
   "title": "Verificar tarefas pendentes",
   "titleGenerationStatus": "success",
   "createdAt": 1788129668754,
-  "lastActivityAt": 1788130038864,
+  "lastActivityAt": 1788383537044,
   "sessionId": "dcaff953-ea70-4a3c-bbd8-da64c2d01eed",
   "selectedModel": "opus",
   "providerState": {
@@ -13,12 +13,12 @@
   "linkedContentPath": "51-Pendencias/Pendencias.md",
   "usage": {
     "model": "opus",
-    "inputTokens": 131,
-    "cacheCreationInputTokens": 1331,
-    "cacheReadInputTokens": 27631,
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 1706,
+    "cacheReadInputTokens": 33304,
     "contextWindow": 1000000,
-    "contextTokens": 29093,
-    "percentage": 3,
+    "contextTokens": 35012,
+    "percentage": 4,
     "contextWindowIsAuthoritative": true
   }
 }

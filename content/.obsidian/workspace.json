@@ -6,7 +6,7 @@
       {
         "id": "80d9140fd22d8d61",
         "type": "tabs",
-        "dimension": 53.468586387434556,
+        "dimension": 59.29319371727748,
         "children": [
           {
             "id": "ce5a193713573dc6",
@@ -28,12 +28,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
+                "file": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Oracle Auto Reports - Whatsapp Bot"
+              "title": "Régua de Cobrança - Notificação Genérica"
             }
           }
         ],
@@ -42,12 +42,12 @@
       {
         "id": "b45645a4f5a4280e",
         "type": "split",
-        "dimension": 46.531413612565444,
+        "dimension": 40.70680628272251,
         "children": [
           {
             "id": "e972e1e6917638da",
             "type": "tabs",
-            "dimension": 37.8875968992248,
+            "dimension": 43.31395348837209,
             "children": [
               {
                 "id": "3cd3e05a753e3bfc",
@@ -66,7 +66,7 @@
           {
             "id": "600c2e3a7811002e",
             "type": "tabs",
-            "dimension": 62.1124031007752,
+            "dimension": 56.68604651162791,
             "children": [
               {
                 "id": "568ee1180b2ae5e0",
@@ -105,9 +105,13 @@
                         {
                           "tabId": "tab-1788319033997-90eqhx4",
                           "conversationId": "conv-1788319072180-w3jo5at6j"
+                        },
+                        {
+                          "tabId": "tab-1788411367389-rmyqp0f",
+                          "conversationId": "conv-1788411460451-r0lgf987r"
                         }
                       ],
-                      "activeTabId": "tab-1788319033997-90eqhx4"
+                      "activeTabId": "tab-1788411367389-rmyqp0f"
                     }
                   },
                   "pinned": true,
@@ -253,7 +257,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
+                "file": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -286,17 +290,24 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "568ee1180b2ae5e0",
+  "active": "244d4cb07360ff8e",
   "lastOpenFiles": [
-    "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md.tmp.10868.7aeb90f5ff63",
+    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Elegíveis.md",
+    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
+    "51-Pendencias/Pendencias.md",
+    "51-Pendencias/Pendencias.md.tmp.32244.45afecca82c6",
+    "51-Pendencias/Pendencias.md.tmp.32244.b78bd16d4ae2",
+    "70-Projects, Tools & Integrations/Projects/KPIs - Alertas Carga PDV (CTD).md",
+    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
+    "30-Squad/Analistas/Wesley.md",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
+    "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
+    "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md.tmp.10868.7aeb90f5ff63",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.5236.2eb8924a7f9f",
     "index.md",
     "70-Projects, Tools & Integrations/Integrations/Instaleap/Instaleap.md",
-    "51-Pendencias/Pendencias.md",
     "51-Pendencias/Pendencias.md.tmp.32568.0d283286b531",
     "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
-    "30-Squad/Analistas/Wesley.md",
     "00-Home/01-Templates/_ Basic Template.md",
     "30-Squad/Analistas/Fabiano/Reclamações/11-08.md",
     "90-Custom Override/On/Desonerado Ecommerce.md",
@@ -314,10 +325,6 @@
     "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
     "50-Meetings/Loja 62 Etiquetas Digitais SEAL.md",
     "40-Open Tags/Critica Lote de Compras.md",
-    "40-Open Tags/Inconsistencia Recebimento NFe.md",
-    "50-Meetings/Financeiro.md",
-    "40-Open Tags/Critica de Venda.md",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.26812.0887ff5b9c02",
     "Pasted image 20260831121016.png",
     "Pasted image 20260831103251.png",
@@ -325,9 +332,6 @@
     "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md.tmp.18704.20d32728e80d",
     "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md.tmp.18704.105286c91c0e",
     "51-Pendencias/Pendencias.md.tmp.13168.ecfc66e386d4",
-    "51-Pendencias/Pendencias - Organizado.md.tmp.13168.1683d2010e1c",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.e543817bb08c",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.3036.d78d6d0adb3b",
     "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "Pasted image 20260612151731.png",

@@ -1,9 +1,10 @@
-#### 🔴 Prazo próximo / Urgente
+##### 🔴 Prazo próximo / Urgente
 
 - [ ] **Treinamento [[Cotação WEB]]** para o time comercial — **agendado para 31/08**
 > [!info] Alinhar com o consultor **antes**: explicar que iremos trabalhar com FLV e que serão gerados pedidos a partir do [[Gerenciador de Compras]] ([[Pedido Cotação]]).
+- [ ] **Ativar segmento Ecommerce na loja 10** + equiparar preços do segmento — **hoje à noite**
 - [ ] **Cancelamento de saldo de pedidos antigos** — **prazo até 04/09**
-#### ⚙️ Desenvolvimento / Sistema
+##### ⚙️ Desenvolvimento / Sistema
 
 - [ ] **Crítica no Gerenciador de Preços** — evitar que o usuário precifique produtos até 40% abaixo do preço normal.
 > [!info] 40% — definido por Thaise em 12/08 (Wts Raquel Price).
@@ -11,12 +12,12 @@
 - [ ] **Cálculo de Margem** — ([[Comercial - Fórmula de Cálculo de Margem]]).
 - [ ] **Gerar arquivos BLB** — ([[BLB - Extracao Fiscal]]).
 - [ ] **Gerar arquivos de estoque/venda do mês anterior** para a **Falconi**.
-#### 👥 Ações de terceiros / Chamados
+- [ ] **Data de validade CD** — confirmar data no endereço amarrado à carga.
+##### 👥 Ações de terceiros / Chamados
 
 - [ ] **Isabela** — abrir chamado para criação de pedido de venda para retirada de produtos para a loja nova 62.
 ---
-
-#### ✅ Concluídas
+##### ✅ Concluídas
 
 - [x] Régua de Cobrança — Remover informações do Acordo/Valor do e-mail automático de cobrança ao fornecedor ([[Régua de Cobrança - Notificação Genérica]]).
 - [x] Aplicação pacote de correção Perda Unificada (NFe de Débito de Perda).
@@ -32,6 +33,6 @@
 
 ---
 
-#### 🗓️ Reuniões / Anotações
+##### 🗓️ Reuniões / Anotações
 
 - Reunião 25/08–26 — Comercial — Verbas e Acordos.

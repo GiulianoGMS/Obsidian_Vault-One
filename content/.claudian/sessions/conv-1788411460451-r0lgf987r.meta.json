@@ -1,0 +1,24 @@
+{
+  "id": "conv-1788411460451-r0lgf987r",
+  "providerId": "claude",
+  "title": "Documentar logística e analisar elegíveis",
+  "titleGenerationStatus": "success",
+  "createdAt": 1788411460459,
+  "lastActivityAt": 1788411817526,
+  "sessionId": "8772d109-d157-400f-9b04-af6e296fcc0f",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "8772d109-d157-400f-9b04-af6e296fcc0f"
+  },
+  "linkedContentPath": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 2743,
+    "cacheReadInputTokens": 27457,
+    "contextWindow": 1000000,
+    "contextTokens": 30202,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

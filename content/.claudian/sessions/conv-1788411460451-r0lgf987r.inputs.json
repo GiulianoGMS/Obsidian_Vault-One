@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788411460451-r0lgf987r",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788411461105-sy1goxc",
+      "userTurnOrdinal": 1,
+      "state": "staged",
+      "localMessageId": "msg-1788411460448-jyelabv",
+      "timestamp": 1788411460448,
+      "rawDisplayText": "crie um novo MD referente ao mencionado documentando a nova logistica dos objetos https://github.com/GiulianoGMS/PJ-Regua-de-Cobranca/blob/main/NAGV_BASE_REGUA_COBRANCA_ELEGIVEIS.sql e https://github.com/GiulianoGMS/PJ-Regua-de-Cobranca/blob/main/NAGP_EMAIL_REGUA_COBRANCA_ELEGIVEIS.prc\n\nsão chamados no mesmo job do outro MD, apos documentar, analise se existe alguma falha que deixei passar no ajuste dos elegiveis",
+      "canonicalText": "crie um novo MD referente ao mencionado documentando a nova logistica dos objetos https://github.com/GiulianoGMS/PJ-Regua-de-Cobranca/blob/main/NAGV_BASE_REGUA_COBRANCA_ELEGIVEIS.sql e https://github.com/GiulianoGMS/PJ-Regua-de-Cobranca/blob/main/NAGP_EMAIL_REGUA_COBRANCA_ELEGIVEIS.prc\n\nsão chamados no mesmo job do outro MD, apos documentar, analise se existe alguma falha que deixei passar no ajuste dos elegiveis",
+      "context": {
+        "linkedContent": {
+          "path": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "a4bc0f4a51b44cef11b185099f50e1a5d5f3ca3b1d5cad7752e96002cf3b8a46"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788411630034-m8c9f2s",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1788411630029-ml0dew2",
+      "timestamp": 1788411630029,
+      "rawDisplayText": "crie um novo MD referente ao mencionado documentando a nova logistica dos objetos https://github.com/GiulianoGMS/PJ-Regua-de-Cobranca/blob/main/NAGV_BASE_REGUA_COBRANCA_ELEGIVEIS.sql e https://github.com/GiulianoGMS/PJ-Regua-de-Cobranca/blob/main/NAGP_EMAIL_REGUA_COBRANCA_ELEGIVEIS.prc\n\nsão chamados no mesmo job do outro MD, apos documentar, analise se existe alguma falha que deixei passar no ajuste dos elegiveis",
+      "canonicalText": "crie um novo MD referente ao mencionado documentando a nova logistica dos objetos https://github.com/GiulianoGMS/PJ-Regua-de-Cobranca/blob/main/NAGV_BASE_REGUA_COBRANCA_ELEGIVEIS.sql e https://github.com/GiulianoGMS/PJ-Regua-de-Cobranca/blob/main/NAGP_EMAIL_REGUA_COBRANCA_ELEGIVEIS.prc\n\nsão chamados no mesmo job do outro MD, apos documentar, analise se existe alguma falha que deixei passar no ajuste dos elegiveis",
+      "images": [],
+      "contentDigest": "a4bc0f4a51b44cef11b185099f50e1a5d5f3ca3b1d5cad7752e96002cf3b8a46",
+      "providerUserMessageId": "ad8f6376-adec-4182-874f-b22f75e9e9bc"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788411800696-msb0hhr",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1788411800691-102n7xb",
+      "timestamp": 1788411800691,
+      "rawDisplayText": "continue",
+      "canonicalText": "continue",
+      "context": {
+        "editorSelection": {
+          "notePath": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
+          "mode": "selection",
+          "selectedText": "NAGP_EMAIL_REGUA_COBRANCA",
+          "lineCount": 1,
+          "startLine": 35
+        }
+      },
+      "images": [],
+      "contentDigest": "61b00692723054a5a149bf4fbe7176ccd6af5efb8445c87903bfb287b52a662a",
+      "providerUserMessageId": "32e37810-ef37-426f-a98f-c4892dcd21d3"
+    }
+  ]
+}
