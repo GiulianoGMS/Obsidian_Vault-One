@@ -27,18 +27,18 @@ tags:
 
 ## Contexto
 
-Extração de bases para a consultoria **Falconi**, geradas via [[UTL_FILE]] em CSV. Duas bases independentes — [[Estoque]] e [[Vendas]]/Compras — consultadas a partir do banco de [[BI]] via DBLink (`@bi`).
+Extração de bases para a consultoria **[[Falconi]]**, geradas via [[UTL_FILE]] em [[CSV]]. Duas [[bases]] independentes — [[Estoque]] e [[Vendas]]/Compras — consultadas a partir do banco de [[BI]] via [[DBLink]] (`@bi`).
 
 ---
 
 ## Objetos de Banco
 
-| Objeto | Tipo | Finalidade |
-|---|---|---|
-| `NAGV_FALCONI_EXTESTOQUE_BASE01` | View | Estoque consolidado por produto/data — consulta `fato_estoque@bi` |
-| `NAGP_FALCONI_EXT_EST_BASE01` | Procedure | Exporta BASE01 para CSV por período e agrupamento |
-| `NAGV_FALCONI_EXTVENDA_BASE56` | View | Vendas + Compras por produto/loja/data — UNION ALL de `fatog_vendadia@bi` e `fato_compra@bi` |
-| `NAGP_FALCONI_EXT_VENDAS_BASE56` | Procedure | Exporta BASE56 para CSV por período |
+| Objeto                           | Tipo      | Finalidade                                                                                   |
+| -------------------------------- | --------- | -------------------------------------------------------------------------------------------- |
+| `NAGV_FALCONI_EXTESTOQUE_BASE01` | View      | Estoque consolidado por produto/data — consulta `fato_estoque@bi`                            |
+| `NAGP_FALCONI_EXT_EST_BASE01`    | Procedure | Exporta BASE01 para CSV por período e agrupamento                                            |
+| `NAGV_FALCONI_EXTVENDA_BASE56`   | View      | Vendas + Compras por produto/loja/data — UNION ALL de `fatog_vendadia@bi` e `fato_compra@bi` |
+| `NAGP_FALCONI_EXT_VENDAS_BASE56` | Procedure | Exporta BASE56 para CSV por período                                                          |
 
 ---
 

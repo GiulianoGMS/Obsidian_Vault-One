@@ -28,12 +28,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi - Extração de Bases.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Falconi - Extração de Bases"
+              "title": "index"
             }
           }
         ],
@@ -253,7 +253,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi - Extração de Bases.md",
+                "file": "index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -288,9 +288,10 @@
   },
   "active": "244d4cb07360ff8e",
   "lastOpenFiles": [
+    "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
+    "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi - Extração de Bases.md",
     "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md",
     "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi.md",
-    "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi - Extração de Bases.md",
     "index.md.tmp.4724.ec94aff15e6c",
     "70-Projects, Tools & Integrations/Integrations/Falconi.md",
     "70-Projects, Tools & Integrations/Integrations/BLB/BLB - Extracao Fiscal.md",
@@ -323,7 +324,6 @@
     "90-Custom Override/On/Arred. de Valores no Receb. - 0,xx Centavos.md",
     "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
     "90-Custom Override/On/CST IPI - NFe.md",
-    "80-Paliativos - Nao precisa Reaplicar/On/Correção CBS-IBS NFs de Devolução.md",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.26812.0887ff5b9c02",
     "Pasted image 20260831121016.png",
     "Pasted image 20260831103251.png",

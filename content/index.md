@@ -32,8 +32,8 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Alerta NFe NFCe - E-mail]] | E-mail automático ao time Fiscal com rejeições e pendências de NF-e/NFC-e dos últimos 3 dias |
 > | [[Etiqueta FLV - Informação Nutricional]] | View Oracle que gera ZPL de etiqueta nutricional FLV — pivot de nutrientes do ERP para impressora Zebra |
 > | [[Impressão de Crachás - Eventiza]] | App web local (HTML + Node.js, zero deps) que importa XLSX da Eventiza e imprime crachás ZPL na Zebra via check-in |
+
 > [!example]+ Integrações
-> Exportações e sincronizações com plataformas externas via CSV / UTL_FILE.
 >
 > | Integração | Plataforma | Dados exportados |
 > |------------|-----------|-----------------|
