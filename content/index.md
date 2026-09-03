@@ -32,8 +32,6 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Alerta NFe NFCe - E-mail]] | E-mail automático ao time Fiscal com rejeições e pendências de NF-e/NFC-e dos últimos 3 dias |
 > | [[Etiqueta FLV - Informação Nutricional]] | View Oracle que gera ZPL de etiqueta nutricional FLV — pivot de nutrientes do ERP para impressora Zebra |
 > | [[Impressão de Crachás - Eventiza]] | App web local (HTML + Node.js, zero deps) que importa XLSX da Eventiza e imprime crachás ZPL na Zebra via check-in |
-> | [[Falconi]] | — |
-
 > [!example]+ Integrações
 > Exportações e sincronizações com plataformas externas via CSV / UTL_FILE.
 >
@@ -42,6 +40,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Instaleap]] | Instaleap / Meu Nagumo | Catálogo (estoque, preço, status) · Produto (cadastro, EAN, foto, nutrição) · Promoções |
 > | [[Backlgrs - Salesforce]] | Backlgrs CRM | Catálogo · Produto · Clientes (CPF, push token) · Filiais · Vendas · Ofertas |
 > | [[BLB - Extracao Fiscal]] | BLB | NF-e saídas, entradas e cupons SAT — exportação para CSV |
+> | [[Falconi]] | Falconi (consultoria) | Estoque consolidado (BASE01) · Vendas e Compras com margem e lucratividade (BASE56) |
 
 > [!tip]+ Ferramentas
 > Utilitários e ferramentas de apoio operacional.
