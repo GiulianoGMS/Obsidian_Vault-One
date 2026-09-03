@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1788440012474-6njy65mmp",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1788440012528-tf8bgus",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1788440012471-1mcbacq",
+      "timestamp": 1788440012471,
+      "rawDisplayText": "remova os icones para ficar mais proficional",
+      "canonicalText": "remova os icones para ficar mais proficional",
+      "context": {
+        "linkedContent": {
+          "path": "51-Pendencias/Pendencias.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "4ac89422bbe740dd0047bb1ddbdb0bc767c6805f2eb6da4a8f0090f3416a49d3",
+      "providerUserMessageId": "c1ed8531-377a-477e-8fe0-5a7c7881eb88",
+      "providerAssistantMessageId": "2fcbc148-d72c-4e4d-93f5-5f4d66274a1b"
+    }
+  ]
+}

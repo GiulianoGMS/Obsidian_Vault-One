@@ -172,27 +172,3 @@ Idêntica à `NAGP_EMAIL_REGUA_COBRANCA_AGRUP`:
 | ≥ 4 | *"… pedidos irão permanecer **bloqueados** até a regularização."* |
 
 ---
-
-## Pontos de Atenção
-
-> [!bug] **1 — Data hardcoded no anti-resend da procedure**
-> ```sql
-> AND AC.DATA_ENVIO >= DATE '2026-09-03'
-> ```
-> A data está fixada em `03/09/2026` (data de escrita do código). Acordos enviados antes dessa data nunca atingem a contagem de 4, tornando o anti-resend inoperante para o histórico anterior.
->
-> **Fix:** usar `DATE '2026-08-03'` (data de corte dos elegíveis) ou um parâmetro dinâmico para manter consistência com o critério de inclusão dos acordos.
-
-> [!warning] **2 — Inconsistência SELECT principal × FOR LOOP de log**
-> O `SELECT` que calcula `vsQtd` aplica o anti-resend (≥ 4 envios). O `FOR LOOP` que grava o log aplica apenas o filtro diário — a cláusula de anti-resend está **comentada** no loop.
->
-> Cenário problemático: se `vsQtd > 0` (algum acordo passou pelo anti-resend), o loop pode logar acordos de outro `NIVEL_REGUA` ou de outro representante que passem apenas o filtro diário mas que deveriam ser bloqueados pelo anti-resend.
->
-> **Fix:** replicar a cláusula `NOT EXISTS` do anti-resend no `FOR LOOP`, ou mover a lógica para a view.
-
-> [!note] **3 — `NOT EXISTS TIPO='Regua'` sem filtro de data**
-> ```sql
-> AND NOT EXISTS (SELECT 1 FROM NAGT_LOG_ENVIO_ACO_EMAIL XX
->                  WHERE XX.NRO_ACORDO = F.NROTITULO AND XX.TIPO = 'Regua')
-> ```
-> O comentário diz "evita duplicidade de envio no dia", mas a cláusula exclui o acordo **para sempre** se algum dia passou pelo fluxo Regua. Provavelmente intencional (os dois fluxos são mutuamente exclusivos), mas o comentário está enganoso.

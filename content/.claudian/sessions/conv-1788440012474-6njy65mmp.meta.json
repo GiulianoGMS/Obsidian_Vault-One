@@ -1,0 +1,24 @@
+{
+  "id": "conv-1788440012474-6njy65mmp",
+  "providerId": "claude",
+  "title": "Remover ícones para estilo profissional",
+  "titleGenerationStatus": "success",
+  "createdAt": 1788440012478,
+  "lastActivityAt": 1788440035550,
+  "sessionId": "84c4ddb8-5976-46cc-bfdb-7b3aec116aaa",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "84c4ddb8-5976-46cc-bfdb-7b3aec116aaa"
+  },
+  "linkedContentPath": "51-Pendencias/Pendencias.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 6220,
+    "cacheCreationInputTokens": 1653,
+    "cacheReadInputTokens": 18165,
+    "contextWindow": 1000000,
+    "contextTokens": 26038,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

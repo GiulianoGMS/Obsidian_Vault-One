@@ -40,7 +40,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Instaleap]] | Instaleap / Meu Nagumo | Catálogo (estoque, preço, status) · Produto (cadastro, EAN, foto, nutrição) · Promoções |
 > | [[Backlgrs - Salesforce]] | Backlgrs CRM | Catálogo · Produto · Clientes (CPF, push token) · Filiais · Vendas · Ofertas |
 > | [[BLB - Extracao Fiscal]] | BLB | NF-e saídas, entradas e cupons SAT — exportação para CSV |
-> | [[Falconi]] | Falconi (consultoria) | Estoque consolidado (BASE01) · Vendas e Compras com margem e lucratividade (BASE56) |
+> | [[Falconi - Extração de Bases]] | Falconi (consultoria) | Estoque consolidado (BASE01) · Vendas e Compras com margem e lucratividade (BASE56) |
 
 > [!tip]+ Ferramentas
 > Utilitários e ferramentas de apoio operacional.

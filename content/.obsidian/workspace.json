@@ -28,12 +28,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
+                "file": "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi - Extração de Bases.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Régua de Cobrança - Notificação Genérica"
+              "title": "Falconi - Extração de Bases"
             }
           }
         ],
@@ -103,15 +103,11 @@
                           "conversationId": "conv-1788318438670-wqvm2cvj3"
                         },
                         {
-                          "tabId": "tab-1788319033997-90eqhx4",
-                          "conversationId": "conv-1788319072180-w3jo5at6j"
-                        },
-                        {
-                          "tabId": "tab-1788411367389-rmyqp0f",
-                          "conversationId": "conv-1788411460451-r0lgf987r"
+                          "tabId": "tab-1788440006586-3w39v2t",
+                          "conversationId": "conv-1788440012474-6njy65mmp"
                         }
                       ],
-                      "activeTabId": "tab-1788411367389-rmyqp0f"
+                      "activeTabId": "tab-1788440006586-3w39v2t"
                     }
                   },
                   "pinned": true,
@@ -257,7 +253,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
+                "file": "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi - Extração de Bases.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -292,9 +288,18 @@
   },
   "active": "244d4cb07360ff8e",
   "lastOpenFiles": [
+    "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md",
+    "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi.md",
+    "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi - Extração de Bases.md",
+    "index.md.tmp.4724.ec94aff15e6c",
+    "70-Projects, Tools & Integrations/Integrations/Falconi.md",
+    "70-Projects, Tools & Integrations/Integrations/BLB/BLB - Extracao Fiscal.md",
+    "70-Projects, Tools & Integrations/Projects/Falconi.md",
+    "51-Pendencias/Pendencias.md",
+    "51-Pendencias/Pendencias.md.tmp.9040.9bc103e27931",
+    "51-Pendencias/Pendencias.md.tmp.9040.1ad5146d5075",
     "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Elegíveis.md",
     "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
-    "51-Pendencias/Pendencias.md",
     "51-Pendencias/Pendencias.md.tmp.32244.45afecca82c6",
     "51-Pendencias/Pendencias.md.tmp.32244.b78bd16d4ae2",
     "70-Projects, Tools & Integrations/Projects/KPIs - Alertas Carga PDV (CTD).md",
@@ -316,22 +321,13 @@
     "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
     "90-Custom Override/On/Arred. de Seleção Inversa no CD - FLV.md",
     "90-Custom Override/On/Arred. de Valores no Receb. - 0,xx Centavos.md",
-    "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md",
     "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
     "90-Custom Override/On/CST IPI - NFe.md",
     "80-Paliativos - Nao precisa Reaplicar/On/Correção CBS-IBS NFs de Devolução.md",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
-    "carga.md",
-    "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
-    "50-Meetings/Loja 62 Etiquetas Digitais SEAL.md",
-    "40-Open Tags/Critica Lote de Compras.md",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.26812.0887ff5b9c02",
     "Pasted image 20260831121016.png",
     "Pasted image 20260831103251.png",
     "50-Meetings/Sem título",
-    "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md.tmp.18704.20d32728e80d",
-    "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md.tmp.18704.105286c91c0e",
-    "51-Pendencias/Pendencias.md.tmp.13168.ecfc66e386d4",
     "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "Pasted image 20260612151731.png",
