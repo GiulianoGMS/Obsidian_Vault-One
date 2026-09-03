@@ -20,6 +20,7 @@ tags:
   - Projects
 ---
 
+
 > [!info] Referência
 > [GiulianoGMS/Falconi_Bases](https://github.com/GiulianoGMS/Falconi_Bases)
 
@@ -83,7 +84,8 @@ Consulta `fato_estoque@bi` consolidando estoque por produto e data. Filtra apena
 
 | Item | Detalhe |
 |---|---|
-| Parâmetros | `vsDtaInicial DATE`, `vsDtaFinal DATE` |
+| Parâmetros | `vsDtaInicial DATE`, `vsDtaFinal DATE`, `vsAgrupamento VARCHAR2` |
+| `vsAgrupamento` | Tipo de agrupamento da extração (ex: `'M'` = mensal) |
 | Diretório Oracle | `FALCONI` |
 | Arquivo gerado | `Ext_Falconi_Estoque.csv` |
 | Separador | `;` |
@@ -170,11 +172,15 @@ SELECT * FROM GLN_LOG_PROCESSO_LOOP WHERE MENSAGEM = 'TOTAL_ALTERADO';
 ## Chamada das Extrações
 
 ```sql
--- Estoque
-EXEC NAGP_FALCONI_EXT_EST_BASE01(DATE '2026-01-01', DATE '2026-08-31');
+-- Estoque ('M' = agrupamento mensal)
+BEGIN
+  NAGP_FALCONI_EXT_EST_BASE01(DATE '2026-01-01', DATE '2026-08-31', 'M');
+END;
 
 -- Vendas
-EXEC NAGP_FALCONI_EXT_VENDAS_BASE56(DATE '2026-01-01', DATE '2026-08-31');
+BEGIN
+  NAGP_FALCONI_EXT_VENDAS_BASE56(DATE '2026-01-01', DATE '2026-08-31');
+END;
 ```
 
 Os arquivos são gerados no diretório Oracle `FALCONI` no servidor de banco de dados.
