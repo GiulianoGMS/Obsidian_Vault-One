@@ -173,27 +173,9 @@ Idêntica à `NAGP_EMAIL_REGUA_COBRANCA_AGRUP`:
 
 ---
 
-## Análise de Falhas
+## Pontos de Atenção
 
-> [!bug] **1 — NIVEL sempre retorna 1 (crítico)**
-> Na view, o cálculo do `NIVEL_REGUA` usa `XXX.EMAIL_DESTINO = EMAIL_REP` para verificar se já há histórico de envio. Porém o campo `EMAIL_DESTINO` gravado no log é uma **concatenação** de todos os destinatários (`comprador;financeiro;rep;TI;CAR;diretoria`), nunca igual ao e-mail isolado do representante.
->
-> Resultado: `NOT EXISTS` sempre verdadeiro → `NIVEL_REGUA` sempre 1 → escalação nunca ocorre.
->
-> **Fix:** substituir `XXX.EMAIL_DESTINO = EMAIL_REP` por `XXX.EMAIL_DESTINO LIKE '%' || EMAIL_REP || '%'` — exatamente como está na cláusula de anti-resend da procedure (`AC.EMAIL_DESTINO LIKE '%'||A.EMAIL_REP||'%'`).
-
-> [!bug] **2 — ORA-01427: subquery do NIVEL sem MAX / ROWNUM**
-> O subquery que calcula o nível quando já existe histórico:
-> ```sql
-> SELECT CASE WHEN TRUNC(DATA_ENVIO) - TRUNC(SYSDATE) = -6 THEN 2 ...
->   FROM NAGT_LOG_ENVIO_ACO_EMAIL XXX
->  WHERE NRO_ACORDO = ... AND EMAIL_DESTINO = EMAIL_REP
-> ```
-> Não tem `MAX()`, `ROWNUM = 1` nem `FETCH FIRST 1 ROW ONLY`. Se o acordo tiver mais de um log, lança `ORA-01427` em runtime. Além disso, não filtra `TIPO = 'Elegiveis'`, podendo capturar datas de outros processos.
->
-> **Fix:** usar `MAX(DATA_ENVIO)` na subquery e adicionar `AND TIPO = 'Elegiveis'`.
-
-> [!bug] **3 — Data hardcoded no anti-resend da procedure**
+> [!bug] **1 — Data hardcoded no anti-resend da procedure**
 > ```sql
 > AND AC.DATA_ENVIO >= DATE '2026-09-03'
 > ```
@@ -201,14 +183,14 @@ Idêntica à `NAGP_EMAIL_REGUA_COBRANCA_AGRUP`:
 >
 > **Fix:** usar `DATE '2026-08-03'` (data de corte dos elegíveis) ou um parâmetro dinâmico para manter consistência com o critério de inclusão dos acordos.
 
-> [!warning] **4 — Inconsistência SELECT principal × FOR LOOP de log**
+> [!warning] **2 — Inconsistência SELECT principal × FOR LOOP de log**
 > O `SELECT` que calcula `vsQtd` aplica o anti-resend (≥ 4 envios). O `FOR LOOP` que grava o log aplica apenas o filtro diário — a cláusula de anti-resend está **comentada** no loop.
 >
 > Cenário problemático: se `vsQtd > 0` (algum acordo passou pelo anti-resend), o loop pode logar acordos de outro `NIVEL_REGUA` ou de outro representante que passem apenas o filtro diário mas que deveriam ser bloqueados pelo anti-resend.
 >
 > **Fix:** replicar a cláusula `NOT EXISTS` do anti-resend no `FOR LOOP`, ou mover a lógica para a view.
 
-> [!note] **5 — `NOT EXISTS TIPO='Regua'` sem filtro de data**
+> [!note] **3 — `NOT EXISTS TIPO='Regua'` sem filtro de data**
 > ```sql
 > AND NOT EXISTS (SELECT 1 FROM NAGT_LOG_ENVIO_ACO_EMAIL XX
 >                  WHERE XX.NRO_ACORDO = F.NROTITULO AND XX.TIPO = 'Regua')
