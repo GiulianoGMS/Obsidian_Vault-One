@@ -43,12 +43,13 @@ A coordenação é feita via `COUNT(X.CD_AGRUP)` no BEFORE INSERT. O CD de conso
 | `MAC_GERCOMPRAITEM` | Tabela | Itens do lote de compra — alvo dos triggers |
 | `MAC_GERCOMPRAFORN` | Tabela | Fornecedor do lote (`SEQFORNECEDOR`) |
 | `MAC_GERCOMPRA` | Tabela | Cabeçalho do lote — `SEQCOMPRADOR`, `TIPOLOTE = 'C'` |
+| `MAC_GERCOMPRAEMP` | Tabela | Empresas do lote — usada pelo BEFORE INSERT para detectar CD (`NROEMPRESA BETWEEN 500 AND 599`) sem risco de ORA-04091 |
 | `NAGT_COMP_FORN_SUGESTAUTO` | Tabela | Parametrização central — controla ambos os comportamentos |
 | `MRL_PRODEMPRESAWM` | Tabela | Parâmetros logísticos do produto: `PALETELASTRO`, `PALETEALTURA` |
 | `MRL_PRODUTOEMPRESA` | Tabela | Fallback do percentual de arredondamento: `PERCVARIACAOSUG` |
 | `TBIU_MAC_GERABASTECITEM` | Trigger | Trigger padrão do [[ERP]] — `NAGTRG_BI_MAC_GERCOMPRAITEM` executa depois (`FOLLOWS`) |
-| `NAGTRG_BI_MAC_GERCOMPRAITEM` | Trigger (BEFORE INSERT) | Acata Sugerido Automático — só atua quando `psCD = 0` |
-| `NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED` | Trigger (COMPOUND) | Consolidação + Arredondamento — atua quando `CD_AGRUP` está configurado |
+| `NAGTRG_BI_MAC_GERCOMPRAITEM` | Trigger (BEFORE INSERT) | Acata Sugerido Automático — só atua quando não há CD no lote |
+| `NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED` | Trigger (COMPOUND) | Consolidação + Arredondamento — atua quando há CD (`BETWEEN 500 AND 599`) no lote |
 
 ---
 
@@ -60,7 +61,7 @@ Tabela central que parametriza ambos os comportamentos. A presença ou ausência
 |---|---|---|
 | `SEQCOMPRADOR` | NUMBER | [[Comprador]] do lote |
 | `SEQFORNECEDOR` | NUMBER | [[Fornecedor]] específico; `NULL` = qualquer fornecedor |
-| `CD_AGRUP` | NUMBER | Flag de coordenação. `NULL` = Acata Sugerido. Qualquer valor ≠ NULL = Consolidação (sinaliza ao BEFORE INSERT para não atuar). O NROEMPRESA real do CD é detectado dinamicamente pelo COMPOUND TRIGGER via `NROEMPRESA BETWEEN 500 AND 599` |
+| `CD_AGRUP` | NUMBER | Não utilizado pelos triggers para coordenação ou detecção do CD. Mantido na tabela mas sem efeito funcional — a distinção entre modos é feita pela presença de `NROEMPRESA BETWEEN 500 AND 599` no lote |
 | `IND_ARRED` | CHAR | `'S'` = habilita [[Arredondamento]] logístico (usado somente no modo Consolidação) |
 | `PERC_ARRED` | NUMBER | Percentual mínimo para arredondar; `NULL` = usa `PERCVARIACAOSUG` do produto |
 
@@ -68,14 +69,22 @@ Tabela central que parametriza ambos os comportamentos. A presença ou ausência
 
 ## Coordenação entre os dois modos
 
-O `NAGTRG_BI_MAC_GERCOMPRAITEM` faz a seguinte query a cada INSERT:
+O `NAGTRG_BI_MAC_GERCOMPRAITEM` usa dois checks sequenciais:
 
 ```sql
-SELECT COUNT(1), COUNT(X.CD_AGRUP)
-  INTO psIndAcataSug, psCD
+-- 1. Existe parametrização para este comprador/fornecedor?
+SELECT COUNT(1)
+  INTO psIndAcataSug
   FROM NAGT_COMP_FORN_SUGESTAUTO X
  WHERE psSeqComprador = X.SEQCOMPRADOR
    AND psSeqFornec = NVL(X.SEQFORNECEDOR, psSeqFornec);
+
+-- 2. Existe CD (empresa 500–599) no lote?
+SELECT COUNT(1)
+  INTO psCD
+  FROM MAC_GERCOMPRAEMP GE
+ WHERE GE.SEQGERCOMPRA = :NEW.SEQGERCOMPRA
+   AND GE.NROEMPRESA BETWEEN 500 AND 599;
 
 IF psIndAcataSug > 0 AND psCD = 0 THEN
   -- Acata Sugerido Automático
@@ -83,18 +92,19 @@ END IF;
 ```
 
 - `psIndAcataSug` = total de linhas na parametrização para o comprador/fornecedor
-- `psCD` = quantidade de linhas com `CD_AGRUP NOT NULL`
-- Condição `psCD = 0` garante que o trigger BEFORE INSERT **não atua** quando há consolidação configurada — o [[COMPOUND TRIGGER]] assume esses casos
+- `psCD` = quantidade de empresas 500–599 registradas em `MAC_GERCOMPRAEMP` para o lote
+- `psCD = 0` garante que o BEFORE INSERT **não atua** quando há CD no lote — o [[COMPOUND TRIGGER]] assume esses casos
+- A coordenação é feita via `MAC_GERCOMPRAEMP` (não `MAC_GERCOMPRAITEM`) para evitar [[ORA-04091]] no BEFORE INSERT
 
 | `psIndAcataSug` | `psCD` | Resultado |
 |---|---|---|
-| 0 | 0 | Nenhum comportamento — [[Lote de Compra\|lote]] não parametrizado |
+| 0 | qualquer | Nenhum comportamento — [[Lote de Compra\|lote]] não parametrizado |
 | > 0 | 0 | **Acata Sugerido** — BEFORE INSERT atua |
 | > 0 | > 0 | **Consolidação** — BEFORE INSERT passa; [[COMPOUND TRIGGER]] atua |
 
 ---
 
-## Comportamento 1 — Acata Sugerido Automático (`psCD = 0`)
+## Comportamento 1 — Acata Sugerido Automático (sem CD no lote)
 
 **Problema resolvido:** O [[Comprador]] precisava clicar manualmente em "Acata Sugerido" em cada [[Lote de Compra|lote]]. Com a [[Trigger]], o comportamento é automático para combinações parametrizadas.
 
@@ -110,16 +120,18 @@ Busca SEQFORNECEDOR (MAC_GERCOMPRAFORN)
 Busca SEQCOMPRADOR  (MAC_GERCOMPRA, TIPOLOTE = 'C')
         │
         ▼
-psIndAcataSug > 0 AND psCD = 0?
+psIndAcataSug > 0? (parametrizado em NAGT_COMP_FORN_SUGESTAUTO)
    ┌────┴────┐
   Não       Sim
    │         │
- (sem      QTDSUGERIDAFORNEC > 0?
- alteração)   ├── Sim → QTDPEDIDA = QTDSUGERIDAFORNEC
-              └── Não → QTDPEDIDA = 0
-              │
-              ▼
-         SITUACAOITEM = 'S'
+(sem ação)  psCD = 0? (MAC_GERCOMPRAEMP: nenhuma empresa 500–599)
+              ├── Não → (sem ação — COMPOUND TRIGGER cuida do lote)
+              └── Sim → QTDSUGERIDAFORNEC > 0?
+                           ├── Sim → QTDPEDIDA = QTDSUGERIDAFORNEC
+                           └── Não → QTDPEDIDA = 0
+                           │
+                           ▼
+                      SITUACAOITEM = 'S'
 ```
 
 ### Campos afetados em `MAC_GERCOMPRAITEM`
@@ -138,6 +150,8 @@ INSERT INTO NAGT_COMP_FORN_SUGESTAUTO (SEQCOMPRADOR, SEQFORNECEDOR) VALUES (289,
 -- Comprador 289, fornecedor específico
 INSERT INTO NAGT_COMP_FORN_SUGESTAUTO (SEQCOMPRADOR, SEQFORNECEDOR) VALUES (289, 1234);
 ```
+
+> A distinção entre Acata Sugerido e Consolidação **não depende de `CD_AGRUP`** — o que determina qual trigger atua é a presença ou ausência de uma empresa `BETWEEN 500 AND 599` no lote (`MAC_GERCOMPRAEMP`).
 
 ---
 
