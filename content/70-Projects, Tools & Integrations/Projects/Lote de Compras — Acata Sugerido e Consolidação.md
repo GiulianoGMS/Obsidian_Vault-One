@@ -27,12 +27,12 @@ Type:
 
 Dois comportamentos automáticos ativados no `INSERT` de `MAC_GERCOMPRAITEM`, ambos controlados pela mesma tabela de parametrização (`NAGT_COMP_FORN_SUGESTAUTO`), mas implementados em triggers distintos:
 
-| Comportamento                     | Quando ativa                       | Trigger responsável                                          |
-| --------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| **Acata Sugerido Automático**     | Parametrizações **sem** `CD_AGRUP` | `NAGTRG_BI_MAC_GERCOMPRAITEM` (BEFORE INSERT)                |
-| **Consolidação + Arredondamento** | Parametrizações **com** `CD_AGRUP` | `NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED` ([[COMPOUND TRIGGER]]) |
+| Comportamento                     | Quando ativa                                                        | Trigger responsável                                          |
+| --------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------ |
+| **Acata Sugerido Automático**     | Parametrizações **sem** `CD_AGRUP`                                  | `NAGTRG_BI_MAC_GERCOMPRAITEM` (BEFORE INSERT)                |
+| **Consolidação + Arredondamento** | Lote com **CD presente** (`NROEMPRESA BETWEEN 500 AND 599`) na `MAC_GERCOMPRAITEM` | `NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED` ([[COMPOUND TRIGGER]]) |
 
-A distinção entre os dois modos é feita em runtime via `COUNT(X.CD_AGRUP)` na própria query de verificação — nunca há sobreposição.
+A coordenação é feita via `COUNT(X.CD_AGRUP)` no BEFORE INSERT. O CD de consolidação é detectado dinamicamente pelo COMPOUND TRIGGER como `MIN(NROEMPRESA BETWEEN 500 AND 599)` — sem dependência do valor armazenado em `CD_AGRUP`.
 
 ---
 
@@ -60,7 +60,7 @@ Tabela central que parametriza ambos os comportamentos. A presença ou ausência
 |---|---|---|
 | `SEQCOMPRADOR` | NUMBER | [[Comprador]] do lote |
 | `SEQFORNECEDOR` | NUMBER | [[Fornecedor]] específico; `NULL` = qualquer fornecedor |
-| `CD_AGRUP` | NUMBER | Empresa/[[CD]] de consolidação. `NULL` = Acata Sugerido simples. Preenchido = Consolidação |
+| `CD_AGRUP` | NUMBER | Flag de coordenação. `NULL` = Acata Sugerido. Qualquer valor ≠ NULL = Consolidação (sinaliza ao BEFORE INSERT para não atuar). O NROEMPRESA real do CD é detectado dinamicamente pelo COMPOUND TRIGGER via `NROEMPRESA BETWEEN 500 AND 599` |
 | `IND_ARRED` | CHAR | `'S'` = habilita [[Arredondamento]] logístico (usado somente no modo Consolidação) |
 | `PERC_ARRED` | NUMBER | Percentual mínimo para arredondar; `NULL` = usa `PERCVARIACAOSUG` do produto |
 
@@ -141,7 +141,7 @@ INSERT INTO NAGT_COMP_FORN_SUGESTAUTO (SEQCOMPRADOR, SEQFORNECEDOR) VALUES (289,
 
 ---
 
-## Comportamento 2 — Consolidação com Arredondamento (`CD_AGRUP` preenchido)
+## Comportamento 2 — Consolidação com Arredondamento (CD detectado dinamicamente)
 
 **Problema resolvido:** No [[Lote de Compra|lote]] consolidado, o [[CD]] precisa pedir a soma do que todas as [[Loja|lojas]] vão receber. No `INSERT` linha a linha a tabela ainda está em mutação, impedindo consultas à própria `MAC_GERCOMPRAITEM`. A [[COMPOUND TRIGGER]] resolve: guarda os itens do [[CD]] em memória no `AFTER EACH ROW` e faz o cálculo/UPDATE somente no `AFTER STATEMENT`.
 
@@ -149,6 +149,9 @@ INSERT INTO NAGT_COMP_FORN_SUGESTAUTO (SEQCOMPRADOR, SEQFORNECEDOR) VALUES (289,
 
 > [!note] Por que COMPOUND TRIGGER?
 > Uma [[Trigger]] `FOR EACH ROW` não pode consultar a própria `MAC_GERCOMPRAITEM` durante o `INSERT` — gera [[ORA-04091]] (table is mutating). O padrão [[COMPOUND TRIGGER]] resolve: acumula itens no `AFTER EACH ROW` e opera sobre a tabela apenas no `AFTER STATEMENT`, quando o INSERT já terminou.
+
+> [!info] Detecção dinâmica do CD
+> O CD consolidação **não é mais lido de `CD_AGRUP`**. O COMPOUND TRIGGER detecta o CD em runtime: qualquer empresa com `NROEMPRESA BETWEEN 500 AND 599` no lote é candidata, e `MIN(NROEMPRESA)` desse intervalo é o CD efetivo. Se nenhuma linha 500–599 existir no lote, o trigger não processa nada.
 
 ### Fluxo
 
@@ -161,14 +164,18 @@ INSERT em MAC_GERCOMPRAITEM
          ├─ Busca SEQFORNECEDOR   (MAC_GERCOMPRAFORN)
          ├─ Busca SEQCOMPRADOR    (MAC_GERCOMPRA, TIPOLOTE = 'C')
          ├─ Verifica NAGT_COMP_FORN_SUGESTAUTO
-         │    → COUNT(1), MAX(CD_AGRUP), MAX(PERC_ARRED), MAX(IND_ARRED)
-         ├─ Confirma psIndAcataSug > 0 AND v_cd_consolidacao = :NEW.NROEMPRESA
+         │    → COUNT(1), MAX(PERC_ARRED), MAX(IND_ARRED)
+         ├─ Confirma psIndAcataSug > 0 AND :NEW.NROEMPRESA BETWEEN 500 AND 599
          └─ Guarda em memória: SEQGERCOMPRA, SEQPRODUTO, NROEMPRESA, PERC_ARRED, IND_ARRED
                    │
                    ▼
-          AFTER STATEMENT (para cada item do CD em memória)
+          AFTER STATEMENT (para cada item candidato a CD em memória)
                    │
-                   ├─ Soma QTDSUGERIDAFORNEC das lojas (NROEMPRESA <> CD_AGRUP)
+                   ├─ Determina v_cd_consolidacao = MIN(NROEMPRESA BETWEEN 500 AND 599)
+                   │    ← consulta MAC_GERCOMPRAITEM agora segura (INSERT concluído)
+                   ├─ Pula se item não é o CD mínimo (v_cd_consolidacao IS NULL
+                   │    ou item.nroempresa ≠ v_cd_consolidacao)
+                   ├─ Soma QTDSUGERIDAFORNEC das lojas (NROEMPRESA <> v_cd_consolidacao)
                    ├─ Busca PALETELASTRO / PALETEALTURA   (MRL_PRODEMPRESAWM no CD)
                    ├─ Busca QTDEMBALAGEM do item do CD    (MAC_GERCOMPRAITEM)
                    ├─ Resolve percentual (PERC_ARRED → PERCVARIACAOSUG se NULL)
@@ -226,10 +233,12 @@ Ambos NULL                                      → mantém quantidade sem arred
 ### Parametrização
 
 ```sql
--- Comprador 289, todos os fornecedores, CD 101, com arredondamento 60%
+-- Comprador 289, todos os fornecedores, modo Consolidação, com arredondamento 60%
+-- CD_AGRUP = qualquer valor ≠ NULL (sinaliza ao BEFORE INSERT para não atuar)
+-- O NROEMPRESA real do CD é detectado pela faixa 500–599 no lote
 INSERT INTO NAGT_COMP_FORN_SUGESTAUTO
   (SEQCOMPRADOR, SEQFORNECEDOR, CD_AGRUP, IND_ARRED, PERC_ARRED)
-VALUES (289, NULL, 101, 'S', 60);
+VALUES (289, NULL, 1, 'S', 60);
 ```
 
 ---
@@ -250,13 +259,20 @@ SELECT X.SEQCOMPRADOR, C.NOMECOMPRADOR,
  ORDER BY X.SEQCOMPRADOR, X.CD_AGRUP NULLS FIRST;
 ```
 
-**Verificar parâmetros logísticos de um produto no CD:**
+**Verificar qual CD está no lote e seus parâmetros logísticos:**
 
 ```sql
+-- CD do lote: MIN(NROEMPRESA BETWEEN 500 AND 599)
+SELECT MIN(NROEMPRESA) AS CD_CONSOLIDACAO
+  FROM MAC_GERCOMPRAITEM
+ WHERE SEQGERCOMPRA = :SEQGERCOMPRA
+   AND NROEMPRESA BETWEEN 500 AND 599;
+
+-- Parâmetros logísticos do CD para um produto
 SELECT M.PALETELASTRO, M.PALETEALTURA,
        M.PALETELASTRO * M.PALETEALTURA AS QTY_PALETE
   FROM MRL_PRODEMPRESAWM M
- WHERE M.NROEMPRESA = :CD_AGRUP
+ WHERE M.NROEMPRESA = :CD_CONSOLIDACAO
    AND M.SEQPRODUTO = :SEQPRODUTO;
 ```
 
