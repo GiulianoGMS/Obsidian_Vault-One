@@ -29,10 +29,10 @@ Dois comportamentos automáticos ativados no `INSERT` de `MAC_GERCOMPRAITEM`, am
 
 | Comportamento                     | Quando ativa                                                        | Trigger responsável                                          |
 | --------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------ |
-| **Acata Sugerido Automático**     | Parametrizações **sem** `CD_AGRUP`                                  | `NAGTRG_BI_MAC_GERCOMPRAITEM` (BEFORE INSERT)                |
-| **Consolidação + Arredondamento** | Lote com **CD presente** (`NROEMPRESA BETWEEN 500 AND 599`) na `MAC_GERCOMPRAITEM` | `NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED` ([[COMPOUND TRIGGER]]) |
+| **Acata Sugerido Automático**     | Lote **sem** CD em `MAC_GERCOMPRAEMP` (`NROEMPRESA BETWEEN 500 AND 599`) | `NAGTRG_BI_MAC_GERCOMPRAITEM` (BEFORE INSERT)                |
+| **Consolidação + Arredondamento** | Lote **com** CD em `MAC_GERCOMPRAEMP` (`NROEMPRESA BETWEEN 500 AND 599`) | `NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED` ([[COMPOUND TRIGGER]]) |
 
-A coordenação é feita via `COUNT(X.CD_AGRUP)` no BEFORE INSERT. O CD de consolidação é detectado dinamicamente pelo COMPOUND TRIGGER como `MIN(NROEMPRESA BETWEEN 500 AND 599)` — sem dependência do valor armazenado em `CD_AGRUP`.
+A distinção entre os dois modos é feita em runtime pela presença de empresas `BETWEEN 500 AND 599` em `MAC_GERCOMPRAEMP` — nunca há sobreposição. `CD_AGRUP` não participa da coordenação.
 
 ---
 
@@ -55,7 +55,7 @@ A coordenação é feita via `COUNT(X.CD_AGRUP)` no BEFORE INSERT. O CD de conso
 
 ## Tabela de Controle — `NAGT_COMP_FORN_SUGESTAUTO`
 
-Tabela central que parametriza ambos os comportamentos. A presença ou ausência de `CD_AGRUP` define qual trigger atua.
+Tabela central que parametriza ambos os comportamentos. A distinção entre modos é feita pela faixa `NROEMPRESA BETWEEN 500 AND 599` no lote — não por `CD_AGRUP`.
 
 | Campo | Tipo | Finalidade |
 |---|---|---|
