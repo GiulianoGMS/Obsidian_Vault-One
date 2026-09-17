@@ -54,6 +54,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Apuração CAT 28]] | Apuração periódica de exclusão de produtos do regime ST (CAT 28/SP) — geração de TXT por loja |
 > | [[API - SQL de Tela Web TOTVS]] | Como descobrir qual consulta SQL uma tela Web da TOTVS executa via DevTools + V$SQL |
 > | [[Fiscal - NFS-e Aguardando Retorno]] | Procedimento para desbloquear NFS-e presa em "Aguardando Retorno" via reenvio duplo |
+> | [[Fiscal - NF-e Reenvio com Correção de Chave EPEC]] | Desfaz troca de chave EPEC no ERP e reenvia NF-e original via NDD (`NAGP_NFE_REENVIANF`) |
 > | [[Validação de Cadastros Tributários - vMaster]] | 22 validações de cadastro fiscal de produtos — NCM, CST, IPI, ST, cBenef, origem IMP/NAC |
 > | [[Auditoria de Alterações - MRL_EMPSOFTPDV]] | Trigger de log `BEFORE UPDATE` que rastreia alterações na configuração de software PDV por empresa |
 > | [[Comercial - Fórmula de Cálculo de Margem]] | Três formas de cálculo de margem do ERP: Tabela de Custo, Simulação e Consulta Produto |
