@@ -68,6 +68,7 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGP_WTS_V2_ALERTAS_BOT_DOWN`        | Serviço de captura de dados interrompido (sem registro recente)                                                                                                                                                                                                                               | `NAGT_CONTROLE_ATUALIZACAO_BI` — DTAREGISTRO atrasado além de `MIN_TMP_REGISTRO` por visão                            |                                                                |
 | `NAGP_WTS_V2_ALERTAS_SEFAZ`           | Webservice SEFAZ com tempo de resposta > 3 s **ou** fora do ar (`SVC = 'Sim'`) nos últimos 25 min — dispara entre 07h–20h nos minutos 00/02; envia pa GERP e GSD                                                                                                                              | `ERP_INTEGRATION.NAGT_NFE_STATUS_UFS` — verifica `TEMPO_RESPOSTA > 3` e `SVC = 'Sim'` na janela de 25 min             |                                                                |
 | `NAGP_WTS_V2_LOG_API_UNOUS`           | Erros registrados na API [[Unous]] não processados — envia uma mensagem por registro com data/hora e texto do erro; sleep de 5 s entre envios                                                                                                                                                 | `NAGT_LOG_API_UNOUS` (`INDLOGPROCESSADO = 'N'`); marcação como processado (`'S'`) feita pelo orquestrador após o loop |                                                                |
+| `NAGP_WTS_V2_ALERTA_EPEC`             | Mais de 300 [[EPEC]]s pendentes **ou** EPEC mais antiga há mais de 3 dias — dispara às 08h, 15h e 16h nos primeiros 2 min; janela de consulta: últimos 20 dias                                                                                                                                | `MLFV_BASENFE` (status NF-e) + `MFL_NFELOG` (eventos EPEC e autorização)                                             |                                                                |
 
 ### Exemplos de Mensagem por Alerta
 
@@ -257,6 +258,16 @@ NAGP_KILL_SESSION(4321, 8765, 1)
 *Data:* 02/09/2026 08:00:00
 *Erro:* Timeout ao consumir endpoint /v1/produtos
 ```
+
+**`NAGP_WTS_V2_ALERTA_EPEC`**
+```
+⚠️ *Alerta EPECs Pendentes:*
+
+• *Pendentes:* 45
+• *Mais antiga:* 19/09/2026
+• *Persistindo há:* 2 dias
+```
+> Dispara se `COUNT > 300` **ou** `MIN(DTAEMISSAO) < SYSDATE - 3`. Critério EPEC: tem evento `LIKE '%EPEC%'` em `MFL_NFELOG` e **não tem** evento `LIKE '%AUTORIZ%'`.
 
 > [!note] `NAGP_WTS_V2_TB_ULTCARGAMONITOR`
 > Pendente anotar
