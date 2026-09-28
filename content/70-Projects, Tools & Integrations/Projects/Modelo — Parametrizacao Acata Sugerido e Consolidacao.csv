@@ -1,0 +1,4 @@
+COMPRADOR;FORNECEDOR;ARREDONDA;PERCENTUAL;OBSERVACAO
+289;TODOS;N;;Exemplo - so acata sugerido, sem arredondamento
+289;1234;S;60;Exemplo - fornecedor especifico com arredondamento de 60%
+310;TODOS;S;;Exemplo - arredonda usando o percentual padrao do produto (PERCVARIACAOSUG)

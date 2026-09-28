@@ -9,7 +9,7 @@ System:
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
   - "[[Inconsistencia Recebimento NFe]]"
-  - "[[Critica]]"
+  - "[[Criticas]]"
 Date:
 ---
-[[Critica]] no recebimento - [[Ean]] Trib divergente do Ean cadastrado no ERP como "Util para venda" ([[IndUtilVenda]])
+[[Criticas]] no recebimento - [[Ean]] Trib divergente do Ean cadastrado no ERP como "Util para venda" ([[IndUtilVenda]])

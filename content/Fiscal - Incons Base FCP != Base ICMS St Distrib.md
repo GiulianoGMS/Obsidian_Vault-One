@@ -9,7 +9,7 @@ System:
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
   - "[[Inconsistencia Recebimento NFe]]"
-  - "[[Critica]]"
+  - "[[Criticas]]"
 Date:
 ---
 -- Adicionado por Giuliano

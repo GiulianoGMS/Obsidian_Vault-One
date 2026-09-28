@@ -1,4 +1,4 @@
-﻿---
+---
 Language:
   - "[[SQL]]"
 Repository:
@@ -25,14 +25,14 @@ Processo de **geração automática de [[Lote de Compras|lotes de compra]]** de 
 ---
 ### Objetos
 
-| Objeto | Tipo | Descrição |
-|--------|------|-----------|
-| `NAGT_CONTROLELOTECOMPRA` | Tabela | Controle dos lotes e configurações de prazo |
-| `NAGF_BUSCAULTDTAPEDIDO` | Function | Calcula as datas de geração com base na última data de pedido |
-| `NAGV_BUSCADTAPEDIDO` | View | Retorna os lotes e horários pendentes de criação no dia, incluindo `FORMACALC` |
-| `NAGP_GERALOTECOMPRA_v2` | Procedure | Versão atual: cria os lotes, desabilita agendamento dos modelos e chama recálculo de sugestão |
-| `NAGPKG_SUGESTAO_COMPRA` | Package | Calcula e atualiza a [[Sugestão de Compra]] por produto/empresa após a geração do lote |
-| `NAGP_EMAILAUTO_LOTECOMPRAS` | Procedure | Aviso por [[E-mail]] um dia antes das gerações de lote |
+| Objeto                       | Tipo      | Descrição                                                                                     |
+| ---------------------------- | --------- | --------------------------------------------------------------------------------------------- |
+| `NAGT_CONTROLELOTECOMPRA`    | Tabela    | Controle dos lotes e configurações de prazo                                                   |
+| `NAGF_BUSCAULTDTAPEDIDO`     | Function  | Calcula as datas de geração com base na última data de pedido                                 |
+| `NAGV_BUSCADTAPEDIDO`        | View      | Retorna os lotes e horários pendentes de criação no dia, incluindo `FORMACALC`                |
+| `NAGP_GERALOTECOMPRA_v2`     | Procedure | Versão atual: cria os lotes, desabilita agendamento dos modelos e chama recálculo de sugestão |
+| `NAGPKG_SUGESTAO_COMPRA`     | Package   | Calcula e atualiza a [[Sugestão de Compra]] por produto/empresa após a geração do lote        |
+| `NAGP_EMAILAUTO_LOTECOMPRAS` | Procedure | Aviso por [[E-mail]] um dia antes das gerações de lote                                        |
 
 ---
 

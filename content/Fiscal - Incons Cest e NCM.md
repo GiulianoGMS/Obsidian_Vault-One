@@ -9,7 +9,7 @@ System:
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
   - "[[Inconsistencia Recebimento NFe]]"
-  - "[[Critica]]"
+  - "[[Criticas]]"
 Date:
 ---
 -- Ticket 324275 - Solic Simone - Adicionado em 04/12/2023 por Giuliano

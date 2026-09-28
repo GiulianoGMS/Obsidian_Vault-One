@@ -149,16 +149,16 @@ A emissão é controlada pela view `MRLV_PROMOCAOESPECIAL`, que divide a quantid
 
 #### Tabelas Principais
 
-| Tabela | Banco | Uso |
-|--------|-------|-----|
-| `PRODUTO_VENCIMENTO` | SATELITSKY | Origem legada — produtos próximos ao vencimento cadastrados pelo operador |
-| `NAGV_APP_DATAVALIDADE` | CONSINCODW (DW) | Origem App — registros do gerente de [[Loja]] via aplicativo |
-| `NAGV_APP_DATAVALIDADE_CONTROLE` | CONSINCODW (DW) | View de controle — flags `PROD_INSERIDO` e `IND_INSERE_PROMO` |
-| `NAGT_CONTROLE_VALIDADE_INS` | CONSINCODW (DW) | Log de inserções (tipo 'P' = [[Promoção]]) |
-| `NAGT_REBAIXA_AVULSA` | CONSINCODW (DW) | Controle de processamento avulso — `IND_PROCESSADO = 'S'` após inserção |
-| `MRL_PROMOCESPECIALHIST` | ERP | Destino promoções especiais — etiqueta rosa com [[EAN]] de acesso especial |
-| `MRL_PROMOCAO` / `MRL_PROMOCAOITEM` | ERP | Destino promoções normais — Frios e Laticínios |
-| `NAGV_DESCCATEG_DATA_APP` | ERP | Configuração de percentual de desconto por [[Família]] / categoria |
+| Tabela                              | Banco           | Uso                                                                        |
+| ----------------------------------- | --------------- | -------------------------------------------------------------------------- |
+| `PRODUTO_VENCIMENTO`                | SATELITSKY      | Origem legada — produtos próximos ao vencimento cadastrados pelo operador  |
+| `NAGV_APP_DATAVALIDADE`             | CONSINCODW (DW) | Origem App — registros do gerente de [[Loja]] via aplicativo               |
+| `NAGV_APP_DATAVALIDADE_CONTROLE`    | CONSINCODW (DW) | View de controle — flags `PROD_INSERIDO` e `IND_INSERE_PROMO`              |
+| `NAGT_CONTROLE_VALIDADE_INS`        | CONSINCODW (DW) | Log de inserções (tipo 'P' = [[Promoção]])                                 |
+| `NAGT_REBAIXA_AVULSA`               | CONSINCODW (DW) | Controle de processamento avulso — `IND_PROCESSADO = 'S'` após inserção    |
+| `MRL_PROMOCESPECIALHIST`            | ERP             | Destino promoções especiais — etiqueta rosa com [[EAN]] de acesso especial |
+| `MRL_PROMOCAO` / `MRL_PROMOCAOITEM` | ERP             | Destino promoções normais — Frios e Laticínios                             |
+| `NAGV_DESCCATEG_DATA_APP`           | ERP             | Configuração de percentual de desconto por [[Família]] / categoria         |
 
 ---
 

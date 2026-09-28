@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789482070291-9mkxffrer",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789482070581-iyv7w17",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789482070286-vr5nbt9",
+      "timestamp": 1789482070286,
+      "rawDisplayText": "Atualizei o objeto com uma nova regra, atualize o MD para documentar \n\nhttps://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/FIF_VALIDACAOPROGPGTOCUST.fnc",
+      "canonicalText": "Atualizei o objeto com uma nova regra, atualize o MD para documentar \n\nhttps://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/FIF_VALIDACAOPROGPGTOCUST.fnc",
+      "context": {
+        "linkedContent": {
+          "path": "90-Custom Override/On/Fin - Inconsistencia Prog Pagto.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "d9e06cab93ce1787d409a11ffcad860af1773070d1e1fa8e2e57e02be1c108d2",
+      "providerUserMessageId": "a570d458-e069-40f7-9984-e1177ccf75b0",
+      "providerAssistantMessageId": "1b4541bc-9a45-4eaf-bd91-659915637903"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789482339124-8pf8tx6",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789482339115-5v2bc96",
+      "timestamp": 1789482339115,
+      "rawDisplayText": "Este objeto tbm https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_LIB_PROG_FIN.prc",
+      "canonicalText": "Este objeto tbm https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGP_LIB_PROG_FIN.prc",
+      "images": [],
+      "contentDigest": "1273dff678d56476571d2b03ad1b4e3314b341e1120b2a8a5bf5da74e1177b11",
+      "providerUserMessageId": "adc2cb39-2d12-4a8f-b938-10ac415b3f25",
+      "providerAssistantMessageId": "38b5d6ab-2d2c-4a12-b7e9-82329af702cc"
+    }
+  ]
+}

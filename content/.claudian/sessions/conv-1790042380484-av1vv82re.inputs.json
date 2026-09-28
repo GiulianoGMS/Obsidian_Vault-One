@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1790042380484-av1vv82re",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1790042380635-4ajbqyy",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1790042380481-2c5o951",
+      "timestamp": 1790042380481,
+      "rawDisplayText": "Se nao tiver o percentual configurado, nao faz nada?",
+      "canonicalText": "Se nao tiver o percentual configurado, nao faz nada?",
+      "context": {
+        "linkedContent": {
+          "path": "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "a9153944a104c921be1e25039df140414f7c0f09b1f89f9c43996f1f92578e11",
+      "providerUserMessageId": "9fbfb660-d252-45c7-a7fc-ec4f2a8b3c1e",
+      "providerAssistantMessageId": "a61cf1b0-4555-4967-9499-3db1557eae57"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "conv-1789130428646-28lvlws0u",
+  "providerId": "claude",
+  "title": "Estrutura template consolidação comprador",
+  "titleGenerationStatus": "success",
+  "createdAt": 1789130428654,
+  "lastActivityAt": 1789130724305,
+  "sessionId": "e5b2ab31-e410-40c1-892c-51ddd9612cc4",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "e5b2ab31-e410-40c1-892c-51ddd9612cc4"
+  },
+  "linkedContentPath": "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 8300,
+    "cacheReadInputTokens": 28242,
+    "contextWindow": 1000000,
+    "contextTokens": 36544,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

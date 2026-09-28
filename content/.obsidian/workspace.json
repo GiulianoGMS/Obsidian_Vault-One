@@ -4,50 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "80d9140fd22d8d61",
+        "id": "41c8fb8920d8cdc2",
         "type": "tabs",
-        "dimension": 59.29319371727748,
+        "dimension": 53.59947643979057,
         "children": [
           {
-            "id": "ce5a193713573dc6",
+            "id": "abebc0ed05a44458",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Escopo.md",
+                "file": "90-Custom Override/On/NFe Referenciada Produtor Rural - Triangulação - NAGF_CHAVE_REF_PRODRURAL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Régua de Cobrança - Escopo"
-            }
-          },
-          {
-            "id": "244d4cb07360ff8e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "index.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "index"
+              "title": "NFe Referenciada Produtor Rural - Triangulação - NAGF_CHAVE_REF_PRODRURAL"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
-        "id": "b45645a4f5a4280e",
+        "id": "ba6609b780df5cb8",
         "type": "split",
-        "dimension": 40.70680628272251,
+        "dimension": 46.40052356020942,
         "children": [
           {
             "id": "e972e1e6917638da",
             "type": "tabs",
-            "dimension": 43.31395348837209,
+            "dimension": 46.89922480620155,
             "children": [
               {
                 "id": "3cd3e05a753e3bfc",
@@ -64,12 +49,12 @@
             ]
           },
           {
-            "id": "600c2e3a7811002e",
+            "id": "dde75a11b5f2b8fa",
             "type": "tabs",
-            "dimension": 56.68604651162791,
+            "dimension": 53.100775193798455,
             "children": [
               {
-                "id": "568ee1180b2ae5e0",
+                "id": "83ca76d29f51868f",
                 "type": "leaf",
                 "pinned": true,
                 "state": {
@@ -79,35 +64,23 @@
                       "version": 1,
                       "openTabs": [
                         {
-                          "tabId": "tab-1787950885640-30rcken",
-                          "conversationId": "conv-1787950925160-4c4xxkz4j"
+                          "tabId": "tab-1789482054299-1w8ig4y",
+                          "conversationId": "conv-1789482070291-9mkxffrer"
                         },
                         {
-                          "tabId": "tab-1787951503085-loz8g6v",
-                          "conversationId": "conv-1788129668748-17cyfyhs0"
+                          "tabId": "tab-1789653025562-we1ue54",
+                          "conversationId": "conv-1789677977056-ar85u5esg"
                         },
                         {
-                          "tabId": "tab-1788134746630-9g2ksfb",
-                          "conversationId": "conv-1788134957092-q2ltuz02c"
+                          "tabId": "tab-1790042372058-qn6oxaa",
+                          "conversationId": "conv-1790042380484-av1vv82re"
                         },
                         {
-                          "tabId": "tab-1788265189207-fxkbffj",
-                          "conversationId": "conv-1788265211098-xfc9wjek2"
-                        },
-                        {
-                          "tabId": "tab-1788316999893-c8al6um",
-                          "conversationId": "conv-1788317120718-j79iyik4m"
-                        },
-                        {
-                          "tabId": "tab-1788318406800-k8j0wa1",
-                          "conversationId": "conv-1788318438670-wqvm2cvj3"
-                        },
-                        {
-                          "tabId": "tab-1788440006586-3w39v2t",
-                          "conversationId": "conv-1788440012474-6njy65mmp"
+                          "tabId": "tab-1790611471391-hc3wl9h",
+                          "conversationId": "conv-1790611637645-ay24b5itn"
                         }
                       ],
-                      "activeTabId": "tab-1788440006586-3w39v2t"
+                      "activeTabId": "tab-1790611471391-hc3wl9h"
                     }
                   },
                   "pinned": true,
@@ -253,7 +226,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md",
+                "file": "51-Pendencias/Pendencias.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -286,48 +259,49 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "244d4cb07360ff8e",
+  "active": "abebc0ed05a44458",
   "lastOpenFiles": [
-    "80-Paliativos - Nao precisa Reaplicar/On/PDV - indPres NF-e SAT.md",
-    "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi - Extração de Bases.md",
-    "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md",
-    "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi.md",
-    "index.md.tmp.4724.ec94aff15e6c",
-    "70-Projects, Tools & Integrations/Integrations/Falconi.md",
-    "70-Projects, Tools & Integrations/Integrations/BLB/BLB - Extracao Fiscal.md",
-    "70-Projects, Tools & Integrations/Projects/Falconi.md",
-    "51-Pendencias/Pendencias.md",
-    "51-Pendencias/Pendencias.md.tmp.9040.9bc103e27931",
-    "51-Pendencias/Pendencias.md.tmp.9040.1ad5146d5075",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Elegíveis.md",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
-    "51-Pendencias/Pendencias.md.tmp.32244.45afecca82c6",
-    "51-Pendencias/Pendencias.md.tmp.32244.b78bd16d4ae2",
-    "70-Projects, Tools & Integrations/Projects/KPIs - Alertas Carga PDV (CTD).md",
-    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
-    "30-Squad/Analistas/Wesley.md",
-    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
+    "90-Custom Override/On/InfAdFisco - NFe.md",
+    "90-Custom Override/On/NFe Referenciada Produtor Rural - Triangulação - NAGF_CHAVE_REF_PRODRURAL.md",
+    "90-Custom Override/On/NFe Referenciada Produtor Rural - Triangulação - NAGF_CHAVE_REF_PRODRURAL.md.tmp.37372.67bc34d895ba",
+    "40-Open Tags/Inconsistencia Recebimento NFe.md",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
     "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
-    "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md.tmp.10868.7aeb90f5ff63",
-    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.5236.2eb8924a7f9f",
-    "index.md",
-    "70-Projects, Tools & Integrations/Integrations/Instaleap/Instaleap.md",
-    "51-Pendencias/Pendencias.md.tmp.32568.0d283286b531",
     "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
-    "00-Home/01-Templates/_ Basic Template.md",
-    "30-Squad/Analistas/Fabiano/Reclamações/11-08.md",
-    "90-Custom Override/On/Desonerado Ecommerce.md",
-    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
-    "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md",
+    "40-Open Tags/Critica de Venda.md",
+    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
     "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
-    "90-Custom Override/On/Arred. de Seleção Inversa no CD - FLV.md",
-    "90-Custom Override/On/Arred. de Valores no Receb. - 0,xx Centavos.md",
+    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
+    "40-Open Tags/Criticas.md",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compra - Geração Automática.md",
+    "51-Pendencias/Pendencias.md",
+    "51-Pendencias/Pendencias.md.tmp.19984.0a8127680a1b",
+    "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
+    "51-Pendencias/Pendencias.md.tmp.19984.1c898e47aec5",
+    "51-Pendencias/Pendencias.md.tmp.19984.6d701c65fa3d",
+    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
+    "index.md",
+    "70-Projects, Tools & Integrations/Tools/Fiscal - NF-e Reenvio com Correção de Chave EPEC.md",
+    "90-Custom Override/On/Fin - Inconsistencia Prog Pagto.md",
+    "index.md.tmp.9428.fc902631b3b5",
+    "90-Custom Override/On/Fin - Inconsistencia Prog Pagto.md.tmp.20224.5d63aae59576",
+    "80-Paliativos - Nao precisa Reaplicar/On/Correção CBS-IBS NFs de Devolução.md",
+    "90-Custom Override/On/Desonerado Ecommerce.md",
+    "90-Custom Override/On/vOutros Ecommerce (Frete rateado).md",
+    "90-Custom Override/On/Data de Previsão de Entrega - dPrevEntrega NFE.md",
+    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
+    "90-Custom Override/On/Crítica de Importação Direta.md",
+    "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md",
+    "90-Custom Override/On/fBuscaTipoFreteTransp — modFrete PDV.md",
+    "70-Projects, Tools & Integrations/Projects/Instrucoes — Parametrizacao Acata Sugerido e Consolidacao.md",
+    "70-Projects, Tools & Integrations/Projects/Instrucoes — Parametrizacao Acata Sugerido e Consolidacao.md.tmp.20276.e14260f6c78c",
+    "70-Projects, Tools & Integrations/Projects/Modelo — Parametrizacao Acata Sugerido e Consolidacao.csv",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.9380.ea8b50ae9338",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.9380.7f7a0fee1495",
+    "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
     "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
-    "90-Custom Override/On/CST IPI - NFe.md",
-    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.26812.0887ff5b9c02",
     "Pasted image 20260831121016.png",
     "Pasted image 20260831103251.png",
-    "50-Meetings/Sem título",
     "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "Pasted image 20260612151731.png",
@@ -337,7 +311,6 @@
     "Pasted image 20260603074640.png",
     "{6F11ADC6-10D2-4AC5-9CC2-DB5D3E3F62D8}.png",
     "Pasted image 20260718213111.png",
-    "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.canvas",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",

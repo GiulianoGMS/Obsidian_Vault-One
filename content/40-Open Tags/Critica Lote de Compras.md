@@ -1,2 +1,2 @@
-[[Critica]]
+[[Criticas]]
 View: MACV_CONSISTELOTECOMPRA

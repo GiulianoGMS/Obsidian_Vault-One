@@ -34,16 +34,15 @@ Por solicitação da **diretoria**, foi criada uma variante da procedure de cobr
 
 ## Diferenças em relação à `NAGP_EMAIL_REGUA_COBRANCA`
 
-| Aspecto | Procedure original | Nova procedure (`_AGRUP`) |
-|---|---|---|
-| **Conteúdo do e-mail** | Tabela HTML com acordo, tipo, parcela, vencimento e valor | Mensagem genérica — sem nenhum detalhe de acordo |
-| **Dados não enviados ao representante** | — | Nº do acordo, descrição, tipo, nº da parcela, vencimento, valor em aberto |
-| **Anti-resend nível crítico** | Não possui | Bloqueia reenvio se ≥ 4 envios já registrados desde 2026-08-01 para o mesmo acordo/parcela/representante |
-| **Log** | Por acordo/parcela (loop) | Por acordo/parcela (loop) — **sem alteração** |
-| **Envio** | Um e-mail consolidado por representante | Um e-mail consolidado por representante — **sem alteração** |
+| Aspecto                                 | Procedure original                                        | Nova procedure (`_AGRUP`)                                                                                |
+| --------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **Conteúdo do e-mail**                  | Tabela HTML com acordo, tipo, parcela, vencimento e valor | Mensagem genérica — sem nenhum detalhe de acordo                                                         |
+| **Dados não enviados ao representante** | —                                                         | Nº do acordo, descrição, tipo, nº da parcela, vencimento, valor em aberto                                |
+| **Anti-resend nível crítico**           | Não possui                                                | Bloqueia reenvio se ≥ 4 envios já registrados desde 2026-08-01 para o mesmo acordo/parcela/representante |
+| **Log**                                 | Por acordo/parcela (loop)                                 | Por acordo/parcela (loop) — **sem alteração**                                                            |
+| **Envio**                               | Um e-mail consolidado por representante                   | Um e-mail consolidado por representante — **sem alteração**                                              |
 
 ---
-
 ## Parâmetros
 
 Idênticos à procedure original:

@@ -1,3 +1,3 @@
-[[Critica]]
+[[Criticas]]
 
 View: ESPV_CRITICADEVNFFORN

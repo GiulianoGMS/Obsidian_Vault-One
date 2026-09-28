@@ -8,7 +8,7 @@ Squads:
 System:
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
-  - "[[Critica]]"
+  - "[[Criticas]]"
   - "[[Critica de Venda]]"
   - "[[Venda Balcão]]"
 Date:

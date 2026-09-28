@@ -1,0 +1,23 @@
+{
+  "id": "conv-1789677977056-ar85u5esg",
+  "providerId": "claude",
+  "title": "Atualizar tarefas concluídas em Pendências",
+  "titleGenerationStatus": "success",
+  "createdAt": 1789677977064,
+  "lastActivityAt": 1790086408418,
+  "sessionId": "e81d754d-ad6a-40a8-9a76-38b3c7015e7a",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "e81d754d-ad6a-40a8-9a76-38b3c7015e7a"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 438,
+    "cacheReadInputTokens": 35055,
+    "contextWindow": 1000000,
+    "contextTokens": 35495,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

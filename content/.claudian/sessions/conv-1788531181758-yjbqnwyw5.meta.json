@@ -1,0 +1,26 @@
+{
+  "id": "conv-1788531181758-yjbqnwyw5",
+  "providerId": "claude",
+  "title": "Requisitos para configuração",
+  "titleGenerationStatus": "success",
+  "createdAt": 1788531181763,
+  "lastActivityAt": 1789006576486,
+  "sessionId": "0689f06e-60b3-484f-8613-40c283cd574f",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "0689f06e-60b3-484f-8613-40c283cd574f"
+  },
+  "linkedContentPath": "70-Projects, Tools & Integrations/Projects/Sugestão Consolidada com Arredondamento — Lote de Compras.md",
+  "isPinned": false,
+  "isArchived": true,
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 2244,
+    "cacheReadInputTokens": 33487,
+    "contextWindow": 1000000,
+    "contextTokens": 35733,
+    "percentage": 4,
+    "contextWindowIsAuthoritative": true
+  }
+}

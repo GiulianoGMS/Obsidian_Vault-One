@@ -11,6 +11,8 @@
     "providerSessionId": "84c4ddb8-5976-46cc-bfdb-7b3aec116aaa"
   },
   "linkedContentPath": "51-Pendencias/Pendencias.md",
+  "isPinned": false,
+  "isArchived": true,
   "usage": {
     "model": "opus",
     "inputTokens": 6220,

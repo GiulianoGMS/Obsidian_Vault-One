@@ -10,7 +10,7 @@ System:
 Open Tags:
   - "[[Inconsistencia Recebimento NFe]]"
   - "[[Remessa]]"
-  - "[[Critica]]"
+  - "[[Criticas]]"
 Date: 2024-05-11
 ---
 -- Ticket 408539 | Adicionado por Giuliano em 11/06/24

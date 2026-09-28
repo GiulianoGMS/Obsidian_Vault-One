@@ -8,7 +8,7 @@ Squads:
 System:
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
-  - "[[Critica]]"
+  - "[[Criticas]]"
   - "[[Lote de Compras]]"
   - "[[TAE - Totvs Assinatura Eletronica Form]]"
   - "[[Critica Lote de Compras]]"

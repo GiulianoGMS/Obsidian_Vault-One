@@ -9,7 +9,7 @@ System:
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
   - "[[Inconsistencia Recebimento NFe]]"
-  - "[[Critica]]"
+  - "[[Criticas]]"
 Date:
 ---
 -- Ticket 244728 - Solic Rafael Recebimento | Adicionado por Giuliano em 15/06/2023

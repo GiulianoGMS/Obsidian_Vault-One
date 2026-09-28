@@ -16,13 +16,17 @@ Open Tags:
 Date: 2026-08-28
 Type:
 ---
-
+																																																																																																																															
 > [!info] Referência
 > [GiulianoGMS/DDL-Objects-Oracle — NAGTRG_BI_MAC_GERCOMPRAITEM.sql](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGTRG_BI_MAC_GERCOMPRAITEM.sql)
 > [GiulianoGMS/DDL-Objects-Oracle — NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED.trg](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED.trg)
 
 ---
+## Instruções
 
+Vide [[Instrucoes — Parametrizacao Acata Sugerido e Consolidacao]]
+
+---
 ## Visão Geral
 
 Dois comportamentos automáticos ativados no `INSERT` de `MAC_GERCOMPRAITEM`, ambos controlados pela mesma tabela de parametrização (`NAGT_COMP_FORN_SUGESTAUTO`), mas implementados em triggers distintos:
@@ -38,18 +42,18 @@ A distinção entre os dois modos é feita em runtime pela presença de empresas
 
 ## Objetos de Banco
 
-| Objeto | Tipo | Finalidade |
-|---|---|---|
-| `MAC_GERCOMPRAITEM` | Tabela | Itens do lote de compra — alvo dos triggers |
-| `MAC_GERCOMPRAFORN` | Tabela | Fornecedor do lote (`SEQFORNECEDOR`) |
-| `MAC_GERCOMPRA` | Tabela | Cabeçalho do lote — `SEQCOMPRADOR`, `TIPOLOTE = 'C'` |
-| `MAC_GERCOMPRAEMP` | Tabela | Empresas do lote — usada pelo BEFORE INSERT para detectar CD (`NROEMPRESA BETWEEN 500 AND 599`) sem risco de ORA-04091 |
-| `NAGT_COMP_FORN_SUGESTAUTO` | Tabela | Parametrização central — controla ambos os comportamentos |
-| `MRL_PRODEMPRESAWM` | Tabela | Parâmetros logísticos do produto: `PALETELASTRO`, `PALETEALTURA` |
-| `MRL_PRODUTOEMPRESA` | Tabela | Fallback do percentual de arredondamento: `PERCVARIACAOSUG` |
-| `TBIU_MAC_GERABASTECITEM` | Trigger | Trigger padrão do [[ERP]] — `NAGTRG_BI_MAC_GERCOMPRAITEM` executa depois (`FOLLOWS`) |
-| `NAGTRG_BI_MAC_GERCOMPRAITEM` | Trigger (BEFORE INSERT) | Acata Sugerido Automático — só atua quando não há CD no lote |
-| `NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED` | Trigger (COMPOUND) | Consolidação + Arredondamento — atua quando há CD (`BETWEEN 500 AND 599`) no lote |
+| Objeto                                | Tipo                    | Finalidade                                                                                                             |
+| ------------------------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `MAC_GERCOMPRAITEM`                   | Tabela                  | Itens do lote de compra — alvo dos triggers                                                                            |
+| `MAC_GERCOMPRAFORN`                   | Tabela                  | Fornecedor do lote (`SEQFORNECEDOR`)                                                                                   |
+| `MAC_GERCOMPRA`                       | Tabela                  | Cabeçalho do lote — `SEQCOMPRADOR`, `TIPOLOTE = 'C'`                                                                   |
+| `MAC_GERCOMPRAEMP`                    | Tabela                  | Empresas do lote — usada pelo BEFORE INSERT para detectar CD (`NROEMPRESA BETWEEN 500 AND 599`) sem risco de ORA-04091 |
+| `NAGT_COMP_FORN_SUGESTAUTO`           | Tabela                  | Parametrização central — controla ambos os comportamentos                                                              |
+| `MRL_PRODEMPRESAWM`                   | Tabela                  | Parâmetros logísticos do produto: `PALETELASTRO`, `PALETEALTURA`                                                       |
+| `MRL_PRODUTOEMPRESA`                  | Tabela                  | Fallback do percentual de arredondamento: `PERCVARIACAOSUG`                                                            |
+| `TBIU_MAC_GERABASTECITEM`             | Trigger                 | Trigger padrão do [[ERP]] — `NAGTRG_BI_MAC_GERCOMPRAITEM` executa depois (`FOLLOWS`)                                   |
+| `NAGTRG_BI_MAC_GERCOMPRAITEM`         | Trigger (BEFORE INSERT) | Acata Sugerido Automático — só atua quando não há CD no lote                                                           |
+| `NAGTRG_BI_MAC_GERCOMPRAITEM_CDARRED` | Trigger (COMPOUND)      | Consolidação + Arredondamento — atua quando há CD (`BETWEEN 500 AND 599`) no lote                                      |
 
 ---
 
@@ -57,13 +61,13 @@ A distinção entre os dois modos é feita em runtime pela presença de empresas
 
 Tabela central que parametriza ambos os comportamentos. A distinção entre modos é feita pela faixa `NROEMPRESA BETWEEN 500 AND 599` no lote — não por `CD_AGRUP`.
 
-| Campo | Tipo | Finalidade |
-|---|---|---|
-| `SEQCOMPRADOR` | NUMBER | [[Comprador]] do lote |
-| `SEQFORNECEDOR` | NUMBER | [[Fornecedor]] específico; `NULL` = qualquer fornecedor |
-| `CD_AGRUP` | NUMBER | Não utilizado pelos triggers para coordenação ou detecção do CD. Mantido na tabela mas sem efeito funcional — a distinção entre modos é feita pela presença de `NROEMPRESA BETWEEN 500 AND 599` no lote |
-| `IND_ARRED` | CHAR | `'S'` = habilita [[Arredondamento]] logístico (usado somente no modo Consolidação) |
-| `PERC_ARRED` | NUMBER | Percentual mínimo para arredondar; `NULL` = usa `PERCVARIACAOSUG` do produto |
+| Campo           | Tipo   | Finalidade                                                                                                                                                                                              |
+| --------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SEQCOMPRADOR`  | NUMBER | [[Comprador]] do lote                                                                                                                                                                                   |
+| `SEQFORNECEDOR` | NUMBER | [[Fornecedor]] específico; `NULL` = qualquer fornecedor                                                                                                                                                 |
+| `CD_AGRUP`      | NUMBER | Não utilizado pelos triggers para coordenação ou detecção do CD. Mantido na tabela mas sem efeito funcional — a distinção entre modos é feita pela presença de `NROEMPRESA BETWEEN 500 AND 599` no lote |
+| `IND_ARRED`     | CHAR   | `'S'` = habilita [[Arredondamento]] logístico (usado somente no modo Consolidação)                                                                                                                      |
+| `PERC_ARRED`    | NUMBER | Percentual mínimo para arredondar; `NULL` = usa `PERCVARIACAOSUG` do produto                                                                                                                            |
 
 ---
 

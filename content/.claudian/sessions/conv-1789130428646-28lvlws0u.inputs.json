@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789130428646-28lvlws0u",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789130428715-7ku8e82",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789130428642-is3ls2q",
+      "timestamp": 1789130428642,
+      "rawDisplayText": "Para configurar, preciso criar um template/layout para o comprador me passar os dados basicos a entrar na regra do acata sugerido/consolidacao. qual estrutura solicito?\n\nPor exemplo.. \n\nCOMPRADOR; SEQFORNECEDOR; INDICA ARREDONDA PALETE... PROD/PERCENTUAL",
+      "canonicalText": "Para configurar, preciso criar um template/layout para o comprador me passar os dados basicos a entrar na regra do acata sugerido/consolidacao. qual estrutura solicito?\n\nPor exemplo.. \n\nCOMPRADOR; SEQFORNECEDOR; INDICA ARREDONDA PALETE... PROD/PERCENTUAL",
+      "context": {
+        "linkedContent": {
+          "path": "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "359e101c8423d783d980f096a51a426efb00034c1aa4368b04f92f09aff43a4e",
+      "providerUserMessageId": "01930295-60f3-438e-84e5-2645337e3989",
+      "providerAssistantMessageId": "8b9ed52f-74e6-450d-8187-679e9069dbd3"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789130688964-5b5ihki",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789130688958-fr5xe17",
+      "timestamp": 1789130688958,
+      "rawDisplayText": "monta pra mim, com as informações de atenção tanto se nao informar o fornecedor, quanto o arredonda",
+      "canonicalText": "monta pra mim, com as informações de atenção tanto se nao informar o fornecedor, quanto o arredonda",
+      "images": [],
+      "contentDigest": "89d4c0641aea64d2977861b6a4278d913adf26d0f09b0a03cb0c027902b9ede4",
+      "providerUserMessageId": "3c1302bc-9511-49af-bbff-3a92a6dce568",
+      "providerAssistantMessageId": "8a2ceef0-b25e-4d9f-9647-1d2880186f0f"
+    }
+  ]
+}

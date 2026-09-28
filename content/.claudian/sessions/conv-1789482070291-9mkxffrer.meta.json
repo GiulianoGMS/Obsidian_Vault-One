@@ -1,0 +1,24 @@
+{
+  "id": "conv-1789482070291-9mkxffrer",
+  "providerId": "claude",
+  "title": "Atualizar MD com nova regra Oracle",
+  "titleGenerationStatus": "success",
+  "createdAt": 1789482070304,
+  "lastActivityAt": 1789482368212,
+  "sessionId": "86334eb1-0027-44fb-85fb-54319317b0be",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "86334eb1-0027-44fb-85fb-54319317b0be"
+  },
+  "linkedContentPath": "90-Custom Override/On/Fin - Inconsistencia Prog Pagto.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 1494,
+    "cacheReadInputTokens": 30693,
+    "contextWindow": 1000000,
+    "contextTokens": 32189,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

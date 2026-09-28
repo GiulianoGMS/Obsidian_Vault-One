@@ -10,7 +10,7 @@ System:
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
   - "[[Critica de Devolucao]]"
-  - "[[Critica]]"
+  - "[[Criticas]]"
 Date:
 ---
 [[Critica de Devolucao]] que valida Local de Estoque x CGO na emissão de notas de devolução

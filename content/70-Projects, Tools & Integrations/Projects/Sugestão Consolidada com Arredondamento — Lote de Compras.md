@@ -113,12 +113,12 @@ QTY_PALETE = PALETELASTRO × PALETEALTURA
 
 ### Exemplos
 
-| Sugestão | Lastro | Palete | Percentual | Resultado | Motivo |
-|---:|---:|---:|---:|---:|---|
-| 32 | 10 | 40 | 60% | **40** | 32/40 = 80% ≥ 60% → completa palete |
-| 26 | 10 | 60 | 60% | **30** | 26/60 = 43% < 60%; 6/10 = 60% ≥ 60% → completa lastro |
-| 23 | 10 | 40 | 60% | **23** | 23/40 = 57,5%; 3/10 = 30% — nenhum limite atingido |
-| 328 | 13 | 104 | 60% | **328** | 16/104 = 15%; 3/13 = 23% — mantém |
+| Sugestão | Lastro | Palete | Percentual | Resultado | Motivo                                                |
+| -------: | -----: | -----: | ---------: | --------: | ----------------------------------------------------- |
+|       32 |     10 |     40 |        60% |    **40** | 32/40 = 80% ≥ 60% → completa palete                   |
+|       26 |     10 |     60 |        60% |    **30** | 26/60 = 43% < 60%; 6/10 = 60% ≥ 60% → completa lastro |
+|       23 |     10 |     40 |        60% |    **23** | 23/40 = 57,5%; 3/10 = 30% — nenhum limite atingido    |
+|      328 |     13 |    104 |        60% |   **328** | 16/104 = 15%; 3/13 = 23% — mantém                     |
 
 ---
 
@@ -160,8 +160,7 @@ SELECT M.PALETELASTRO, M.PALETEALTURA,
 ```
 
 ---
-
-## Pontos de Atenção
+##### Pontos de Atenção
 
 > [!warning] Parametrização logística é crítica
 > A trigger usa diretamente `PALETELASTRO` e `PALETEALTURA` de `MRL_PRODEMPRESAWM`. Se esses valores estiverem incorretos, o arredondamento também estará. Verificar sempre antes de diagnosticar resultados inesperados.
@@ -171,3 +170,14 @@ SELECT M.PALETELASTRO, M.PALETEALTURA,
 
 > [!note] Fornecedor NULL = todos
 > `SEQFORNECEDOR = NULL` em `NAGT_COMP_FORN_SUGESTAUTO` ativa o comportamento para qualquer fornecedor do comprador. Mesmo comportamento do v1.
+
+---
+##### Alinhamento 09/09/2026
+
+Ajustar regra - Considerar:
+
+Se existe CD relacionado no lote:
+Utilizar [[Sugestão Consolidada com Arredondamento — Lote de Compras]]
+
+Se nã existe: 
+Utilizar [[Acata Sugerido Automático no Lote de Compras]]

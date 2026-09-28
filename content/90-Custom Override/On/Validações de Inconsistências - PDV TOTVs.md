@@ -9,7 +9,7 @@ System:
   - "[[PLSQL-Oracle]]"
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
-  - "[[Critica]]"
+  - "[[Criticas]]"
   - "[[Job]]"
   - "[[CGO]]"
 Date:

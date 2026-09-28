@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1790611637645-ay24b5itn",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1790611637775-p7m4rrw",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1790611637641-50qj8ra",
+      "timestamp": 1790611637641,
+      "rawDisplayText": "Crie um novo MD em 90-Custom Override, paliativo aplicado apos ativação da NT 2025002 v1.40 que referencia nfe (chave) item a item. Para produtor rural, temos 'triangulacao' e a nota estava sendo emitida com a nossa chave, ao inves do fornecedor, resultando na rejeicao: Rejeição: Destintário da NF-e deve ser o igual ao Emitente da NF referenciada\n\nObjeto paliativo: https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGF_CHAVE_REF_PRODRURAL.fnc\n\nAplicado na PKG Sp_GeraArqEnvioNDDigitalNFe2g na linha 3125 fc5_BuscaCampoNotaTecnica(NVL(NVL(NAGF_CHAVE_REF_PRODRURAL(a.M014_DS_CHAVEACESSOREF)",
+      "canonicalText": "Crie um novo MD em 90-Custom Override, paliativo aplicado apos ativação da NT 2025002 v1.40 que referencia nfe (chave) item a item. Para produtor rural, temos 'triangulacao' e a nota estava sendo emitida com a nossa chave, ao inves do fornecedor, resultando na rejeicao: Rejeição: Destintário da NF-e deve ser o igual ao Emitente da NF referenciada\n\nObjeto paliativo: https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGF_CHAVE_REF_PRODRURAL.fnc\n\nAplicado na PKG Sp_GeraArqEnvioNDDigitalNFe2g na linha 3125 fc5_BuscaCampoNotaTecnica(NVL(NVL(NAGF_CHAVE_REF_PRODRURAL(a.M014_DS_CHAVEACESSOREF)",
+      "images": [],
+      "contentDigest": "6cc5123b0e5cd6bbfcd22626313136f05c53971747f0fac4f15a904987281470",
+      "providerUserMessageId": "2b23f992-bcbe-44c3-a634-2b3830290b0d",
+      "providerAssistantMessageId": "ece19adc-a4c1-4a18-98aa-69f256693018"
+    }
+  ]
+}

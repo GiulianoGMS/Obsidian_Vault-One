@@ -12,7 +12,7 @@ System:
 Open Tags:
   - "[[DDA]]"
   - "[[Boleto]]"
-  - "[[Critica]]"
+  - "[[Criticas]]"
   - "[[30-Squad/Financeiro]]"
   - "[[Titulo]]"
 Date: 2026-08-30

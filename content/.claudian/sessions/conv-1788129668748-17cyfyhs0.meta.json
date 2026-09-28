@@ -11,6 +11,8 @@
     "providerSessionId": "dcaff953-ea70-4a3c-bbd8-da64c2d01eed"
   },
   "linkedContentPath": "51-Pendencias/Pendencias.md",
+  "isPinned": false,
+  "isArchived": true,
   "usage": {
     "model": "opus",
     "inputTokens": 2,

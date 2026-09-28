@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1789677977056-ar85u5esg",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789677977277-w6h2jsf",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1789677977049-y0z54iv",
+      "timestamp": 1789677977049,
+      "rawDisplayText": "@51-Pendencias/Pendencias.md atualize o MD, conclui algumas tarefas",
+      "canonicalText": "@51-Pendencias/Pendencias.md atualize o MD, conclui algumas tarefas",
+      "images": [],
+      "contentDigest": "6de6e128a0709ff08cf8f36056c2c4fbafcef10760b9eb957cb4179cd3d91a6a",
+      "providerUserMessageId": "3cb9dd68-8271-4a38-9942-af407eaf10f7",
+      "providerAssistantMessageId": "7ae1378c-d3f6-4bab-806a-3551e5c93200"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789678184122-znmiujn",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1789678184112-6lwpdh9",
+      "timestamp": 1789678184112,
+      "rawDisplayText": "novas notas: Organizar o projeto @70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md para validar o tipo de arredondamento (Palete Lastro ou todos), pois Rebeca e time querem apenas Lastro, e hoje utiliza a regra para ambos.\n\nCritica no recebimento de transferencia CD> Loja sem pedido vinculado",
+      "canonicalText": "novas notas: Organizar o projeto @70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md para validar o tipo de arredondamento (Palete Lastro ou todos), pois Rebeca e time querem apenas Lastro, e hoje utiliza a regra para ambos.\n\nCritica no recebimento de transferencia CD> Loja sem pedido vinculado",
+      "images": [],
+      "contentDigest": "91a010f7bb71a1531815148d864da158e2f1c4b5149371624e018d8ca7614d33",
+      "providerUserMessageId": "54eb899a-f269-4166-901c-5602783bf9c8",
+      "providerAssistantMessageId": "4fb304b0-86bf-4a9e-bd14-cc55dc685a61"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1789678236719-qvmjlxu",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1789678236712-z2wpydi",
+      "timestamp": 1789678236712,
+      "rawDisplayText": "Parametrizar fornecedores do lote automatico: Juliana (Fornec + Percentual), Cintia (Percentual), Rebeca e time",
+      "canonicalText": "Parametrizar fornecedores do lote automatico: Juliana (Fornec + Percentual), Cintia (Percentual), Rebeca e time",
+      "images": [],
+      "contentDigest": "9b6c61d317d42e0db180014ddeb3ceae2bcccb90b2fea5dfcbfc27b771abe321",
+      "providerUserMessageId": "a129c53f-a3ec-4727-9535-1cfbdeb50c2b",
+      "providerAssistantMessageId": "27407a5e-07cd-4df1-ad5b-a5c949b558bb"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1790086399259-wufbbau",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1790086399232-rjg77k0",
+      "timestamp": 1790086399232,
+      "rawDisplayText": "@51-Pendencias/Pendencias.md \n\nAnote uma nova pendencia - desenvolver a view de preços para integração com a Seal - Etiquetas eletronicas",
+      "canonicalText": "@51-Pendencias/Pendencias.md \n\nAnote uma nova pendencia - desenvolver a view de preços para integração com a Seal - Etiquetas eletronicas",
+      "images": [],
+      "contentDigest": "1ec7d806be5124d9f5fa7171cabaeb5c2c72aa7a735841a6bc08c96a10aec366",
+      "providerUserMessageId": "117ac1ae-cdef-460a-b23f-515ed0db63a3",
+      "providerAssistantMessageId": "43a8444c-9b3a-4aab-83b6-26635693f0d4"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "conv-1790611637645-ay24b5itn",
+  "providerId": "claude",
+  "title": "Criar MD paliativo para triangulação de NFe rural",
+  "titleGenerationStatus": "success",
+  "createdAt": 1790611637654,
+  "lastActivityAt": 1790611699650,
+  "sessionId": "0d881b6a-d6c3-481c-ab69-9b2478dbb628",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "0d881b6a-d6c3-481c-ab69-9b2478dbb628"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 1864,
+    "cacheReadInputTokens": 30746,
+    "contextWindow": 1000000,
+    "contextTokens": 32612,
+    "percentage": 3,
+    "contextWindowIsAuthoritative": true
+  }
+}

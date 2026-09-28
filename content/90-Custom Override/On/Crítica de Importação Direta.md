@@ -10,7 +10,7 @@ System:
   - "[[PLSQL-Oracle]]"
 Open Tags:
   - "[[Importação Direta]]"
-  - "[[Critica]]"
+  - "[[Criticas]]"
   - "[[DI]]"
   - "[[Declaração de Importação]]"
 Date:
@@ -21,7 +21,7 @@ tags:
   - reapply
 Aplicado 26..017: true
 ---
-[[Critica]] [[DI]] caso existam despesas que nao geraram financeiro
+[[Criticas]] [[DI]] caso existam despesas que nao geraram financeiro
 
 Deve ser adicionado na [[Package]] PKG_MAD_DI > SP_CONSISTENFIMPORT, apos excluir [[inconsistencias]]
 
