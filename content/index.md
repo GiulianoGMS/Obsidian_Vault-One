@@ -30,6 +30,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Correção de Impostos no Recebimento]] | Paliativos CBS/IBS/IPI/ICMS Desonerado aplicados no recebimento de NF-e (Reforma Tributária) |
 > | [[Alerta Status SEFAZ]] | Sincroniza status dos webservices SEFAZ (NFe/NFC-e) em tabela Oracle e dispara alerta no ERP |
 > | [[Alerta NFe NFCe - E-mail]] | E-mail automático ao time Fiscal com rejeições e pendências de NF-e/NFC-e dos últimos 3 dias |
+> | [[DUIMP - Importação de XML]] | Importação do XML da DUIMP (despachante) para tabelas Oracle via `XMLTABLE` + `DBMS_LOB` — base para confronto com dados do ERP |
 > | [[Etiqueta FLV - Informação Nutricional]] | View Oracle que gera ZPL de etiqueta nutricional FLV — pivot de nutrientes do ERP para impressora Zebra |
 > | [[Impressão de Crachás - Eventiza]] | App web local (HTML + Node.js, zero deps) que importa XLSX da Eventiza e imprime crachás ZPL na Zebra via check-in |
 
