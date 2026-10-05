@@ -2,7 +2,7 @@
 Language:
   - "[[SQL]]"
 Repository:
-  - "[[Import-XML-Duimp]]"
+  - "[[DUIMP-Importacao-XML-x-ERP]]"
 Squads:
   - "[[TI]]"
   - "[[Fiscal]]"
@@ -22,7 +22,12 @@ tags:
 ---
 
 > [!info] Referência
-> [GiulianoGMS/Import-XML-Duimp](https://github.com/GiulianoGMS/Import-XML-Duimp)
+> [GiulianoGMS/DUIMP-Importacao-XML-x-ERP](https://github.com/GiulianoGMS/DUIMP-Importacao-XML-x-ERP) *(repositório `Import-XML-Duimp` renomeado)*
+
+> [!note] Continua em
+> O vínculo da DUIMP importada com o Pedido de Importação do ERP (câmbio, itens, despesas) é feito pela procedure `NAGP_IMP_DADOS_DUIMP`, documentada em [[DUIMP - Vinculação com Pedido de Importação]]. O relatório de confronto DUIMP x ERP (Centura Report Builder) está em [[DUIMP - Relatório Comparativo XML x ERP]].
+>
+> Visão geral do processo completo (fluxo e objetos em ordem): [[DUIMP - Visão Geral do Processo]].
 
 ---
 
@@ -30,7 +35,7 @@ tags:
 
 Processo de importação do XML da **[[DUIMP]]** (Declaração Única de Importação), enviado pelo despachante, para tabelas Oracle customizadas. O objetivo é estruturar os dados da declaração para futuro confronto com os valores digitados pelo comprador no [[ERP]].
 
-O arquivo XML é gerado pelo **PUCOMEX** (Portal Único do Siscomex) e depositado no diretório Oracle `TI` no servidor de banco. A leitura é feita via `BFILENAME` + `DBMS_LOB.LOADCLOBFROMFILE`, e o parse via `XMLTABLE`.
+O arquivo XML é gerado pelo **PUCOMEX** (Portal Único do Siscomex) e depositado no diretório Oracle `DUIMP_IMPORTAR` no servidor de banco. A leitura é feita via `BFILENAME` + `DBMS_LOB.LOADCLOBFROMFILE`, e o parse via `XMLTABLE`. Após importação bem-sucedida, o arquivo é movido automaticamente para `DUIMP_PROCESSADOS`.
 
 ---
 
@@ -38,6 +43,7 @@ O arquivo XML é gerado pelo **PUCOMEX** (Portal Único do Siscomex) e depositad
 
 | Objeto | Tipo | Finalidade |
 |---|---|---|
+| `NAGP_IMP_DUIMP` | Procedure | Lê XML do diretório, faz parse e insere nas tabelas — move arquivo ao fim |
 | `NAGT_DUIMP_CAPA` | Tabela | Dados do cabeçalho da DUIMP — 1 linha por declaração |
 | `NAGT_DUIMP_ITENS` | Tabela | Itens/adições da DUIMP — N linhas por declaração |
 
@@ -127,69 +133,61 @@ Itens da declaração. PK composta: `(NUMERODUIMP, IT)`. FK para `NAGT_DUIMP_CAP
 
 ---
 
-## Script de Importação
+## Procedure — `NAGP_IMP_DUIMP`
 
-Bloco PL/SQL anônimo que lê o XML do diretório Oracle `TI`, faz o parse e inserta nas duas tabelas. Suporta re-importação: apaga registros existentes da mesma `NUMERODUIMP` antes de inserir.
+Recebe o número da DUIMP, monta o nome do arquivo (`Duimp_<NroDI>.xml`), lê do diretório `DUIMP_IMPORTAR`, faz parse via `XMLTABLE` e insere nas duas tabelas. Suporta re-importação: apaga registros existentes antes de inserir.
 
-**Datas** do XML estão no formato `DD/MM/YYYY HH24:MI:SS` — convertidas com `TO_DATE`. `DATADESEMBARACO` pode vir vazia; tratada com `NULLIF`.
+**Parâmetro:** `psNroDI VARCHAR2` — número da DUIMP (ex: `26BR00016589107`)
 
+**Fluxo:**
+
+```
+1. UTL_FILE.FGETATTR  → valida existência do arquivo antes de abrir
+2. DBMS_LOB.LOADCLOBFROMFILE (UTF8) → lê XML como CLOB
+3. EXTRACTVALUE → extrai NUMERODUIMP do XML para usar como PK/FK
+4. DELETE NAGT_DUIMP_ITENS + NAGT_DUIMP_CAPA (re-importação idempotente)
+5. INSERT NAGT_DUIMP_CAPA via XMLTABLE('/DUIMP')
+6. INSERT NAGT_DUIMP_ITENS via XMLTABLE('/DUIMP/PRODUTOS/ITEM')
+7. COMMIT + DBMS_LOB.FREETEMPORARY
+8. UTL_FILE.FCOPY → copia para DUIMP_PROCESSADOS
+   UTL_FILE.FREMOVE → remove de DUIMP_IMPORTAR
+   (em sub-bloco isolado — falha aqui não faz rollback dos dados já commitados)
+```
+
+> [!warning] Arquivo não encontrado
+> Se `Duimp_<NroDI>.xml` não existir em `DUIMP_IMPORTAR`, a procedure lança `ORA-20001` via `RAISE_APPLICATION_ERROR` antes de tentar abrir o BFILE.
+
+**Datas** do XML estão no formato `DD/MM/YYYY HH24:MI:SS`. `DATADESEMBARACO` pode vir vazia — tratada com `NULLIF(..., '')`.
+
+**Chamada:**
 ```sql
-DECLARE
-  v_bfile       BFILE;
-  v_clob        CLOB;
-  v_dest_offset INTEGER := 1;
-  v_src_offset  INTEGER := 1;
-  v_lang        INTEGER := 0;
-  v_warning     INTEGER;
-  v_arquivo     VARCHAR2(200) := 'Duimp_26BR00016589107.xml';
-  v_numero      VARCHAR2(20);
 BEGIN
-  v_bfile := BFILENAME('TI', v_arquivo);
-
-  DBMS_LOB.CREATETEMPORARY(v_clob, TRUE);
-  DBMS_LOB.FILEOPEN(v_bfile, DBMS_LOB.FILE_READONLY);
-  DBMS_LOB.LOADCLOBFROMFILE(
-    dest_lob     => v_clob,       src_bfile    => v_bfile,
-    amount       => DBMS_LOB.LOBMAXSIZE,
-    dest_offset  => v_dest_offset, src_offset   => v_src_offset,
-    bfile_csid   => NLS_CHARSET_ID('UTF8'),
-    lang_context => v_lang,        warning      => v_warning
-  );
-  DBMS_LOB.FILECLOSE(v_bfile);
-
-  SELECT EXTRACTVALUE(XMLTYPE(v_clob), '/DUIMP/NUMERODUIMP')
-    INTO v_numero FROM DUAL;
-
-  DELETE FROM NAGT_DUIMP_ITENS WHERE NUMERODUIMP = v_numero;
-  DELETE FROM NAGT_DUIMP_CAPA  WHERE NUMERODUIMP = v_numero;
-
-  INSERT INTO NAGT_DUIMP_CAPA ( ... )
-  SELECT ... FROM XMLTABLE('/DUIMP' PASSING XMLTYPE(v_clob) COLUMNS ...) X;
-
-  INSERT INTO NAGT_DUIMP_ITENS ( ... )
-  SELECT v_numero, X.* FROM XMLTABLE('/DUIMP/PRODUTOS/ITEM' PASSING XMLTYPE(v_clob) COLUMNS ...) X;
-
-  COMMIT;
-  DBMS_LOB.FREETEMPORARY(v_clob);
-EXCEPTION
-  WHEN OTHERS THEN
-    ROLLBACK;
-    DBMS_LOB.FREETEMPORARY(v_clob);
-    RAISE;
+  NAGP_IMP_DUIMP('26BR00016589107');
 END;
 ```
 
-> Script completo (com todos os campos mapeados) em [`Insert DUIMP.sql`](https://github.com/GiulianoGMS/Import-XML-Duimp/blob/main/Insert%20DUIMP.sql)
+> Código-fonte completo em [`NAGP_IMP_DUIMP.prc`](https://github.com/GiulianoGMS/DUIMP-Importacao-XML-x-ERP/blob/main/NAGP_IMP_DUIMP.prc)
 
 ---
 
-## Diretório Oracle
+## Diretórios Oracle
 
-O arquivo XML deve estar no servidor de banco no diretório mapeado como `TI`:
+| Diretório Oracle | Finalidade |
+|---|---|
+| `DUIMP_IMPORTAR` | Arquivos aguardando importação — a procedure lê daqui |
+| `DUIMP_PROCESSADOS` | Arquivos já importados — movidos automaticamente após COMMIT |
 
 ```sql
--- Verificar diretório existente
-SELECT * FROM ALL_DIRECTORIES WHERE DIRECTORY_NAME = 'TI';
+-- Verificar diretórios
+SELECT DIRECTORY_NAME, DIRECTORY_PATH
+  FROM ALL_DIRECTORIES
+ WHERE DIRECTORY_NAME IN ('DUIMP_IMPORTAR', 'DUIMP_PROCESSADOS');
+
+-- Criar (ajustar o caminho conforme ambiente)
+CREATE OR REPLACE DIRECTORY DUIMP_IMPORTAR    AS '/dados/duimp/importar';
+CREATE OR REPLACE DIRECTORY DUIMP_PROCESSADOS AS '/dados/duimp/processados';
+GRANT READ, WRITE ON DIRECTORY DUIMP_IMPORTAR    TO CONSINCO;
+GRANT READ, WRITE ON DIRECTORY DUIMP_PROCESSADOS TO CONSINCO;
 ```
 
 ---
@@ -219,7 +217,15 @@ SELECT C.NUMERODUIMP, X.NOVATAG
 
 ## Próximos Passos
 
-- [ ] Confronto dos dados importados vs valores digitados pelo comprador no ERP
-- [ ] Identificar tabelas do ERP onde o comprador registra os dados da DUIMP
-- [ ] View ou procedure de validação com divergências por campo
+### Entrada de dados
+
+- [ ] **Query / View de entrada** — consulta inicial que une `NAGT_DUIMP_CAPA` + `NAGT_DUIMP_ITENS` com as tabelas de recebimento do ERP (base para cruzamento por NCM, quantidade e valores). Ponto de partida antes de construir o relatório.
+
+### Confronto ERP x Arquivo
+
+- [x] **Vínculo com o Pedido de Importação** — `NAGP_IMP_DADOS_DUIMP` liga a DUIMP a um `MAD_PIPEDIDOIMPORT` existente e preenche câmbio, itens (`MAD_PIPEDIMPORTPROD`) e despesas (`MAD_PIPEDDESPESA`) automaticamente. Ver **[[DUIMP - Vinculação com Pedido de Importação]]**.
+- [ ] **Relatório de divergências** — comparar campo a campo os valores do arquivo DUIMP importado vs os valores digitados pelo comprador no ERP (continua em aberto; o passo acima preenche, mas ainda não valida/compara contra digitação manual prévia)
+- [ ] View ou procedure de validação com status por campo (`OK` / `DIVERGENTE` / `NAO_ENCONTRADO`)
+- [ ] Tributos (IPI/PIS/COFINS/ICMS) como despesa do pedido — hoje comentado em `NAGP_IMP_DADOS_DUIMP`, decisão pendente
+- [ ] Crítica de AFRMM ausente para importação marítima
 
