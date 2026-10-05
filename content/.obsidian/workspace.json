@@ -6,20 +6,23 @@
       {
         "id": "41c8fb8920d8cdc2",
         "type": "tabs",
-        "dimension": 53.59947643979057,
+        "dimension": 55.27908540685945,
         "children": [
           {
             "id": "abebc0ed05a44458",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "90-Custom Override/On/NFe Referenciada Produtor Rural - Triangulação - NAGF_CHAVE_REF_PRODRURAL.md",
-                "mode": "source",
-                "source": false
+                "file": "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Plano de melhoria de Processos.canvas",
+                "viewState": {
+                  "x": 69.97566909975669,
+                  "y": 210,
+                  "zoom": -0.5837919570132184
+                }
               },
-              "icon": "lucide-file",
-              "title": "NFe Referenciada Produtor Rural - Triangulação - NAGF_CHAVE_REF_PRODRURAL"
+              "icon": "lucide-layout-dashboard",
+              "title": "DUIMP - Plano de melhoria de Processos"
             }
           }
         ]
@@ -27,12 +30,12 @@
       {
         "id": "ba6609b780df5cb8",
         "type": "split",
-        "dimension": 46.40052356020942,
+        "dimension": 44.720914593140556,
         "children": [
           {
             "id": "e972e1e6917638da",
             "type": "tabs",
-            "dimension": 46.89922480620155,
+            "dimension": 42.151162790697676,
             "children": [
               {
                 "id": "3cd3e05a753e3bfc",
@@ -51,7 +54,7 @@
           {
             "id": "dde75a11b5f2b8fa",
             "type": "tabs",
-            "dimension": 53.100775193798455,
+            "dimension": 57.84883720930233,
             "children": [
               {
                 "id": "83ca76d29f51868f",
@@ -78,9 +81,13 @@
                         {
                           "tabId": "tab-1790611471391-hc3wl9h",
                           "conversationId": "conv-1790611637645-ay24b5itn"
+                        },
+                        {
+                          "tabId": "tab-1790779244416-48iykov",
+                          "conversationId": "conv-1790779262591-vbekrpcpd"
                         }
                       ],
-                      "activeTabId": "tab-1790611471391-hc3wl9h"
+                      "activeTabId": "tab-1790779244416-48iykov"
                     }
                   },
                   "pinned": true,
@@ -150,7 +157,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 348.5
+    "width": 389.5
   },
   "right": {
     "id": "9cd1098ad5e76388",
@@ -261,56 +268,56 @@
   },
   "active": "abebc0ed05a44458",
   "lastOpenFiles": [
-    "90-Custom Override/On/InfAdFisco - NFe.md",
-    "90-Custom Override/On/NFe Referenciada Produtor Rural - Triangulação - NAGF_CHAVE_REF_PRODRURAL.md",
-    "90-Custom Override/On/NFe Referenciada Produtor Rural - Triangulação - NAGF_CHAVE_REF_PRODRURAL.md.tmp.37372.67bc34d895ba",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Visão Geral do Processo.md",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Plano de melhoria de Processos.canvas",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Importação de XML.md",
+    "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md",
+    "70-Projects, Tools & Integrations/Projects/Regua de Cobranca",
+    "70-Projects, Tools & Integrations/Projects/Lote de Compras Automático",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Relatório Comparativo XML x ERP.md",
+    "index.md.tmp.17880.c8af796e2dc3",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Vinculação com Pedido de Importação.md.tmp.17880.8822bebb2163",
+    "Pasted image 20261005102253.png",
+    "index.md.tmp.17880.4753a2a72111",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Vinculação com Pedido de Importação.md.tmp.17880.823255e0501d",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação de XML.md.tmp.17880.dc65c3c3997f",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Vinculação com Pedido de Importação.md",
+    "arq.png",
     "40-Open Tags/Inconsistencia Recebimento NFe.md",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md",
-    "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
-    "70-Projects, Tools & Integrations/Projects/Alerta NFe NFCe - E-mail.md",
-    "40-Open Tags/Critica de Venda.md",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
+    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação de XML.md.tmp.14792.65ce6cafdedb",
+    "40-Open Tags/PD.md",
+    "index.md.tmp.14792.3dbeb2bb57ea",
+    "40-Open Tags/Venda Balcão.md",
+    "40-Open Tags/Tae.md",
+    "40-Open Tags/Tabela de Custo.md",
+    "40-Open Tags/Selos.md",
+    "40-Open Tags/Query View.md",
+    "40-Open Tags/Produtor Rural.md",
+    "40-Open Tags/Preço.md",
+    "40-Open Tags/Parâmetro Dinâmico.md",
+    "40-Open Tags/Parâmetros.md",
+    "40-Open Tags/MonitorPDV.md",
+    "40-Open Tags/Paliativo.md",
+    "40-Open Tags/Operações Internas.md",
+    "40-Open Tags/Nota de Perda.md",
+    "40-Open Tags/NFe.md",
+    "40-Open Tags/Job.md",
+    "40-Open Tags/Margem.md",
+    "40-Open Tags/Lote de Compras.md",
+    "40-Open Tags/IndUtilVenda.md",
+    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
-    "70-Projects, Tools & Integrations/Projects/Acata Sugerido Automático no Lote de Compras.md",
-    "40-Open Tags/Criticas.md",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compra - Geração Automática.md",
-    "51-Pendencias/Pendencias.md",
-    "51-Pendencias/Pendencias.md.tmp.19984.0a8127680a1b",
-    "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
-    "51-Pendencias/Pendencias.md.tmp.19984.1c898e47aec5",
-    "51-Pendencias/Pendencias.md.tmp.19984.6d701c65fa3d",
-    "70-Projects, Tools & Integrations/Projects/Régua de Cobrança - Notificação Genérica.md",
-    "index.md",
-    "70-Projects, Tools & Integrations/Tools/Fiscal - NF-e Reenvio com Correção de Chave EPEC.md",
-    "90-Custom Override/On/Fin - Inconsistencia Prog Pagto.md",
-    "index.md.tmp.9428.fc902631b3b5",
-    "90-Custom Override/On/Fin - Inconsistencia Prog Pagto.md.tmp.20224.5d63aae59576",
-    "80-Paliativos - Nao precisa Reaplicar/On/Correção CBS-IBS NFs de Devolução.md",
-    "90-Custom Override/On/Desonerado Ecommerce.md",
-    "90-Custom Override/On/vOutros Ecommerce (Frete rateado).md",
-    "90-Custom Override/On/Data de Previsão de Entrega - dPrevEntrega NFE.md",
-    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
-    "90-Custom Override/On/Crítica de Importação Direta.md",
-    "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md",
-    "90-Custom Override/On/fBuscaTipoFreteTransp — modFrete PDV.md",
-    "70-Projects, Tools & Integrations/Projects/Instrucoes — Parametrizacao Acata Sugerido e Consolidacao.md",
-    "70-Projects, Tools & Integrations/Projects/Instrucoes — Parametrizacao Acata Sugerido e Consolidacao.md.tmp.20276.e14260f6c78c",
-    "70-Projects, Tools & Integrations/Projects/Modelo — Parametrizacao Acata Sugerido e Consolidacao.csv",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.9380.ea8b50ae9338",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras — Acata Sugerido e Consolidação.md.tmp.9380.7f7a0fee1495",
     "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
     "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
     "Pasted image 20260831121016.png",
     "Pasted image 20260831103251.png",
     "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",
-    "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "Pasted image 20260612151731.png",
     "Pasted image 20260611130439.png",
     "Pasted image 20260611114654.png",
     "Pasted image 20260611113006.png",
     "Pasted image 20260603074640.png",
-    "{6F11ADC6-10D2-4AC5-9CC2-DB5D3E3F62D8}.png",
-    "Pasted image 20260718213111.png",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.canvas",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",

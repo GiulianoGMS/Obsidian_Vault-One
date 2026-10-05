@@ -1,0 +1,43 @@
+{
+	"nodes":[
+		{"id":"1c05bec23cf0358e","type":"text","text":"[[Simulação/Pedido de Importação]]\n\n\nUsuário começa o processo gerando um pedido pela aplicação, informando o [[fornecedor]], [[itens]], [[valores]], [[cambio]] e [[despesas]] manualmente","x":-520,"y":-220,"width":280,"height":180,"color":"2"},
+		{"id":"98dfffd2f131c574","type":"text","text":"Processo de Importação\n\nRetorna para gerar a [[D.I. ]]/ [[DUIMP]]","x":300,"y":-220,"width":300,"height":80,"color":"2"},
+		{"id":"41f8e55cad8a732f","type":"text","text":"[[Declaração de Importação]]\n\nOs ultimos ajustes na [[D.I]] são feitos, como [[Pesos]], [[Espécies]], Transportador, etc. [[São]] feitas consistências e a NF é gerada para faturamento na tela de [[Recebimento]].","x":300,"y":-115,"width":300,"height":195,"color":"2"},
+		{"id":"017bf1794393454d","type":"text","text":"Na simulação, podem ocorrer erros de valores digitados, já que tudo é informado manualmente","x":-520,"y":-30,"width":280,"height":110,"color":"1"},
+		{"id":"765e4d02f415f9f1","type":"text","text":"[[Lançamento de Despesas]]\n\nVinculando o processo, as despesas lançadas anteriormente no pedido de importação geram [[títulos financeiros ]]e serão componentes da [[NFe]]","x":-20,"y":-220,"width":300,"height":180,"color":"2"},
+		{"id":"503722d27be95f21","type":"text","text":"Se a Despesa não for lançada ou for lançada com valor incorreto, irá  gerar uma DI + NF incorreta","x":-20,"y":-30,"width":300,"height":110,"color":"1"},
+		{"id":"8037739d8bd0b326","type":"text","text":"[[Processo de Importação]]\n\nCom o pedido feito, o próximo passo é a geração do [[Processo de Importação]]. Neste, é amarrado o [[Porto]], [[Despachante]], etc.","x":-220,"y":-220,"width":180,"height":300,"color":"2"},
+		{"id":"165b8998398a8675","type":"text","text":"Ideia - Processo Completo - Módulo Importação Direta + Importação Arquivo XML Duimp","x":-520,"y":100,"width":1120,"height":59,"color":"5"},
+		{"id":"e30251fbfc1e8e69","type":"text","text":"[[Simulação/Pedido de Importação]]\n\n\nUsuário começa o processo gerando um pedido pela aplicação, informando apenas o fornecedor e o porto","x":-520,"y":180,"width":260,"height":200,"color":"5"},
+		{"id":"d1cadf26eb23ea26","type":"text","text":"Usuário importa o arquivo.[[xml]] da [[DUIMP]] para a pasta dentro do [[Servidor]], executa a view e os dados são integrados no banco de dados. A rotina atualiza o pedido criado anteriormente, insere os itens, quantidades, valores e despesas existentes no XML","x":-240,"y":180,"width":350,"height":200,"color":"4"},
+		{"id":"27bae2bdd7b2fb2f","type":"text","text":"Atual - Processo Completo - Módulo Importação Direta","x":-520,"y":-280,"width":1120,"height":50,"color":"1"},
+		{"id":"27ea326ab9ba1f57","type":"text","text":"Ref. [[DUIMP - Importação de XML]]","x":-520,"y":-340,"width":320,"height":50},
+		{"id":"f760c6a451420033","type":"text","text":"**Caso esteja tudo OK, será gerada a NF para faturamento na tela de Recebimento**","x":-45,"y":700,"width":645,"height":60,"color":"5"},
+		{"id":"d4660bc94d75aa16","type":"text","text":"[[Processo de Importação]]\n\nRetorna para gerar a D.I. / DUIMP","x":148,"y":480,"width":175,"height":210,"color":"5"},
+		{"id":"8872e47d6ec1052d","type":"text","text":"[[Lançamento de Despesas]]\n\nVinculando o processo, as despesas lançadas anteriormente no pedido de importação geram títulos financeiros e serão componentes da NF","x":340,"y":480,"width":260,"height":210,"color":"5"},
+		{"id":"2eb2648ae954b2ee","type":"text","text":"[[Declaração de Importação]]\n\nOs ultimos ajustes na D.I são feitos, como Pesos, Espécies, Transportador, etc. ","x":-45,"y":480,"width":170,"height":210,"color":"5"},
+		{"id":"884feb9cc0849958","type":"text","text":"[[Consistência]] sobre [[Lançamento de Despesas]]\n\nSe houverem despesas que ainda não tenham sido lançadas, irá barrar a geração da NF","x":-520,"y":480,"width":455,"height":120,"color":"4"},
+		{"id":"f93659d62998caf0","type":"text","text":"[[Consistência]] [[DI/DUIMP]] vs Arquivo.[[XML]]\n\nAo salvar a DUIMP, será consistido os valores finais com os valores do XML, não deixando gerar a NF caso existam inconsistências\n\n","x":-520,"y":620,"width":455,"height":140,"color":"4"},
+		{"id":"18b8e6be3cbedccf","x":147,"y":180,"width":453,"height":80,"color":"3","type":"text","text":"Idéia💡: Atualizar automáticamente o peso líquido/bruto no cadastro - Validar com time de Cadastro Comercial"},
+		{"id":"2b33332d72b755f5","type":"text","text":"[[Simulação/Pedido de Importação]]\n\n\nUsuário finaliza o pedido e passa para o [[Processo de Importação]]","x":147,"y":270,"width":176,"height":200,"color":"5"},
+		{"id":"0ee1d572a7259c8f","type":"text","text":"[[Processo de Importação]]\n\nCom o pedido feito, o próximo passo é a geração do Processo de Importação. Neste, é amarrado o Porto, Despachante, etc.","x":340,"y":270,"width":260,"height":200,"color":"5"}
+	],
+	"edges":[
+		{"id":"fe5172153a0d70a3","fromNode":"8037739d8bd0b326","fromSide":"right","toNode":"765e4d02f415f9f1","toSide":"left"},
+		{"id":"8e01dd4f48f8b05f","fromNode":"765e4d02f415f9f1","fromSide":"right","toNode":"98dfffd2f131c574","toSide":"left"},
+		{"id":"44d476d7ac7ad397","fromNode":"98dfffd2f131c574","fromSide":"bottom","toNode":"41f8e55cad8a732f","toSide":"top"},
+		{"id":"c2a6d1e70684aad0","fromNode":"1c05bec23cf0358e","fromSide":"bottom","toNode":"017bf1794393454d","toSide":"top"},
+		{"id":"824114c528c8b8c3","fromNode":"1c05bec23cf0358e","fromSide":"right","toNode":"8037739d8bd0b326","toSide":"left"},
+		{"id":"ee153406b0a7839e","fromNode":"765e4d02f415f9f1","fromSide":"bottom","toNode":"503722d27be95f21","toSide":"top"},
+		{"id":"7d9fdd9acfc61123","fromNode":"e30251fbfc1e8e69","fromSide":"right","toNode":"d1cadf26eb23ea26","toSide":"left"},
+		{"id":"e90f8d317e099ccc","fromNode":"d1cadf26eb23ea26","fromSide":"right","toNode":"2b33332d72b755f5","toSide":"left"},
+		{"id":"77a68abe16f2927e","fromNode":"2b33332d72b755f5","fromSide":"right","toNode":"0ee1d572a7259c8f","toSide":"left"},
+		{"id":"afbce60ebb566937","fromNode":"0ee1d572a7259c8f","fromSide":"bottom","toNode":"8872e47d6ec1052d","toSide":"top"},
+		{"id":"abe8afac99c923e3","fromNode":"8872e47d6ec1052d","fromSide":"left","toNode":"d4660bc94d75aa16","toSide":"right"},
+		{"id":"c860bdd313a5718b","fromNode":"d4660bc94d75aa16","fromSide":"left","toNode":"2eb2648ae954b2ee","toSide":"right"},
+		{"id":"3275f2159e3eba63","fromNode":"2eb2648ae954b2ee","fromSide":"left","toNode":"884feb9cc0849958","toSide":"right"},
+		{"id":"2c8141bd19401f76","fromNode":"f93659d62998caf0","fromSide":"right","toNode":"f760c6a451420033","toSide":"left"},
+		{"id":"a4cae1ba3d235dc7","fromNode":"884feb9cc0849958","fromSide":"bottom","toNode":"f93659d62998caf0","toSide":"top"},
+		{"id":"b2a92bab5ffc8713","fromNode":"d1cadf26eb23ea26","fromSide":"right","toNode":"18b8e6be3cbedccf","toSide":"left"}
+	]
+}

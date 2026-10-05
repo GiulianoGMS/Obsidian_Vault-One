@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1790779262591-vbekrpcpd",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1790779262867-q845zhb",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1790779262589-bdm7sd6",
+      "timestamp": 1790779262589,
+      "rawDisplayText": "anota uma nova pendencia: validar possivel importação do arquivo xml DUIMP para confronto na DI do ERP, acho que totvs nao vai fazer..",
+      "canonicalText": "anota uma nova pendencia: validar possivel importação do arquivo xml DUIMP para confronto na DI do ERP, acho que totvs nao vai fazer..",
+      "context": {
+        "linkedContent": {
+          "path": "51-Pendencias/Pendencias.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "2a7dc4cca70e8543cd99c155f2c6b76cfa88ab13869cf14ed1ce0f4145df79ee",
+      "providerUserMessageId": "e222423c-e866-43bd-ac9a-567500302944",
+      "providerAssistantMessageId": "dc2a6605-163c-4074-b495-6b8f39323b73"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1791207417500-glw6ite",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1791207417475-j6n7ilg",
+      "timestamp": 1791207417475,
+      "rawDisplayText": "me manda o icone de lampada pra copiar em uma nota aqui",
+      "canonicalText": "me manda o icone de lampada pra copiar em uma nota aqui",
+      "context": {
+        "canvasSelection": {
+          "canvasPath": "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Plano de melhoria de Processos.canvas",
+          "nodeIds": [
+            "18b8e6be3cbedccf"
+          ]
+        }
+      },
+      "images": [],
+      "contentDigest": "5af9bb94f1124e9496d563727917b63ee890daf3aadf789365ac7bed5c264bd3",
+      "providerUserMessageId": "26862d39-2316-4e1e-8fa0-867a2b90ede5",
+      "providerAssistantMessageId": "e0865b91-9019-4da2-8dc8-7a9d948b0947"
+    }
+  ]
+}

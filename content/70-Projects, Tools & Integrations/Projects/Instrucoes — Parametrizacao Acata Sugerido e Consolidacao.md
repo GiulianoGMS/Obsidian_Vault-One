@@ -11,7 +11,7 @@ Type:
 ---
 
 > [!info] Relacionado
-> Regra técnica: [[Lote de Compras — Acata Sugerido e Consolidação.md]]
+> Regra técnica: [[Lote de Compras — Acata Sugerido e Consolidação]]
 > Modelo para preencher: `Modelo — Parametrizacao Acata Sugerido e Consolidacao.csv`
 
 # Como preencher a parametrização

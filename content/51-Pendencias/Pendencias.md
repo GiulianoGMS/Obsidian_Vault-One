@@ -10,7 +10,8 @@
 - [ ] **Validar tipo de arredondamento** no projeto [[Lote de Compras — Acata Sugerido e Consolidação]] — Rebeca e time querem apenas **Palete Lastro**, mas hoje a regra é aplicada para **ambos** (Palete Lastro e todos).
 - [ ] **Crítica no recebimento de transferência CD → Loja** sem pedido vinculado.
 - [ ] **Parametrizar fornecedores do lote automático** — Juliana (Fornecedor + Percentual), Cíntia (Percentual), Rebeca e time.
-- [ ] **Desenvolver a view de preços** para integração com a **Seal** (etiquetas eletrônicas).
+- [x] **Desenvolver a view de preços** para integração com a **Seal** (etiquetas eletrônicas).
+- [ ] **Validar possível importação do arquivo XML DUIMP** para confronto na **DI do ERP** — provável que a **TOTVS não faça**.
 ---
 ##### Concluídas
 
