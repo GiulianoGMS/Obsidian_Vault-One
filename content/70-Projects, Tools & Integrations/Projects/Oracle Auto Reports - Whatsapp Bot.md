@@ -69,6 +69,8 @@ NAGP_ENVIO_WHATS  (JOB agendado)
 | `NAGP_WTS_V2_ALERTAS_SEFAZ`           | Webservice SEFAZ com tempo de resposta > 3 s **ou** fora do ar (`SVC = 'Sim'`) nos últimos 25 min — dispara entre 07h–20h nos minutos 00/02; envia pa GERP e GSD                                                                                                                              | `ERP_INTEGRATION.NAGT_NFE_STATUS_UFS` — verifica `TEMPO_RESPOSTA > 3` e `SVC = 'Sim'` na janela de 25 min             |                                                                |
 | `NAGP_WTS_V2_LOG_API_UNOUS`           | Erros registrados na API [[Unous]] não processados — envia uma mensagem por registro com data/hora e texto do erro; sleep de 5 s entre envios                                                                                                                                                 | `NAGT_LOG_API_UNOUS` (`INDLOGPROCESSADO = 'N'`); marcação como processado (`'S'`) feita pelo orquestrador após o loop |                                                                |
 | `NAGP_WTS_V2_ALERTA_EPEC`             | Mais de 300 [[EPEC]]s pendentes **ou** EPEC mais antiga há mais de 3 dias — dispara às 08h, 15h e 16h nos primeiros 2 min; janela de consulta: últimos 20 dias                                                                                                                                | `MLFV_BASENFE` (status NF-e) + `MFL_NFELOG` (eventos EPEC e autorização)                                             |                                                                |
+| `NAGP_WTS_V2_LOG_API_SEAL`            | Erros registrados na API [[SEAL]] (preços) não processados — envia uma mensagem por registro com data/hora e texto do erro; sleep de 5 s entre envios                                                                                                                                         | `NAGT_LOG_API_SEAL` (`INDLOGPROCESSADO = 'N'`); marcação como processado feita externamente após o loop               |                                                                |
+| `NAGP_WTS_V2_ALERTA_NF_REJ`           | [[NF-e]] de cliente PJ rejeitadas (`STATUSNFE = 5`, `CGO = 48`, `STATUSDF = 'V'`) nas últimas 24h não notificadas — envia lista com loja/NF/cliente; anti-duplicata via tabela de controle; também preenche `SEQVENDEDOR = NROEMPRESA` onde nulo                                              | `MFL_DOCTOFISCAL` + `NAGT_CONTROLE_ENVIO_WTS_NF_REJ`                                                                  |                                                                |
 
 ### Exemplos de Mensagem por Alerta
 
@@ -269,6 +271,27 @@ NAGP_KILL_SESSION(4321, 8765, 1)
 ```
 > Dispara se `COUNT > 300` **ou** `MIN(DTAEMISSAO) < SYSDATE - 3`. Critério EPEC: tem evento `LIKE '%EPEC%'` em `MFL_NFELOG` e **não tem** evento `LIKE '%AUTORIZ%'`.
 
+**`NAGP_WTS_V2_LOG_API_SEAL`** *(uma mensagem por registro; sleep de 5 s)*
+```
+🏷️ *Erro detectado na integração com a API da SEAL - Preços*
+
+*Data:* 08/10/26 14:30
+*Erro:* Timeout ao consumir endpoint /v1/precos
+```
+
+**`NAGP_WTS_V2_ALERTA_NF_REJ`** *(uma mensagem consolidada por execução)*
+```
+🚫 *Alerta NF Rejeitada - Cliente PJ*
+
+*Pendentes:* 3
+
+*Detalhamento:*
+• Emissao: 08/10/2026 14:30 - *Loja 05* - NF 12345 - Cliente 67890
+• Emissao: 08/10/2026 14:35 - *Loja 07* - NF 12346 - Cliente 67891
+• Emissao: 08/10/2026 14:40 - *Loja 02* - NF 12347 - Cliente 67892
+```
+> Só envia quando `COUNT > 0`. Cada NF é inserida em `NAGT_CONTROLE_ENVIO_WTS_NF_REJ` antes do envio — reexecuções não renotificam a mesma NF. Atualiza `MFL_DOCTOFISCAL.SEQVENDEDOR = NROEMPRESA` para NFs onde `SEQVENDEDOR IS NULL`.
+
 > [!note] `NAGP_WTS_V2_TB_ULTCARGAMONITOR`
 > Pendente anotar
 
@@ -322,6 +345,8 @@ NAGP_KILL_SESSION(4321, 8765, 1)
 | `NAGV_CONTROLECARGAPDV_CTD` | View que agrega a contagem de ocorrências do dia por empresa e tabela (`QTD_DIA`); usada pelo indicador de nível ▱/▰ |
 | `NAGT_LOG_API_UNOUS` | Log de erros da API Unous: `DTALOG`, `ERRO`, `INDLOGPROCESSADO` (`'N'` = pendente, `'S'` = enviado) |
 | `ERP_INTEGRATION.NAGT_NFE_STATUS_UFS` | Status dos webservices SEFAZ (NF-e / NFC-e) por UF — colunas `TEMPO_RESPOSTA` (segundos) e `SVC` (`'Sim'` = fora do ar); alimentado pelo job `NAGJ_NFE_STATUS_UFS` via `[[Alerta Status SEFAZ]]` |
+| `NAGT_LOG_API_SEAL` | Log de erros da API [[SEAL]] (preços): `DTALOG`, `ERRO`, `INDLOGPROCESSADO` (`'N'` = pendente) |
+| `NAGT_CONTROLE_ENVIO_WTS_NF_REJ` | Anti-duplicata para `NAGP_WTS_V2_ALERTA_NF_REJ` — registra `SEQNF` já notificados; impede reenvio em execuções futuras |
 
 ---
 
