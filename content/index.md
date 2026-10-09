@@ -29,6 +29,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Régua de Cobrança - Elegíveis]] | Variante restrita a fornecedores elegíveis por rede — view com NIVEL_REGUA + e-mail genérico escalonado |
 > | [[Correção de Impostos no Recebimento]] | Paliativos CBS/IBS/IPI/ICMS Desonerado aplicados no recebimento de NF-e (Reforma Tributária) |
 > | [[Alerta Status SEFAZ]] | Sincroniza status dos webservices SEFAZ (NFe/NFC-e) em tabela Oracle e dispara alerta no ERP |
+> | [[Seal - Etiquetas Eletrônicas]] | Integração ERP → SEAL: views Oracle que consolidam preço normal, tabloide e Cartão Nagumo para etiquetas eletrônicas de gôndola |
 > | [[Alerta NFe NFCe - E-mail]] | E-mail automático ao time Fiscal com rejeições e pendências de NF-e/NFC-e dos últimos 3 dias |
 > | [[DUIMP - Visão Geral do Processo]] | Índice/fluxo completo da série DUIMP: XML → staging → vínculo com pedido → relatório de confronto |
 > | [[DUIMP - Importação de XML]] | Importação do XML da DUIMP (despachante) para tabelas Oracle via `XMLTABLE` + `DBMS_LOB` — base para confronto com dados do ERP |
