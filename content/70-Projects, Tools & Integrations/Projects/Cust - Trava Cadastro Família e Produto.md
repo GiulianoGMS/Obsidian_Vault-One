@@ -33,7 +33,7 @@ O [[ERP]] executa um hook de validação **antes de cada save** (`'B'` · `'U'`)
 
 ```
 Usuário salva Família/Produto no ERP
-           ↓
+           '↓
 GE_VALIDAINSUPDDELCUSTOM
   → executa: SELECT espf_validafamilia('dfnSeqFamilia', :valor) FROM DUAL
            ↓

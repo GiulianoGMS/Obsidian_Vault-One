@@ -1,0 +1,23 @@
+{
+  "id": "conv-1791215973504-dsd45qrwp",
+  "providerId": "claude",
+  "title": "Configurar Obsidian Publish",
+  "titleGenerationStatus": "success",
+  "createdAt": 1791215973516,
+  "lastActivityAt": 1791283627740,
+  "sessionId": "969428dc-68e5-499e-b9a6-b4fabd10f09c",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "969428dc-68e5-499e-b9a6-b4fabd10f09c"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 271,
+    "cacheReadInputTokens": 77143,
+    "contextWindow": 1000000,
+    "contextTokens": 77416,
+    "percentage": 8,
+    "contextWindowIsAuthoritative": true
+  }
+}

@@ -4,7 +4,7 @@
   "title": "Validar importação XML DUIMP na DI do ERP",
   "titleGenerationStatus": "success",
   "createdAt": 1790779262601,
-  "lastActivityAt": 1791207425211,
+  "lastActivityAt": 1791902837829,
   "sessionId": "04e22b7d-b8c5-4218-97c6-323bf494fd44",
   "selectedModel": "opus",
   "providerState": {
@@ -13,12 +13,12 @@
   "linkedContentPath": "51-Pendencias/Pendencias.md",
   "usage": {
     "model": "opus",
-    "inputTokens": 405,
-    "cacheCreationInputTokens": 28830,
-    "cacheReadInputTokens": 0,
+    "inputTokens": 2627,
+    "cacheCreationInputTokens": 513,
+    "cacheReadInputTokens": 46206,
     "contextWindow": 1000000,
-    "contextTokens": 29235,
-    "percentage": 3,
+    "contextTokens": 49346,
+    "percentage": 5,
     "contextWindowIsAuthoritative": true
   }
 }

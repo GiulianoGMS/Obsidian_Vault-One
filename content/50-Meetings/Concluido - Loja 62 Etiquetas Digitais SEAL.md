@@ -1,3 +1,5 @@
+Vide [[Seal - Etiquetas Eletrônicas]]
+
 ***28/08/2026***
 ***ps - Atrasada***
 Integração com ERP - houve apenas por arquivo.

@@ -5,7 +5,7 @@ Repository:
   - "[[DDL-Oracle]]"
 Squads:
   - "[[Recebimento]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
 Open Tags:
@@ -33,4 +33,4 @@ COALESCE(a.emaildestnfse, j.EMAILNFE, C.EMAILNFE, 'nfe1@ .com.br') emaildestnfse
             'Nota Fiscal de Serviço Eletrônica – NFSe n '||a.NUMERONF assuntoemailnfse, 
             'Prezados(as), Segue em anexo a Nota Fiscal de Serviço Eletrônica (NFSe) referente aos serviços prestados. Este é um e-mail automático. Favor não responder.' corpoemailnfse,
 ```
-Por se tratar de um objeto oficial da TOTVS, é necessário que após cada atualização de [[versão]], os ajustes sejam reaplicados na procedure, mantendo assim a regra de envio definida pelo time [[Fiscal]].
+Por se tratar de um objeto oficial da TOTVS, é necessário que após cada atualização de [[versão]], os ajustes sejam reaplicados na procedure, mantendo assim a regra de envio definida pelo time [[30-Squad/Fiscal]].

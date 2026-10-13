@@ -3,13 +3,13 @@ Language:
   - "[[Oracle SQL]]"
 Squads:
   - "[[TI]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
   - "[[ERP]]"
 Open Tags:
   - "[[NFSe]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 Date: 2026-08-01
 Type: "[[Procedure]]"
 ---

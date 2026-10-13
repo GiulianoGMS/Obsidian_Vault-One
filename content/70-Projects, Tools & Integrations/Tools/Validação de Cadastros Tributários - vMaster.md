@@ -5,11 +5,11 @@ Repository:
   - "[[DDL-Objects-Oracle]]"
 Squads:
   - "[[TI]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
 Open Tags:
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
   - "[[Tributação]]"
   - "[[Validação]]"
   - "[[IPI]]"

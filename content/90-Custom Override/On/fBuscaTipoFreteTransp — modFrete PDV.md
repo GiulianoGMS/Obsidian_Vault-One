@@ -5,7 +5,7 @@ Repository:
   - "[[Official_Ora_Obj_Changes]]"
 Squads:
   - "[[TI]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
 Open Tags:

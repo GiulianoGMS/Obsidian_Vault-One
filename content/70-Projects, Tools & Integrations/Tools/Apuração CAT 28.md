@@ -5,12 +5,12 @@ Repository:
   - "[[DDL-Objects-Oracle]]"
 Squads:
   - "[[TI]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
 Open Tags:
   - "[[ST]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
   - "[[CAT 28]]"
 Date: 2026-06-30
 Type: Ferramenta

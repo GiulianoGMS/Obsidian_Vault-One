@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1791912888254-j4ghvt24w",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1791912888335-f1zyk55",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1791912888251-f5j4ws3",
+      "timestamp": 1791912888251,
+      "rawDisplayText": "pesquise no tdn da totvs https://tdn.totvs.com/dosearchsite.action?queryString=combos+promocionais&where=TVSLC&additional=space+name&labels=&contentType=page e explique resumidamente sobre combos promocionais",
+      "canonicalText": "pesquise no tdn da totvs https://tdn.totvs.com/dosearchsite.action?queryString=combos+promocionais&where=TVSLC&additional=space+name&labels=&contentType=page e explique resumidamente sobre combos promocionais",
+      "context": {
+        "linkedContent": {
+          "path": "Combos Promocionais.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "2baca95245dac9f219863696ced07274310bca34256b1f698dd4d86f19f45e00",
+      "providerUserMessageId": "7235a4ea-ef02-43c3-bd22-912e051af133",
+      "providerAssistantMessageId": "9481c561-db43-478d-86cc-1d3158b6b533"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1791912979299-3kteszd",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1791912979290-odg1dqy",
+      "timestamp": 1791912979290,
+      "rawDisplayText": "Docmente no MD",
+      "canonicalText": "Docmente no MD",
+      "images": [],
+      "contentDigest": "e8299e28bda72a84590d8f2a27cc34f5d019ff28779d44f879fe853f15316c88",
+      "providerUserMessageId": "ba4643e7-7bcf-4688-a083-0dd386fcd357",
+      "providerAssistantMessageId": "a865be72-32bc-4bf0-b4e4-90ac23b238fb"
+    }
+  ]
+}

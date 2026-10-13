@@ -12,6 +12,8 @@ Type:
 Project:
 tags:
 ---
+Vide [[Etiqueta FLV - Informação Nutricional]]
+
 **Notas**
 
 No CD FLV, os produtos entrarão como KG e sairão como Bandejas

@@ -1,20 +1,25 @@
 ##### Prazo próximo / Urgente
 
-- [x] **Ativar segmento Ecommerce na loja 10** + equiparar preços do segmento — **hoje à noite**
 ##### Desenvolvimento / Sistema
 
 - [ ] **Crítica no Gerenciador de Preços** — evitar que o usuário precifique produtos até 40% abaixo do preço normal.
 > [!info] 40% — definido por Thaise em 12/08 (Wts Raquel Price).
 - [ ] **Crítica de Açougue** no referenciamento de NFs vs Pedidos — criticar vínculo se não for o pedido mais antigo disponível.
-- [ ] **Cálculo de Margem** — ([[Comercial - Fórmula de Cálculo de Margem]]).
-- [ ] **Validar tipo de arredondamento** no projeto [[Lote de Compras — Acata Sugerido e Consolidação]] — Rebeca e time querem apenas **Palete Lastro**, mas hoje a regra é aplicada para **ambos** (Palete Lastro e todos).
 - [ ] **Crítica no recebimento de transferência CD → Loja** sem pedido vinculado.
 - [ ] **Parametrizar fornecedores do lote automático** — Juliana (Fornecedor + Percentual), Cíntia (Percentual), Rebeca e time.
-- [x] **Desenvolver a view de preços** para integração com a **Seal** (etiquetas eletrônicas).
-- [ ] **Validar possível importação do arquivo XML DUIMP** para confronto na **DI do ERP** — provável que a **TOTVS não faça**.
+- [ ] **Definição Pig/Cipolla sobre a carga de preços da [[SEAL]]** — definir se será **manual** (job de carga padrão + query view) ou por **job à parte**, já que o Pig quer que a carga de etiqueta seja enviada **após a confirmação da carga no PDV da loja 62**.
+
 ---
 ##### Concluídas
 
+- [x] **Analisar títulos financeiros (ISS)** — Solic. Dina, **vencem em 13/10**.
+- [x] **Extrair base Falconi** - Setembro.
+- [x] **Controle de Datas (CD)** — implementar data do pulmão na rotina de conferência das lojas. (NAGV_APPDATA_VALIDADE_V3) - Prazo: 13/10
+- [x] **Cálculo de Margem** — ([[Comercial - Fórmula de Cálculo de Margem]]).
+- [x] **Ativar segmento Ecommerce na loja 10** + equiparar preços do segmento — **hoje à noite**
+- [x] **Validar tipo de arredondamento** no projeto [[Lote de Compras — Acata Sugerido e Consolidação]] — Rebeca e time querem apenas **Palete Lastro**, mas hoje a regra é aplicada para **ambos** (Palete Lastro e todos).
+- [x] **Desenvolver a view de preços** para integração com a **Seal** (etiquetas eletrônicas) [[Seal - Etiquetas Eletrônicas]].
+- [x] **Validar possível importação do arquivo XML DUIMP** para confronto na **DI do ERP** — provável que a **TOTVS não faça**. (Ok [[DUIMP - Visão Geral do Processo]])
 - [x] **Treinamento [[Cotação WEB]]** para o time comercial — **agendado para 31/08**
 > [!info] Alinhar com o consultor **antes**: explicar que iremos trabalhar com FLV e que serão gerados pedidos a partir do [[Gerenciador de Compras]] ([[Pedido Cotação]]).
 - [x] **Cancelamento de saldo de pedidos antigos** — **prazo até 04/09** Cipolla

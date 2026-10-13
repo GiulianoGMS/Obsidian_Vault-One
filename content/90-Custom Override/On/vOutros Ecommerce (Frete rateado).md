@@ -7,7 +7,7 @@ Squads:
   - "[[PDV]]"
   - "[[TI]]"
   - "[[Ecommerce]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
 Open Tags:

@@ -4,7 +4,7 @@ Language:
 Repository:
   - "[[DQL-Oracle]]"
 Squads:
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
@@ -12,4 +12,4 @@ Open Tags:
   - "[[Query View]]"
 Date:
 ---
-Relatório [[Fiscal]] para apuração de [[Operações Internas]] das lojas [Script no Github](https://github.com/GiulianoGMS/DQL-Oracle/blob/main/Fis_Apuracao%20Oper%20Internas.sql) 
+Relatório [[30-Squad/Fiscal]] para apuração de [[Operações Internas]] das lojas [Script no Github](https://github.com/GiulianoGMS/DQL-Oracle/blob/main/Fis_Apuracao%20Oper%20Internas.sql) 

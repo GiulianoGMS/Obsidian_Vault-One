@@ -5,7 +5,7 @@ Repository:
   - "[[DUIMP-Importacao-XML-x-ERP]]"
 Squads:
   - "[[TI]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
   - "[[Compras]]"
 System:
   - "[[PLSQL-Oracle]]"

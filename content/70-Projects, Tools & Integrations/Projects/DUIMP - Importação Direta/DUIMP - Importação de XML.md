@@ -5,7 +5,7 @@ Repository:
   - "[[DUIMP-Importacao-XML-x-ERP]]"
 Squads:
   - "[[TI]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
   - "[[Compras]]"
 System:
   - "[[PLSQL-Oracle]]"
@@ -20,7 +20,7 @@ Type:
 tags:
   - Projects
 ---
-
+ 
 > [!info] Referência
 > [GiulianoGMS/DUIMP-Importacao-XML-x-ERP](https://github.com/GiulianoGMS/DUIMP-Importacao-XML-x-ERP) *(repositório `Import-XML-Duimp` renomeado)*
 

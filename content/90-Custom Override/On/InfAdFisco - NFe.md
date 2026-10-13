@@ -6,7 +6,7 @@ Repository:
 Squads:
   - "[[TI]]"
   - "[[Recebimento]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
 Open Tags:

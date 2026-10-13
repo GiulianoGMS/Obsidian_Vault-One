@@ -6,7 +6,7 @@ Repository:
   - "[[BLB]]"
   - "[[GMS-Corp/Python]]"
 Squads:
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
   - "[[PLSQL-ERP-Consinco]]"

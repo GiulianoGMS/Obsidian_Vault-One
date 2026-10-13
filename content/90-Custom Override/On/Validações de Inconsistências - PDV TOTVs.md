@@ -4,7 +4,7 @@ Language:
 Repository:
   - "[[DDL-Oracle]]"
 Squads:
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
   - "[[PLSQL-ERP-Consinco]]"

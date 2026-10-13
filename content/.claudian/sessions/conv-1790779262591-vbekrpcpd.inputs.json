@@ -42,6 +42,76 @@
       "contentDigest": "5af9bb94f1124e9496d563727917b63ee890daf3aadf789365ac7bed5c264bd3",
       "providerUserMessageId": "26862d39-2316-4e1e-8fa0-867a2b90ede5",
       "providerAssistantMessageId": "e0865b91-9019-4da2-8dc8-7a9d948b0947"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1791469909954-m59l4a9",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1791469909944-i0aojci",
+      "timestamp": 1791469909944,
+      "rawDisplayText": "Organize o MD com as tarefas que ja foram concluidas",
+      "canonicalText": "Organize o MD com as tarefas que ja foram concluidas",
+      "images": [],
+      "contentDigest": "e96a3d4fb77bdcc61fe291eac4239649c20ca8298e311fdf4354ce1f0450cd1f",
+      "providerUserMessageId": "186f0320-d452-4f4b-bf8e-af4e3346bb01",
+      "providerAssistantMessageId": "5bd7809e-43ee-4ee9-8079-9bb19d04a7f4"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1791661696936-zzfbo62",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1791661696927-o2hngwm",
+      "timestamp": 1791661696927,
+      "rawDisplayText": "anote uma nova pendencia - Controle de Datas (CD) implementar data do pulmao na rotina de conferencia das lojas",
+      "canonicalText": "anote uma nova pendencia - Controle de Datas (CD) implementar data do pulmao na rotina de conferencia das lojas",
+      "images": [],
+      "contentDigest": "ea1229f3978ba2531a912349ab61f191efe9c2df89aa68f0ac5012770679f89a",
+      "providerUserMessageId": "587c85bb-ec57-4dba-b631-b3ee459cd0a9",
+      "providerAssistantMessageId": "d50d4a36-6e17-44cd-8fb8-40fe0d41cf95"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1791671584664-3u9jk2v",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1791671584644-8fl8h9w",
+      "timestamp": 1791671584644,
+      "rawDisplayText": "anote tambem pendente:\n\nanalisar titulos financeiros (ISS) Solic Dina, vencem em 13/10\nextrair base falconi",
+      "canonicalText": "anote tambem pendente:\n\nanalisar titulos financeiros (ISS) Solic Dina, vencem em 13/10\nextrair base falconi",
+      "images": [],
+      "contentDigest": "5400b0214f344e927837e84a1db666848a1583c885c57cbb0fae4e6149433a85",
+      "providerUserMessageId": "7542b3d4-a6e7-4421-a3c0-dd26065aae52",
+      "providerAssistantMessageId": "14b384f3-31bd-4739-a697-937ffa2937dd"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1791686843536-fcszf4t",
+      "userTurnOrdinal": 6,
+      "state": "accepted",
+      "localMessageId": "msg-1791686843524-fj8jlpm",
+      "timestamp": 1791686843524,
+      "rawDisplayText": "organize",
+      "canonicalText": "organize",
+      "images": [],
+      "contentDigest": "9eb5555027abd9b02883e58555f1c9f4749c8b8660dac52e5a86832f7aa380d5",
+      "providerUserMessageId": "d5e2d871-3986-4185-a16c-0ab302c6f244",
+      "providerAssistantMessageId": "709dc2c7-aedd-4df4-9bb4-0d1dad96c3cf"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1791902818949-mzz1fnw",
+      "userTurnOrdinal": 7,
+      "state": "accepted",
+      "localMessageId": "msg-1791902818914-gze48fh",
+      "timestamp": 1791902818914,
+      "rawDisplayText": "anota uma nova pendencia = definicao pig/cipolla sobre a carga de preços da [[SEAL]], se sera manual (job de carga padrao + query view) ou por job a parte, ja que o Pig quer que a carga de etiqueta seja enviada apos a confirmacao da carga no pdv da loja 62",
+      "canonicalText": "anota uma nova pendencia = definicao pig/cipolla sobre a carga de preços da [[SEAL]], se sera manual (job de carga padrao + query view) ou por job a parte, ja que o Pig quer que a carga de etiqueta seja enviada apos a confirmacao da carga no pdv da loja 62",
+      "images": [],
+      "contentDigest": "788330957d8e9b90fcc824edf3a97ed3509f6d04d7321c5c7e50d1e4944c673f",
+      "providerUserMessageId": "7fe1f1d7-ccc5-4d07-b6d8-54b35ef38b55",
+      "providerAssistantMessageId": "1a3840b6-4955-4546-a3a8-3db5e5754683"
     }
   ]
 }

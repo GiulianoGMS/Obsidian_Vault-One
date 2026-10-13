@@ -6,36 +6,58 @@
       {
         "id": "41c8fb8920d8cdc2",
         "type": "tabs",
-        "dimension": 55.27908540685945,
+        "dimension": 51.949860724233986,
         "children": [
           {
             "id": "abebc0ed05a44458",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "image",
               "state": {
-                "file": "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Plano de melhoria de Processos.canvas",
-                "viewState": {
-                  "x": 69.97566909975669,
-                  "y": 210,
-                  "zoom": -0.5837919570132184
-                }
+                "file": "40-Open Tags/Logo/logo3.png"
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "DUIMP - Plano de melhoria de Processos"
+              "icon": "lucide-image",
+              "title": "logo3"
+            }
+          },
+          {
+            "id": "881d112f1c2da1e8",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "40-Open Tags/Logo/logo2.png"
+              },
+              "icon": "lucide-image",
+              "title": "logo2"
+            }
+          },
+          {
+            "id": "45d566b26499ed8c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "90-Custom Override/On/PDV - Combos Promocionais - Ajuste.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "PDV - Combos Promocionais - Ajuste"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       },
       {
         "id": "ba6609b780df5cb8",
         "type": "split",
-        "dimension": 44.720914593140556,
+        "dimension": 48.05013927576602,
         "children": [
           {
             "id": "e972e1e6917638da",
             "type": "tabs",
-            "dimension": 42.151162790697676,
+            "dimension": 43.895348837209305,
             "children": [
               {
                 "id": "3cd3e05a753e3bfc",
@@ -54,7 +76,7 @@
           {
             "id": "dde75a11b5f2b8fa",
             "type": "tabs",
-            "dimension": 57.84883720930233,
+            "dimension": 56.104651162790695,
             "children": [
               {
                 "id": "83ca76d29f51868f",
@@ -67,27 +89,15 @@
                       "version": 1,
                       "openTabs": [
                         {
-                          "tabId": "tab-1789482054299-1w8ig4y",
-                          "conversationId": "conv-1789482070291-9mkxffrer"
-                        },
-                        {
-                          "tabId": "tab-1789653025562-we1ue54",
-                          "conversationId": "conv-1789677977056-ar85u5esg"
-                        },
-                        {
-                          "tabId": "tab-1790042372058-qn6oxaa",
-                          "conversationId": "conv-1790042380484-av1vv82re"
-                        },
-                        {
-                          "tabId": "tab-1790611471391-hc3wl9h",
-                          "conversationId": "conv-1790611637645-ay24b5itn"
-                        },
-                        {
                           "tabId": "tab-1790779244416-48iykov",
                           "conversationId": "conv-1790779262591-vbekrpcpd"
+                        },
+                        {
+                          "tabId": "tab-1791912875639-zcjpz4l",
+                          "conversationId": "conv-1791912888254-j4ghvt24w"
                         }
                       ],
-                      "activeTabId": "tab-1790779244416-48iykov"
+                      "activeTabId": "tab-1791912875639-zcjpz4l"
                     }
                   },
                   "pinned": true,
@@ -132,7 +142,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "seal",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": true,
@@ -157,7 +167,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 389.5
+    "width": 433.5
   },
   "right": {
     "id": "9cd1098ad5e76388",
@@ -266,46 +276,49 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "abebc0ed05a44458",
+  "active": "3cd3e05a753e3bfc",
   "lastOpenFiles": [
-    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Visão Geral do Processo.md",
+    "90-Custom Override/On/PDV - Combos Promocionais - Ajuste.md",
+    "Combos Promocionais.md",
+    "Combos Promocionais.md.tmp.29260.641f30d739ca",
+    "ERP.md",
+    "20-System/PDV.md",
+    "90-Custom Override/On/Validações de Inconsistências - PDV TOTVs.md",
+    "90-Custom Override/On/NFSE - Email CCs e Assunto Padrão.md",
+    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
+    "70-Projects, Tools & Integrations/Integrations/Seal/Seal - Etiquetas Eletrônicas.md",
+    "51-Pendencias/Pendencias.md",
+    "51-Pendencias/Pendencias.md.tmp.13284.b22899039f4c",
+    "50-Meetings/Fiscal 13.10.26.md",
+    "50-Meetings/Concluido - Loja 62 Etiquetas Digitais SEAL.md",
+    "50-Meetings/Concluido - Projeto FLV Bandejas.md",
+    "50-Meetings/Concluido - Financeiro.md",
+    "51-Pendencias/Pendencias.md.tmp.27264.db5b30cb76ca",
+    "51-Pendencias/Pendencias.md.tmp.27264.5c2e29242f5c",
+    "Home.md",
+    "70-Projects, Tools & Integrations/Integrations/Falconi/Falconi - Extração de Bases.md",
+    "index.md.tmp.19108.5e015e9ef3c3",
+    "70-Projects, Tools & Integrations/Integrations/Seal",
+    "90-Custom Override/On/Prod. Promocionais - Cadastro de item com rebaixa maior que oferta de tabloide.md",
+    "90-Custom Override/On/vBalcao - Faturamento não respeitando UF Cliente.md",
+    "90-Custom Override/On/vOutros Ecommerce (Frete rateado).md",
     "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Plano de melhoria de Processos.canvas",
     "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Importação de XML.md",
-    "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md",
-    "70-Projects, Tools & Integrations/Projects/Regua de Cobranca",
-    "70-Projects, Tools & Integrations/Projects/Lote de Compras Automático",
-    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta",
-    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Relatório Comparativo XML x ERP.md",
-    "index.md.tmp.17880.c8af796e2dc3",
-    "70-Projects, Tools & Integrations/Projects/DUIMP - Vinculação com Pedido de Importação.md.tmp.17880.8822bebb2163",
-    "Pasted image 20261005102253.png",
-    "index.md.tmp.17880.4753a2a72111",
-    "70-Projects, Tools & Integrations/Projects/DUIMP - Vinculação com Pedido de Importação.md.tmp.17880.823255e0501d",
-    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação de XML.md.tmp.17880.dc65c3c3997f",
-    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Vinculação com Pedido de Importação.md",
-    "arq.png",
+    "51-Pendencias/Pendencias.md.tmp.27264.6c5ee5ece4f2",
     "40-Open Tags/Inconsistencia Recebimento NFe.md",
-    "70-Projects, Tools & Integrations/Projects/DUIMP - Importação de XML.md.tmp.14792.65ce6cafdedb",
-    "40-Open Tags/PD.md",
-    "index.md.tmp.14792.3dbeb2bb57ea",
-    "40-Open Tags/Venda Balcão.md",
-    "40-Open Tags/Tae.md",
-    "40-Open Tags/Tabela de Custo.md",
-    "40-Open Tags/Selos.md",
-    "40-Open Tags/Query View.md",
-    "40-Open Tags/Produtor Rural.md",
-    "40-Open Tags/Preço.md",
-    "40-Open Tags/Parâmetro Dinâmico.md",
-    "40-Open Tags/Parâmetros.md",
-    "40-Open Tags/MonitorPDV.md",
-    "40-Open Tags/Paliativo.md",
-    "40-Open Tags/Operações Internas.md",
-    "40-Open Tags/Nota de Perda.md",
-    "40-Open Tags/NFe.md",
-    "40-Open Tags/Job.md",
-    "40-Open Tags/Margem.md",
-    "40-Open Tags/Lote de Compras.md",
-    "40-Open Tags/IndUtilVenda.md",
+    "70-Projects, Tools & Integrations/Projects/Oracle Auto Reports - Whatsapp Bot.md",
+    "90-Custom Override/On/NFe Referenciada Produtor Rural - Triangulação.md",
+    "70-Projects, Tools & Integrations/Projects/Cust - Trava Cadastro Família e Produto.md",
+    "40-Open Tags/Critica de Venda.md",
+    "XML.md",
+    "publish.css",
+    "publish.css.tmp.20536.453a3013bb64",
+    "publish.css.tmp.20536.2876252f933a",
+    "arq.png",
+    "40-Open Tags/Logo/logo.png",
+    "40-Open Tags/Logo/logo2.png",
+    "40-Open Tags/Logo/logo3.png",
+    "Pasted image 20261005102253.png",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
     "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
@@ -315,9 +328,6 @@
     "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",
     "Pasted image 20260612151731.png",
     "Pasted image 20260611130439.png",
-    "Pasted image 20260611114654.png",
-    "Pasted image 20260611113006.png",
-    "Pasted image 20260603074640.png",
     "70-Projects, Tools & Integrations/Projects/Extração de XMLs.canvas",
     "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.canvas",
     "70-Projects, Tools & Integrations/Projects/Whatsapp Bot.canvas",

@@ -5,13 +5,13 @@ Repository:
   - "[[DDL-Objects-Oracle]]"
 Squads:
   - "[[TI]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
 System:
   - "[[PLSQL-Oracle]]"
   - "[[PLSQL-ERP-Consinco]]"
 Open Tags:
   - "[[NFe]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
   - "[[EPEC]]"
   - "[[NDD]]"
 Date: 2026-09-17

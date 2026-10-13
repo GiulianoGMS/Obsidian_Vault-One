@@ -18,7 +18,7 @@
 		{"id":"2eb2648ae954b2ee","type":"text","text":"[[Declaração de Importação]]\n\nOs ultimos ajustes na D.I são feitos, como Pesos, Espécies, Transportador, etc. ","x":-45,"y":480,"width":170,"height":210,"color":"5"},
 		{"id":"884feb9cc0849958","type":"text","text":"[[Consistência]] sobre [[Lançamento de Despesas]]\n\nSe houverem despesas que ainda não tenham sido lançadas, irá barrar a geração da NF","x":-520,"y":480,"width":455,"height":120,"color":"4"},
 		{"id":"f93659d62998caf0","type":"text","text":"[[Consistência]] [[DI/DUIMP]] vs Arquivo.[[XML]]\n\nAo salvar a DUIMP, será consistido os valores finais com os valores do XML, não deixando gerar a NF caso existam inconsistências\n\n","x":-520,"y":620,"width":455,"height":140,"color":"4"},
-		{"id":"18b8e6be3cbedccf","x":147,"y":180,"width":453,"height":80,"color":"3","type":"text","text":"Idéia💡: Atualizar automáticamente o peso líquido/bruto no cadastro - Validar com time de Cadastro Comercial"},
+		{"id":"18b8e6be3cbedccf","type":"text","text":"maybe💡: Atualizar automáticamente o peso líquido/bruto no cadastro - Validar com time de Cadastro Comercial","x":147,"y":180,"width":453,"height":80,"color":"3"},
 		{"id":"2b33332d72b755f5","type":"text","text":"[[Simulação/Pedido de Importação]]\n\n\nUsuário finaliza o pedido e passa para o [[Processo de Importação]]","x":147,"y":270,"width":176,"height":200,"color":"5"},
 		{"id":"0ee1d572a7259c8f","type":"text","text":"[[Processo de Importação]]\n\nCom o pedido feito, o próximo passo é a geração do Processo de Importação. Neste, é amarrado o Porto, Despachante, etc.","x":340,"y":270,"width":260,"height":200,"color":"5"}
 	],

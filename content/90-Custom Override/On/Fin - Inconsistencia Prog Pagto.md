@@ -5,7 +5,7 @@ Repository:
   - "[[DQL-Oracle]]"
 Squads:
   - "[[TI]]"
-  - "[[50-Meetings/Financeiro|Financeiro]]"
+  - "[[Concluido - Financeiro|Concluido 0 Financeiro]]"
 System:
   - "[[PLSQL-Oracle]]"
   - "[[ERP]]"

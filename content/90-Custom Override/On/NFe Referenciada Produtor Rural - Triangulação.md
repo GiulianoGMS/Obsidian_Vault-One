@@ -4,7 +4,7 @@ Language:
 Repository:
   - "[[DDL-Oracle]]"
 Squads:
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
   - "[[Recebimento]]"
   - "[[TI]]"
 System:
@@ -22,7 +22,7 @@ tags:
   - reapply
   - paliativo
 ---
-**Contexto**: Após a ativação da **NT 2025.002 v1.40**, a NF-e passou a referenciar a nota fiscal (chave de acesso) **item a item** através da tag [[NFref]]. Para o cenário de **Produtor Rural** com **triangulação**, a nota estava sendo emitida referenciando a **nossa chave de acesso**, ao invés da chave do **fornecedor (produtor rural)**.
+**Contexto**: Após a ativação da **NT 2025.002 v1.40**, a NF-e passou a referenciar a nota fiscal (chave de acesso) **item a item** através da tag [[NFref]]. Para o cenário de **Produtor Rural** com **triangulação**, a nota estava sendo emitida referenciando a **nossa chave de acesso**, ao invés da chave do **fornecedor (produtor rural)**. 
 
 Isso resultava na rejeição da SEFAZ:
 
@@ -61,7 +61,6 @@ END;
 ```
 
 ---
-
 ## Aplicação
 
 Aplicado na [[Procedure]] / PKG **SP_GERAARQENVIONDDIGITALNFE2g**, na **linha 3125**, envolvendo o valor da chave referenciada com `NVL` para usar a chave do produtor rural quando aplicável:

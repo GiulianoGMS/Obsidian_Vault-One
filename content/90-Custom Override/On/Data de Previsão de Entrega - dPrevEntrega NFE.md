@@ -6,7 +6,7 @@ Repository:
 Squads:
   - "[[Recebimento]]"
   - "[[Expedição]]"
-  - "[[Fiscal]]"
+  - "[[30-Squad/Fiscal]]"
   - "[[TI]]"
 System:
   - "[[PLSQL-Oracle]]"

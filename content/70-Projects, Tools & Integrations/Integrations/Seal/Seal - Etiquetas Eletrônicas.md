@@ -49,23 +49,23 @@ View que consolida todos os dados de produto e preço enviados à [[SEAL]]. Cada
 
 **Colunas principais:**
 
-| Coluna | Descrição |
-|--------|-----------|
-| `TIPO` | Código numérico do layout da etiqueta (1–6) — ver tabela de tipos abaixo |
-| `DESC_TIPO` | Descrição do layout: `Preco Padrao`, `Oferta Tabloide`, `Meu Nagumo`, `Cartao Nagumo`, etc. |
-| `NROEMPRESA` | Empresa (loja) |
-| `PLU` | Código do produto (`SEQPRODUTO`) |
-| `EAN` | Código de barras — EAN para não pesáveis, código `B` para pesáveis |
-| `DESCCOMPLETA` | Descrição completa do produto |
-| `PRECO_NORMAL` | Preço normal vigente (`PRECOVALIDNORMAL`) |
-| `PRECO_2` | Preço promocional vigente (`PRECOVALIDPROMOC`) |
-| `PRECO_3` | Preço da promoção ativa — nulo quando é tabloide puro |
-| `STATUS_PROMOC` | Status da promoção (`A`/`I`) |
-| `DTAALTERACAO` | Data da última alteração — base para o filtro incremental |
-| `DTAINICIO` / `DTAFIM` | Vigência da promoção |
-| `INFO_EMB_1/2/3` | Preço de referência por unidade/peso (ex: `"Nesta emb. 100g R$ 1,99"`) |
-| `MARCA` | Marca do produto |
-| `IND_CARGA_PDV` | `'S'` = alteração anterior à última carga PDV da loja; `'N'` = ainda não carregado |
+| Coluna                 | Descrição                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| `TIPO`                 | Código numérico do layout da etiqueta (1–6) — ver tabela de tipos abaixo                    |
+| `DESC_TIPO`            | Descrição do layout: `Preco Padrao`, `Oferta Tabloide`, `Meu Nagumo`, `Cartao Nagumo`, etc. |
+| `NROEMPRESA`           | Empresa (loja)                                                                              |
+| `PLU`                  | Código do produto (`SEQPRODUTO`)                                                            |
+| `EAN`                  | Código de barras — EAN para não pesáveis, código `B` para pesáveis                          |
+| `DESCCOMPLETA`         | Descrição completa do produto                                                               |
+| `PRECO_NORMAL`         | Preço normal vigente (`PRECOVALIDNORMAL`)                                                   |
+| `PRECO_2`              | Preço promocional vigente (`PRECOVALIDPROMOC`)                                              |
+| `PRECO_3`              | Preço da promoção ativa — nulo quando é tabloide puro                                       |
+| `STATUS_PROMOC`        | Status da promoção (`A`/`I`)                                                                |
+| `DTAALTERACAO`         | Data da última alteração — base para o filtro incremental                                   |
+| `DTAINICIO` / `DTAFIM` | Vigência da promoção                                                                        |
+| `INFO_EMB_1/2/3`       | Preço de referência por unidade/peso (ex: `"Nesta emb. 100g R$ 1,99"`)                      |
+| `MARCA`                | Marca do produto                                                                            |
+| `IND_CARGA_PDV`        | `'S'` = alteração anterior à última carga PDV da loja; `'N'` = ainda não carregado          |
 
 **Tabela de tipos de etiqueta:**
 
@@ -79,6 +79,7 @@ View que consolida todos os dados de produto e preço enviados à [[SEAL]]. Cada
 | 6 | Cartão Nagumo + Oferta | Regra de incentivo (Cartão) com preço menor que o promocional vigente |
 
 **Filtros aplicados na view:**
+
 - `S.PRECOVALIDNORMAL > 0` — apenas produtos com preço cadastrado
 - `S.QTDEMBALAGEM = 1` — embalagem unitária
 - `S.NROSEGMENTO = 2` — segmento principal
