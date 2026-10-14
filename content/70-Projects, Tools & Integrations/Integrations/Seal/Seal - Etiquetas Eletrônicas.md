@@ -174,3 +174,8 @@ Erros da API [[SEAL]] são monitorados pelo bot [[Oracle Auto Reports - Whatsapp
 |--------|--------|
 | `NAGP_WTS_V2_LOG_API_SEAL` | Envia via [[WhatsApp]] os erros registrados em `NAGT_LOG_API_SEAL` |
 | `NAGT_LOG_API_SEAL` | Tabela de log: `DTALOG`, `ERRO`, `INDLOGPROCESSADO` |
+Monitoramento da API - Alerta pelo [[Oracle Auto Reports - Whatsapp Bot]]:
+
+![[{CEE891A3-7756-4F28-8890-996787EA678A}.png]]
+
+---

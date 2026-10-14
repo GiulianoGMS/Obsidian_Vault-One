@@ -17,7 +17,7 @@ Project:
 tags:
   - reapply
   - custom_override
-Aplicado 26..017: false
+Aplicado 26..017: true
 ---
 **Necessidade**: Reportado pelo time [[Fiscal]] que os XMLs de vendas que continham produtos em dinãmicas de [[Combos Promocionais]] (**Leve Pague/Leve xx Ganhe yy**) estavam gerando desconto no item final da compra, permitindo que o item saia à R$ 0,01 e consequentemente o imposto seja calculado com base neste valor.
 

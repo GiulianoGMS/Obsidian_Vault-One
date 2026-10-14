@@ -7,7 +7,7 @@
 - [ ] **Crítica de Açougue** no referenciamento de NFs vs Pedidos — criticar vínculo se não for o pedido mais antigo disponível.
 - [ ] **Crítica no recebimento de transferência CD → Loja** sem pedido vinculado.
 - [ ] **Parametrizar fornecedores do lote automático** — Juliana (Fornecedor + Percentual), Cíntia (Percentual), Rebeca e time.
-- [ ] **Definição Pig/Cipolla sobre a carga de preços da [[SEAL]]** — definir se será **manual** (job de carga padrão + query view) ou por **job à parte**, já que o Pig quer que a carga de etiqueta seja enviada **após a confirmação da carga no PDV da loja 62**.
+- [ ] **Definição Pig/Cipolla sobre a carga de preços da [[SEAL]]** — definir se será **manual** (job de carga padrão + query view) ou por **job à parte**, já que o Pig quer que a carga de etiqueta seja enviada **após a confirmação da carga no PDV da loja 62**. Agendado para Quarta 14/10 11h30
 
 ---
 ##### Concluídas

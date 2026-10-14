@@ -18,7 +18,7 @@ Project:
 tags:
   - reapply
   - custom_override
-Aplicado 26..017: false
+Aplicado 26..017: true
 ---
 ### Visão Geral
 

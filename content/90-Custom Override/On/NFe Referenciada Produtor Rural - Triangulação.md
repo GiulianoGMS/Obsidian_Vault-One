@@ -21,6 +21,7 @@ tags:
   - custom_override
   - reapply
   - paliativo
+Aplicado 26..017: true
 ---
 **Contexto**: Após a ativação da **NT 2025.002 v1.40**, a NF-e passou a referenciar a nota fiscal (chave de acesso) **item a item** através da tag [[NFref]]. Para o cenário de **Produtor Rural** com **triangulação**, a nota estava sendo emitida referenciando a **nossa chave de acesso**, ao invés da chave do **fornecedor (produtor rural)**. 
 

@@ -16,8 +16,8 @@ Date: 2026-06-17
 Type: "[[Procedure]]"
 Project:
 tags:
+Aplicado 26..017: true
 ---
-
 Ref GLPI **463190**
 
 Necessidade de emissão do [[CST]] de [[IPI]] para determinadas operações que o [[PLSQL-ERP-Consinco]] não populava o campo.
