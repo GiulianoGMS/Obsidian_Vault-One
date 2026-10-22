@@ -4,7 +4,7 @@
   "title": "Pesquisar combos promocionais TOTVS",
   "titleGenerationStatus": "success",
   "createdAt": 1791912888261,
-  "lastActivityAt": 1791912998462,
+  "lastActivityAt": 1792006241899,
   "sessionId": "fde47d20-1068-429c-9b6e-dcdb9a4f8f7d",
   "selectedModel": "opus",
   "providerState": {
@@ -13,11 +13,11 @@
   "linkedContentPath": "Combos Promocionais.md",
   "usage": {
     "model": "opus",
-    "inputTokens": 2,
-    "cacheCreationInputTokens": 1112,
-    "cacheReadInputTokens": 29723,
+    "inputTokens": 46,
+    "cacheCreationInputTokens": 31018,
+    "cacheReadInputTokens": 0,
     "contextWindow": 1000000,
-    "contextTokens": 30837,
+    "contextTokens": 31064,
     "percentage": 3,
     "contextWindowIsAuthoritative": true
   }

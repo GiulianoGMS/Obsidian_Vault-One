@@ -1,0 +1,23 @@
+{
+  "id": "conv-1792061477046-y0qcp54lt",
+  "providerId": "claude",
+  "title": "Refazer Home v2 profissional para documentação",
+  "titleGenerationStatus": "success",
+  "createdAt": 1792061477055,
+  "lastActivityAt": 1792591564301,
+  "sessionId": "6f40f57b-641d-4895-8ae2-399f347274a9",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "6f40f57b-641d-4895-8ae2-399f347274a9"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 773,
+    "cacheReadInputTokens": 62853,
+    "contextWindow": 1000000,
+    "contextTokens": 63628,
+    "percentage": 6,
+    "contextWindowIsAuthoritative": true
+  }
+}

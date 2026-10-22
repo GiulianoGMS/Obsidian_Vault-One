@@ -4,111 +4,105 @@
     "type": "split",
     "children": [
       {
-        "id": "41c8fb8920d8cdc2",
-        "type": "tabs",
-        "dimension": 51.949860724233986,
-        "children": [
-          {
-            "id": "abebc0ed05a44458",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "40-Open Tags/Logo/logo3.png"
-              },
-              "icon": "lucide-image",
-              "title": "logo3"
-            }
-          },
-          {
-            "id": "881d112f1c2da1e8",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "40-Open Tags/Logo/logo2.png"
-              },
-              "icon": "lucide-image",
-              "title": "logo2"
-            }
-          },
-          {
-            "id": "45d566b26499ed8c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "90-Custom Override/On/Crítica DDA em Título Autorizado - PKG_FIDDA.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Crítica DDA em Título Autorizado - PKG_FIDDA"
-            }
-          }
-        ],
-        "currentTab": 2
-      },
-      {
-        "id": "ba6609b780df5cb8",
+        "id": "e1dcf2f7e3bffcd4",
         "type": "split",
-        "dimension": 48.05013927576602,
         "children": [
           {
-            "id": "e972e1e6917638da",
+            "id": "1204997792500deb",
             "type": "tabs",
-            "dimension": 43.895348837209305,
             "children": [
               {
-                "id": "3cd3e05a753e3bfc",
+                "id": "363115da50b4cfd6",
                 "type": "leaf",
-                "pinned": true,
                 "state": {
-                  "type": "graph",
-                  "state": {},
-                  "pinned": true,
-                  "icon": "lucide-git-fork",
-                  "title": "Visualização em gráfico"
+                  "type": "markdown",
+                  "state": {
+                    "file": "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "Controle de Selos - Campanha de Selos PDV"
                 }
               }
             ]
           },
           {
-            "id": "dde75a11b5f2b8fa",
-            "type": "tabs",
-            "dimension": 56.104651162790695,
+            "id": "f9b769834df3a466",
+            "type": "split",
             "children": [
               {
-                "id": "83ca76d29f51868f",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "claudian-view",
-                  "state": {
-                    "tabWorkspace": {
-                      "version": 1,
-                      "openTabs": [
-                        {
-                          "tabId": "tab-1790779244416-48iykov",
-                          "conversationId": "conv-1790779262591-vbekrpcpd"
-                        },
-                        {
-                          "tabId": "tab-1791912875639-zcjpz4l",
-                          "conversationId": "conv-1791912888254-j4ghvt24w"
-                        }
-                      ],
-                      "activeTabId": "tab-1791912875639-zcjpz4l"
+                "id": "1ecc60ac0aa2fe48",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "3cd3e05a753e3bfc",
+                    "type": "leaf",
+                    "pinned": true,
+                    "state": {
+                      "type": "graph",
+                      "state": {},
+                      "pinned": true,
+                      "icon": "lucide-git-fork",
+                      "title": "Visualização em gráfico"
                     }
-                  },
-                  "pinned": true,
-                  "icon": "bot",
-                  "title": "Claudian"
-                }
+                  }
+                ]
+              },
+              {
+                "id": "fd2b903b9c1889ec",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "83ca76d29f51868f",
+                    "type": "leaf",
+                    "pinned": true,
+                    "state": {
+                      "type": "claudian-view",
+                      "state": {
+                        "tabWorkspace": {
+                          "version": 1,
+                          "openTabs": [
+                            {
+                              "tabId": "tab-1790779244416-48iykov",
+                              "conversationId": "conv-1790779262591-vbekrpcpd"
+                            },
+                            {
+                              "tabId": "tab-1791912875639-zcjpz4l",
+                              "conversationId": "conv-1791912888254-j4ghvt24w"
+                            },
+                            {
+                              "tabId": "tab-1792031586180-vljywd0",
+                              "conversationId": "conv-1792031658175-az19ubpss"
+                            },
+                            {
+                              "tabId": "tab-1792032265655-fut4eiy",
+                              "conversationId": "conv-1792032287332-1yamzt0xd"
+                            },
+                            {
+                              "tabId": "tab-1792033608957-m53sd1c",
+                              "conversationId": "conv-1789677977056-ar85u5esg"
+                            },
+                            {
+                              "tabId": "tab-1792061364751-zq22flz",
+                              "conversationId": "conv-1792061477046-y0qcp54lt"
+                            }
+                          ],
+                          "activeTabId": "tab-1792061364751-zq22flz"
+                        }
+                      },
+                      "pinned": true,
+                      "icon": "bot",
+                      "title": "Claudian"
+                    }
+                  }
+                ]
               }
-            ]
+            ],
+            "direction": "horizontal"
           }
         ],
-        "direction": "horizontal"
+        "direction": "vertical"
       }
     ],
     "direction": "vertical"
@@ -276,48 +270,48 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "45d566b26499ed8c",
+  "active": "363115da50b4cfd6",
   "lastOpenFiles": [
+    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
+    "90-Custom Override/On/PDV - vOutros Ecommerce (Frete rateado).md",
+    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md",
+    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.24944.f1453fc33609",
+    "70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md.tmp.24944.bbb993b559b7",
     "51-Pendencias/Pendencias.md",
+    "51-Pendencias/Pendencias.md.tmp.24944.a5134ca89fbc",
+    "50-Meetings/Fiscal 13.10.26.md",
+    "50-Meetings/Concluido - Financeiro.md",
+    "40-Open Tags/Inconsistencia Recebimento NFe.md",
+    "50-Meetings/Doce Novembro 16.10.26.md",
     "70-Projects, Tools & Integrations/Integrations/Seal/Seal - Etiquetas Eletrônicas.md",
+    "90-Custom Override/On/PDV - Combos Promocionais - Adequação Fiscal.md",
+    "Home.md",
+    "Home v2.md",
+    "Home v2.md.tmp.24944.3762f6b258a1",
+    "90-Custom Override/On/CD - Arred. de Seleção Inversa no CD - FLV.md",
+    "51-Pendencias/Pendencias.md.tmp.17628.f518e68b3b94",
+    "90-Custom Override/On/PDV - Combos Promocionais - Adequação Fiscal.md.tmp.18092.4991e12d6a9a",
+    "90-Custom Override/On/PDV - Combos Promocionais - Adequação Fiscal.md.tmp.18092.6fbb717a9d3c",
+    "90-Custom Override/On/Financeiro - Crítica DDA em Título Autorizado.md",
+    "90-Custom Override/On/Comercial - Crítica deImportação Direta.md",
+    "90-Custom Override/On/PDV - Ecomm - Desonerado.md",
+    "90-Custom Override/On/PDV - ICMS Desonerado - Orgao Publico - Trigger.md",
+    "90-Custom Override/On/Loja - vBalcao - Faturamento não respeitando UF Cliente.md",
+    "90-Custom Override/On/Fiscal - NFSE - Email CCs e Assunto Padrão.md",
+    "90-Custom Override/On/Fiscal - NFe Referenciada Produtor Rural - Triangulação.md",
+    "90-Custom Override/On/Price - Prod. Promocionais - Cadastro de item com rebaixa.md",
+    "90-Custom Override/On/Fiscal - Validações de Inconsistência.md",
+    "90-Custom Override/On/Etiqueta - Cust Nagumo - Grid.md",
+    "90-Custom Override/On/Etiqueta - Controle de Datas - Grid.md",
+    "90-Custom Override/On/Fiscal - Arred. de Valores no Receb. - 0,xx Centavos.md",
+    "90-Custom Override/On/Fiscal - Correção de Impostos no Recebimento.canvas",
+    "90-Custom Override/On/Fiscal - Correção de Impostos no Recebimento.md",
+    "51-Pendencias/Pendencias.md.tmp.24108.bc08b05b1dbb",
     "{CEE891A3-7756-4F28-8890-996787EA678A}.png",
     "{6C191CDA-8995-4118-8DE5-0BAC0E62A0C0}.png",
-    "70-Projects, Tools & Integrations/Projects/Ecommerce - Replicação por Encarte (MN).md",
-    "70-Projects, Tools & Integrations/Projects/Etiqueta FLV - Informação Nutricional.md",
-    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.md",
-    "70-Projects, Tools & Integrations/Projects/Alerta Status SEFAZ.md",
-    "90-Custom Override/On/Etiqueta - Controle de Datas - Grid.md",
-    "90-Custom Override/On/Etiqueta - Cust Nagumo - Grid.md",
-    "90-Custom Override/On/Arred. de Seleção Inversa no CD - FLV.md",
-    "90-Custom Override/On/Data de Previsão de Entrega - dPrevEntrega NFE.md",
-    "90-Custom Override/On/CST IPI - NFe.md",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.md",
-    "90-Custom Override/On/Correção de Impostos no Recebimento.canvas",
-    "90-Custom Override/On/Arred. de Valores no Receb. - 0,xx Centavos.md",
-    "90-Custom Override/On/PDV - Combos Promocionais - Ajuste.md",
-    "90-Custom Override/On/NFSE - Email CCs e Assunto Padrão.md",
-    "90-Custom Override/On/NFe Referenciada Produtor Rural - Triangulação.md",
-    "90-Custom Override/On/Lançamento de ICMS - Orçamento.md",
-    "90-Custom Override/On/InfAdFisco - NFe.md",
-    "90-Custom Override/On/Fin - Inconsistencia Prog Pagto.md",
-    "90-Custom Override/On/ICMS Desonerado PDV - Orgao Publico - Trigger.md",
-    "90-Custom Override/On/Prod. Promocionais - Cadastro de item com rebaixa maior que oferta de tabloide.md",
-    "90-Custom Override/On/Validações de Inconsistências - PDV TOTVs.md",
-    "90-Custom Override/On/vOutros Ecommerce (Frete rateado).md",
-    "90-Custom Override/On/vBalcao - Faturamento não respeitando UF Cliente.md",
-    "Combos Promocionais.md",
     "Combos Promocionais.md.tmp.29260.641f30d739ca",
-    "ERP.md",
     "51-Pendencias/Pendencias.md.tmp.13284.b22899039f4c",
-    "51-Pendencias/Pendencias.md.tmp.27264.db5b30cb76ca",
-    "51-Pendencias/Pendencias.md.tmp.27264.5c2e29242f5c",
-    "index.md.tmp.19108.5e015e9ef3c3",
-    "70-Projects, Tools & Integrations/Integrations/Seal",
     "70-Projects, Tools & Integrations/Projects/DUIMP - Importação Direta/DUIMP - Plano de melhoria de Processos.canvas",
-    "51-Pendencias/Pendencias.md.tmp.27264.6c5ee5ece4f2",
-    "publish.css",
-    "publish.css.tmp.20536.453a3013bb64",
-    "publish.css.tmp.20536.2876252f933a",
     "arq.png",
     "40-Open Tags/Logo/logo.png",
     "40-Open Tags/Logo/logo2.png",
@@ -325,7 +319,6 @@
     "Pasted image 20261005102253.png",
     "70-Projects, Tools & Integrations/Tools/Gerador de Pedidos Ecommerce.canvas",
     "70-Projects, Tools & Integrations/Projects/Tae - Assinatura Eletrônica.canvas",
-    "70-Projects, Tools & Integrations/Projects/Controle de Selos - Campanha de Selos PDV.canvas",
     "Pasted image 20260831121016.png",
     "Pasted image 20260831103251.png",
     "{7C1AA492-C992-4D73-94FB-F3C72D447971}.png",

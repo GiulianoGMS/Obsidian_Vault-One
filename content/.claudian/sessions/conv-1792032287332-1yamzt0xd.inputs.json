@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1792032287332-1yamzt0xd",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792032287483-qxeus83",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1792032287328-dalf0sl",
+      "timestamp": 1792032287328,
+      "rawDisplayText": "toda atualização do pdv eu preciso ver se estes dois objetos estão iguais, se não preciso recompilar. tem alguma forma automatica de ver isto pel ooracle?",
+      "canonicalText": "toda atualização do pdv eu preciso ver se estes dois objetos estão iguais, se não preciso recompilar. tem alguma forma automatica de ver isto pel ooracle?",
+      "context": {
+        "linkedContent": {
+          "path": "90-Custom Override/On/PDV - Combos Promocionais - Adequação Fiscal.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "fd96482e91e9133b6f140234b0ac8b630d93136b5fe33e8d7fd9197d0bce2a2f",
+      "providerUserMessageId": "e0313569-8d81-4121-bd9a-9ebeecf77e7e",
+      "providerAssistantMessageId": "a617695b-73d2-468f-9acf-24f692ff9335"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792032486911-sjy2ewt",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1792032486892-on2kz88",
+      "timestamp": 1792032486892,
+      "rawDisplayText": "monte pra euver",
+      "canonicalText": "monte pra euver",
+      "images": [],
+      "contentDigest": "9b1d746bba22ce0123d835aca65e5385568004d73a74199e6266a1df84b6024b",
+      "providerUserMessageId": "f0382b91-27e2-4c4b-8ff6-84feeb782aa5",
+      "providerAssistantMessageId": "e097e551-7e88-4a33-921f-ed3686bd974d"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792032547362-tdgc5cr",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1792032547341-ealcr0w",
+      "timestamp": 1792032547341,
+      "rawDisplayText": "vou criar um job. documente no MD por favor",
+      "canonicalText": "vou criar um job. documente no MD por favor",
+      "images": [],
+      "contentDigest": "c3bbc57c351c85779850ac1b371f5081b09edf3320674f084e042652f36c1bd8",
+      "providerUserMessageId": "edd8f42e-e841-474a-bded-8fc0719ce425",
+      "providerAssistantMessageId": "1ae27669-5e34-4388-8743-364981bb77ea"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792033226580-jss82nc",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1792033226558-rdbz487",
+      "timestamp": 1792033226558,
+      "rawDisplayText": "deu certo... pode me explicar o que e q'[ ?",
+      "canonicalText": "deu certo... pode me explicar o que e q'[ ?",
+      "context": {
+        "editorSelection": {
+          "notePath": "90-Custom Override/On/PDV - Combos Promocionais - Adequação Fiscal.md",
+          "mode": "selection",
+          "selectedText": "BEGIN NAGP_REAPLICA_CUST_COMBO_PDV; END;",
+          "lineCount": 1,
+          "startLine": 207
+        }
+      },
+      "images": [],
+      "contentDigest": "201100eb70e1e0b9ac1587f31d5e1bbf95db457a4f25b112b41155ff256807b6",
+      "providerUserMessageId": "27be32aa-c502-4948-a5dd-b84788cfe737",
+      "providerAssistantMessageId": "d6a54017-0914-46f2-8c87-fb4487026487"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792033267992-pwn7s1l",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1792033267968-9nmwt07",
+      "timestamp": 1792033267968,
+      "rawDisplayText": "que legal!! documenta no md pra mim como uma curiosidade facilitadora!",
+      "canonicalText": "que legal!! documenta no md pra mim como uma curiosidade facilitadora!",
+      "context": {
+        "editorSelection": {
+          "notePath": "90-Custom Override/On/PDV - Combos Promocionais - Adequação Fiscal.md",
+          "mode": "selection",
+          "selectedText": "BEGIN NAGP_REAPLICA_CUST_COMBO_PDV; END;",
+          "lineCount": 1,
+          "startLine": 207
+        }
+      },
+      "images": [],
+      "contentDigest": "33673bb85e4a5fb3802ec74b1926277efe1eda77a36d7fb7e567de69bb5b32bd",
+      "providerUserMessageId": "920c3c44-8cf1-4ff7-8bd3-081cd56899fa",
+      "providerAssistantMessageId": "0bca5d7b-be56-4649-95a5-1843ca08d2db"
+    }
+  ]
+}

@@ -57,6 +57,20 @@
       "contentDigest": "1ec7d806be5124d9f5fa7171cabaeb5c2c72aa7a735841a6bc08c96a10aec366",
       "providerUserMessageId": "117ac1ae-cdef-460a-b23f-515ed0db63a3",
       "providerAssistantMessageId": "43a8444c-9b3a-4aab-83b6-26635693f0d4"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792033664316-rk74rnt",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1792033664280-p4gbvsd",
+      "timestamp": 1792033664280,
+      "rawDisplayText": "anota uma nova @51-Pendencias/Pendencias.md - validar com Alan a dinamica para FAMILIA/Associado para Promocoes A Partir DE\n\nTambem: Validar em homologação a rotina @90-Custom Override/On/PDV - Combos Promocionais - Adequação Fiscal.md",
+      "canonicalText": "anota uma nova @51-Pendencias/Pendencias.md - validar com Alan a dinamica para FAMILIA/Associado para Promocoes A Partir DE\n\nTambem: Validar em homologação a rotina @90-Custom Override/On/PDV - Combos Promocionais - Adequação Fiscal.md",
+      "images": [],
+      "contentDigest": "14195ba52f4e3afbb1ca4c4cf4a93d5eb64e8aee50be02a18b0da6afd5b08e49",
+      "providerUserMessageId": "d55bab87-9aae-4563-b493-5cfe7a01adea",
+      "providerAssistantMessageId": "29fd1cb4-1758-4b09-93fb-9c511070ba7c"
     }
   ]
 }

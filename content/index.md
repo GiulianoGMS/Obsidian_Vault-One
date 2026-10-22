@@ -15,7 +15,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[KPIs - Alertas Carga PDV (CTD)]] | 10 KPIs de análise da tabela `NAGT_CONTROLECARGAPDV` — ranking de lojas, checkouts, tabelas, heatmap e evolução diária |
 > | [[Lote de Compra - Geração Automática]] | Geração automática de lotes de compra com sugestão MIN/MAX |
 > | [[Lote de Compras — Acata Sugerido e Consolidação]] | Trigger BEFORE INSERT (acata sugerido automático) + COMPOUND TRIGGER (consolidação + arredondamento logístico) — coordenados por `NAGT_COMP_FORN_SUGESTAUTO` |
-> | [[Validações de Inconsistências - PDV TOTVs]] | Validações de produtos, famílias e tributações — PKG_INCONSISTENCIAS |
+> | [[Fiscal - Validações de Inconsistência]] | Validações de produtos, famílias e tributações — PKG_INCONSISTENCIAS |
 > | [[Ecommerce - Replicação de Ofertas PDV TOTVS]] | Replica ofertas do Meu Nagumo para o PDV TOTVS via remarca |
 > | [[Ecommerce - Replicação por Encarte (MN)]] | Substituto da replicação legado — usa encartes nativos do ERP |
 > | [[Controle de Selos - Campanha de Selos PDV]] | Controle de campanhas de selos no PDV |
@@ -27,7 +27,7 @@ Objetos e repositórios disponíveis no [GitHub →](https://github.com/Giuliano
 > | [[Régua de Cobrança - Implementação]] | Cobrança escalonada D0→D+15 com e-mail automático e bloqueio de lote de compras |
 > | [[Régua de Cobrança - Notificação Genérica]] | Variante da régua sem detalhes de acordo no e-mail — solicitação da diretoria |
 > | [[Régua de Cobrança - Elegíveis]] | Variante restrita a fornecedores elegíveis por rede — view com NIVEL_REGUA + e-mail genérico escalonado |
-> | [[Correção de Impostos no Recebimento]] | Paliativos CBS/IBS/IPI/ICMS Desonerado aplicados no recebimento de NF-e (Reforma Tributária) |
+> | [[Fiscal - Correção de Impostos no Recebimento]] | Paliativos CBS/IBS/IPI/ICMS Desonerado aplicados no recebimento de NF-e (Reforma Tributária) |
 > | [[Alerta Status SEFAZ]] | Sincroniza status dos webservices SEFAZ (NFe/NFC-e) em tabela Oracle e dispara alerta no ERP |
 > | [[Alerta NFe NFCe - E-mail]] | E-mail automático ao time Fiscal com rejeições e pendências de NF-e/NFC-e dos últimos 3 dias |
 > | [[DUIMP - Visão Geral do Processo]] | Índice/fluxo completo da série DUIMP: XML → staging → vínculo com pedido → relatório de confronto |

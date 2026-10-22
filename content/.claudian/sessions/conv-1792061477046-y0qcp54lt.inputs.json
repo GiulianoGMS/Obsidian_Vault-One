@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1792061477046-y0qcp54lt",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792061477757-bb8kldo",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1792061477043-2x0dbq1",
+      "timestamp": 1792061477043,
+      "rawDisplayText": "@Home.md \nConsegue criar uma nova versão do meu home.dmd, como home v2.. para eu visualizar? Queria que tentasse organizar de forma profissional o mais bonito possível, talvez refazer do zero para recriar com novas lógicas para uma home de website de documentações. Leia meu md atual para entender o atual e repense como um genio",
+      "canonicalText": "@Home.md \nConsegue criar uma nova versão do meu home.dmd, como home v2.. para eu visualizar? Queria que tentasse organizar de forma profissional o mais bonito possível, talvez refazer do zero para recriar com novas lógicas para uma home de website de documentações. Leia meu md atual para entender o atual e repense como um genio",
+      "images": [],
+      "contentDigest": "e15f07b39adfa33f34c73ce415e7223f4cd695c570ad7429011aa9ca9f98294b",
+      "providerUserMessageId": "97999ef8-5ae8-4361-86ba-5a0e160996cf",
+      "providerAssistantMessageId": "9a00800b-f031-453c-8689-3879b832f342"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792061881887-7o5yp37",
+      "userTurnOrdinal": 2,
+      "state": "accepted",
+      "localMessageId": "msg-1792061881876-3ptbuc8",
+      "timestamp": 1792061881876,
+      "rawDisplayText": "legal substitua a Home pela Home v2, e altere i nome",
+      "canonicalText": "legal substitua a Home pela Home v2, e altere i nome",
+      "images": [],
+      "contentDigest": "e6eff775bf2d961c77552afe03849bdb11bf18493bcf21748a0c9c3a25df1832",
+      "providerUserMessageId": "c18fb0d4-c0f9-4958-aa0a-0aa14c6f5c22",
+      "providerAssistantMessageId": "1c901e90-56c7-4032-b694-ad31af6eb782"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792431016249-z2stqmq",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1792431016239-sgyshbd",
+      "timestamp": 1792431016239,
+      "rawDisplayText": "me manda o icone de check pra copiar",
+      "canonicalText": "me manda o icone de check pra copiar",
+      "images": [],
+      "contentDigest": "5d01151e683589c03db7dde564186c9f1272ae0c265f8eece5e0e7145b12bd7f",
+      "providerUserMessageId": "2c1ec4a5-5e6c-4523-94d4-f37fdc98e4f5",
+      "providerAssistantMessageId": "01f8faa6-970e-45b4-8ade-7c3ec9f801ba"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792582883843-k9j4h26",
+      "userTurnOrdinal": 4,
+      "state": "accepted",
+      "localMessageId": "msg-1792582883838-81mfzbs",
+      "timestamp": 1792582883838,
+      "rawDisplayText": "organize o @51-Pendencias/Pendencias.md",
+      "canonicalText": "organize o @51-Pendencias/Pendencias.md",
+      "images": [],
+      "contentDigest": "e6c80c34b419b8247053b4521bcc0f29fd76203bd89306f53885271ce7ba65b4",
+      "providerUserMessageId": "b89b79b7-319f-44b6-b2e8-397751ac4f97",
+      "providerAssistantMessageId": "83f26778-5d9c-4e9b-9d46-95101b0d9a80"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792591461895-u0j9q6x",
+      "userTurnOrdinal": 5,
+      "state": "accepted",
+      "localMessageId": "msg-1792591461882-isz4vr7",
+      "timestamp": 1792591461882,
+      "rawDisplayText": "documente no @70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md  a alteracao do https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGV_BASE_MRL_PROMOCESPECIAL_APP.sql",
+      "canonicalText": "documente no @70-Projects, Tools & Integrations/Projects/Pricing - Controle de Datas.md  a alteracao do https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGV_BASE_MRL_PROMOCESPECIAL_APP.sql",
+      "images": [],
+      "contentDigest": "c3aeee3ec681d676e29059a602c11f691cf648fe368409c5603897832ae5ae47",
+      "providerUserMessageId": "039cb630-8f19-4785-93b8-a83b0678443f",
+      "providerAssistantMessageId": "0c3785cc-e878-4abb-974f-1c2255abe924"
+    }
+  ]
+}

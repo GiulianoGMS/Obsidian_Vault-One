@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "conversationId": "conv-1792031658175-az19ubpss",
+  "records": [
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792031658330-6zixiqt",
+      "userTurnOrdinal": 1,
+      "state": "accepted",
+      "localMessageId": "msg-1792031658169-tk5hi5i",
+      "timestamp": 1792031658169,
+      "rawDisplayText": "atualize o ponto sobre a SEAL, foi definido hoje que será enviado para a Seal atualizações realizadas a mais de XX minutos. Leo precisará criar a rotina recorrente na chamada da API. Porem, em contato com a SEAL, o time falou que o ideal seria chamar após a carga do PDV. Validar com Cipolla amanha",
+      "canonicalText": "atualize o ponto sobre a SEAL, foi definido hoje que será enviado para a Seal atualizações realizadas a mais de XX minutos. Leo precisará criar a rotina recorrente na chamada da API. Porem, em contato com a SEAL, o time falou que o ideal seria chamar após a carga do PDV. Validar com Cipolla amanha",
+      "context": {
+        "linkedContent": {
+          "path": "51-Pendencias/Pendencias.md"
+        }
+      },
+      "images": [],
+      "contentDigest": "d483d0f3aed7a425696f8bca0b984a36d856e4f88359ccf2d9b3a03a5075585c",
+      "providerUserMessageId": "49e3f2c7-fbe9-4041-9080-c389bb3cbd23",
+      "providerAssistantMessageId": "d2354f66-dd0e-44f7-8362-32c186beccbc"
+    }
+  ]
+}

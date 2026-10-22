@@ -1,0 +1,24 @@
+{
+  "id": "conv-1792032287332-1yamzt0xd",
+  "providerId": "claude",
+  "title": "Comparar objetos Oracle automaticamente",
+  "titleGenerationStatus": "success",
+  "createdAt": 1792032287355,
+  "lastActivityAt": 1792033287032,
+  "sessionId": "d298a79b-2e2c-4451-b945-141f4b0d6a6f",
+  "selectedModel": "opus",
+  "providerState": {
+    "providerSessionId": "d298a79b-2e2c-4451-b945-141f4b0d6a6f"
+  },
+  "linkedContentPath": "90-Custom Override/On/PDV - Combos Promocionais - Adequação Fiscal.md",
+  "usage": {
+    "model": "opus",
+    "inputTokens": 131,
+    "cacheCreationInputTokens": 1131,
+    "cacheReadInputTokens": 45821,
+    "contextWindow": 1000000,
+    "contextTokens": 47083,
+    "percentage": 5,
+    "contextWindowIsAuthoritative": true
+  }
+}

@@ -34,6 +34,20 @@
       "contentDigest": "e8299e28bda72a84590d8f2a27cc34f5d019ff28779d44f879fe853f15316c88",
       "providerUserMessageId": "ba4643e7-7bcf-4688-a083-0dd386fcd357",
       "providerAssistantMessageId": "a865be72-32bc-4bf0-b4e4-90ac23b238fb"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "msg-1792006239530-do2y0ff",
+      "userTurnOrdinal": 3,
+      "state": "accepted",
+      "localMessageId": "msg-1792006239521-7n6job2",
+      "timestamp": 1792006239521,
+      "rawDisplayText": "vc caiu?",
+      "canonicalText": "vc caiu?",
+      "images": [],
+      "contentDigest": "2b2b8577aa39535d4f1b0a4aa6f53881ab35750ed7ee4c7927dbd0dbd5fff11b",
+      "providerUserMessageId": "2f08415a-de23-492f-b218-676e339718da",
+      "providerAssistantMessageId": "1a097187-7ca8-441f-90d7-fd73cdd7e5dc"
     }
   ]
 }

@@ -58,7 +58,7 @@ SATELITSKY (legado)                         App Gestão de Lojas (DW)
 | Objeto                              | Tipo      | Origem     | Descrição                                                                                                                                             |
 | ----------------------------------- | --------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `NAGV_BASE_MRL_PROMOCESPECIAL2`     | View      | SATELITSKY | Lê `PRODUTO_VENCIMENTO@SATELITSKY`; converte EAN → PLU via MAP_PRODCODIGO; filtra vencimento entre hoje e +100 dias, sem recusa, com preço de rebaixa |
-| `NAGV_BASE_MRL_PROMOCESPECIAL_APP`  | View      | App DW     | Lê `NAGV_APP_DATAVALIDADE@CONSINCODW`; exclui Frios e Laticínios; calcula preço com desconto por categoria; apenas lojas habilitadas                  |
+| `NAGV_BASE_MRL_PROMOCESPECIAL_APP`  | View      | App DW     | Lê `NAGV_APP_DATAVALIDADE@CONSINCODW`; exclui Frios e Laticínios; calcula preço com desconto por categoria; apenas lojas habilitadas; define `STATUS` de aprovação automática (A/P) por quantidade × categoria |
 | `NAGV_APURACAO_SELLOUT_VALIDADE`    | View      | ERP        | Apuração de [[Sellout]] durante o período de rebaixa — cruza `MRL_PROMOCESPECIALHIST` com vendas do PDV                                               |
 | `NAGP_REP_CONTROLEDATAS`            | Procedure | ERP        | MERGE da origem SATELITSKY → `MRL_PROMOCESPECIALHIST`; idempotente pela chave produto + empresa + acesso especial + preço + data fim                  |
 | `NAGP_REP_CONTROLEDATAS_APP`        | Procedure | ERP        | INSERT da origem App DW → `MRL_PROMOCESPECIALHIST`; deduplicação por NOT EXISTS; gera EAN de acesso via `NAG_GERA_EAN13_AUTO`                         |
@@ -125,6 +125,28 @@ Ambas as procedures geram [[Promoção]] normal no ERP para categorias que não 
 - App: controle de lojas habilitadas explicitamente na view  
 - Deduplicação: `NOT EXISTS` por produto × empresa × preço × datas antes de qualquer INSERT
 
+#### 6. Aprovação Automática por Quantidade × Categoria
+
+> [!note] Alteração aplicada em 2026-10-21 — view `NAGV_BASE_MRL_PROMOCESPECIAL_APP`
+> Ref.: [`NAGV_BASE_MRL_PROMOCESPECIAL_APP.sql`](https://github.com/GiulianoGMS/DDL-Objects-Oracle/blob/main/NAGV_BASE_MRL_PROMOCESPECIAL_APP.sql) · atende parcialmente ao item **7** do backlog (liberação automática por estoque/prazo).
+
+A view passou a calcular um `STATUS` de aprovação, definindo se a rebaixa entra **liberada** ou **pendente de aprovação manual** (tela "Pendentes de Aprovação"):
+
+```sql
+CASE WHEN QTDE_REBAIXA <= 50
+      AND CATEGORIAN1 != 'COMMODITIES'
+      AND CATEGORIAN2 != 'COMMODITIES'
+     THEN 'A' ELSE 'P' END AS STATUS
+```
+
+| `STATUS` | Significado | Quando |
+|:-:|------|------|
+| `A` | **Aprovado** — liberação automática | `QTDE_REBAIXA` ≤ **50** **e** categoria **não** é Commodities (nem em `CATEGORIAN1` nem em `CATEGORIAN2`) |
+| `P` | **Pendente** — aprovação manual | Quantidade > 50 **ou** qualquer nível de categoria = `COMMODITIES` |
+
+- A regra exclui **Commodities** da liberação automática — esses itens continuam exigindo aprovação manual pela Price (ver exceções no item **7** do backlog).
+- Atua em conjunto com o filtro de janela de processamento `DATA_ATIVIDADE >= TRUNC(SYSDATE) - 3` (últimos 3 dias).
+
 ---
 
 #### Etiqueta de Validade
@@ -175,7 +197,7 @@ A emissão é controlada pela view `MRLV_PROMOCAOESPECIAL`, que divide a quantid
 - [ ] **4.** Incluir lojas ausentes na Promoção Especial por Códigos Específicos (Empresa)
 - [ ] **5.** Relatório semanal automático de produtos baixados (e-mail)
 - [ ] **6.** Destaque visual para "Nova Rebaixa" (relançamento do mesmo item)
-- [ ] **7.** Liberação automática de ofertas por estoque/prazo
+- [ ] **7.** Liberação automática de ofertas por estoque/prazo — *(parcial: regra de aprovação por quantidade × categoria aplicada na view em 2026-10-21)*
 
 ---
 
@@ -237,6 +259,9 @@ Configurar o Controle de Datas para **liberar automaticamente** as ofertas quand
 
 - Estoque do produto **≤ 50 unidades**, **e**
 - No **máximo 30 dias** antes do vencimento.
+
+> [!check] Parcialmente implementado (2026-10-21)
+> A regra de **aprovação automática por quantidade × categoria** foi aplicada na view `NAGV_BASE_MRL_PROMOCESPECIAL_APP` via coluna `STATUS` (`A`/`P`) — ver [§6. Aprovação Automática por Quantidade × Categoria](#6-aprovação-automática-por-quantidade--categoria). Itens com `QTDE_REBAIXA ≤ 50` e categoria ≠ Commodities entram **aprovados**; o restante segue pendente de aprovação manual. A condição de **prazo (≤ 30 dias do vencimento)** ainda não foi incorporada.
 
 **Exceções (liberação permanece manual):** os produtos/categorias abaixo seguem o processo atual (liberação manual):
 
